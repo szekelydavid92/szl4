@@ -1,8 +1,2 @@
 # szl4
-Sivatagi Lotunderek
-
-Tunderszercsy !asdasdszéki
-
-fuck beni
-
-muhahahaha! 
+Sivatagi Lotunderek csapat..ide jon meg sok leiras..

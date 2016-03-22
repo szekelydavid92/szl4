@@ -14,7 +14,7 @@ public class Box extends Killable implements ICarriable {
 	 * @param x Az elsõ paraméter az x koordináta.
 	 * @param y A második paraméter az y koordináta.
 	 * @return void
-	*/
+	 */
 	public void setPos(double x, double y) {}
 	
 	
@@ -22,21 +22,21 @@ public class Box extends Killable implements ICarriable {
 	 * Itt értesül a doboz objektum, hogy a paraméterként kapott ICarrier interface-t megvalósító objektum õt cipeli.
 	 * @param c ICarrier interfészt megvalósító objektum.
 	 * @return void
-	*/
+	 */
 	public void regCarrier(ICarrier c) {}
 	
 	
 	/**
 	 * A hordozó objektum ezen keresztül értesíti a doboz objektumot, hogy elengedte.
 	 * @return void
-	*/	
+	 */	
 	public void release() {}
 	
 	
 	/**
 	 * Ezzel a függvénnyel lehet az osztály példányát megsemmisíteni.
 	 * @return void
-	*/	
+	 */	
 	public void kill() {}
 	
 	
@@ -44,7 +44,7 @@ public class Box extends Killable implements ICarriable {
 	 * Ezen keresztül közli a doboz, hogy õ killable és carriable.
 	 * @param visitor IVisitor interfészt megvalósító objektum.
 	 * @return void
-	*/
+	 */
 	public void accept(IVisitor visitor) {}
 	
 	
@@ -52,13 +52,13 @@ public class Box extends Killable implements ICarriable {
 	 * Ha ütközik mérleggel, és épp nem cipeli senki, akkor lenyomja.
 	 * @param o IWorldObject interfészt megvalósító objektum.
 	 * @return void
-	*/
+	 */
 	public void notify(IWorldObject o) {}
 	
 	
 	/**
 	 * Elõrelépteti a doboz állapotát az idõben.
 	 * @return void
-	*/
+	 */
 	public void step() {}
 }

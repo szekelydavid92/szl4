@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * Ezen interface-t azon osztályok implementálják, akik értesülni akarnak arról, hogy az idõ telik,

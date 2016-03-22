@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * Ez az interface felel a teleportálhatóságért.

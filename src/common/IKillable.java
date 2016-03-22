@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * Ez az Interface felel a megsemissíthetõségért.

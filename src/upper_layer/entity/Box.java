@@ -1,9 +1,9 @@
 package upper_layer.entity;
 
-import interfaces.ICarriable;
-import interfaces.ICarrier;
-import interfaces.IVisitor;
-import interfaces.IWorldObject;
+import common.ICarriable;
+import common.ICarrier;
+import common.IVisitor;
+import common.IWorldObject;
 
 /**
  * Õ a doboz. Az ICarrier interfészt megvalósító objektum képes õket mozgatni.

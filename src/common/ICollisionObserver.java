@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * Ez az Interface felelõs azért, hogy a felsõ rétegbeli objektumok értesüljenek afelõl,

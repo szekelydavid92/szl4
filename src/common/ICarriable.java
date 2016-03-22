@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * Az õt implementáló objektum cipelhetõ lesz.

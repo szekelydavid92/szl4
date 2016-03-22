@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * A Visitor tervezési minta egyik eleme. Az implementáló osztály feladata,

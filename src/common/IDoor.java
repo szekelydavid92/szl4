@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * Ezen Interface felel az ajtók nyithatóságáért.

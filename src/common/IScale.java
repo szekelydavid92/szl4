@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * Ez az interfész felelõs azért, hogy az õt megvalósító objektum lenyomható legyen.

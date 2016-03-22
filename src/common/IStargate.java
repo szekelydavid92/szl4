@@ -1,4 +1,4 @@
-package interfaces;
+package common;
 
 /**
  * Ezt az interface-t implementálja a csillagkapu.

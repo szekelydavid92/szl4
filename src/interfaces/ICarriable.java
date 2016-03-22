@@ -1,4 +1,4 @@
-package upper_layer.entity;
+package interfaces;
 
 public interface ICarriable {
 

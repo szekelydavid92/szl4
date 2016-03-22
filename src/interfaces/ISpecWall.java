@@ -1,4 +1,4 @@
-package upper_layer.wormhole;
+package interfaces;
 
 public interface ISpecWall {
 

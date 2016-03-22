@@ -1,5 +1,5 @@
 package upper_layer.wormhole;
 
-public interface IWorldObject {
+public class ProjectileFactory {
 
 }

@@ -1,4 +1,4 @@
-package bottom_layer;
+package interfaces;
 
 public interface IWorldObjectFactory {
 

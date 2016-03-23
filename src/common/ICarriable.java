@@ -3,7 +3,7 @@ package common;
 /**
  * Az õt implementáló objektum cipelhetõ lesz.
  */
-public interface ICarriable {
+public interface ICarriable extends IVisitable {
 	/**
 	 * A cipelhetõ objektumot cipelõ objektum ezen keresztül tudja beállítani a cipelhetõ objektum pozícióját.
 	 * @param x A cipelhetõ objektum x koordinátája.

@@ -3,7 +3,7 @@ package common;
 /**
  * Ezt az interface-t implementálja a csillagkapu.
  */
-public interface IStargate {
+public interface IStargate extends IVisitor {
 	/**
 	 * Ezzel a függvénnyel nyílik meg a csillagkapu egy speciális falon.
 	 * @param wall Egy ISpecWall interfészt implementáló objektum.

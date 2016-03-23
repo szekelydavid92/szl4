@@ -3,7 +3,7 @@ package common;
 /**
  * Ez az interface felel a teleportálhatóságért.
  */
-public interface ITeleportable {
+public interface ITeleportable extends IVisitable {
 	/**
 	 * Ezzel a függvénnyel lehet az implementáló osztály példányát átteleportálni egy másik helyre.
 	 * @param x A cél koordinátájának x tagja.

@@ -3,7 +3,7 @@ package common;
 /**
  * Ez az interface felel azért, hogy a ZPM-et fel lehessen venni.
  */
-public interface IZPM {
+public interface IZPM extends IVisitable {
 	/**
 	 * Ezzel a függvénnyel lekérdezhetjük, hogy a ZPM-et fölvettük-e.
 	 * @return bool

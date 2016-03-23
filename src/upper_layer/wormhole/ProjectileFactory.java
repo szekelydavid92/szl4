@@ -1,5 +1,13 @@
 package upper_layer.wormhole;
 
-public class ProjectileFactory {
+import common.Colour;
+import common.IProjectileFactory;
 
+/**
+ * Megvalósítja az IProjectileFactory Interface-t.
+ */
+public class ProjectileFactory implements IProjectileFactory {
+	@Override
+	public void createProjectile(Colour colour) {}
+	
 }

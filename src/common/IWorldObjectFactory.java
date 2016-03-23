@@ -1,15 +1,17 @@
 package common;
 
+import bottom_layer.WorldObject;
+
 /**
- * Az õt megvalósító osztályoknak létre kell tudniuk hozniuk WorldObjecteket, adott szélességgel, és hosszúsággal.
+ * Az õt megvalósító osztályoknak létre kell tudniuk hozni WorldObjecteket, adott szélességgel, és hosszúsággal.
  */
 public interface IWorldObjectFactory {
 	/**
-	 * Objektum létrehozásáért felel.
+	 * WorldObject objektum létrehozásáért felel.
 	 * @param width Objektum szélessége.
 	 * @param height Objektum magassága.
 	 * @return void
 	 */
-	public void createObject(double width, double height);
+	public WorldObject createObject(double width, double height);
 
 }

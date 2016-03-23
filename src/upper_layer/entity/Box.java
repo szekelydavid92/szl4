@@ -2,8 +2,12 @@ package upper_layer.entity;
 
 import common.ICarriable;
 import common.ICarrier;
+import common.IKillable;
+import common.ISpecWall;
+import common.ITeleportable;
 import common.IVisitor;
 import common.IWorldObject;
+import common.IZPM;
 
 /**
  * Õ a doboz. Az ICarrier interfészt megvalósító objektum képes õket mozgatni.
@@ -61,4 +65,24 @@ public class Box extends Killable implements ICarriable {
 	 * @return void
 	 */
 	public void step() {}
+
+
+	@Override
+	public void visit(ISpecWall wall) {}
+
+
+	@Override
+	public void visit(IKillable killable) {}
+
+
+	@Override
+	public void visit(ICarriable carriable) {}
+
+
+	@Override
+	public void visit(IZPM zpm) {}
+
+
+	@Override
+	public void visit(ITeleportable teleportable) {}
 }

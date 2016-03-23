@@ -9,4 +9,11 @@ public interface IDoor {
 	 * @return void
 	 */
 	public void open();
+	
+	
+	/**
+	 * Ez a függvény zárja be az ajtót.
+	 * @return void
+	 */
+	public void close();
 }

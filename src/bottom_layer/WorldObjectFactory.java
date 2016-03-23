@@ -1,6 +1,5 @@
 package bottom_layer;
 
-import common.IWorldObject;
 import common.IWorldObjectFactory;
 
 /**

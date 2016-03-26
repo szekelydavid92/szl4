@@ -3,6 +3,7 @@ package bottom_layer;
 import common.CollisionResponse;
 import common.ICollisionObserver;
 import common.IVisitable;
+import common.IVisitor;
 import common.IWorldObject;
 
 /**
@@ -10,18 +11,9 @@ import common.IWorldObject;
  */
 public class WorldObject implements IWorldObject {
 	
-	double posX;			//Az objectum X tengely menti pozíció.
-	double posY; 			//Az objectum  Y tengely menti pozíció.
-	double displacementX;	//Az objectum elmozdulás vektorának X komponense.
-	double displacementY;	//Az objectum elmozdulás vektorának Y komponense.
-	double width; 			//Az objektum szélessége.
-	double height; 			//Az objektum magassága.
-	CollisionResponse colResp;	//a WorldObject belsõ állapota: ha 
-								//MOVABLE, akkor ütközés esetén 
-								//elmozdul, ha IMMOVABLE, akkor 
-								//ütközés esetén nem mozdul el, ha pedig PASS, 
-								//akkor keresztül engedi magán a másik objektumot.
 	ICollisionObserver observer; // Az objektum ütközésérõl értesülõ observer.
+	IVisitable visitable; //ÚJ!!!felsõ rétegbeli objektuma ami megvalósítja az IVisitable-t
+	//IVisitor visitor;
 	
 	/**
 	 * A pozíció X és Y koordinátájához hozzáadja az elmozdulás X és Y koordinátáját,
@@ -35,13 +27,13 @@ public class WorldObject implements IWorldObject {
 	 * A világbeli objektum  szélességét (width attributum) adja vissza.
 	 * @return double
 	 */
-	public double getWidth() {return width;}
+	public double getWidth() {return 0;}
 	
 	/**
 	 * A világbeli objektum  magasságát (height attributum) adja vissza.
 	 * @return double
 	 */
-	public double getHeight() {return height;}
+	public double getHeight() {return 0;}
 	
 		
 	/**
@@ -58,7 +50,7 @@ public class WorldObject implements IWorldObject {
 	 * @param x Az x koordináta.
 	 * @return void
 	 */
-	public void setPosX(double x) {posX=x;}
+	public void setPosX(double x) {}
 	
 	
 	/**
@@ -66,7 +58,7 @@ public class WorldObject implements IWorldObject {
 	 * @param y Az y koordináta.
 	 * @return void
 	 */
-	public void setPosY(double y) {posY=y;}
+	public void setPosY(double y) {}
 	
 	
 	/**
@@ -75,22 +67,21 @@ public class WorldObject implements IWorldObject {
 	 * @param dy A vektor y koordinátája.
 	 * @return void
 	 */
-	public void addDisplacement(double dx, double dy) 
-	{displacementX+=dx; displacementY+=dy;}
+	public void addDisplacement(double dx, double dy) {}
 	
 	
 	/**
 	 * A világbeli objektum X tengely menti pozícióját adja vissza eredményül.
 	 * @return double
 	 */
-	public double getPosX() {return posX;}
+	public double getPosX() {return 0;}
 	
 	
 	/**
 	 * A világbeli objektum Y tengely menti pozícióját adja vissza eredményül.
 	 * @return double
 	 */
-	public double getPosY() {return posY;}
+	public double getPosY() {return 0;}
 	
 	
 	/**
@@ -98,7 +89,8 @@ public class WorldObject implements IWorldObject {
 	 * ha van felsõ rétegbeli reprezentációja, ha nincs, akkor null-t ad.
 	 * @return IVisitable
 	 */
-	public IVisitable getIVisitable() {return null;}
+	//-----------------------------?????
+	public IVisitable getIVisitable() {return visitable;}
 	
 	
 	/**
@@ -115,7 +107,7 @@ public class WorldObject implements IWorldObject {
 	 * @param dy Az objektum pozíciójához hozzáadandó vektor y koordinátája.
 	 * @return void
 	 */
-	public void displace(double dx, double dy) {posX+=dx; posY+=dy;}
+	public void displace(double dx, double dy) {}
 	
 	
 	/**
@@ -123,7 +115,7 @@ public class WorldObject implements IWorldObject {
 	 * @param x Az x komponens beállítandó értéke.
 	 * @return void
 	 */
-	public void setDisplacementX(double x) {displacementX=x;}
+	public void setDisplacementX(double x) {}
 	
 	
 	/**
@@ -131,21 +123,21 @@ public class WorldObject implements IWorldObject {
 	 * @param y Az y komponens beállítandó értéke.
 	 * @return void
 	 */
-	public void setDisplacementY(double y) {displacementY=y;}
+	public void setDisplacementY(double y) {}
 	
 	
 	/**
 	 * Eredményül adja az elmozdulás vektor X irányú értékét.
 	 * @return double
 	 */
-	public double getDisplacementX() {return displacementX;}
+	public double getDisplacementX() {return 0;}
 	
 	
 	/**
 	 * Eredményül adja az elmozdulás vektor Y irányú értékét.
 	 * @return double
 	 */
-	public double getDisplacementY() {return displacementY;}
+	public double getDisplacementY() {return 0;}
 	
 	
 	/**
@@ -162,6 +154,9 @@ public class WorldObject implements IWorldObject {
 	 * @param obj Paraméterben megadott WorldObject objektum.
 	 * @return void
 	 */
-	public void notify(WorldObject obj) {}
+	//---------------???----------------
+	public void notify(WorldObject obj) {
+		//obj.getIVisitable().accept(visitor);
+	}
 
 }

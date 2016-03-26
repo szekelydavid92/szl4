@@ -4,27 +4,40 @@ import common.ISpecWall;
 import common.ITeleportable;
 
 /**
- * Õ felelõs azért, hogy a két csillagkapu között teleportálni lehessen.
+ * ï¿½ felelï¿½s azï¿½rt, hogy a kï¿½t csillagkapu kï¿½zï¿½tt teleportï¿½lni lehessen.
  */
 public class WormHole {
+	
+	ISpecWall yellowWall;
+	ISpecWall blueWall;
+	
+	public WormHole(ISpecWall yelloW , ISpecWall blueW ){
+		setYellow(yelloW);
+		setBlue(blueW);
+	}
+	
 	/**
-	 * Beállítja a kék kaput egy falra.
+	 * Beï¿½llï¿½tja a kï¿½k kaput egy falra.
 	 * @param wall ??????????
 	 * @return void
 	 */
-	public void setBlue(ISpecWall wall) {}
+	public void setBlue(ISpecWall wall) {
+		blueWall = wall;
+	}
 	
 	
 	/**
-	 * Beállítja a sárga kaput egy falra.
+	 * Beï¿½llï¿½tja a sï¿½rga kaput egy falra.
 	 * @param wall ?????????
 	 * @return void
 	 */
-	public void setYellow(ISpecWall wall) {}
+	public void setYellow(ISpecWall wall) {
+		yellowWall = wall;
+	}
 	
 	
 	/**
-	 * Player osztályt teleportálja a sárga kapuhoz.
+	 * Player osztï¿½lyt teleportï¿½lja a sï¿½rga kapuhoz.
 	 * @param t ???????
 	 * @return void
 	 */
@@ -32,7 +45,7 @@ public class WormHole {
 	
 	
 	/**
-	 * Player osztályt teleportálja a kék kapuhoz.
+	 * Player osztï¿½lyt teleportï¿½lja a kï¿½k kapuhoz.
 	 * @param t ?????????
 	 * @return void
 	 */

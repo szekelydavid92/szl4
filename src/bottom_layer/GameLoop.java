@@ -1,11 +1,11 @@
 package bottom_layer;
 
 /**
- * Ez az osztály felel azért, hogy a játék idõben mindig lépjen tovább a lépések megtételekor.
+ * Ez az osztÃ¡ly felel azÃ©rt, hogy a jÃ¡tÃ©k idÅ‘ben mindig lÃ©pjen tovÃ¡bb a lÃ©pÃ©sek megtÃ©telekor.
  */
 public class GameLoop implements Runnable {
 	/**
-	 * Ez a függvény felel az objektumok léptetéséért.
+	 * Ez a fÃ¼ggvÃ©ny felel az objektumok lÃ©ptetÃ©sÃ©Ã©rt.
 	 * @return void
 	 */
 	@Override

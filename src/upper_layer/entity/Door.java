@@ -3,15 +3,21 @@ package upper_layer.entity;
 import common.IDoor;
 
 /**
- * Õ az ajtó. Két állapota van: nyitott ill. zárt. Ha valaki kinyitja,
- * akkor az alsó rétegbeli reprezentációját áteresztõvé teszi, ha nem, akkor mozdíthatatlanná.
+ * ï¿½ az ajtï¿½. Kï¿½t ï¿½llapota van: nyitott ill. zï¿½rt. Ha valaki kinyitja,
+ * akkor az alsï¿½ rï¿½tegbeli reprezentï¿½ciï¿½jï¿½t ï¿½teresztï¿½vï¿½ teszi, ha nem, akkor mozdï¿½thatatlannï¿½.
  */
 public class Door extends ColEntity implements IDoor {
-	@Override
-	public void close() {}
+	private boolean opened;
 	
 	@Override
-	public void open() {}
+	public void close() {
+		opened = false;
+	}
+	
+	@Override
+	public void open() {
+		opened = true;
+	}
 
 	@Override
 	public void step() {}

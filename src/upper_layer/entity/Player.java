@@ -8,27 +8,47 @@ import common.IWorldObject;
 import common.IZPM;
 
 /**
- * Õ a játékos. Képes hordozni az ICarriable-t megvalósító objektumot és megölhetõ.
+ * ï¿½ a jï¿½tï¿½kos. Kï¿½pes hordozni az ICarriable-t megvalï¿½sï¿½tï¿½ objektumot ï¿½s megï¿½lhetï¿½.
  */
 public class Player extends Killable {
 	/**
-	 * Ezzel a függvénnyel lehet rákényszeríteni a játékost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisül.
+	 * Ezzel a fï¿½ggvï¿½nnyel lehet rï¿½kï¿½nyszerï¿½teni a jï¿½tï¿½kost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisï¿½l.
 	 * @return void
 	 */
+	
+	private double posX, posY;
+	
 	public void forcedRelelease() {}
 	
+	/*
+	 * segÃ©dfv, egy adott poziciorol eldÃ¶nti, hogy az az
+	 * adott pÃ¡lyÃ¡hoz Ã©rvÃ©nyes pozicio lehet-e, vagy sem
+	 * esetleg ha nem, akkor merre lÃ³g ki
+	 * 
+	 */
+	private boolean validPos(double x, double y){
+		return true;
+	}
 	
 	/**
-	 * Ezzel a függvénnyel lehet a játékost elteleportálni az (x,y) pozícióba.
-	 * @param x Az x koordináta.
-	 * @param y Az y koordináta.
+	 * Ezzel a fï¿½ggvï¿½nnyel lehet a jï¿½tï¿½kost elteleportï¿½lni az (x,y) pozï¿½ciï¿½ba.
+	 * @param x Az x koordinï¿½ta.
+	 * @param y Az y koordinï¿½ta.
 	 * @return void
 	 */
-	public void teleport(double x, double y) {}
+	public void teleport(double x, double y) {
+		if(validPos(x, y)){
+			posX = x;
+			posY = y;
+		} else {
+			
+		}
+		
+	}
 	
 	
 	/**
-	 * Ha valaki lehívja ezt a függvényt, a játékos a felfelé megy.
+	 * Ha valaki lehï¿½vja ezt a fï¿½ggvï¿½nyt, a jï¿½tï¿½kos a felfelï¿½ megy.
 	 * @param up ???????
 	 * @return void
 	 */
@@ -36,7 +56,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki lehívja ezt a függvényt, a játékos a lefelé megy.
+	 * Ha valaki lehï¿½vja ezt a fï¿½ggvï¿½nyt, a jï¿½tï¿½kos a lefelï¿½ megy.
 	 * @param down ???????
 	 * @return void
 	 */
@@ -44,7 +64,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki lehívja ezt a függvényt, a játékos a balra megy.
+	 * Ha valaki lehï¿½vja ezt a fï¿½ggvï¿½nyt, a jï¿½tï¿½kos a balra megy.
 	 * @param left ???????
 	 * @return void
 	 */
@@ -52,7 +72,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki lehívja ezt a függvényt, a játékos a jobbra megy.
+	 * Ha valaki lehï¿½vja ezt a fï¿½ggvï¿½nyt, a jï¿½tï¿½kos a jobbra megy.
 	 * @param right ???????
 	 * @return void
 	 */
@@ -60,7 +80,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki lehívja ezt a függvényt, a játékos a fölveszi az elõtte lévõ dobozt.
+	 * Ha valaki lehï¿½vja ezt a fï¿½ggvï¿½nyt, a jï¿½tï¿½kos a fï¿½lveszi az elï¿½tte lï¿½vï¿½ dobozt.
 	 * @param pick ???????
 	 * @return void
 	 */
@@ -68,16 +88,16 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Itt lehet megadni, hogy a játékos mely irányba lõjön.
-	 * @param x Az x koordináta.
-	 * @param y Az y koordináta.
+	 * Itt lehet megadni, hogy a jï¿½tï¿½kos mely irï¿½nyba lï¿½jï¿½n.
+	 * @param x Az x koordinï¿½ta.
+	 * @param y Az y koordinï¿½ta.
 	 * @return void
 	 */
 	public void lookAt(double x,double y) {}
 	
 	
 	/**
-	 * Ha valaki lehívja, a játékos kilõ egy sárga lövedéket.
+	 * Ha valaki lehï¿½vja, a jï¿½tï¿½kos kilï¿½ egy sï¿½rga lï¿½vedï¿½ket.
 	 * @param shootingYellow ???????
 	 * @return void
 	 */
@@ -85,7 +105,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki lehívja, a játékos kilõ egy kék lövedéket.
+	 * Ha valaki lehï¿½vja, a jï¿½tï¿½kos kilï¿½ egy kï¿½k lï¿½vedï¿½ket.
 	 * @param shootingBlue ???????
 	 * @return void
 	 */
@@ -93,35 +113,35 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ezzel lehet megölni a játékost.
+	 * Ezzel lehet megï¿½lni a jï¿½tï¿½kost.
 	 * @return void
 	 */
 	public void kill() {}
 	
 	
 	/**
-	 * Ez a függvény lépteti elõre az állapotát az idõben.
+	 * Ez a fï¿½ggvï¿½ny lï¿½pteti elï¿½re az ï¿½llapotï¿½t az idï¿½ben.
 	 * @return void
 	 */
 	public void step() {}
 	
 	
 	/**
-	 * Ez a függvény valósítja meg a játékos mozgását.
+	 * Ez a fï¿½ggvï¿½ny valï¿½sï¿½tja meg a jï¿½tï¿½kos mozgï¿½sï¿½t.
 	 * @return void
 	 */
 	public void move() {}
 	
 	
 	/**
-	 * Ez a függvény valósítja meg a doboz cipelését.
+	 * Ez a fï¿½ggvï¿½ny valï¿½sï¿½tja meg a doboz cipelï¿½sï¿½t.
 	 * @return void
 	 */
 	public void carryBox() {}
 	
 	
 	/**
-	 * Ez a függvény valósítja meg a lövést.
+	 * Ez a fï¿½ggvï¿½ny valï¿½sï¿½tja meg a lï¿½vï¿½st.
 	 * @return void
 	 */
 	public void shoot() {}

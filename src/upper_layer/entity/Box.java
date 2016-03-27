@@ -14,7 +14,7 @@ import common.IZPM;
  */
 public class Box extends Killable implements ICarriable {
 	
-	ICarrier carrier; //referencia a hordoz�ra
+	ICarrier carrier; //referencia a hordozora
 	
 	/**
 	 * A dobozt cipelo objektum ezen keresztul tudja beallitani a doboz objektum poziciojat.
@@ -30,21 +30,27 @@ public class Box extends Killable implements ICarriable {
 	 * @param c ICarrier interfeszt megvalosito objektum.
 	 * @return void
 	 */
-	public void regCarrier(ICarrier c) {carrier=c;}
+	public void regCarrier(ICarrier c) {
+		carrier=c;
+		//TODO Lorant
+	}
 	
 	
 	/**
 	 * A hordozo objektum ezen keresztul ertesiti a doboz objektumot, hogy elengedte.
 	 * @return void
 	 */	
-	public void release() {carrier=null;}
+	public void release() {
+		carrier=null;
+	}
 	
 	
 	/**
 	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
 	 * @return void
 	 */	
-	public void kill() {}
+	public void kill() {
+	}
 	
 	
 	/**
@@ -52,7 +58,10 @@ public class Box extends Killable implements ICarriable {
 	 * @param visitor IVisitor interfeszt megvalasito objektum.
 	 * @return void
 	 */
-	public void accept(IVisitor visitor) {/*visitor.visit(this);*/}
+	public void accept(IVisitor visitor) {
+		/*visitor.visit(this);*/
+		//TODO Lorant
+	}
 	
 	
 	/**
@@ -60,7 +69,9 @@ public class Box extends Killable implements ICarriable {
 	 * @param o IWorldObject interfeszt megvalosito objektum.
 	 * @return void
 	 */
-	public void notify(IWorldObject o) {}
+	public void notify(IWorldObject o) {
+		//TODO Lorant
+	}
 	
 	
 	/**
@@ -71,21 +82,31 @@ public class Box extends Killable implements ICarriable {
 
 
 	@Override
-	public void visit(ISpecWall wall) {}
+	public void visit(ISpecWall wall) {
+		//TODO Lorant
+	}
 
 
 	@Override
-	public void visit(IKillable killable) {}
+	public void visit(IKillable killable) {
+		//TODO Lorant
+	}
 
 
 	@Override
-	public void visit(ICarriable carriable) {}
+	public void visit(ICarriable carriable) {
+		//TODO Lorant
+	}
 
 
 	@Override
-	public void visit(IZPM zpm) {}
+	public void visit(IZPM zpm) {
+		//TODO Lorant
+	}
 
 
 	@Override
-	public void visit(ITeleportable teleportable) {}
+	public void visit(ITeleportable teleportable) {
+		//TODO Lorant
+	}
 }

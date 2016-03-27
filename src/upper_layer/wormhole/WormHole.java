@@ -23,6 +23,7 @@ public class WormHole {
 	 */
 	public void setBlue(ISpecWall wall) {
 		blueWall = wall;
+		//TODO Lorant
 	}
 	
 	
@@ -33,6 +34,7 @@ public class WormHole {
 	 */
 	public void setYellow(ISpecWall wall) {
 		yellowWall = wall;
+		//TODO Lorant
 	}
 	
 	
@@ -41,7 +43,9 @@ public class WormHole {
 	 * @param t ???????
 	 * @return void
 	 */
-	public void teleportToYellow(ITeleportable t) {}
+	public void teleportToYellow(ITeleportable t) {
+		//TODO Lorant
+	}
 	
 	
 	/**
@@ -49,5 +53,7 @@ public class WormHole {
 	 * @param t ?????????
 	 * @return void
 	 */
-	public void teleportToBlue(ITeleportable t) {}
+	public void teleportToBlue(ITeleportable t) {
+		//TODO Lorant
+	}
 }

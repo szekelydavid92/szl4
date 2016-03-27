@@ -11,15 +11,21 @@ import common.IWorldObject;
  */
 public class SpecWall implements ISpecWall {
 	@Override
-	public void notify(IWorldObject obj) {}
+	public void notify(IWorldObject obj) {
+		//TODO Lorant
+	}
 
 	
 	@Override
-	public void accept(IVisitor visitor) {}
+	public void accept(IVisitor visitor) {
+		//TODO Lorant
+	}
 
 	
 	@Override
-	public void replace(IStargate o) {}
+	public void replace(IStargate o) {
+		//TODO Lorant
+	}
 
 	
 	@Override

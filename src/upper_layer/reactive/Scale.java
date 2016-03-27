@@ -11,10 +11,14 @@ import common.IWorldObject;
  */
 public class Scale implements IScale, IVisitable, ICollisionObserver{
 	@Override
-	public void notify(IWorldObject obj) {}
+	public void notify(IWorldObject obj) {
+		//TODO Lorant
+	}
 
 	@Override
-	public void accept(IVisitor visitor) {}
+	public void accept(IVisitor visitor) {
+		//TODO Lorant
+	}
 
 	@Override
 	public void push() {}

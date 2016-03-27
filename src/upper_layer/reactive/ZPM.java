@@ -10,7 +10,9 @@ import common.IZPM;
  */
 public class ZPM implements IZPM, ICollisionObserver {
 	@Override
-	public void accept(IVisitor visitor) {}
+	public void accept(IVisitor visitor) {
+		//TODO Lorant
+	}
 
 	
 	@Override

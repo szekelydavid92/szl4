@@ -148,25 +148,37 @@ public class Player extends Killable {
 	
 	
 	@Override
-	public void visit(ISpecWall wall) {}
+	public void visit(ISpecWall wall) {
+		//TODO Lorant
+	}
 
 	
 	@Override
-	public void visit(IKillable killable) {}
+	public void visit(IKillable killable) {
+		//TODO Lorant
+	}
 
 	
 	@Override
-	public void visit(ICarriable carriable) {}
+	public void visit(ICarriable carriable) {
+		//TODO Lorant
+	}
 
 	
 	@Override
-	public void visit(IZPM zpm) {}
+	public void visit(IZPM zpm) {
+		//TODO Lorant
+	}
 
 	
 	@Override
-	public void visit(ITeleportable teleportable) {}
+	public void visit(ITeleportable teleportable) {
+		//TODO Lorant
+	}
 
 	
 	@Override
-	public void notify(IWorldObject obj) {}
+	public void notify(IWorldObject obj) {
+		//TODO Lorant
+	}
 }

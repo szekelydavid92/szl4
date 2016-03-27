@@ -1,19 +1,19 @@
 package common;
 
 /**
- * Ezt az interface-t a speciális fal implementálja.
+ * Ezt az interface-t a specialis fal implementalja.
  */
 public interface ISpecWall extends ICollisionObserver, IVisitable {
 	/**
-	 * Ezzel a függvénnyel tudja jelezni egy csillagkapu a speciális falnak, hogy õ megnyílik rajta.
-	 * @param o Az IStargate interfészt megvalósító objektum.
+	 * Ezzel a fuggvennyel tudja jelezni egy csillagkapu a specialis falnak, hogy o megnyilik rajta.
+	 * @param o Az IStargate interfeszt megvalasito objektum.
 	 * @return void
 	 */
 	public void replace(IStargate o);
 	
 	
 	/**
-	 * Ezzel a függvénnyel tudja visszaállítani magát a fal, ha a csillagkapu áthelyezõdik.
+	 * Ezzel a fuggvennyel tudja visszaallitani magat a fal, ha a csillagkapu athelyezodik.
 	 * @return void
 	 */
 	public void restore();

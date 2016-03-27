@@ -1,13 +1,13 @@
 package common;
 
 /**
- * Ez az Interface felelõs azért, hogy a felsõ rétegbeli objektumok értesüljenek afelõl,
- * hogy az alsó rétegbeli reprezentációjuk ütközött egy másik objektummal.
+ * Ez az Interface felelos azert, hogy a felso retegbeli objektumok ertesuljenek arrol,
+ * hogy az also retegbeli reprezentaciojuk utkozott egy masik objektummal.
  */
 public interface ICollisionObserver {
 	/**
-	 * Ebben a függvényben valósul meg a felsõ rétegbeli objektum értesítése az ütközés bekövetkeztérõl.
-	 * Az obj paraméter az a másik objektum, akivel a feliratkozó WorldObject-je ütközött.
+	 * Ebben a fuggvenyben valosul meg a felso retegbeli objektum ertesitese az utkozes bekovetkezterol.
+	 * Az obj parameter az a masik objektum, akivel a feliratkozo WorldObject-je utkozott.
 	 * @return void
 	 */
 	public void notify(IWorldObject obj);

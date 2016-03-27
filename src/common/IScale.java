@@ -1,11 +1,11 @@
 package common;
 
 /**
- * Ez az interfész felelõs azért, hogy az õt megvalósító objektum lenyomható legyen.
+ * Ez az interfesz felelos azert, hogy az ot megvalasito objektum lenyomhato legyen.
  */
 public interface IScale {
 	/**
-	 * Ez a függvény jelzi a mérleg számára, hogy súly van rajta.
+	 * Ez a fuggveny jelzi a merleg szamara, hogy suly van rajta.
 	 * @return void
 	 */
 	public void push();

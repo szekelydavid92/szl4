@@ -1,28 +1,28 @@
 package common;
 
 /**
- * Az õt implementáló objektum cipelhetõ lesz.
+ * Az ot implementalo objektum cipelheto lesz.
  */
 public interface ICarriable extends IVisitable {
 	/**
-	 * A cipelhetõ objektumot cipelõ objektum ezen keresztül tudja beállítani a cipelhetõ objektum pozícióját.
-	 * @param x A cipelhetõ objektum x koordinátája.
-	 * @param y A cipelhetõ objektum y koordinátája.
+	 * A cipelheto objektumot cipelo objektum ezen keresztul tudja beallitani a cipelheto objektum poziciojat.
+	 * @param x A cipelheto objektum x koordinataja.
+	 * @param y A cipelheto objektum y koordinataja.
 	 * @return void
 	 */
 	public void setPos(double x, double y);
 	
 	
 	/**
-	 * Itt értesül a cipelhetõ objektum, hogy a paraméterként kapott ICarrier interfészt megvalósító objektum õt cipeli.
-	 * @param c Az ICarrier interfészt megvalósító objektum.
+	 * Itt ertesul a cipelheto objektum, hogy a parameterkent kapott ICarrier interfeszt megvalosito objektum ot cipeli.
+	 * @param c Az ICarrier interfeszt megvalosito objektum.
 	 * @return void
 	 */
 	public void regCarrier(ICarrier c);
 	
 	
 	/**
-	 * A hordozó objektum ezen keresztül értesíti a cipelhetõ objektumot, hogy elengedte.
+	 * A hordozo objektum ezen keresztul ertesiti a cipelheto objektumot, hogy elengedte.
 	 * @return void
 	 */
 	public void release();

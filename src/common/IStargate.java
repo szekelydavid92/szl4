@@ -1,12 +1,12 @@
 package common;
 
 /**
- * Ezt az interface-t implementálja a csillagkapu.
+ * Ezt az interface-t implementalja a csillagkapu.
  */
 public interface IStargate extends IVisitor {
 	/**
-	 * Ezzel a függvénnyel nyílik meg a csillagkapu egy speciális falon.
-	 * @param wall Egy ISpecWall interfészt implementáló objektum.
+	 * Ezzel a fuggvennyel nyilik meg a csillagkapu egy specialis falon.
+	 * @param wall Egy ISpecWall interfeszt implementalo objektum.
 	 * @return void
 	 */
 	public void mask(ISpecWall wall);

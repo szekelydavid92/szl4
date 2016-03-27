@@ -1,11 +1,11 @@
 package common;
 
 /**
- * Ez az Interface felel a megsemissíthetõségért.
+ * Ez az Interface felel a megsemissithetosegert.
  */
 public interface IKillable extends IVisitable {
 	/**
-	 * Ezzel a függvénnyel lehet az interfészt implementáló osztály példányát megsemmisíteni.
+	 * Ezzel a fuggvennyel lehet az interfeszt implementalo osztaly peldanyat megsemmisiteni.
 	 * @return void
 	 */
 	public void kill();

@@ -1,18 +1,18 @@
 package common;
 
 /**
- * Ezen Interface felel az ajtók nyithatóságáért.
+ * Ezen Interface felel az ajtok nyithatosagaert.
  */
 public interface IDoor {
 	/**
-	 * Ez a függvény nyitja ki az ajtót.
+	 * Ez a fuggveny nyitja ki az ajtot.
 	 * @return void
 	 */
 	public void open();
 	
 	
 	/**
-	 * Ez a függvény zárja be az ajtót.
+	 * Ez a fuggveny zarja be az ajtot.
 	 * @return void
 	 */
 	public void close();

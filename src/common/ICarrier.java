@@ -1,11 +1,11 @@
 package common;
 
 /**
- * Box tartalmaz róla referenciát. Ez felel azért h eldobható legyen a box objektum.
+ * Box tartalmaz rola referenciat. Ez felel azert h eldobhato legyen a box objektum.
  */
 public interface ICarrier {
 	/**
-	 * Törli a róla levõ referenciát a Box objektumból.
+	 * Torli a rola levo referenciat a Box objektumbol.
 	 * @return void
 	 */
 	public void forcedRelease();

@@ -1,7 +1,7 @@
 package common;
 
 /**
- * A csillagkapuk és a lövedékek színeit írja le.
+ * A csillagkapuk es a lovedekek szineit irja le.
  */
 public enum Colour {
 	YELLOW,

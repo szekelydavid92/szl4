@@ -1,7 +1,7 @@
 package common;
 
 /**
- * WorldObject állapotát írja le.
+ * WorldObject allapotat irja le.
  */
 public enum CollisionResponse {
 	MOVABLE,

@@ -1,13 +1,13 @@
 package common;
 
 /**
- * Ezen interface-t azon osztályok implementálják, akik értesülni akarnak arról, hogy az idõ telik,
- * azaz elõre akarják léptetni az állapotukat minden ciklusban.
+ * Ezen interface-t azon osztalyok implementaljak, akik ertesulni akarnak arrol, hogy az ido telik,
+ * azaz elore akarjak leptetni az allapotukat minden ciklusban.
  */
 public interface IEntity {
 	/**
-	 * Ez az a függvény, amelyet a GameLoop minden ciklusban lehív.
-	 * Ebben a metódusban léptetik elõre az objektumok az állapotukat az idõ függvényében.
+	 * Ez az a fuggveny, amelyet a GameLoop minden ciklusban lehiv.
+	 * Ebben a metodusban leptetik elore az objektumok az allapotukat az ido fuggvenyeben.
 	 * @return void
 	 */
 	public void step();

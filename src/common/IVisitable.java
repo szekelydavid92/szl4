@@ -1,13 +1,13 @@
 package common;
 
 /**
- * A Visitor tervezési minta egyik eleme. Ezen Interface-t implementáló osztály
- * képes egy IVisitor tudomására hozni, hogy õ milyen típusú.
+ * A Visitor tervezesi minta egyik eleme. Ezen Interface-t implementalo osztaly
+ * kepes egy IVisitor tudomasara hozni, hogy o milyen tipusa.
  */
 public interface IVisitable {
 	/**
-	 * Ez a függvény felelõs azért, hogy a paraméterként kapott IVisitor-rel közölje, hogy milyen típusú.
-	 * @param visitor Az IVisitor interfészt implementáló objektum.
+	 * Ez a fuggveny felelos azert, hogy a parameterkent kapott IVisitor-rel kozolje, hogy milyen tipusu.
+	 * @param visitor Az IVisitor interfeszt implementalo objektum.
 	 * @return void
 	 */
 	public void accept(IVisitor visitor);

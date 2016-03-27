@@ -184,27 +184,11 @@ public class SkeletonMain {
 		WorldObject o2 		=		new WorldObject();
 		Player p			=		new Player();
 		
+		o1.observer 		=		 p;
 		world.addWorldObject(o1);
 		world.addWorldObject(o2);
 		
-		Vector<WorldObject> temp = new Vector<WorldObject>();
-		temp = world.getAllWorldObject();
-		
-		outerLoop:
-		for(int i=0; i<temp.size()-1; ++i){
-			for(int j=i+1; j<temp.size(); ++j){
-				if(temp.get(i).checkCollision(temp.get(j))){
-					collided = j;
-					collI = i;
-					break outerLoop;
-				}
-			}
-		}
-		
-		if(collided>=0){ //van utkozes
-			temp.get(collided).observer = p;
-			temp.get(collI).notify(temp.get(collided));
-		}
+		world.checkCollision();
 			
 	}
 	//Doboz lerakása

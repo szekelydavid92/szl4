@@ -10,61 +10,61 @@ import common.IWorldObject;
 import common.IZPM;
 
 /**
- * Õ a doboz. Az ICarrier interfészt megvalósító objektum képes õket mozgatni.
+ * Ez a doboz. Az ICarrier interfeszt megvalasito objektum kepes oket mozgatni.
  */
 public class Box extends Killable implements ICarriable {
 	
-	ICarrier carrier; //referencia a hordozóra
+	ICarrier carrier; //referencia a hordozï¿½ra
 	
 	/**
-	 * A dobozt cipelõ objektum ezen keresztül tudja beállítani a doboz objektum pozícióját.
-	 * @param x Az elsõ paraméter az x koordináta.
-	 * @param y A második paraméter az y koordináta.
+	 * A dobozt cipelo objektum ezen keresztul tudja beallitani a doboz objektum poziciojat.
+	 * @param x Az elso parameter az x koordinata.
+	 * @param y A masodik parameter az y koordinata.
 	 * @return void
 	 */
 	public void setPos(double x, double y) {}
 	
 	
 	/**
-	 * Itt értesül a doboz objektum, hogy a paraméterként kapott ICarrier interface-t megvalósító objektum õt cipeli.
-	 * @param c ICarrier interfészt megvalósító objektum.
+	 * Itt ertesul a doboz objektum, hogy a parameterkent kapott ICarrier interface-t megvalosito objektum ot cipeli.
+	 * @param c ICarrier interfeszt megvalosito objektum.
 	 * @return void
 	 */
 	public void regCarrier(ICarrier c) {carrier=c;}
 	
 	
 	/**
-	 * A hordozó objektum ezen keresztül értesíti a doboz objektumot, hogy elengedte.
+	 * A hordozo objektum ezen keresztul ertesiti a doboz objektumot, hogy elengedte.
 	 * @return void
 	 */	
 	public void release() {carrier=null;}
 	
 	
 	/**
-	 * Ezzel a függvénnyel lehet az osztály példányát megsemmisíteni.
+	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
 	 * @return void
 	 */	
 	public void kill() {}
 	
 	
 	/**
-	 * Ezen keresztül közli a doboz, hogy õ killable és carriable.
-	 * @param visitor IVisitor interfészt megvalósító objektum.
+	 * Ezen keresztul kozli a doboz, hogy a killable es carriable.
+	 * @param visitor IVisitor interfeszt megvalasito objektum.
 	 * @return void
 	 */
 	public void accept(IVisitor visitor) {/*visitor.visit(this);*/}
 	
 	
 	/**
-	 * Ha ütközik mérleggel, és épp nem cipeli senki, akkor lenyomja.
-	 * @param o IWorldObject interfészt megvalósító objektum.
+	 * Ha utkozik merleggel, es epp nem cipeli senki, akkor lenyomja.
+	 * @param o IWorldObject interfeszt megvalosito objektum.
 	 * @return void
 	 */
 	public void notify(IWorldObject o) {}
 	
 	
 	/**
-	 * Elõrelépteti a doboz állapotát az idõben.
+	 * Elorelepteti a doboz allapotat az idoben.
 	 * @return void
 	 */
 	public void step() {}

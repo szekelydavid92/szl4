@@ -8,11 +8,11 @@ import common.IWorldObject;
 import common.IZPM;
 
 /**
- * � a j�t�kos. K�pes hordozni az ICarriable-t megval�s�t� objektumot �s meg�lhet�.
+ * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
  */
 public class Player extends Killable {
 	/**
-	 * Ezzel a f�ggv�nnyel lehet r�k�nyszer�teni a j�t�kost, hogy elengedje a cipelt dobozt, pl. ha az megsemmis�l.
+	 * Ezzel a fuggvennyel lehet rakenyszeriteni a jatekost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisul.
 	 * @return void
 	 */
 	
@@ -31,9 +31,9 @@ public class Player extends Killable {
 	}
 	
 	/**
-	 * Ezzel a f�ggv�nnyel lehet a j�t�kost elteleport�lni az (x,y) poz�ci�ba.
-	 * @param x Az x koordin�ta.
-	 * @param y Az y koordin�ta.
+	 * Ezzel a fuggvennyel lehet a jatekost elteleportalni az (x,y) pozicioba.
+	 * @param x Az x koordinata.
+	 * @param y Az y koordinata.
 	 * @return void
 	 */
 	public void teleport(double x, double y) {
@@ -48,7 +48,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki leh�vja ezt a f�ggv�nyt, a j�t�kos a felfel� megy.
+	 * Ha valaki lehivja ezt a fuggvenyt, a jatekos a felfele megy.
 	 * @param up ???????
 	 * @return void
 	 */
@@ -56,7 +56,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki leh�vja ezt a f�ggv�nyt, a j�t�kos a lefel� megy.
+	 * Ha valaki lehivja ezt a fuggvenyt, a jetokos a lefele megy.
 	 * @param down ???????
 	 * @return void
 	 */
@@ -64,7 +64,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki leh�vja ezt a f�ggv�nyt, a j�t�kos a balra megy.
+	 * Ha valaki lehivja ezt a fuggvenyt, a jatekos a balra megy.
 	 * @param left ???????
 	 * @return void
 	 */
@@ -72,7 +72,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki leh�vja ezt a f�ggv�nyt, a j�t�kos a jobbra megy.
+	 * Ha valaki lehivja ezt a fuggvenyt, a jatekos a jobbra megy.
 	 * @param right ???????
 	 * @return void
 	 */
@@ -80,7 +80,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki leh�vja ezt a f�ggv�nyt, a j�t�kos a f�lveszi az el�tte l�v� dobozt.
+	 * Ha valaki lehivja ezt a fuggvenyt, a jatekos a felveszi az elotte levo dobozt.
 	 * @param pick ???????
 	 * @return void
 	 */
@@ -88,16 +88,16 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Itt lehet megadni, hogy a j�t�kos mely ir�nyba l�j�n.
-	 * @param x Az x koordin�ta.
-	 * @param y Az y koordin�ta.
+	 * Itt lehet megadni, hogy a jatekos mely iranyba lojon.
+	 * @param x Az x koordinata.
+	 * @param y Az y koordinata.
 	 * @return void
 	 */
 	public void lookAt(double x,double y) {}
 	
 	
 	/**
-	 * Ha valaki leh�vja, a j�t�kos kil� egy s�rga l�ved�ket.
+	 * Ha valaki lehivja, a jatekos kilo egy sarga lovedeket.
 	 * @param shootingYellow ???????
 	 * @return void
 	 */
@@ -105,7 +105,7 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ha valaki leh�vja, a j�t�kos kil� egy k�k l�ved�ket.
+	 * Ha valaki lehivja, a jatekos kilo egy kek lovedeket.
 	 * @param shootingBlue ???????
 	 * @return void
 	 */
@@ -113,35 +113,35 @@ public class Player extends Killable {
 	
 	
 	/**
-	 * Ezzel lehet meg�lni a j�t�kost.
+	 * Ezzel lehet megolni a jatekost.
 	 * @return void
 	 */
 	public void kill() {}
 	
 	
 	/**
-	 * Ez a f�ggv�ny l�pteti el�re az �llapot�t az id�ben.
+	 * Ez a fuggveny lepteti elore az allapotat az idoben.
 	 * @return void
 	 */
 	public void step() {}
 	
 	
 	/**
-	 * Ez a f�ggv�ny val�s�tja meg a j�t�kos mozg�s�t.
+	 * Ez a fuggveny valositja meg a jatekos mozgasat.
 	 * @return void
 	 */
 	public void move() {}
 	
 	
 	/**
-	 * Ez a f�ggv�ny val�s�tja meg a doboz cipel�s�t.
+	 * Ez a fuggveny valositja meg a doboz cipeleset.
 	 * @return void
 	 */
 	public void carryBox() {}
 	
 	
 	/**
-	 * Ez a f�ggv�ny val�s�tja meg a l�v�st.
+	 * Ez a fuggveny valositja meg a lovest.
 	 * @return void
 	 */
 	public void shoot() {}

@@ -8,19 +8,19 @@ import common.IVisitor;
 import common.IWorldObject;
 
 /**
- * Azon osztályok örökölnek ebbõl az absztrakt osztályból, akiknek a példányainak
- * van alsó rétegbeli reprezentációja, minden iterációban elõrelépteti az állapotát, és megölhetõ.
+ * Azon osztolyok orokolnek ebbol az absztrakt osztalybol, akiknek a peldanyainak
+ * van also retegbeli reprezentacioja, minden iteracioban elorelepteti az allapotat, es megolheto.
  */
 public abstract class Killable implements IKillable, IVisitor, IVisitable, ICollisionObserver {
 	/**
-	 * Ezzel a függvénnyel lehet az osztály példányát megsemmisíteni.
+	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
 	 * @return void
 	 */
 	public void kill() {}
 	
 	
 	/**
-	 * Ebben a függvényben képes az objektum közölni az IVisitor-ral, hogy milyen típusú.
+	 * Ebben a fuggvenyben kepes az objektum kozolni az IVisitor-ral, hogy milyen tipusa.
 	 * @param visitor ???????????
 	 * @return void
 	 */
@@ -28,7 +28,7 @@ public abstract class Killable implements IKillable, IVisitor, IVisitable, IColl
 	
 	
 	/**
-	 * Ezzel nyomja le a mérleget a játékos ill. a doboz.
+	 * Ezzel nyomja le a merleget a jatekos ill. a doboz.
 	 * @param scale ????????
 	 * @return void
 	 */
@@ -36,7 +36,7 @@ public abstract class Killable implements IKillable, IVisitor, IVisitable, IColl
 	
 	
 	/**
-	 * Ezen keresztül értesül az ütközés bekövetkeztérõl.
+	 * Ezen keresztol ertesul az utkozes bekovetkezterol.
 	 * @param obj ?????????
 	 * @return void
 	 */

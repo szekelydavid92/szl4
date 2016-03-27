@@ -3,8 +3,8 @@ package upper_layer.entity;
 import common.IDoor;
 
 /**
- * � az ajt�. K�t �llapota van: nyitott ill. z�rt. Ha valaki kinyitja,
- * akkor az als� r�tegbeli reprezent�ci�j�t �tereszt�v� teszi, ha nem, akkor mozd�thatatlann�.
+ * O az ajto. Ket allapota van: nyitott ill. zart. Ha valaki kinyitja,
+ * akkor az also retegbeli reprezentaciojat ateresztove teszi, ha nem, akkor mozdithatatlanna.
  */
 public class Door extends ColEntity implements IDoor {
 	private boolean opened;

@@ -3,12 +3,12 @@ package upper_layer.entity;
 import common.IEntity;
 
 /**
- * Az Entity interfészt implementáló absztrakt osztály, van referenciája egy IWorldObjectre,
- * belõle örököl minden olyan Entity, akinek van alsó rétegbeli reprezentációja.
+ * Az Entity interfeszt implementalo absztrakt osztaly, van referenciaja egy IWorldObjectre,
+ * belole orokol minden olyan Entity, akinek van also retegbeli reprezentacioja.
  */
 public abstract class ColEntity implements IEntity {
 	/**
-	 * A ColEntity-bõl öröklõ objektumok ebben a függvényben léptetik elõre az állapotukat az idõben.
+	 * A ColEntity-bol oroklo objektumok ebben a fuggvenyben leptetik elore az allapotukat az idoben.
 	 * @return void
 	 */
 	public abstract void step();

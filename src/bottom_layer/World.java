@@ -36,4 +36,16 @@ public class World {
 			objects.elementAt(i).step();
 		}
 	}	
+	
+	/*
+	 *  UJITAS!!
+	 */
+	public void addWorldObject(WorldObject obj){
+		objects.add(obj);
+	}
+	
+	public WorldObject getWorldObject(int n){
+		return objects.get(n);
+	}
+	 
 }

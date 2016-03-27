@@ -8,31 +8,31 @@ import skeleton.Depth;
 
 /* 
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * Az implements Runnable NEM kerül ide!
- * Ki lett szedve analízis modell 1 után!
+ * Az implements Runnable NEM kerul ide!
+ * Ki lett szedve analazis modell 1 utan!
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 
 /**
- * @brief Ez az osztály felel azert, hogy a jatek 
- * idoben előreleptesse az allapotat.
+ * @brief Ez az osztaly felel azert, hogy a jatek 
+ * idoben eloreleptesse az allapotat.
  */
 public class GameLoop {
 	
-	public String name = "gameLoop"; //Ő kell az objektum nevének a kiprinteléséhez!
+	public String name = "gameLoop"; //O kell az objektum nevenek a kiprintelesehez!
 	
 	/*
-	 * Ők az asszociációkat ill. kompozíciókat
-	 * megvalósító referenciák.
-	 * A tesztesetek felállításának egyszerűsítése
-	 * érdekében publikusak.
+	 * Ok az asszociaciakat ill. kompozi­ciokat
+	 * megvalosito referenciak.
+	 * A tesztesetek felallitasanak egyszerusitese
+	 * erdekeben publikusak.
 	 * 
 	 */
 	public World world;
 	public List<IEntity> Entites = new LinkedList<IEntity>();
 	
 	/**
-	 * Ez a függvény felel az objektumok léptetéséért.
+	 * @brief Ez a fuggveny felel az objektumok lepteteseert.
 	 * @return void
 	 */
 	public void run() {

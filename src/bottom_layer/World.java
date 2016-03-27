@@ -14,8 +14,8 @@ public class World {
 	public void checkCollision() {
 		WorldObject temp1,temp2;
 		
-		for(int i=0; i<objects.size(); i++){
-			for(int j=0; j<objects.size(); j++){
+		for(int i=0; i<objects.size()-1; i++){
+			for(int j=i+1; j<objects.size(); j++){
 			temp1 = objects.elementAt(i);
 			temp2 = objects.elementAt(j);
 			if(temp1.checkCollision(temp2)){

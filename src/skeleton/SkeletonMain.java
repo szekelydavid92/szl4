@@ -15,12 +15,12 @@ public class SkeletonMain {
 		System.out.print("8=====Dn");
 		
 	}
-	//O’Neill mozgatása
+	//Oâ€™Neill mozgatÃ¡sa
 	void case_1(){
 		Player p = new Player();
-		System.out.println("O’Neill vezérlõfüggvényeinek tesztelése\n");
+		System.out.println("Oâ€™Neill vezÃ©rlÅ‘fÃ¼ggvÃ©nyeinek tesztelÃ©se\n");
 		//FEL
-		System.out.println("Kérem, adja meg, hogy O’Neill felfelé mozogjon-e![i/n]\n");
+		System.out.println("KÃ©rem, adja meg, hogy Oâ€™Neill felfelÃ© mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -30,7 +30,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveUp(true);
 		if(line.equals("n")) p.moveUp(false);
 		//LE
-		System.out.println("Kérem, adja meg, hogy O’Neill lefelé mozogjon-e![i/n]\n");
+		System.out.println("KÃ©rem, adja meg, hogy Oâ€™Neill lefelÃ© mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -40,7 +40,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveDown(true);
 		if(line.equals("n")) p.moveDown(false);
 		//JOBBRA
-		System.out.println("Kérem, adja meg, hogy O’Neill jobbra mozogjon-e![i/n]\n");
+		System.out.println("KÃ©rem, adja meg, hogy Oâ€™Neill jobbra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -50,10 +50,10 @@ public class SkeletonMain {
 		if(line.equals("i")) 		{p.moveRight(true);}
 		else if(line.equals("n")) 	{p.moveRight(false);}
 		else {
-			System.out.println("ERROR: érvénytelen bemenet!/n");
+			System.out.println("ERROR: Ã©rvÃ©nytelen bemenet!/n");
 		}
 		//BALRA
-		System.out.println("Kérem, adja meg, hogy O’Neill balra mozogjon-e![i/n]\n");
+		System.out.println("KÃ©rem, adja meg, hogy Oâ€™Neill balra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -63,49 +63,48 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveLeft(true);
 		if(line.equals("n")) p.moveLeft(false);
 		
-		
 	}
-	//Sárga lövedék lövése
+	//SÃ¡rga lÃ¶vedÃ©k lÃ¶vÃ©se
 	void case_2(){
 	
 	}
-	//Kék lövedék lövése
+	//KÃ©k lÃ¶vedÃ©k lÃ¶vÃ©se
 	void case_3(){
 		
 	}
-	//Sárga csillagkapu nyitása
+	//SÃ¡rga csillagkapu nyitÃ¡sa
 	void case_4(){
 		
 	}
-	//Kék csillagkapu nyitása
+	//KÃ©k csillagkapu nyitÃ¡sa
 	void case_5(){
 		
 	}
-	//Csillagkapu átjárása
+	//Csillagkapu Ã¡tjÃ¡rÃ¡sa
 	void case_6(){
 		
 	}
-	//Doboz felvétele
+	//Doboz felvÃ©tele
 	void case_7(){
 			
 	}
-	//Doboz lerakása
+	//Doboz lerakÃ¡sa
 	void case_8(){
 		
 	}
-	//ZPM felvétele
+	//ZPM felvÃ©tele
 	void case_9(){
 		
 	}
-	//Ajtó nyitása
+	//AjtÃ³ nyitÃ¡sa
 	void case_10(){
 			
 	}
-	// Ajtó zárása
+	// AjtÃ³ zÃ¡rÃ¡sa
 	void case_11(){
 			
 	}
-	//Objektum megsemmisülése
+	//Objektum megsemmisÃ¼lÃ©se
 	void case_12(){
 		
 	}

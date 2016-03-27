@@ -14,8 +14,8 @@ import skeleton.Depth;
  */
 
 /**
- * @brief Ez az osztály felel azért, hogy a játék 
- * időben előreléptesse az állapotát.
+ * @brief Ez az osztály felel azert, hogy a jatek 
+ * idoben előreleptesse az allapotat.
  */
 public class GameLoop {
 	

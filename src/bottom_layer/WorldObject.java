@@ -223,7 +223,7 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().enterFunction();
 		
 		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
-		//TODO: Meg kell kérdezni a tesztelotol, hogy milyen bemenetet adjunk a collides-nak.
+		//TODO: Meg kell kerdezni a tesztelotol, hogy milyen bemenetet adjunk a collides-nak.
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

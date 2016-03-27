@@ -6,7 +6,7 @@ import common.IWorldObject;
 import common.IZPM;
 
 /**
- * Õ a ZPM. Két állapota van, felvett és nem felvett. 
+ * ZPM. Ket allapota van, felvett es nem felvett. 
  */
 public class ZPM implements IZPM, ICollisionObserver {
 	@Override

@@ -7,7 +7,7 @@ import common.IVisitor;
 import common.IWorldObject;
 
 /**
- * Õ a mérleg. Ha valaki lenyomja, akkor kinyitja a hozzá tartozó ajtót.
+ * O a merleg. Ha valaki lenyomja, akkor kinyitja a hozza tartozo ajtot.
  */
 public class Scale implements IScale, IVisitable, ICollisionObserver{
 	@Override

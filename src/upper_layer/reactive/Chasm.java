@@ -11,7 +11,7 @@ import common.IWorldObject;
 import common.IZPM;
 
 /**
- * Õ a szakadék. Ha ütközött egy IKillable-t megvalósító objektummal, akkor megöli.
+ * Ez a szakadek. Ha utkozott egy IKillable-t megvalosito objektummal, akkor megoli.
  */
 public class Chasm implements ICollisionObserver, IVisitor {	
 	@Override

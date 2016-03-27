@@ -24,14 +24,14 @@ public class WorldObject implements IWorldObject {
 	 * ertesuljon arrol, hogy az objektum
 	 * utkozott. (Observer tervezesi minta)
 	 */
-	public ICollisionObserver observer;
+	public ICollisionObserver observer = null;
 	
 	/* Ez az objektum felelos azert, hogy utkozes
 	 * soran a masik objektum el tudja erni ennek
 	 * az objektumank a felso retegbeli
 	 * reprezentaciojat. (Visitor tervezesi minta)
 	 */
-	public IVisitable visitable;
+	public IVisitable visitable = null;
 	
 	/**
 	 * @brief A pozicio X es Y koordinatajahoz hozzaadja az elmozdulas X es Y koordinatajat,
@@ -354,7 +354,10 @@ public class WorldObject implements IWorldObject {
 		System.out.print(name + ".notify(" + obj.name + ")");
 		Depth.getInstance().enterFunction();
 		
-		this.observer.notify(obj);
+		if(this.observer != null)
+		{
+			this.observer.notify(obj);
+		}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

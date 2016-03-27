@@ -13,7 +13,6 @@ public class WorldObject implements IWorldObject {
 	
 	ICollisionObserver observer; // Az objektum ütközésérõl értesülõ observer.
 	IVisitable visitable; //ÚJ!!!felsõ rétegbeli objektuma ami megvalósítja az IVisitable-t
-	//IVisitor visitor;
 	
 	/**
 	 * A pozíció X és Y koordinátájához hozzáadja az elmozdulás X és Y koordinátáját,
@@ -89,7 +88,6 @@ public class WorldObject implements IWorldObject {
 	 * ha van felsõ rétegbeli reprezentációja, ha nincs, akkor null-t ad.
 	 * @return IVisitable
 	 */
-	//-----------------------------?????
 	public IVisitable getIVisitable() {return visitable;}
 	
 	
@@ -154,9 +152,8 @@ public class WorldObject implements IWorldObject {
 	 * @param obj Paraméterben megadott WorldObject objektum.
 	 * @return void
 	 */
-	//---------------???----------------
 	public void notify(WorldObject obj) {
-		//obj.getIVisitable().accept(visitor);
+		this.observer.notify(obj);
 	}
 
 }

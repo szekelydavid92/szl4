@@ -63,6 +63,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveLeft(true);
 		if(line.equals("n")) p.moveLeft(false);
 		
+		
 	}
 	//Sárga lövedék lövése
 	void case_2(){

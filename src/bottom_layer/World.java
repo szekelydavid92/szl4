@@ -28,13 +28,12 @@ public class World {
 	
 	/**
 	 * Léptetés megvalósítása.
-	 * @param dt ???????????
 	 * @return void
 	 */
-	public void step(double dt) {
+	public void step() {
 		
 		for(int i=0; i<objects.size(); i++){
-			objects.elementAt(i).getIVisitable();
+			objects.elementAt(i).step();
 		}
 	}	
 }

@@ -13,6 +13,9 @@ import common.IZPM;
  * Õ a doboz. Az ICarrier interfészt megvalósító objektum képes õket mozgatni.
  */
 public class Box extends Killable implements ICarriable {
+	
+	ICarrier carrier; //referencia a hordozóra
+	
 	/**
 	 * A dobozt cipelõ objektum ezen keresztül tudja beállítani a doboz objektum pozícióját.
 	 * @param x Az elsõ paraméter az x koordináta.
@@ -27,14 +30,14 @@ public class Box extends Killable implements ICarriable {
 	 * @param c ICarrier interfészt megvalósító objektum.
 	 * @return void
 	 */
-	public void regCarrier(ICarrier c) {}
+	public void regCarrier(ICarrier c) {carrier=c;}
 	
 	
 	/**
 	 * A hordozó objektum ezen keresztül értesíti a doboz objektumot, hogy elengedte.
 	 * @return void
 	 */	
-	public void release() {}
+	public void release() {carrier=null;}
 	
 	
 	/**
@@ -49,7 +52,7 @@ public class Box extends Killable implements ICarriable {
 	 * @param visitor IVisitor interfészt megvalósító objektum.
 	 * @return void
 	 */
-	public void accept(IVisitor visitor) {}
+	public void accept(IVisitor visitor) {/*visitor.visit(this);*/}
 	
 	
 	/**

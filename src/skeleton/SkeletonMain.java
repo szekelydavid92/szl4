@@ -92,25 +92,25 @@ public class SkeletonMain {
 		if(line.equals("n")) p.moveLeft(false);
 		
 	}
-	static //Sarga loved�k lovese
-	void case_2(){
-		WorldObject plwc = new WorldObject();
+	
+	
+	static void case_2(){ //Sarga loved�k lovese
+		WorldObject p_worldObject = new WorldObject();
 		Player pl = new Player();
-		plwc.setCollisionObserver(pl);
-		//TODO LORANT!!!!
-		//ProjectFactory prf = ProjectFactory();
-		pl.shootYellow(true);
+		p_worldObject.setCollisionObserver(pl);
+		
+		pl.shoot();
+		//TODO LORANT
 		
 	}
-	//Kek loved�k lovese
+	//Kek lovedek lovese
 	static void case_3(){
-		WorldObject plwc = new WorldObject();
+		WorldObject p_worldObject = new WorldObject();
 		Player pl = new Player();
-		plwc.setCollisionObserver(pl);
+		p_worldObject.setCollisionObserver(pl);
 		
-		//TODO LORANT!!!!
-		//ProjectFactory prf = ProjectFactory();
-		pl.shootBlue(true);
+		pl.shoot();
+		//TODO LORANT
 	}
 	//Sarga csillagkapu nyitasa
 	static void case_4(){
@@ -148,10 +148,33 @@ public class SkeletonMain {
 		Stargate blue = new Stargate();
 		blue.mask(wall);	
 	}
-	//Csillagkapu átjárása
+	//Csillagkapu atjaras
 	static void case_6(){
+		WorldObject obj = new WorldObject();
+		Player pl = new Player();
+		obj.setCollisionObserver(pl);
+		
+		WorldObject wallObject = new WorldObject();
+		Stargate s = new Stargate();
+		wallObject.setCollisionObserver(s);
+		
+		wallObject.notify(obj);
+		
+		WormHole wh = new WormHole(null,null);
+		
+		System.out.println("Kerem, adja meg, a csillagkapu szinet![s/k]\n");
+		try {
+			line = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(line.equals("s")) ;
+		if(line.equals("k")) ;
+		
 		
 	}
+	
 	//Doboz felvétele
 	static void case_7(){
 		int collided 		= 		-1;

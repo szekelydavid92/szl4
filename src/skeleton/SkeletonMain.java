@@ -89,7 +89,7 @@ public class SkeletonMain {
 		if(line.equals("n")) p.moveLeft(false);
 		
 	}
-	static //Sarga lovedék lovese
+	static //Sarga lovedek lovese
 	void case_2(){
 		WorldObject plwc = new WorldObject();
 		Player pl = new Player();
@@ -123,31 +123,31 @@ public class SkeletonMain {
 	static void case_5(){
 		
 	}
-	//Csillagkapu Ã¡tjÃ¡rÃ¡sa
+	//Csillagkapu atjarasa
 	static void case_6(){
 		
 	}
-	//Doboz felvÃ©tele
+	//Doboz felvetele
 	static void case_7(){
 			
 	}
-	//Doboz lerakÃ¡sa
+	//Doboz lerakasa
 	static void case_8(){
 		
 	}
-	//ZPM felvÃ©tele
+	//ZPM felvetele
 	static void case_9(){
 		
 	}
-	//AjtÃ³ nyitÃ¡sa
+	//AjtÃ³ nyitasa
 	static void case_10(){
 			
 	}
-	// AjtÃ³ zÃ¡rÃ¡sa
+	// Ajto zarasa
 	static void case_11(){
 			
 	}
-	//Objektum megsemmisÃ¼lÃ©se
+	//Objektum megsemmisulese
 	static void case_12(){
 		
 	}

@@ -104,6 +104,7 @@ public class SkeletonMain {
 		WorldObject plwc = new WorldObject();
 		Player pl = new Player();
 		plwc.setCollisionObserver(pl);
+		
 		//TODO LORANT!!!!
 		//ProjectFactory prf = ProjectFactory();
 		pl.shootBlue(true);
@@ -123,18 +124,26 @@ public class SkeletonMain {
 		WormHole wh = new WormHole(null,null);
 		wh.setYellow(wall);
 		
-		
 		Stargate yellow = new Stargate();
-		SpecWall wall2 = new SpecWall();
-		Stargate blue = new Stargate();
-		WorldObject masked_Obj = new WorldObject();
-		
-		
-		
+		yellow.mask(wall);		
 	}
 	//Kek csillagkapu nyitasa
 	static void case_5(){
+		WorldObject projectileWO = new WorldObject();
+		Projectile projectile = new Projectile();
+		projectileWO.setCollisionObserver(projectile);
 		
+		WorldObject obj = new WorldObject();
+		SpecWall wall = new SpecWall();
+		obj.setCollisionObserver(wall);
+		
+		projectileWO.notify(obj); //innen indul
+		
+		WormHole wh = new WormHole(null,null);
+		wh.setBlue(wall);
+		
+		Stargate blue = new Stargate();
+		blue.mask(wall);	
 	}
 	//Csillagkapu átjárása
 	static void case_6(){

@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import bottom_layer.World;
 import bottom_layer.WorldObject;
+import upper_layer.entity.Box;
 import upper_layer.entity.Player;
 import upper_layer.wormhole.Projectile;
 import upper_layer.wormhole.SpecWall;
@@ -183,8 +184,10 @@ public class SkeletonMain {
 		WorldObject o1 		= 		new WorldObject();
 		WorldObject o2 		=		new WorldObject();
 		Player p			=		new Player();
+		Box b				=		new Box();
 		
-		o1.observer 		=		 p;
+		o1.setCollisionObserver(p);
+		o2.setCollisionObserver(b);
 		world.addWorldObject(o1);
 		world.addWorldObject(o2);
 		

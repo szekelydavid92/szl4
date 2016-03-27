@@ -9,7 +9,11 @@ import java.util.Vector;
 import bottom_layer.World;
 import bottom_layer.WorldObject;
 import upper_layer.entity.Box;
+import upper_layer.entity.Door;
 import upper_layer.entity.Player;
+import upper_layer.reactive.Chasm;
+import upper_layer.reactive.Scale;
+import upper_layer.reactive.ZPM;
 import upper_layer.wormhole.Projectile;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
@@ -163,23 +167,10 @@ public class SkeletonMain {
 		
 		WormHole wh = new WormHole(null,null);
 		
-		System.out.println("Kerem, adja meg, a csillagkapu szinet![s/k]\n");
-		try {
-			line = in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(line.equals("s")) ;
-		if(line.equals("k")) ;
-		
-		
 	}
 	
 	//Doboz felvétele
 	static void case_7(){
-		int collided 		= 		-1;
-		int collI 			=		-1;
 		World world 		= 		new World();
 		WorldObject o1 		= 		new WorldObject();
 		WorldObject o2 		=		new WorldObject();
@@ -194,25 +185,106 @@ public class SkeletonMain {
 		world.checkCollision();
 			
 	}
-	//Doboz lerakása
+	//Doboz lerakasa
 	static void case_8(){
 		
+		WorldObject o1 = new WorldObject();
+		Player p =	new Player();
+		o1.setCollisionObserver(p);
+		
+		WorldObject boxWorldObjectt = new WorldObject();
+		Box b =	new Box();
+		boxWorldObjectt.setCollisionObserver(b);
+		
+		p.carryBox();
 	}
 	//ZPM felvétele
 	static void case_9(){
+		World 			w		=		new World();
+		WorldObject 	o1		=		new WorldObject();
+		WorldObject 	o2		=		new WorldObject();
+		Player			p		=		new Player();
+		ZPM				z		=		new ZPM();
+		o1.setCollisionObserver(p);
+		o2.setCollisionObserver(z);
+		
+		w.addWorldObject(o1);
+		w.addWorldObject(o2);
+		
+		w.checkCollision();
+	}
+	//Ajto nyitasa
+	static void case_10(){
+		
+		WorldObject o1 = new WorldObject();
+		Box b = new Box();
+		o1.setCollisionObserver(b);
+		
+		WorldObject o2 = new WorldObject();
+		Scale s = new Scale();
+		o2.setCollisionObserver(s);
+		
+		Door d = new Door();
+		
+		World w = new World();
+		w.addWorldObject(o1);
+		w.addWorldObject(o2);
+		
+		w.checkCollision();
 		
 	}
-	//Ajtó nyitása
-	static void case_10(){
-			
-	}
-	// Ajtó zárása
+	// Ajti zarasa
 	static void case_11(){
-			
+		
+		WorldObject o1 = new WorldObject();
+		Box b = new Box();
+		o1.setCollisionObserver(b);
+		
+		WorldObject o2 = new WorldObject();
+		Scale s = new Scale();
+		o2.setCollisionObserver(s);
+		
+		Door d = new Door();
+		
+		World w = new World();
+		w.addWorldObject(o1);
+		w.addWorldObject(o2);
+		
+		w.checkCollision();
 	}
-	//Objektum megsemmisülése
+	//Objektum megsemmiselese /player
 	static void case_12(){
 		
+		WorldObject o1 = new WorldObject();
+		Player p = new Player();
+		o1.setCollisionObserver(p);
+		
+		WorldObject o2 = new WorldObject();
+		Chasm c = new Chasm();
+		o2.setCollisionObserver(c);
+		
+		World w = new World();
+		w.addWorldObject(o1);
+		w.addWorldObject(o2);
+		
+		w.checkCollision();
+	}
+	//Objektum megsemmiselese /box
+	static void case_13(){
+		
+		WorldObject o1 = new WorldObject();
+		Box b = new Box();
+		o1.setCollisionObserver(b);
+		
+		WorldObject o2 = new WorldObject();
+		Chasm c = new Chasm();
+		o2.setCollisionObserver(c);
+		
+		World w = new World();
+		w.addWorldObject(o1);
+		w.addWorldObject(o2);
+		
+		w.checkCollision();
 	}
 	static void writeCases(){
 		System.out.println("O Neill mozgatasa[1]");

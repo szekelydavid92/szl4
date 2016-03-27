@@ -45,7 +45,7 @@ public class SkeletonMain {
 		
 		System.out.println("O Neill vezerlofuggvenyeinek tesztelese\n");
 		//FEL
-		System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O �Neill felfele mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -55,7 +55,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveUp(true);
 		if(line.equals("n")) p.moveUp(false);
 		//LE
-		System.out.println("Kerem, adja meg, hogy O Neill lefele mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O �Neill lefele mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -65,7 +65,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveDown(true);
 		if(line.equals("n")) p.moveDown(false);
 		//JOBBRA
-		System.out.println("Kerem, adja meg, hogy O Neill jobbra mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O �Neill jobbra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -78,7 +78,7 @@ public class SkeletonMain {
 			System.out.println("ERROR: Ervenytelen bemenet!/n");
 		}
 		//BALRA
-		System.out.println("Kerem, adja meg, hogy O Neill balra mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O �Neill balra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -89,7 +89,7 @@ public class SkeletonMain {
 		if(line.equals("n")) p.moveLeft(false);
 		
 	}
-	static //Sarga lovedek lovese
+	static //Sarga loved�k lovese
 	void case_2(){
 		WorldObject plwc = new WorldObject();
 		Player pl = new Player();
@@ -99,7 +99,7 @@ public class SkeletonMain {
 		pl.shootYellow(true);
 		
 	}
-	//Kek lovedék lovese
+	//Kek loved�k lovese
 	static void case_3(){
 		WorldObject plwc = new WorldObject();
 		Player pl = new Player();
@@ -110,44 +110,55 @@ public class SkeletonMain {
 	}
 	//Sarga csillagkapu nyitasa
 	static void case_4(){
+		WorldObject projectileWO = new WorldObject();
 		Projectile projectile = new Projectile();
+		projectileWO.setCollisionObserver(projectile);
+		
 		WorldObject obj = new WorldObject();
-		obj.setCollisionObserver(projectile);
 		SpecWall wall = new SpecWall();
+		obj.setCollisionObserver(wall);
+		
+		projectileWO.notify(obj); //innen indul
+		
+		
 		Stargate yellow = new Stargate();
-		//WormHole wh = new WormHole();
+		SpecWall wall2 = new SpecWall();
+		Stargate blue = new Stargate();
+		WormHole wh = new WormHole(wall,wall2);
 		WorldObject masked_Obj = new WorldObject();
+		
+		
 		
 	}
 	//Kek csillagkapu nyitasa
 	static void case_5(){
 		
 	}
-	//Csillagkapu atjarasa
+	//Csillagkapu átjárása
 	static void case_6(){
 		
 	}
-	//Doboz felvetele
+	//Doboz felvétele
 	static void case_7(){
 			
 	}
-	//Doboz lerakasa
+	//Doboz lerakása
 	static void case_8(){
 		
 	}
-	//ZPM felvetele
+	//ZPM felvétele
 	static void case_9(){
 		
 	}
-	//AjtÃ³ nyitasa
+	//Ajtó nyitása
 	static void case_10(){
 			
 	}
-	// Ajto zarasa
+	// Ajtó zárása
 	static void case_11(){
 			
 	}
-	//Objektum megsemmisulese
+	//Objektum megsemmisülése
 	static void case_12(){
 		
 	}

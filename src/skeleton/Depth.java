@@ -1,8 +1,8 @@
 package skeleton;
 
 /**
- * @brief Ez a class felelős azért, hogy a
- * kimeneten a megfelelő mennyiségű tabot kiprintelje
+ * @brief Ez a class felelos azert, hogy a
+ * kimeneten a megfelelo mennyisegu tabot kiprintelje
  */
 public class Depth
 {

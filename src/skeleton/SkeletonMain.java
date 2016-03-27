@@ -20,7 +20,7 @@ public class SkeletonMain {
 		Player p = new Player();
 		System.out.println("O’Neill vezérlõfüggvényeinek tesztelése\n");
 		//FEL
-		System.out.println("Kérem, adja meg, hogy O’Neill felfelé mozogjon-e!/n");
+		System.out.println("Kérem, adja meg, hogy O’Neill felfelé mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -30,7 +30,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveUp(true);
 		if(line.equals("n")) p.moveUp(false);
 		//LE
-		System.out.println("Kérem, adja meg, hogy O’Neill lefelé mozogjon-e!/n");
+		System.out.println("Kérem, adja meg, hogy O’Neill lefelé mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -40,17 +40,20 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveDown(true);
 		if(line.equals("n")) p.moveDown(false);
 		//JOBBRA
-		System.out.println("Kérem, adja meg, hogy O’Neill jobbra mozogjon-e!/n");
+		System.out.println("Kérem, adja meg, hogy O’Neill jobbra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) p.moveRight(true);
-		if(line.equals("n")) p.moveRight(false);
+		if(line.equals("i")) 		{p.moveRight(true);}
+		else if(line.equals("n")) 	{p.moveRight(false);}
+		else {
+			System.out.println("ERROR: érvénytelen bemenet!/n");
+		}
 		//BALRA
-		System.out.println("Kérem, adja meg, hogy O’Neill balra mozogjon-e!/n");
+		System.out.println("Kérem, adja meg, hogy O’Neill balra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {

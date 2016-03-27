@@ -1,6 +1,15 @@
 package skeleton;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import upper_layer.entity.Player;
+
 public class SkeletonMain {
+	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	String line = null;
+	
 	public static void main(String[] args) {
 		System.out.print("Tunderpuszcsyka\n");
 		System.out.print("8=====Dn");
@@ -8,6 +17,48 @@ public class SkeletonMain {
 	}
 	//O’Neill mozgatása
 	void case_1(){
+		Player p = new Player();
+		System.out.println("O’Neill vezérlõfüggvényeinek tesztelése\n");
+		//FEL
+		System.out.println("Kérem, adja meg, hogy O’Neill felfelé mozogjon-e!/n");
+		try {
+			line = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(line.equals("i")) p.moveUp(true);
+		if(line.equals("n")) p.moveUp(false);
+		//LE
+		System.out.println("Kérem, adja meg, hogy O’Neill lefelé mozogjon-e!/n");
+		try {
+			line = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(line.equals("i")) p.moveDown(true);
+		if(line.equals("n")) p.moveDown(false);
+		//JOBBRA
+		System.out.println("Kérem, adja meg, hogy O’Neill jobbra mozogjon-e!/n");
+		try {
+			line = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(line.equals("i")) p.moveRight(true);
+		if(line.equals("n")) p.moveRight(false);
+		//BALRA
+		System.out.println("Kérem, adja meg, hogy O’Neill balra mozogjon-e!/n");
+		try {
+			line = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(line.equals("i")) p.moveLeft(true);
+		if(line.equals("n")) p.moveLeft(false);
 		
 	}
 	//Sárga lövedék lövése

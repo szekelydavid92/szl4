@@ -76,7 +76,7 @@ public class Player extends Killable {
 	 * @param right ???????
 	 * @return void
 	 */
-	public void moveRigh(boolean right) {}
+	public void moveRight(boolean right) {}
 	
 	
 	/**

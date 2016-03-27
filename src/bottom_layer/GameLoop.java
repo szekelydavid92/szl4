@@ -8,7 +8,7 @@ import skeleton.Depth;
 
 /* 
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * Az implements Runnable NEM kerül ide.!
+ * Az implements Runnable NEM kerül ide!
  * Ki lett szedve analízis modell 1 után!
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */

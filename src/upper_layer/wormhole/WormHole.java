@@ -4,7 +4,7 @@ import common.ISpecWall;
 import common.ITeleportable;
 
 /**
- * � felel�s az�rt, hogy a k�t csillagkapu k�z�tt teleport�lni lehessen.
+ * O felelos azert, hogy a ket csillagkapu kozott teleportalni lehessen.
  */
 public class WormHole {
 	
@@ -17,7 +17,7 @@ public class WormHole {
 	}
 	
 	/**
-	 * Be�ll�tja a k�k kaput egy falra.
+	 * Beallitja a kek kaput egy falra.
 	 * @param wall ??????????
 	 * @return void
 	 */
@@ -27,7 +27,7 @@ public class WormHole {
 	
 	
 	/**
-	 * Be�ll�tja a s�rga kaput egy falra.
+	 * Beallitja a sarga kaput egy falra.
 	 * @param wall ?????????
 	 * @return void
 	 */
@@ -37,7 +37,7 @@ public class WormHole {
 	
 	
 	/**
-	 * Player oszt�lyt teleport�lja a s�rga kapuhoz.
+	 * Player osztalyt teleportalja a sarga kapuhoz.
 	 * @param t ???????
 	 * @return void
 	 */
@@ -45,7 +45,7 @@ public class WormHole {
 	
 	
 	/**
-	 * Player oszt�lyt teleport�lja a k�k kapuhoz.
+	 * Player osztalyt teleportalja a kek kapuhoz.
 	 * @param t ?????????
 	 * @return void
 	 */

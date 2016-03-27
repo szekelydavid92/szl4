@@ -4,7 +4,7 @@ import common.Colour;
 import common.IProjectileFactory;
 
 /**
- * Megvalósítja az IProjectileFactory Interface-t.
+ * Megvalositja az IProjectileFactory Interface-t.
  */
 public class ProjectileFactory implements IProjectileFactory {
 	@Override

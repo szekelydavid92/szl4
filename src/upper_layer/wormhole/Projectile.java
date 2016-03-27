@@ -11,7 +11,7 @@ import common.IWorldObject;
 import common.IZPM;
 
 /**
- * Õ a lövedék. Amennyiben SpecWall-al ütközik, ott nyit egy WormHole-t.
+ * Lovedek. Amennyiben SpecWall-al utkozik, ott nyit egy WormHole-t.
  */
 public class Projectile implements ICollisionObserver, IVisitor {
 	@Override

@@ -6,8 +6,8 @@ import common.IVisitor;
 import common.IWorldObject;
 
 /**
- * Õ az, akire portált lehet lõni. Ha egy teleportálható valakivel ütközik,
- * szól a WormHole-nak, hogy át kéne pakolni õt a másik SpecWall elé.
+ * Ez az, akire portalt lehet loni. Ha egy teleportalhato valakivel utkozik,
+ * szol a WormHole-nak, hogy ot kene pakolni ot a masik SpecWall elo.
  */
 public class SpecWall implements ISpecWall {
 	@Override

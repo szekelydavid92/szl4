@@ -11,7 +11,7 @@ import common.IWorldObject;
 import common.IZPM;
 
 /**
- * Õ a csillagkapu. Ha egy játékos ütközik vele, átteleportálja a másik csillagkapuhoz.
+ * O a csillagkapu. Ha egy jatekos utkozik vele, atteleportalja a masik csillagkapuhoz.
  */
 public class Stargate implements IStargate, ICollisionObserver {
 	@Override

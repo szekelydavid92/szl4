@@ -120,11 +120,13 @@ public class SkeletonMain {
 		
 		projectileWO.notify(obj); //innen indul
 		
+		WormHole wh = new WormHole(null,null);
+		wh.setYellow(wall);
+		
 		
 		Stargate yellow = new Stargate();
 		SpecWall wall2 = new SpecWall();
 		Stargate blue = new Stargate();
-		WormHole wh = new WormHole(wall,wall2);
 		WorldObject masked_Obj = new WorldObject();
 		
 		

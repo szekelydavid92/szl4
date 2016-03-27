@@ -3,7 +3,10 @@ package skeleton;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Vector;
 
+import bottom_layer.World;
 import bottom_layer.WorldObject;
 import upper_layer.entity.Player;
 import upper_layer.wormhole.Projectile;
@@ -45,7 +48,7 @@ public class SkeletonMain {
 		
 		System.out.println("O Neill vezerlofuggvenyeinek tesztelese\n");
 		//FEL
-		System.out.println("Kerem, adja meg, hogy O ™Neill felfele mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O ï¿½Neill felfele mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -55,7 +58,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveUp(true);
 		if(line.equals("n")) p.moveUp(false);
 		//LE
-		System.out.println("Kerem, adja meg, hogy O ™Neill lefele mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O ï¿½Neill lefele mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -65,7 +68,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveDown(true);
 		if(line.equals("n")) p.moveDown(false);
 		//JOBBRA
-		System.out.println("Kerem, adja meg, hogy O ™Neill jobbra mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O ï¿½Neill jobbra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -78,7 +81,7 @@ public class SkeletonMain {
 			System.out.println("ERROR: Ervenytelen bemenet!/n");
 		}
 		//BALRA
-		System.out.println("Kerem, adja meg, hogy O ™Neill balra mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O ï¿½Neill balra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -89,7 +92,7 @@ public class SkeletonMain {
 		if(line.equals("n")) p.moveLeft(false);
 		
 	}
-	static //Sarga lovedék lovese
+	static //Sarga lovedï¿½k lovese
 	void case_2(){
 		WorldObject plwc = new WorldObject();
 		Player pl = new Player();
@@ -99,7 +102,7 @@ public class SkeletonMain {
 		pl.shootYellow(true);
 		
 	}
-	//Kek lovedék lovese
+	//Kek lovedï¿½k lovese
 	static void case_3(){
 		WorldObject plwc = new WorldObject();
 		Player pl = new Player();
@@ -151,6 +154,34 @@ public class SkeletonMain {
 	}
 	//Doboz felvÃ©tele
 	static void case_7(){
+		int collided 		= 		-1;
+		int collI 			=		-1;
+		World world 		= 		new World();
+		WorldObject o1 		= 		new WorldObject();
+		WorldObject o2 		=		new WorldObject();
+		Player p			=		new Player();
+		
+		world.addWorldObject(o1);
+		world.addWorldObject(o2);
+		
+		Vector<WorldObject> temp = new Vector<WorldObject>();
+		temp = world.getAllWorldObject();
+		
+		outerLoop:
+		for(int i=0; i<temp.size()-1; ++i){
+			for(int j=i+1; j<temp.size(); ++j){
+				if(temp.get(i).checkCollision(temp.get(j))){
+					collided = j;
+					collI = i;
+					break outerLoop;
+				}
+			}
+		}
+		
+		if(collided>=0){ //van utkozes
+			temp.get(collided).observer = p;
+			temp.get(collI).notify(temp.get(collided));
+		}
 			
 	}
 	//Doboz lerakÃ¡sa

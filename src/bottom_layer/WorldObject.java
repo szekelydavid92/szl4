@@ -214,8 +214,7 @@ public class WorldObject implements IWorldObject {
 	 * @param o A masik WorldObject.
 	 * @return boolean
 	 */
-	public boolean checkCollision(WorldObject o)
-	{
+	public boolean checkCollision(WorldObject o){
 		boolean collides = false;
 		
 		Depth.getInstance().printTabs();
@@ -362,6 +361,14 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".notify()");
+	}
+
+
+	@Override
+	public IVisitable getVisitable() {
+		// TODO Auto-generated method stub
+		
+		return null;
 	}
 
 }

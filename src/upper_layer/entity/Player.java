@@ -180,5 +180,6 @@ public class Player extends Killable {
 	@Override
 	public void notify(IWorldObject obj) {
 		//TODO Lorant
+		obj.getVisitable();
 	}
 }

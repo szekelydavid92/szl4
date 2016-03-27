@@ -10,6 +10,10 @@ public class World {
 	
 	Vector<WorldObject> objects;
 	
+	public World() {
+		objects = new Vector<WorldObject>();
+	}
+	
 	//Ütközés ellenõrzés.
 	public void checkCollision() {
 		WorldObject temp1,temp2;
@@ -46,6 +50,10 @@ public class World {
 	
 	public WorldObject getWorldObject(int n){
 		return objects.get(n);
+	}
+	
+	public Vector<WorldObject> getAllWorldObject(){
+		return objects;
 	}
 	 
 }

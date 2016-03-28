@@ -53,7 +53,11 @@ public class SkeletonMain {
 	static void case_1(){
 		
 		Player p = new Player();
+		WorldObject pwo = new WorldObject();
 		
+		World w = new World();
+		w.addWorldObject(pwo);
+				
 		System.out.println("O Neill vezerlofuggvenyeinek tesztelese\n");
 		//FEL
 		System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
@@ -98,7 +102,9 @@ public class SkeletonMain {
 		}
 		if(line.equals("i")) p.moveLeft(true);
 		if(line.equals("n")) p.moveLeft(false);
-			
+		
+		p.step();
+		w.step();
 	}
 	
 	

@@ -233,8 +233,8 @@ public class WorldObject implements IWorldObject {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(skeleton.SkeletonMain.line.equals("i")) ;
-		else if(skeleton.SkeletonMain.line.equals("n")) ;
+		if(skeleton.SkeletonMain.line.equals("i")) {collides = true;}
+		else if(skeleton.SkeletonMain.line.equals("n")) {collides = false;}
 		else System.out.print("ERROR: Ervénytelen bemenet");	
 		
 		Depth.getInstance().returnFromFunction();

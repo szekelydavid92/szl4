@@ -245,6 +245,8 @@ public class Player extends Killable {
 		Depth.getInstance().enterFunction();
 		
 		move();
+		carryBox();
+		shoot();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -262,7 +264,9 @@ public class Player extends Killable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".move()");
 		Depth.getInstance().enterFunction();
-				
+		
+		
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".move()");

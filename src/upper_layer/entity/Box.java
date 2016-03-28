@@ -8,6 +8,7 @@ import common.ITeleportable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
+import skeleton.Depth;
 
 /**
  * Ez a doboz. Az ICarrier interfeszt megvalasito objektum kepes oket mozgatni.
@@ -15,6 +16,7 @@ import common.IZPM;
 public class Box extends Killable implements ICarriable {
 	
 	ICarrier carrier; //referencia a hordozora
+	public String name = "Box";
 	
 	/**
 	 * A dobozt cipelo objektum ezen keresztul tudja beallitani a doboz objektum poziciojat.
@@ -22,8 +24,17 @@ public class Box extends Killable implements ICarriable {
 	 * @param y A masodik parameter az y koordinata.
 	 * @return void
 	 */
-	public void setPos(double x, double y) {}
-	
+	public void setPos(double x, double y) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".setPos()");
+		Depth.getInstance().enterFunction();
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".setPos()");
+		
+	}	
 	
 	/**
 	 * Itt ertesul a doboz objektum, hogy a parameterkent kapott ICarrier interface-t megvalosito objektum ot cipeli.
@@ -31,7 +42,17 @@ public class Box extends Killable implements ICarriable {
 	 * @return void
 	 */
 	public void regCarrier(ICarrier c) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".regCarrier()");
+		Depth.getInstance().enterFunction();
+		
 		carrier=c;
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".regCarrier()");
+		
 		//TODO Lorant
 	}
 	
@@ -41,7 +62,16 @@ public class Box extends Killable implements ICarriable {
 	 * @return void
 	 */	
 	public void release() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".release()");
+		Depth.getInstance().enterFunction();
+		
 		carrier=null;
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".release()");
 	}
 	
 	
@@ -50,6 +80,15 @@ public class Box extends Killable implements ICarriable {
 	 * @return void
 	 */	
 	public void kill() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".kill()");
+		Depth.getInstance().enterFunction();
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".kill()");
+		
 	}
 	
 	
@@ -59,8 +98,18 @@ public class Box extends Killable implements ICarriable {
 	 * @return void
 	 */
 	public void accept(IVisitor visitor) {
-		/*visitor.visit(this);*/
-		//TODO Lorant
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".accept()");
+		Depth.getInstance().enterFunction();
+		
+		visitor.visit((IKillable)this);
+		visitor.visit((ICarriable)this);
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".accept()");
+		
 	}
 	
 	
@@ -70,7 +119,15 @@ public class Box extends Killable implements ICarriable {
 	 * @return void
 	 */
 	public void notify(IWorldObject o) {
-		//TODO Lorant
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".notify()");
+		Depth.getInstance().enterFunction();
+		
+		//TODO
+						
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".notify()");
 	}
 	
 	
@@ -78,35 +135,79 @@ public class Box extends Killable implements ICarriable {
 	 * Elorelepteti a doboz allapotat az idoben.
 	 * @return void
 	 */
-	public void step() {}
-
+	public void step() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".step()");
+		Depth.getInstance().enterFunction();
+						
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".step()");
+		
+	}
 
 	@Override
 	public void visit(ISpecWall wall) {
-		//TODO Lorant
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+						
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
 	}
 
 
 	@Override
 	public void visit(IKillable killable) {
-		//TODO Lorant
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+						
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
 	}
 
 
 	@Override
 	public void visit(ICarriable carriable) {
-		//TODO Lorant
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+						
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
 	}
 
 
 	@Override
 	public void visit(IZPM zpm) {
-		//TODO Lorant
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+						
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
 	}
 
 
 	@Override
 	public void visit(ITeleportable teleportable) {
-		//TODO Lorant
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+						
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
 	}
 }

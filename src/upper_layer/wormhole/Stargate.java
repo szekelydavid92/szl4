@@ -7,6 +7,7 @@ import common.IScale;
 import common.ISpecWall;
 import common.IStargate;
 import common.ITeleportable;
+import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
 import skeleton.Depth;
@@ -55,7 +56,7 @@ public class Stargate implements IStargate, ICollisionObserver {
 		System.out.print(name + ".visit()");
 		Depth.getInstance().enterFunction();
 		
-		
+		//!!!!!!!!!!!!!!!
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -71,7 +72,7 @@ public class Stargate implements IStargate, ICollisionObserver {
 		System.out.print(name + ".mask()");
 		Depth.getInstance().enterFunction();
 		
-		
+		//!!!!!!!!!!!!!!!!!!!!!!
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -82,6 +83,15 @@ public class Stargate implements IStargate, ICollisionObserver {
 	@Override
 	public void notify(IWorldObject obj) {
 		//TODO Lorant
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".notify()");
+		Depth.getInstance().enterFunction();
+		
+		obj.getVisitable().accept((IVisitor)this);
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".notify()");
 	}
 
 }

@@ -52,10 +52,6 @@ public class SkeletonMain {
 	//O Neill mozgatasa
 	static void case_1(){
 		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_1()");
-		Depth.getInstance().enterFunction();
-		
 		Player p = new Player();
 		
 		System.out.println("O Neill vezerlofuggvenyeinek tesztelese\n");
@@ -102,57 +98,33 @@ public class SkeletonMain {
 		}
 		if(line.equals("i")) p.moveLeft(true);
 		if(line.equals("n")) p.moveLeft(false);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_1()");
-		
+			
 	}
 	
 	
 	static void case_2(){ //Sarga loved�k lovese
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_2()");
-		Depth.getInstance().enterFunction();
-		
+				
 		WorldObject p_worldObject = new WorldObject();
 		Player pl = new Player();
 		p_worldObject.setCollisionObserver(pl);
 		
 		pl.shoot();
 		//TODO LORANT
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_2()");
-		
+				
 	}
 	//Kek lovedek lovese
 	static void case_3(){
 		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_3()");
-		Depth.getInstance().enterFunction();
-		
 		WorldObject p_worldObject = new WorldObject();
 		Player pl = new Player();
 		p_worldObject.setCollisionObserver(pl);
 		
 		pl.shoot();
 		//TODO LORANT
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_3()");
-		
+			
 	}
 	//Sarga csillagkapu nyitasa
 	static void case_4(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_4()");
-		Depth.getInstance().enterFunction();
 		
 		WorldObject projectileWO = new WorldObject();
 		Projectile projectile = new Projectile();
@@ -169,19 +141,11 @@ public class SkeletonMain {
 		
 		Stargate yellow = new Stargate();
 		yellow.mask(wall);		
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_4()");
-		
+				
 	}
 	//Kek csillagkapu nyitasa
 	static void case_5(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_5()");
-		Depth.getInstance().enterFunction();
-		
+				
 		WorldObject projectileWO = new WorldObject();
 		Projectile projectile = new Projectile();
 		projectileWO.setCollisionObserver(projectile);
@@ -198,18 +162,10 @@ public class SkeletonMain {
 		Stargate blue = new Stargate();
 		blue.mask(wall);
 		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_5()");
-		
 	}
 	//Csillagkapu atjaras
 	static void case_6(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_6()");
-		Depth.getInstance().enterFunction();
-		
+				
 		WorldObject obj = new WorldObject();
 		Player pl = new Player();
 		obj.setCollisionObserver(pl);
@@ -221,19 +177,11 @@ public class SkeletonMain {
 		wallObject.notify(obj);
 		
 		WormHole wh = new WormHole(null,null);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_6()");
-		
+				
 	}
 	
 	//Doboz felvétele
 	static void case_7(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_7()");
-		Depth.getInstance().enterFunction();
 			
 		Player p = new Player();
 		WorldObject o1 = new WorldObject();
@@ -248,19 +196,11 @@ public class SkeletonMain {
 		world.addWorldObject(o2);
 		
 		world.checkCollision();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_7()");
-			
+					
 	}
 	//Doboz lerakasa
 	static void case_8(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_8()");
-		Depth.getInstance().enterFunction();
-		
+				
 		WorldObject o1 = new WorldObject();
 		Player p =	new Player();
 		o1.setCollisionObserver(p);
@@ -270,19 +210,11 @@ public class SkeletonMain {
 		boxWorldObjectt.setCollisionObserver(b);
 		
 		p.carryBox();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_8()");
-		
+				
 	}
 	//ZPM felvétele
 	static void case_9(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_9()");
-		Depth.getInstance().enterFunction();
-				
+						
 		WorldObject o1 = new WorldObject();
 		Player p = new Player();
 		o1.setCollisionObserver(p);
@@ -296,19 +228,11 @@ public class SkeletonMain {
 		w.addWorldObject(o2);
 		
 		w.checkCollision();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_9()");
-		
+				
 	}
 	//Ajto nyitasa
 	static void case_10(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_10()");
-		Depth.getInstance().enterFunction();
-		
+				
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();
 		o1.setCollisionObserver(b);
@@ -324,19 +248,11 @@ public class SkeletonMain {
 		w.addWorldObject(o2);
 		
 		w.checkCollision();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_10()");
 		
 	}
 	// Ajti zarasa
 	static void case_11(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_11()");
-		Depth.getInstance().enterFunction();
-		
+				
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();
 		o1.setCollisionObserver(b);
@@ -353,17 +269,9 @@ public class SkeletonMain {
 		
 		w.checkCollision();
 		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_11()");
-		
 	}
 	//Objektum megsemmiselese /player
 	static void case_12(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_12()");
-		Depth.getInstance().enterFunction();
 		
 		WorldObject o1 = new WorldObject();
 		Player p = new Player();
@@ -378,18 +286,10 @@ public class SkeletonMain {
 		w.addWorldObject(o2);
 		
 		w.checkCollision();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_12()");
-		
+				
 	}
 	//Objektum megsemmiselese /box
 	static void case_13(){
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".case_13()");
-		Depth.getInstance().enterFunction();
 		
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();
@@ -404,11 +304,7 @@ public class SkeletonMain {
 		w.addWorldObject(o2);
 		
 		w.checkCollision();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".case_13()");
-		
+				
 	}
 	static void writeCases(){
 		System.out.println("O Neill mozgatasa[1]");

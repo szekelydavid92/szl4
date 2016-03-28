@@ -243,7 +243,9 @@ public class Player extends Killable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".step()");
 		Depth.getInstance().enterFunction();
-				
+		
+		move();
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".step()");

@@ -50,7 +50,7 @@ public class SkeletonMain {
 	    }
 	}
 	//O Neill mozgatasa
-	static void case_1(){
+	static void case_1() {
 		
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();

@@ -54,6 +54,7 @@ public class SkeletonMain {
 		
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();
+		pwo.setCollisionObserver(p);
 		
 		World w = new World();
 		w.addWorldObject(pwo);

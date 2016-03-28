@@ -56,7 +56,7 @@ public class SkeletonMain {
 		
 		System.out.println("O Neill vezerlofuggvenyeinek tesztelese\n");
 		//FEL
-		System.out.println("Kerem, adja meg, hogy O �Neill felfele mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -66,7 +66,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveUp(true);
 		if(line.equals("n")) p.moveUp(false);
 		//LE
-		System.out.println("Kerem, adja meg, hogy O �Neill lefele mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O Neill lefele mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -76,7 +76,7 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveDown(true);
 		if(line.equals("n")) p.moveDown(false);
 		//JOBBRA
-		System.out.println("Kerem, adja meg, hogy O �Neill jobbra mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O Neill jobbra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {
@@ -89,7 +89,7 @@ public class SkeletonMain {
 			System.out.println("ERROR: Ervenytelen bemenet!/n");
 		}
 		//BALRA
-		System.out.println("Kerem, adja meg, hogy O �Neill balra mozogjon-e![i/n]\n");
+		System.out.println("Kerem, adja meg, hogy O Neill balra mozogjon-e![i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {

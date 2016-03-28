@@ -1,5 +1,7 @@
 package bottom_layer;
 
+import java.io.IOException;
+
 import common.CollisionResponse;
 import common.ICollisionObserver;
 import common.IVisitable;
@@ -223,6 +225,17 @@ public class WorldObject implements IWorldObject {
 		
 		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
 		//TODO: Meg kell kerdezni a tesztelotol, hogy milyen bemenetet adjunk a collides-nak.
+		// HERE 
+		
+		try {
+			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(skeleton.SkeletonMain.line.equals("i")) ;
+		else if(skeleton.SkeletonMain.line.equals("n")) ;
+		else System.out.print("ERROR: Ervénytelen bemenet");	
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

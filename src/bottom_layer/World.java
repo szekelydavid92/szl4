@@ -1,6 +1,11 @@
 package bottom_layer;
 
+import skeleton.SkeletonMain;
+
+import java.io.IOException;
 import java.util.Vector;
+
+import skeleton.Depth;
 
 /**
  * Ez az az osztály reprezentálja a virtuális világot. Tartarmaz egy WorldObject tömböt.
@@ -9,6 +14,7 @@ import java.util.Vector;
 public class World {
 	
 	Vector<WorldObject> objects;
+	public static String name = "World";
 	
 	public World() {
 		objects = new Vector<WorldObject>();
@@ -16,6 +22,11 @@ public class World {
 	
 	//Ütközés ellenõrzés.
 	public void checkCollision() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".checkCollision()");
+		Depth.getInstance().enterFunction();
+		
 		WorldObject temp1,temp2;
 		
 		for(int i=0; i<objects.size()-1; i++){
@@ -28,6 +39,11 @@ public class World {
 				}
 			}
 		}
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".checkCollision()");
+		
 	};
 	
 	/**
@@ -36,23 +52,59 @@ public class World {
 	 */
 	public void step() {
 		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".step()");
+		Depth.getInstance().enterFunction();
+		
 		for(int i=0; i<objects.size(); i++){
 			objects.elementAt(i).step();
 		}
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".checkCollision()");
+		
 	}	
 	
 	/*
 	 *  UJITAS!!
 	 */
 	public void addWorldObject(WorldObject obj){
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".addWorldObject()");
+		Depth.getInstance().enterFunction();
+		
 		objects.add(obj);
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".addWorldObject()");
 	}
 	
 	public WorldObject getWorldObject(int n){
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".getWorldObject()");
+		Depth.getInstance().enterFunction();
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".getWorldObject()");
+		
 		return objects.get(n);
 	}
 	
 	public Vector<WorldObject> getAllWorldObject(){
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".getAllWorldObject()");
+		Depth.getInstance().enterFunction();
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".getAllWorldObject()");
+		
 		return objects;
 	}
 	 

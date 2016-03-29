@@ -32,9 +32,9 @@ public class AjtoDobozTeszt {
 		o2.setVisitable(scale);
 		o2.name="scaleObject";
 		
-		World w = new World();
-		w.addWorldObject(o1);
-		w.addWorldObject(o2);
+		World probaWorld = new World();
+		probaWorld.addWorldObject(o1);
+		probaWorld.addWorldObject(o2);
 		
 		
 		Door door = new Door();
@@ -44,7 +44,7 @@ public class AjtoDobozTeszt {
 		door.worldObject=doorObject;
 		doorObject.name="doorObject";
 		
-		World probaWorld=new World(); 
+		//World probaWorld=new World(); 
 		
 		GameLoop gameLoop=new GameLoop();
 		gameLoop.world=probaWorld;
@@ -52,15 +52,15 @@ public class AjtoDobozTeszt {
 		gameLoop.Entites.add(door);
 		
 		
-		String line="i"; // menjünk-e egy ciklust
+		String line="i"; // menjï¿½nk-e egy ciklust
 		while (line.equals("i")) {
 		
-			w.checkCollision();
+			//w.checkCollision();
 		
 	
 			gameLoop.run();
 		
-		System.out.println("Menjünk még egy GameLoop ciklust? [i/n]\n");
+		System.out.println("Menjunk meg egy GameLoop ciklust? [i/n]\n");
 		try {
 			line = in.readLine();
 		} catch (IOException e) {

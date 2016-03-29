@@ -37,13 +37,13 @@ public class GameLoop {
 	 */
 	public void run() {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".run()");
+		System.out.print(name + ".run()\n");
 		Depth.getInstance().enterFunction();
 		
 		world.checkCollision();
 		world.step();
 		
-		System.out.println("Entitások léptetése");
+		System.out.println("Entity lepteto ciklus belepes");
 		for(IEntity e : Entites)
 		{
 			e.step();
@@ -51,6 +51,6 @@ public class GameLoop {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".run()");
+		System.out.print("ret " + name + ".run()\n");
 	}
 }

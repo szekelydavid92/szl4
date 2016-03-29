@@ -113,24 +113,30 @@ public class SkeletonMain {
 	}
 	
 	
-	static void case_2(){ //Sarga loved�k lovese
+	static void case_2() { //Sarga lovedek lovese
 				
-		WorldObject p_worldObject = new WorldObject();
-		Player pl = new Player();
-		p_worldObject.setCollisionObserver(pl);
+		Player p = new Player();
+		WorldObject pwo = new WorldObject();
+		//ProjectileFactory pf = new ProjectileFactory();
 		
-		pl.shoot();
+		p.worldObject = pwo;
+		pwo.setCollisionObserver(p);
+		
+		System.out.println("\nO Neill lovesenek lehivasa\n");
+		
+		p.shoot();
 		//TODO LORANT
 				
 	}
-	//Kek lovedek lovese
-	static void case_3(){
+	
+	static void case_3() { //Kek lovedek lovese
 		
-		WorldObject p_worldObject = new WorldObject();
-		Player pl = new Player();
-		p_worldObject.setCollisionObserver(pl);
+		Player p = new Player();
+		WorldObject pwo = new WorldObject();
+		p.worldObject = pwo;
+		pwo.setCollisionObserver(p);
 		
-		pl.shoot();
+		p.shoot();
 		//TODO LORANT
 			
 	}

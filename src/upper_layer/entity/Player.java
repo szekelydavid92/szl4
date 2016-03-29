@@ -2,6 +2,7 @@ package upper_layer.entity;
 
 import common.ICarriable;
 import common.IKillable;
+import common.IProjectileFactory;
 import common.ISpecWall;
 import common.ITeleportable;
 import common.IWorldObject;
@@ -19,6 +20,7 @@ public class Player extends Killable {
 	
 	private double posX, posY;
 	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
+	public IProjectileFactory projFactory;
 	
 	public void forcedRelelease() {
 		
@@ -303,7 +305,11 @@ public class Player extends Killable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".shoot()\n");
 		Depth.getInstance().enterFunction();
-				
+		
+		worldObject.getPosX();
+		worldObject.getPosY();
+		
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".shoot()\n");

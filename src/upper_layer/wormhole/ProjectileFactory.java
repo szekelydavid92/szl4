@@ -15,12 +15,12 @@ public class ProjectileFactory implements IProjectileFactory {
 	public void createProjectile(Colour colour) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".createProjectile()");
+		System.out.print(name + ".createProjectile()\n");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".createProjectile()");
+		System.out.print("ret " + name + ".createProjectile()\n");
 		
 	}
 	

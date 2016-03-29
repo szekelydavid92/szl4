@@ -9,7 +9,7 @@ import java.io.IOException;
 import skeleton.Depth;
 
 /**
- * Ez az az osztaly reprezentalja a virtualis vilagot. Tartalmaz egy WorldObject tombot.
+ * @brief Ez az az osztaly reprezentalja a virtualis vilagot. Tartalmaz egy WorldObject tombot.
  * Fo feladata, hogy a tomb elemeit leptesse az idoben.
  * 
  */
@@ -22,6 +22,8 @@ public class World {
 	
 	/**
 	 * @brief Utkozes ellenorzes.
+	 * 
+	 * @return void
 	 */
 	public void checkCollision() {
 		
@@ -50,7 +52,8 @@ public class World {
 	};
 	
 	/**
-	 * Leptetes megvalositasa.
+	 * @brief Leptetes megvalositasa.
+	 * 
 	 * @return void
 	 */
 	public void step() {

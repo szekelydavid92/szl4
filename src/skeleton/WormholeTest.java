@@ -3,12 +3,54 @@ package skeleton;
 import java.io.IOException;
 
 import bottom_layer.WorldObject;
+import bottom_layer.WorldObjectFactory;
 import upper_layer.entity.Player;
 import upper_layer.wormhole.Projectile;
+import upper_layer.wormhole.ProjectileFactory;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.WormHole;
 
 class WormholeTest {
+	static void SargaLovedekLovese() { //Sarga lovedek lovese
+				
+		//System.out.println("Creating objects");
+		Player p = new Player();
+		WorldObject pwo = new WorldObject();
+		ProjectileFactory pf = new ProjectileFactory();
+		WorldObjectFactory wof = new WorldObjectFactory();
+		
+		p.worldObject = pwo;
+		p.projFactory = pf;
+		pf.iwof = wof;
+		
+		//pwo.setCollisionObserver(p);//elvileg nem kell ide
+		
+		System.out.println("\nO Neill lovesenek lehivasa");
+		p.shootYellow(true);
+		
+		System.out.println("O Neill viselkedese");
+		p.shoot();
+				
+	}
+	
+	static void KekLovedekLovese() { //Kek lovedek lovese
+		
+		Player p = new Player();
+		WorldObject pwo = new WorldObject();
+		ProjectileFactory pf = new ProjectileFactory();
+		WorldObjectFactory wof = new WorldObjectFactory();
+		
+		p.worldObject = pwo;
+		p.projFactory = pf;
+		pf.iwof = wof;
+		
+		System.out.println("\nO Neill lovesenek lehivasa");
+		p.shootBlue(true);
+		
+		System.out.println("O Neill viselkedese");
+		p.shoot();
+			
+	}
 	
 	static void CsillagkapuNyitas(){
 		System.out.print("Initializing Kek vagy sarga csillagkapu nyitasa\n");

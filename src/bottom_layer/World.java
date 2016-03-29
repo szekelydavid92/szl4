@@ -32,13 +32,7 @@ public class World {
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().printTabs();
-
 		System.out.println("Belépés a collision detekciós ciklusba. ");
-		
-		
-		
-
-		System.out.println("Belepes a collision detekcios ciklusba");
 		Depth.getInstance().enterFunction();
 
 		
@@ -57,9 +51,6 @@ public class World {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-
-		System.out.println("Visszatérés a collision detekciós ciklusból");
-
 		System.out.println("Kilepes a collision detekcios ciklusbol");
 		
 

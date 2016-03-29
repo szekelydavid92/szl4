@@ -40,7 +40,7 @@ public class World {
 			
 			if(temp1.checkCollision(temp2)){
 				temp1.notify(temp2);
-				temp2.notify(temp1);
+				//temp2.notify(temp1);
 				}
 			}
 		}

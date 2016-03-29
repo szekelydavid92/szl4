@@ -7,103 +7,118 @@ package common;
  */
 public interface IWorldObject {
 	/**
-	 * Ezzel a fuggvennyel lehet beallitani a megvalosito objektum allapotot, hogy elmozdithato legyen,
-	 * mozdithatatlan legyen vagy atereszto (azaz mas objektumok keresztul tudjanak rajta menni).
-	 * @param colResp ???????????
+	 * @brief Ezzel a fuggvennyel lehet beallitani a megvalosito objektum allapotot, hogy elmozdithato legyen,
+	 * mozdithatatlan legyen vagy atereszto (azaz mas objektumok keresztol tudjanak rajta menni).
+	 * 
+	 * @param colResp enum valtozo, MOVABLE(mozgathato), IMMOVABLE(mozdithatatlan) vagy PASS(atereszto)
 	 * @return void
 	 */
 	public void setCollisionResponse(CollisionResponse colResp);
 	
 	
 	/**
-	 * A vilagbeli objektum  X koordinitajat allitja be a vilag koordinata rendszereben.
-	 * @param x ???????????????????????
+	 * @brief A vilagbeli objektum  X koordinatajat allitja be a vilag koordinata rendszereben.
+	 * 
+	 * @param x Az x koordinata.
 	 * @return void
 	 */
 	public void setPosX(double x);
 	
 	
 	/**
-	 * A vilagbeli objektum Y koordinatajat allitja be a vilag koordinata rendszereben.
-	 * @param y ????????????????????
+	 * @brief A vilagbeli objektum Y koordinatajat allitja be a vilag koordinata rendszereben.
+	 * 
+	 * @param y Az y koordinata.
 	 * @return void
 	 */
 	public void setPosY(double y);
 	
 	
 	/**
-	 * Az objektum poziciojahoz hozzaadja a (dx,dy) vektort.
-	 * @param dx ??????????????????
-	 * @param dy ???????????????????
+	 * @brief Az objektum poziciojahoz hozzaadja a (dx,dy) vektort.
+	 * 
+	 * @param dx Az objektum poziciojahoz hozzaadando vektor x koordinataja.
+	 * @param dy Az objektum poziciojahoz hozzoadando vektor y koordinataja.
 	 * @return void
 	 */
 	public void displace(double dx, double dy);
 	
 	
 	/**
-	 * A vilagbeli objektum X tengely menti poziciojat adja vissza eredmenyul.
+	 * @brief A vilagbeli objektum X tengely menti poziciojat adja vissza eredmenyul.
+	 * 
 	 * @return double
 	 */
 	public double getPosX();
 	
 	
 	/**
-	 * A vilagbeli objektum Y tengely menti poziciojat adja vissza eredmenyul.
+	 * @brief A vilagbeli objektum Y tengely menti poziciojat adja vissza eredmenyul.
+	 * 
 	 * @return double
 	 */
 	public double getPosY();
 	
 	
 	/**
-	 * Az elmozdulas vektor X komponensenek beallitasa.
-	 * @param x ?????????????????
+	 * @brief Az elmozdulas vektor X komponensenek beallitasa.
+	 * 
+	 * @param x Az x komponens beellatando erteke.
 	 * @return void
 	 */
 	public void setDisplacementX(double x);
 	
 	
 	/**
-	 * Az elmozdulas vektor Y komponensenek beallitasa.
-	 * @param y ??????????????
+	 * @brief Az elmozdulas vektor Y komponensenek beallitasa.
+	 * 
+	 * @param y Az y komponens beallatando erteke.
 	 * @return void
 	 */
 	public void setDisplacementY(double y);
 	
 	
 	/**
-	 * A (dx,dy) vektor hozzaadasa az elmozdulas vektorhoz.
-	 * @param dx ???????????????
-	 * @param dy ???????????????
+	 * @brief A (dx,dy) vektor hozzaadasa az elmozdulas vektorhoz.
+	 * 
+	 * @param dx A vektor x koordinataja.
+	 * @param dy A vektor y koordinataja.
 	 * @return void
 	 */
 	public void addDisplacement(double dx, double dy);
 	
 	
 	/**
-	 * Eredmenyul adja az elmozdulas vektor X iranyu erteket.
+	 * @brief Eredmenyul adja az elmozdulas vektor X iranyu erteket.
+	 * 
 	 * @return double
 	 */
 	public double getDisplacementX();
 	
 	
 	/**
-	 * Eredmenyul adja az elmozdulas vektor Y iranyu erteket.
+	 * @brief Eredmenyul adja az elmozdulas vektor Y iranyu erteket.
+	 * 
 	 * @return double
 	 */
 	public double getDisplacementY();
 	
 	
 	/**
-	 * Beallitja a megvalosito objektumra feliratkozo observert.
-	 * @param observer ??????????????????
+	 * @brief Beallitja a megvalosito objektumra feliratkozo observert.
+	 * 
+	 * @param observer A feliratkozo observer.
 	 * @return void
 	 */
 	public void setCollisionObserver(ICollisionObserver observer);
 	
 	
 	/**
-	 * Visszaadja a vilagbeli objektum felso retegbeli reprezentaciojanak az IVisitable interfeszet,
+	 * @brief Visszaadja a vilagbeli objektum felso retegbeli reprezentaciojanak az IVisitable interfeszet,
 	 * ha van felso retegbeli reprezentacioja, ha nincs, akkor null-t ad.
+	 * 
+	 * @warning Vigyazat! Lehet null, nem szabad csak ugy lehivni a fuggvenyet! Nullpointerseg ellenorzese KELL!
+	 * 
 	 * @return IVisitable
 	 */
 	public IVisitable getVisitable();

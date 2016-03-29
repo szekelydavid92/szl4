@@ -195,26 +195,6 @@ public class WorldObject implements IWorldObject {
 	
 	
 	/**
-	 * @brief Visszaadja a vilagbeli objektum felso retegbeli reprezentaciojanak az IVisitable interfeszet,
-	 * ha van felso retegbeli reprezentacioja, ha nincs, akkor null-t ad.
-	 * 
-	 * @return IVisitable
-	 */
-	public IVisitable getIVisitable() {
-
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".getIVisitable()\n");
-		Depth.getInstance().enterFunction();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".getIVisitable()\n");
-		
-		return visitable;
-	}
-	
-	
-	/**
 	 * @brief Ez a metodus felelos azert, hogy leellenirizze, hogy ket WorldObject utkozott-e.
 	 * 
 	 * @param o A masik WorldObject.
@@ -383,12 +363,25 @@ public class WorldObject implements IWorldObject {
 		System.out.print("ret " + name + ".notify()\n");
 	}
 
-
-	@Override
+	/**
+	 * @brief Visszaadja a vilagbeli objektum felso retegbeli reprezentaciojanak az IVisitable interfeszet,
+	 * ha van felso retegbeli reprezentacioja, ha nincs, akkor null-t ad.
+	 * 
+	 * @warning Vigyazat! Lehet null, nem szabad csak ugy lehivni a fuggvenyet! Nullpointerseg ellenorzese KELL!
+	 * 
+	 * @return IVisitable
+	 */
 	public IVisitable getVisitable() {
-		// TODO Auto-generated method stub
+
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".getIVisitable()\n");
+		Depth.getInstance().enterFunction();
 		
-		return null;
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".getIVisitable()\n");
+		
+		return visitable;
 	}
 
 }

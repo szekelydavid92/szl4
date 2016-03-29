@@ -213,6 +213,15 @@ public class Box extends Killable implements ICarriable {
 	}
 	@Override
 	public void visit(IScale scale){
+		
+		Depth.getInstance().printTabs();
+		System.out.println(name + ".visit()");
+		Depth.getInstance().enterFunction();
+		
 		scale.push();
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.println("ret " + name + ".visit()");
 	}
 }

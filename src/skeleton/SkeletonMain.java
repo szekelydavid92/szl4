@@ -276,6 +276,7 @@ public class SkeletonMain {
 		o2.setCollisionObserver(s);
 		
 		Door d = new Door();
+		s.door=d;
 		
 		World w = new World();
 		w.addWorldObject(o1);

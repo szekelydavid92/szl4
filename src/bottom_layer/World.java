@@ -32,7 +32,7 @@ public class World {
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().printTabs();
-		System.out.println("Belépés a collision detekciós ciklusba. ");
+		System.out.println("Belepes a collision detekcios ciklusba. ");
 		Depth.getInstance().enterFunction();
 
 		

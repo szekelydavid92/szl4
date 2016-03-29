@@ -157,10 +157,8 @@ public class Player extends Killable {
 	public void pickUp(boolean pick) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".pickUp()\n");
+		System.out.print(name + ".pickUp(" + pick + ")\n");
 		Depth.getInstance().enterFunction();
-				
-		
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

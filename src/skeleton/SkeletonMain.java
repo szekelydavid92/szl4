@@ -245,7 +245,7 @@ public class SkeletonMain {
 		System.out.println("O Neill dobozfelemelesenek lehivasa");
 		p.pickUp(true);
 		
-		System.out.println("O Neill es a doboz utkozesenk a tesztelese");
+		System.out.println("O Neill es a doboz utkozesenek a tesztelese");
 		w.checkCollision();
 		
 					

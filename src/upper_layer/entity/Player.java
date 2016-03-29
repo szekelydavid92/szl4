@@ -20,10 +20,6 @@ import skeleton.Depth;
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
  */
 public class Player extends Killable implements ITeleportable,ICarrier {
-	/**
-	 * Ezzel a fuggvennyel lehet rakenyszeriteni a jatekost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisul.
-	 * @return void
-	 */
 	
 	private double posX, posY;
 	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
@@ -37,6 +33,10 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		visitor.visit((ITeleportable) this);
 	}
 	
+	/**
+	 * Ezzel a fuggvennyel lehet rakenyszeriteni a jatekost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisul.
+	 * @return void
+	 */
 	public void forcedRelease() {
 		
 		Depth.getInstance().printTabs();
@@ -52,9 +52,9 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	}
 	
 	/*
-	 * segédfv, egy adott poziciorol eldönti, hogy az az
-	 * adott pályához érvényes pozicio lehet-e, vagy sem
-	 * esetleg ha nem, akkor merre lóg ki
+	 * segedfv, amely egy adott poziciorol eldonti, hogy az az
+	 * adott palyahozhoz ervenyes pozicio lehet-e, vagy sem
+	 * esetleg ha nem, akkor merre log ki
 	 * 
 	 */
 	private boolean validPos(double x, double y){
@@ -95,8 +95,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, a jatekos a felfele megy.
-	 * @param up ???????
+	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti, hogy menjen-e a jatekos felfele.
+	 * @param up: menjen-e a jatekos felfele (true vagy false)
 	 * @return void
 	 */
 	public void moveUp(boolean up) {
@@ -111,8 +111,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, a jetokos a lefele megy.
-	 * @param down ???????
+	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e lefele.
+	 * @param down: menjen-e a jatekos lefele (true vagy false) 
 	 * @return void
 	 */
 	public void moveDown(boolean down) {
@@ -129,8 +129,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, a jatekos a balra megy.
-	 * @param left ???????
+	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e balra.
+	 * @param left: menjen-e a jatekos balra (true vagy false) 
 	 * @return void
 	 */
 	public void moveLeft(boolean left) {
@@ -147,8 +147,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, a jatekos a jobbra megy.
-	 * @param right ???????
+	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e jobbra.
+	 * @param right: menjen-e a jatekos jobbra (true vagy false) 
 	 * @return void
 	 */
 	public void moveRight(boolean right) {
@@ -165,8 +165,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, a jatekos a felveszi az elotte levo dobozt.
-	 * @param pick ???????
+	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos vegye-e fel az elotte levo dobozt.
+	 * @param pick: vegye-e fel a jatekos a dobozt(true vagy false) 
 	 * @return void
 	 */
 	public void pickUp(boolean pick) {
@@ -204,8 +204,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	
 	/**
-	 * Ha valaki lehivja, a jatekos kilo egy sarga lovedeket.
-	 * @param shootingYellow ???????
+	 * Ha valaki lehivja, azzal eldontheti, hogy lojon-e ki a jatekos egy sarga lovedeket.
+	 * @param shootingYellow: Lojon-e a jatekos sarga lovedeket (true vagy false).
 	 * @return void
 	 */
 	public void shootYellow(boolean shootingYellow) {
@@ -224,8 +224,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	
 	/**
-	 * Ha valaki lehivja, a jatekos kilo egy kek lovedeket.
-	 * @param shootingBlue ???????
+	 * Ha valaki lehivja, azzal eldontheti, hogy lojon-e ki a jatekos egy kek lovedeket.
+	 * @param shootingBlue: Lojon-e a jatekos kek lovedeket (true vagy false).
 	 * @return void
 	 */
 	public void shootBlue(boolean shootingBlue) {
@@ -275,9 +275,9 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".step()\n");
 		Depth.getInstance().enterFunction();
 		
-		move();
-		carryBox();
-		shoot();
+		move(); 
+		carryBox(); 
+		shoot(); 
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -467,7 +467,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	@Override
 	public void notify(IWorldObject obj) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".notify(" + "zmpObject" + ")\n");
+		System.out.print(name + ".notify()\n");
 		Depth.getInstance().enterFunction();	
 		
 		IVisitable visitable=obj.getVisitable();

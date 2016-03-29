@@ -25,7 +25,7 @@ public class Projectile implements ICollisionObserver, IVisitor {
 	public String name = "projectile";
 	public WormHole wormHole;
 	public Colour colour;
-	IVisitable iv; //importot is kivenni
+	private IVisitable iv; //importot is kivenni
 	
 	@Override
 	public void visit(ISpecWall wall) {

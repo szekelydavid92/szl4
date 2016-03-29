@@ -26,7 +26,7 @@ public class Projectile implements ICollisionObserver, IVisitor {
 	public String name = "projectile";
 	public WormHole wormHole;
 	public Colour colour;
-	private IVisitable iv; //importot is kivenni
+	//private IVisitable iv; //importot is kivenni
 	
 	@Override
 	public void visit(ISpecWall wall) {
@@ -37,7 +37,8 @@ public class Projectile implements ICollisionObserver, IVisitor {
 		
 		BufferedReader in = SkeletonMain.in; //Shortcut
 		String line = null;
-		
+
+		Depth.getInstance().printTabs();
 		System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
 		
 		try {
@@ -97,9 +98,9 @@ public class Projectile implements ICollisionObserver, IVisitor {
 		
 		//obj.getVisitable().accept((IVisitor)this);
 		
-		iv = obj.getVisitable();
-		if(iv != null)
-			iv.accept(this);
+		IVisitable visitable = obj.getVisitable();
+		if(visitable != null)
+			visitable.accept(this);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

@@ -75,7 +75,7 @@ class WormholeTest {
 		
 		System.out.print("Initialization finished.\n\n");
 		
-		System.out.print("Kek vagy sarga csillagkapu nyitasa");
+		System.out.print("Kek vagy sarga csillagkapu nyitasa\n");
 		projectile.notify(wallObj);
 				
 	}

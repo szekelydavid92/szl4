@@ -19,7 +19,7 @@ import skeleton.Depth;
  */
 public class WorldObject implements IWorldObject {
 	
-	
+
 	public String name = "worldObj"; //O kell az objektum nevenek a kiprintelesehez!
 	
 	/* Ez az objektum felelos azert, hogy
@@ -392,8 +392,11 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getVisitable()\n");
 		
-		//return visitable;
+
+		
 		return visitable;
+		//return iv;
+
 	}
 
 }

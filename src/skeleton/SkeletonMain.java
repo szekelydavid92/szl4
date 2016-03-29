@@ -54,15 +54,16 @@ public class SkeletonMain {
 	//O Neill mozgatasa
 	static void case_1() {
 		
-		System.out.println("Creating objects");
+		//System.out.println("Creating objects");
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();
-		p.worldObject = pwo;
-		pwo.setCollisionObserver(p);
-		
 		World w = new World();
-		w.addWorldObject(pwo);
-				
+		
+		p.worldObject = pwo;
+		//pwo.setCollisionObserver(p); 
+		//w.addWorldObject(pwo);
+		w.objects.add(pwo);	
+	
 		System.out.println("O Neill vezerlofuggvenyeinek tesztelese");
 		//FEL
 		System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
@@ -118,7 +119,7 @@ public class SkeletonMain {
 	
 	static void case_2() { //Sarga lovedek lovese
 				
-		System.out.println("Creating objects");
+		//System.out.println("Creating objects");
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();
 		ProjectileFactory pf = new ProjectileFactory();
@@ -126,9 +127,9 @@ public class SkeletonMain {
 		
 		p.worldObject = pwo;
 		p.projFactory = pf;
-		pf.iwo = wof;
+		pf.iwof = wof;
 		
-		pwo.setCollisionObserver(p);//elvileg nem kell ide
+		//pwo.setCollisionObserver(p);//elvileg nem kell ide
 		
 		System.out.println("\nO Neill lovesenek lehivasa");
 		p.shootYellow(true);

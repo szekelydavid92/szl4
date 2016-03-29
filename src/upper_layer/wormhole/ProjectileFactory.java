@@ -2,6 +2,7 @@ package upper_layer.wormhole;
 
 import common.Colour;
 import common.IProjectileFactory;
+import common.IWorldObject;
 import common.IWorldObjectFactory;
 import skeleton.Depth;
 
@@ -11,7 +12,8 @@ import skeleton.Depth;
 public class ProjectileFactory implements IProjectileFactory {
 	
 	public String name;
-	public IWorldObjectFactory iwo;
+	public IWorldObjectFactory iwof;
+	private IWorldObject wo;
 	
 	@Override
 	public void createProjectile(Colour colour, double pX, double pY, double mX, double mY) { //p: player, m: mouse
@@ -20,7 +22,14 @@ public class ProjectileFactory implements IProjectileFactory {
 		System.out.print(name + ".createProjectile()\n");
 		Depth.getInstance().enterFunction();
 		
-		iwo.createObject(12, 12);
+		Projectile p = new Projectile();
+		wo = iwof.createObject(12, 12);
+		
+		wo.setPosX(12);
+		wo.setPosY(12);
+		wo.setDisplacementX(24);
+		wo.setDisplacementY(24);
+		wo.setCollisionObserver(p);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

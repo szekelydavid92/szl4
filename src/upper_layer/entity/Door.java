@@ -52,7 +52,6 @@ public class Door extends ColEntity implements IDoor {
 		System.out.println(name + ".step()");
 		Depth.getInstance().enterFunction();
 		
-		System.out.println("Az opened változó értéke:" + opened);
 		
 		if (opened ==true) 
 			worldObject.setCollisionResponse(CollisionResponse.PASS);

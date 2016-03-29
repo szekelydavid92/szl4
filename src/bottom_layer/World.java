@@ -30,28 +30,39 @@ public class World {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".checkCollision()\n");
 		Depth.getInstance().enterFunction();
+		
 		Depth.getInstance().printTabs();
+
 		System.out.println("Belépés a collision detekciós ciklusba. ");
 		
 		
 		
+
+		System.out.println("Belepes a collision detekcios ciklusba");
+		Depth.getInstance().enterFunction();
+
 		
 		WorldObject temp1,temp2;
 		
 		for(int i=0; i<objects.size(); i++){
 			for(int j=i+1; j<objects.size(); j++){
-			temp1 = objects.get(i);
-			temp2 = objects.get(j);
+				temp1 = objects.get(i);
+				temp2 = objects.get(j);
 			
-			if(temp1.checkCollision(temp2)){
-				temp1.notify(temp2);
-				//temp2.notify(temp1);
+				if(temp1.checkCollision(temp2)){
+					temp1.notify(temp2);
 				}
 			}
 		}
 		
+		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
+
 		System.out.println("Visszatérés a collision detekciós ciklusból");
+
+		System.out.println("Kilepes a collision detekcios ciklusbol");
+		
+
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".checkCollision()\n");

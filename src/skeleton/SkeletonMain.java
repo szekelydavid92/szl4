@@ -35,7 +35,7 @@ public class SkeletonMain {
 				else if(line.equals("2")) 	case_2();
 				else if(line.equals("3")) 	case_3();
 				else if(line.equals("4")) 	case_4();
-				else if(line.equals("5")) 	case_5();
+				//else if(line.equals("5")) 	case_5();
 				else if(line.equals("6")) 	case_6();
 				else if(line.equals("7")) 	case_7();
 				else if(line.equals("8")) 	case_8();
@@ -176,12 +176,24 @@ public class SkeletonMain {
 		Stargate yellow = new Stargate();
 		yellow.mask(wall);	*/	
 		
+
+		Projectile projectile = new Projectile();
 		
-		
+
 	//	WorldObject obj = new WorldObject();
 		//Projectile projectile = new Projectile();
 		//WormHole wh = new WormHole(null, null);
 		//SpecWall sw = new SpecWall();
+
+		WorldObject obj = new WorldObject();
+		WormHole wormHole = new WormHole();
+		SpecWall specWall = new SpecWall();
+		SpecWall masked = new SpecWall();
+		
+		projectile.wormHole = wormHole;
+		
+		obj.visitable = specWall;
+
 		
 		//projectile.
 		
@@ -189,7 +201,7 @@ public class SkeletonMain {
 				
 	}
 	//Kek csillagkapu nyitasa
-	static void case_5(){
+	/*static void case_5(){
 				
 	//	WorldObject projectileWO = new WorldObject();
 		//Projectile projectile = new Projectile();
@@ -201,13 +213,21 @@ public class SkeletonMain {
 		
 	//	projectileWO.notify(obj); //innen indul
 		
+<<<<<<< HEAD
 	//	WormHole wh = new WormHole(null,null);
 	//	wh.setBlue(wall);
+=======
+		WormHole wh = new WormHole();
+		wh.setBlue(wall);
+>>>>>>> branch 'master' of https://github.com/szekelydavid92/szl4
 		
+<<<<<<< HEAD
 //		Stargate blue = new Stargate();
+=======
+>>>>>>> branch 'master' of https://github.com/szekelydavid92/szl4
 		//blue.mask(wall);
 		
-	}
+	}*/
 	//Csillagkapu atjaras
 	static void case_6(){
 				
@@ -215,33 +235,27 @@ public class SkeletonMain {
 		//Player pl = new Player();
 		//obj.setCollisionObserver(pl);
 		
+
 		//WorldObject wallObject = new WorldObject();
 	//	Stargate s = new Stargate();
 	//	wallObject.setCollisionObserver(s);
+
+		WorldObject wallObject = new WorldObject();
+		//wallObject.setCollisionObserver(s);
+
 		
 //		wallObject.notify(obj);
 		
+
 	//	WormHole wh = new WormHole(null,null);
+
+		WormHole wh = new WormHole();
+
 				
 	}
 	
 	//Doboz felvetele
 	static void case_7(){
-			
-		/*Player p = new Player();
-		WorldObject o1 = new WorldObject();
-		o1.setCollisionObserver(p);
-		
-		WorldObject o2 = new WorldObject();
-		Box b =	new Box();
-		o2.setCollisionObserver(b);
-		
-		World world = new World();
-		world.addWorldObject(o1);
-		world.addWorldObject(o2);
-		
-		world.checkCollision();*/
-		
 		
 		World w = new World();
 		WorldObject wo1 = new WorldObject();
@@ -249,10 +263,15 @@ public class SkeletonMain {
 		Player p = new Player();
 		Box b = new Box();
 		
+		p.worldObject = wo1;
+		b.worldObject = wo2;
+		w.objects.add(wo1);
+		w.objects.add(wo2);
+		
 		System.out.println("O Neill dobozfelemelesenek lehivasa");
 		p.pickUp(true);
 		
-		System.out.println("O Neill es a doboz utkozesenk a tesztelese");
+		System.out.println("O Neill es a doboz utkozesenek a tesztelese");
 		w.checkCollision();
 		
 					
@@ -260,13 +279,22 @@ public class SkeletonMain {
 	//Doboz lerakasa
 	static void case_8(){
 				
-		WorldObject o1 = new WorldObject();
+		/*WorldObject o1 = new WorldObject();
 		Player p =	new Player();
 		o1.setCollisionObserver(p);
 		
 		WorldObject boxWorldObjectt = new WorldObject();
 		Box b =	new Box();
 		boxWorldObjectt.setCollisionObserver(b);
+		
+		p.carryBox();*/
+		
+		Player p = new Player();
+		Box b = new Box();
+		WorldObject wo = new WorldObject();
+		
+		b.worldObject = wo;
+		p.box = b;
 		
 		p.carryBox();
 				
@@ -355,8 +383,8 @@ public class SkeletonMain {
 	static void case_13(){
 		
 		//LoCI!!!
-		//A Chasm-nak nincs IVisitable-je igy amikor le akarjuk kerni a GetVisitable()-t akkor hibát dob
-		//valahogy lekéne tiltan mar a wolrd checkCollison-jeben h nem visitelje ha a masik worldobject chasm		
+		//A Chasm-nak nincs IVisitable-je igy amikor le akarjuk kerni a GetVisitable()-t akkor hibï¿½t dob
+		//valahogy lekï¿½ne tiltan mar a wolrd checkCollison-jeben h nem visitelje ha a masik worldobject chasm		
 		
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();

@@ -19,6 +19,7 @@ import skeleton.Depth;
  */
 public class WorldObject implements IWorldObject {
 	
+	public IVisitable iv;
 	public String name = "worldObj"; //O kell az objektum nevenek a kiprintelesehez!
 	
 	/* Ez az objektum felelos azert, hogy
@@ -207,9 +208,8 @@ public class WorldObject implements IWorldObject {
 		System.out.print(name + ".checkCollision(" + o.name + ")\n");
 		Depth.getInstance().enterFunction();
 		
+		Depth.getInstance().printTabs();
 		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
-		//TODO: Meg kell kerdezni a tesztelotol, hogy milyen bemenetet adjunk a collides-nak.
-		// HERE 
 		
 		try {
 			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
@@ -218,11 +218,9 @@ public class WorldObject implements IWorldObject {
 			e.printStackTrace();
 		}
 		
-		//TODO Meg kene formazni a kodot.
-		
 		if(skeleton.SkeletonMain.line.equals("i")) {collides = true;}
 		else if(skeleton.SkeletonMain.line.equals("n")) {collides = false;}
-		else {System.out.print("ERROR: Erv�nytelen bemenet");}
+		else {System.out.print("ERROR: Ervenytelen bemenet");}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -394,7 +392,8 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getVisitable()\n");
 		
-		return visitable;
+		//return visitable;
+		return iv;
 	}
 
 }

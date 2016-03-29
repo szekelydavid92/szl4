@@ -289,87 +289,35 @@ public class MarkoMain {
 	//Doboz felvetele
 	static void case_7(){
 		
-		World world = new World();
-		WorldObject wo1 = new WorldObject();
-		WorldObject wo2 = new WorldObject();
-		Player player = new Player();
-		Box box = new Box();
-		
-		player.worldObject = wo1;
-		box.worldObject = wo2;
-		world.objects.add(wo1);
-		world.objects.add(wo2);
-		wo1.setCollisionObserver(player);
-		wo2.setCollisionObserver(box);
-		wo2.setVisitable(box);
-		
-		System.out.println("O Neill dobozfelemelesenek lehivasa");
-		player.pickUp(true);
-		
-		System.out.println("O Neill es a doboz utkozesenek a tesztelese");
-		world.checkCollision();
-		
+	ONeillTeszt.dobozFelvetel();
 					
 	}
 	//Doboz lerakasa
 	static void case_8(){
-				
-		/*WorldObject o1 = new WorldObject();
-		Player p =	new Player();
-		o1.setCollisionObserver(p);
 		
-		WorldObject boxWorldObjectt = new WorldObject();
-		Box b =	new Box();
-		boxWorldObjectt.setCollisionObserver(b);
-		
-		p.carryBox();*/
-		
-		Player player = new Player();
-		Box box = new Box();
-		WorldObject wo = new WorldObject();
-		wo.name="boxObject";
-		
-		box.worldObject = wo;
-		player.box = box;
-		
-		player.carryBox();
+		ONeillTeszt.dobozLerakas();
 				
 	}
 	//ZPM felvetele
 	static void case_9(){
 						
-		WorldObject o1 = new WorldObject();
-		Player p = new Player();
-		o1.name="playerObject";
-		o1.setCollisionObserver(p);
-		
-		WorldObject o2 = new WorldObject();
-		ZPM	z = new ZPM();
-		o2.setCollisionObserver(z);
-		o2.setVisitable(z);
-		o2.name="zpmObject";
-		
-		World w	= new World();
-		w.addWorldObject(o1);
-		w.addWorldObject(o2);
-		
-		w.checkCollision();
+		ONeillTeszt.zpmFelvetel();
 				
 	}
 	//Ajto nyitasa
 	static void case_10(){
 
-		Box b = new Box();
-		b.name="box";
+		Box box = new Box();
+		box.name="box";
 		WorldObject o1 = new WorldObject();
-		o1.setCollisionObserver(b);
+		o1.setCollisionObserver(box);
 		o1.name="boxObject";
 		
-		Scale s = new Scale();
-		s.name="scale";
+		Scale scale = new Scale();
+		scale.name="scale";
 		WorldObject o2 = new WorldObject();
-		o2.setCollisionObserver(s);
-		o2.setVisitable(s);
+		o2.setCollisionObserver(scale);
+		o2.setVisitable(scale);
 		o2.name="scaleObject";
 		
 		World w = new World();
@@ -377,11 +325,11 @@ public class MarkoMain {
 		w.addWorldObject(o2);
 		
 		
-		Door d = new Door();
-		s.door=d;
-		d.name="door";
+		Door door = new Door();
+		scale.door=door;
+		door.name="door";
 		WorldObject doorObject=new WorldObject();
-		d.worldObject=doorObject;
+		door.worldObject=doorObject;
 		doorObject.name="doorObject";
 		
 		World probaWorld=new World(); 
@@ -389,7 +337,7 @@ public class MarkoMain {
 		GameLoop gameLoop=new GameLoop();
 		gameLoop.world=probaWorld;
 		gameLoop.name="gameLoop";
-		gameLoop.Entites.add(d);
+		gameLoop.Entites.add(door);
 		
 		
 		String line="i"; // menjünk-e egy ciklust
@@ -415,27 +363,7 @@ public class MarkoMain {
 	//Objektum megsemmiselese /player
 	static void case_12() {
 		
-		WorldObject o1 = new WorldObject();
-		o1.name="playerObject";
-		Player p = new Player();
-		p.name="player";
-		o1.setCollisionObserver(p);
-		o1.setVisitable(p);
-		Box box=new Box();
-		box.name="box";
-		p.box=box;
-		
-		WorldObject o2 = new WorldObject();
-		o2.name="chasmObject";
-		Chasm c = new Chasm();
-		c.name="chasm";
-		o2.setCollisionObserver(c);
-		
-		World w = new World();
-		w.addWorldObject(o2);
-		w.addWorldObject(o1);
-		
-		w.checkCollision();
+		ONeillTeszt.oNeillMeghal();
 				
 	}
 	//Objektum megsemmiselese /box
@@ -448,6 +376,7 @@ public class MarkoMain {
 		WorldObject o1 = new WorldObject();
 		o1.name="boxObject";
 		Box b = new Box();
+		b.worldObject=o1;
 		b.name="box";
 		o1.setCollisionObserver(b);
 		o1.setVisitable(b);

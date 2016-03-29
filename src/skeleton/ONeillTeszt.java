@@ -2,9 +2,14 @@ package skeleton;
 
 import java.io.IOException;
 
+
 import bottom_layer.World;
 import bottom_layer.WorldObject;
+import common.ICarriable;
+import upper_layer.entity.Box;
 import upper_layer.entity.Player;
+import upper_layer.reactive.Chasm;
+import upper_layer.reactive.ZPM;
 
 class ONeillTeszt {
 	//O Neill mozgatasa
@@ -73,4 +78,85 @@ class ONeillTeszt {
 			System.out.println("\nO Neill WordlObjectjenek tesztelese:");
 			w.step();
 		}
+		
+		static void zpmFelvetel() {
+			WorldObject o1 = new WorldObject();
+			Player p = new Player();
+			o1.name="playerObject";
+			o1.setCollisionObserver(p);
+			
+			WorldObject o2 = new WorldObject();
+			ZPM	z = new ZPM();
+			o2.setCollisionObserver(z);
+			o2.setVisitable(z);
+			o2.name="zpmObject";
+			
+			World w	= new World();
+			w.addWorldObject(o1);
+			w.addWorldObject(o2);
+			
+			w.checkCollision();
+		
+		}
+		
+		static void oNeillMeghal() {
+			
+			WorldObject o1 = new WorldObject();
+			Player player = new Player();
+			o1.setCollisionObserver(player);
+			o1.setVisitable(player);
+			o1.name="playerWorldOBject";
+			Box box=new Box();
+			player.box=box;
+			
+			WorldObject o2 = new WorldObject();
+			Chasm chasm = new Chasm();
+			o2.setCollisionObserver(chasm);
+			o2.name="chasmWorldObject";
+			
+			World world = new World();
+			world.addWorldObject(o2);
+			world.addWorldObject(o1);
+			
+			world.checkCollision();
+		}
+		
+		static void dobozFelvetel() {
+			World world = new World();
+			WorldObject wo1 = new WorldObject();
+			wo1.name="playerObject";
+			WorldObject wo2 = new WorldObject();
+			wo2.name="boxObject";
+			Player player = new Player();
+			Box box = new Box();
+			
+			player.worldObject = wo1;
+			box.worldObject = wo2;
+			world.objects.add(wo1);
+			world.objects.add(wo2);
+			wo1.setCollisionObserver(player);
+			wo2.setCollisionObserver(box);
+			wo2.setVisitable(box);
+			
+			System.out.println("O Neill dobozfelemelesenek lehivasa");
+			player.pickUp(true);
+			
+			System.out.println("O Neill es a doboz utkozesenek a tesztelese");
+			world.checkCollision();
+			
+		}
+		
+		static void dobozLerakas() {
+			Player player = new Player();
+			Box box = new Box();
+			WorldObject wo = new WorldObject();
+			wo.name="boxObject";
+			
+			box.worldObject = wo;
+			player.box = box;
+			
+			player.carryBox();
+		}
+		
+		
 }

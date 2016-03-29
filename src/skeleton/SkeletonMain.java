@@ -31,29 +31,27 @@ public class SkeletonMain {
 	        try {
 	        	writeCases();
 				line = in.readLine();
-				if(line.equals("1")) 		case_1();
-				else if(line.equals("2")) 	case_2();
-				else if(line.equals("3")) 	case_3();
-				else if(line.equals("4")) 	case_4();
-				//else if(line.equals("5")) 	case_5();
-				else if(line.equals("6")) 	case_6();
-				else if(line.equals("7")) 	case_7();
-				else if(line.equals("8")) 	case_8();
-				else if(line.equals("9")) 	case_9();
-				else if(line.equals("10")) 	case_10();
-				else if(line.equals("11")) 	case_11();
-				else if(line.equals("12")) 	case_12();
-				else if(line.equals("13")) 	case_13();
-				else System.out.println("ERROR: Ervenytelen bemenet!");
+				if(line.equals("0")) 		{ONeillTeszt.ONeillMozgatas();}
+				else if(line.equals("1")) 	{ONeillTeszt.zpmFelvetel();}
+				else if(line.equals("2")) 	{WormholeTest.KekLovedekLovese();}
+				else if(line.equals("3")) 	{WormholeTest.SargaLovedekLovese();}
+				else if(line.equals("4")) 	{WormholeTest.CsillagkapuNyitas();}
+				else if(line.equals("5")) 	{WormholeTest.CsillagkapuAtjaras();}
+				else if(line.equals("6")) 	{ONeillTeszt.dobozFelvetel();}
+				else if(line.equals("7")) 	{ONeillTeszt.dobozLerakas();}
+				else if(line.equals("8")) 	{AjtoDobozTeszt.ajtoNyitasZaras();}
+				else if(line.equals("9")) 	{ONeillTeszt.oNeillMeghal();}
+				else if(line.equals("10")) 	{AjtoDobozTeszt.boxMeghal();}
+				else {break;}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	    }
-	}
+	}/*
 	//O Neill mozgatasa
 	static void case_1() {
-		
+		/ *
 		//System.out.println("Creating objects");
 		Player player = new Player();
 		WorldObject pwo = new WorldObject();
@@ -114,6 +112,8 @@ public class SkeletonMain {
 		
 		System.out.println("\nO Neill WordlObjectjenek tesztelese:");
 		w.step();
+		* /
+		ONeillTeszt.ONeillMozgatas();
 	}
 	
 	
@@ -201,7 +201,7 @@ public class SkeletonMain {
 		
 		System.out.print("Test case 4");
 		projectile.notify(wallObj);
-		*/
+		* /
 		WormholeTest.CsillagkapuNyitas();	
 	}
 	//Kek csillagkapu nyitasa
@@ -231,7 +231,7 @@ public class SkeletonMain {
 >>>>>>> branch 'master' of https://github.com/szekelydavid92/szl4
 		//blue.mask(wall);
 		
-	}*/
+	}* /
 	//Csillagkapu atjaras
 	static void case_6(){/*
 		System.out.print("Initializing test case 5\n");
@@ -280,7 +280,7 @@ public class SkeletonMain {
 			yellowWallObject.notify(obj);
 		} else {
 			blueWallObject.notify(obj);
-		}*/
+		}* /
 		
 		WormholeTest.CsillagkapuAtjaras();
 	}
@@ -318,7 +318,7 @@ public class SkeletonMain {
 		Box b =	new Box();
 		boxWorldObjectt.setCollisionObserver(b);
 		
-		p.carryBox();*/
+		p.carryBox();* /
 		
 		Player p = new Player();
 		Box b = new Box();
@@ -332,7 +332,7 @@ public class SkeletonMain {
 	}
 	//ZPM felvetele
 	static void case_9(){
-						
+						/*
 		WorldObject o1 = new WorldObject();
 		Player p = new Player();
 		o1.name="playerObject";
@@ -348,10 +348,12 @@ public class SkeletonMain {
 		w.addWorldObject(o1);
 		w.addWorldObject(o2);
 		
-		w.checkCollision();
+		w.checkCollision();* /
+		ONeillTeszt.zpmFelvetel();
 				
 	}
 	//Ajto nyitasa
+	/*
 	static void case_10(){
 				
 		WorldObject o1 = new WorldObject();
@@ -371,10 +373,10 @@ public class SkeletonMain {
 		
 		w.checkCollision();
 		
-	}
+	}* /
 	// Ajti zarasa
 	static void case_11(){
-				
+				/*
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();
 		o1.setCollisionObserver(b);
@@ -389,11 +391,12 @@ public class SkeletonMain {
 		w.addWorldObject(o1);
 		w.addWorldObject(o2);
 		
-		w.checkCollision();
+		w.checkCollision();* /
+		AjtoDobozTeszt.ajtoNyitasZaras();
 		
 	}
 	//Objektum megsemmiselese /player
-	static void case_12(){
+	static void case_12(){/*
 		
 		WorldObject o1 = new WorldObject();
 		Player p = new Player();
@@ -407,7 +410,8 @@ public class SkeletonMain {
 		w.addWorldObject(o1);
 		w.addWorldObject(o2);
 		
-		w.checkCollision();
+		w.checkCollision();* /
+		ONeillTeszt.oNeillMeghal();
 				
 	}
 	//Objektum megsemmiselese /box
@@ -416,7 +420,7 @@ public class SkeletonMain {
 		//LoCI!!!
 		//A Chasm-nak nincs IVisitable-je igy amikor le akarjuk kerni a GetVisitable()-t akkor hib�t dob
 		//valahogy lek�ne tiltan mar a wolrd checkCollison-jeben h nem visitelje ha a masik worldobject chasm		
-		
+		/*
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();
 		o1.setCollisionObserver(b);
@@ -438,22 +442,20 @@ public class SkeletonMain {
 		
 		System.out.println(w.objects.size());
 		
-		w.checkCollision();
-				
-	}
+		w.checkCollision();* /
+		AjtoDobozTeszt.boxMeghal();
+	}*/
 	static void writeCases(){
-		System.out.println("\nO Neill mozgatasa[1]");
+		System.out.println("\nO Neill mozgatasa[0]");
+		System.out.println("ZPM felvetele[1]");
 		System.out.println("Sarga lovedek lovese[2]");
 		System.out.println("Kek lovedek lovese[3]");
-		System.out.println("Sarga csillagkapu nyitasa[4]");
-		System.out.println("Kek csillagkapu nyitasa[5]");
-		System.out.println("Csillagkapu atjarasa[6]");
-		System.out.println("Doboz felvetele[7]");
-		System.out.println("Doboz lerakasa[8]");
-		System.out.println("ZPM felvetele[9]");
-		System.out.println("Ajto nyitasa[10]");
-		System.out.println("Ajto zarasa[11]");
-		System.out.println("Player Objektum megsemmisulese[12]");
-		System.out.println("Box Objektum megsemmisulese[13]");
+		System.out.println("Csillagkapu nyitasa[4]");
+		System.out.println("Csillagkapu atjarasa[5]");
+		System.out.println("Doboz felvetele[6]");
+		System.out.println("Doboz lerakasa[7]");
+		System.out.println("Ajto nyitasa es zarasa[8]");
+		System.out.println("Player Objektum megsemmisulese[9]");
+		System.out.println("Box Objektum megsemmisulese[10]");
 	}
 }

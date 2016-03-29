@@ -56,67 +56,7 @@ public class MarkoMain {
 	//O Neill mozgatasa
 	static void case_1() {
 		
-		//System.out.println("Creating objects");
-		Player player = new Player();
-		WorldObject pwo = new WorldObject();
-		pwo.name="playerObject";
-		World world = new World();
-		
-		player.worldObject = pwo;
-		//pwo.setCollisionObserver(p); 
-		//w.addWorldObject(pwo);
-		world.objects.add(pwo);	
-	
-		System.out.println("O Neill vezerlofuggvenyeinek tesztelese");
-		//FEL
-		System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
-		try {
-			line = in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(line.equals("i")) player.moveUp(true);
-		if(line.equals("n")) player.moveUp(false);
-		//LE
-		System.out.println("Kerem, adja meg, hogy O Neill lefele mozogjon-e![i/n]\n");
-		try {
-			line = in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(line.equals("i")) player.moveDown(true);
-		if(line.equals("n")) player.moveDown(false);
-		//JOBBRA
-		System.out.println("Kerem, adja meg, hogy O Neill jobbra mozogjon-e![i/n]\n");
-		try {
-			line = in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(line.equals("i")) 		{player.moveRight(true);}
-		else if(line.equals("n")) 	{player.moveRight(false);}
-		else {
-			System.out.println("ERROR: Ervenytelen bemenet!/n");
-		}
-		//BALRA
-		System.out.println("Kerem, adja meg, hogy O Neill balra mozogjon-e![i/n]\n");
-		try {
-			line = in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(line.equals("i")) player.moveLeft(true);
-		if(line.equals("n")) player.moveLeft(false);
-		
-		System.out.println("\nO Neill jateklogikabeli tesztelese:");
-		player.step();
-		
-		System.out.println("\nO Neill WordlObjectjenek tesztelese:");
-		world.step();
+		ONeillTeszt.ONeillMozgatas();
 	}
 	
 	

@@ -183,7 +183,7 @@ public class SkeletonMain {
 		WormHole wh = new WormHole(null, null);
 		SpecWall sw = new SpecWall();
 		
-		projectile.
+		//projectile.
 		
 		projectile.notify(obj);
 				

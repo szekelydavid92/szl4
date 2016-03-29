@@ -197,7 +197,7 @@ public class Player extends Killable {
 		System.out.print(name + ".shootYellow(true)\n");
 		Depth.getInstance().enterFunction();
 		
-		TMPShootYellow = true;
+		TMPShootYellow = shootingYellow;
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -217,7 +217,7 @@ public class Player extends Killable {
 		System.out.print(name + ".shootBlue(true)\n");
 		Depth.getInstance().enterFunction();
 				
-		TMPShootBlue = true;
+		TMPShootBlue = shootingBlue;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

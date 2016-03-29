@@ -9,49 +9,73 @@ import common.ITeleportable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
+import skeleton.Depth;
 
 /**
  * Lovedek. Amennyiben SpecWall-al utkozik, ott nyit egy WormHole-t.
  */
 public class Projectile implements ICollisionObserver, IVisitor {
+	
+	public String name;
+	
 	@Override
 	public void visit(ISpecWall wall) {
-		//TODO Lorant
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+		
+		//TODO
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
 	}
 
 	
 	@Override
 	public void visit(IKillable killable) {
-		//TODO Lorant
+		//Nem hívódik meg.
 	}
 
 	
 	@Override
 	public void visit(ICarriable carriable) {
-		//TODO Lorant
+		//Nem hívódik meg.
 	}
 	
 
 	@Override
 	public void visit(IZPM zpm) {
-		//TODO Lorant
+		//Nem hívódik meg.
 	}
 
 	
 	@Override
 	public void visit(IScale scale) {
-		//TODO Lorant
+		//Nem hívódik meg.
 	}
 
 	
 	@Override
 	public void visit(ITeleportable teleportable) {
-		//TODO Lorant
+		//Nem hívódik meg.
 	}
 	
 
 	@Override
 	public void notify(IWorldObject obj) {
-		//TODO Lorant
+		
+		//TODO
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".notify()");
+		Depth.getInstance().enterFunction();
+		
+		obj.getVisitable().accept((IVisitor)this);
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".notify()");
+		
 	}
 }

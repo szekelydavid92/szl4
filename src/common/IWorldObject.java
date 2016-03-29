@@ -106,5 +106,5 @@ public interface IWorldObject {
 	 * ha van felso retegbeli reprezentacioja, ha nincs, akkor null-t ad.
 	 * @return IVisitable
 	 */
-	public IVisitable getIVisitable();
+	public IVisitable getVisitable();
 }

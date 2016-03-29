@@ -3,14 +3,14 @@ package bottom_layer;
 import common.IWorldObjectFactory;
 
 /**
- * Õ hozza létre a WorldObject-et.
+ * O hozza letre a WorldObject-et.
  */
 public class WorldObjectFactory implements IWorldObjectFactory {
 
 	/**
-	 * IWorldObject interfészt megvalósító osztály példányt hoz létre.
-	 * @param width Létrehozandó objektum szélessége.
-	 * @param height Létrehozandó objektum magassága.
+	 * IWorldObject interfeszt megvalosito osztaly peldanyt hoz letre.
+	 * @param width Letrehozando objektum szelessege.
+	 * @param height Letrehozando objektum magassaga.
 	 * @return IWorldObject
 	 */
 	@Override

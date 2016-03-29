@@ -1,5 +1,7 @@
 package bottom_layer;
 
+import java.io.IOException;
+
 import common.CollisionResponse;
 import common.ICollisionObserver;
 import common.IVisitable;
@@ -42,6 +44,8 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".step()");
 		Depth.getInstance().enterFunction();
+		
+		
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -214,8 +218,7 @@ public class WorldObject implements IWorldObject {
 	 * @param o A masik WorldObject.
 	 * @return boolean
 	 */
-	public boolean checkCollision(WorldObject o)
-	{
+	public boolean checkCollision(WorldObject o){
 		boolean collides = false;
 		
 		Depth.getInstance().printTabs();
@@ -224,6 +227,17 @@ public class WorldObject implements IWorldObject {
 		
 		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
 		//TODO: Meg kell kerdezni a tesztelotol, hogy milyen bemenetet adjunk a collides-nak.
+		// HERE 
+		
+		try {
+			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(skeleton.SkeletonMain.line.equals("i")) {collides = true;}
+		else if(skeleton.SkeletonMain.line.equals("n")) {collides = false;}
+		else System.out.print("ERROR: Ervénytelen bemenet");	
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -362,6 +376,14 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".notify()");
+	}
+
+
+	@Override
+	public IVisitable getVisitable() {
+		// TODO Auto-generated method stub
+		
+		return null;
 	}
 
 }

@@ -22,7 +22,7 @@ public class GameLoop {
 	public String name = "gameLoop"; //O kell az objektum nevenek a kiprintelesehez!
 	
 	/*
-	 * Ok az asszociaciakat ill. kompozi­ciokat
+	 * Ok az asszociaciakat ill. kompoziciokat
 	 * megvalosito referenciak.
 	 * A tesztesetek felallitasanak egyszerusitese
 	 * erdekeben publikusak.

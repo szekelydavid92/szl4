@@ -11,7 +11,7 @@ import common.IWorldObject;
  * Azon osztolyok orokolnek ebbol az absztrakt osztalybol, akiknek a peldanyainak
  * van also retegbeli reprezentacioja, minden iteracioban elorelepteti az allapotat, es megolheto.
  */
-public abstract class Killable implements IKillable, IVisitor, IVisitable, ICollisionObserver {
+public abstract class Killable extends ColEntity implements IKillable, IVisitor, IVisitable, ICollisionObserver {
 	/**
 	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
 	 * @return void

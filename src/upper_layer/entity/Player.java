@@ -6,6 +6,7 @@ import common.ISpecWall;
 import common.ITeleportable;
 import common.IWorldObject;
 import common.IZPM;
+import skeleton.Depth;
 
 /**
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
@@ -17,8 +18,19 @@ public class Player extends Killable {
 	 */
 	
 	private double posX, posY;
+	public String name; //O kell az objektum nevenek a kiprintelesehez!
 	
-	public void forcedRelelease() {}
+	public void forcedRelelease() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".forcedRelelease()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".forcedRelelease()");
+		
+	}
 	
 	/*
 	 * segédfv, egy adott poziciorol eldönti, hogy az az
@@ -27,6 +39,13 @@ public class Player extends Killable {
 	 * 
 	 */
 	private boolean validPos(double x, double y){
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".validPos()");
+		Depth.getInstance().enterFunction();
+			
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".validPos()");
 		return true;
 	}
 	
@@ -37,13 +56,21 @@ public class Player extends Killable {
 	 * @return void
 	 */
 	public void teleport(double x, double y) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".teleport()");
+		Depth.getInstance().enterFunction();
+			
 		if(validPos(x, y)){
 			posX = x;
 			posY = y;
-		} else {
-			
+		} else {	
 		}
 		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".teleport()");
+	
 	}
 	
 	
@@ -52,7 +79,15 @@ public class Player extends Killable {
 	 * @param up ???????
 	 * @return void
 	 */
-	public void moveUp(boolean up) {}
+	public void moveUp(boolean up) {
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".moveUp()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".moveUp()");
+	}
 	
 	
 	/**
@@ -60,7 +95,17 @@ public class Player extends Killable {
 	 * @param down ???????
 	 * @return void
 	 */
-	public void moveDown(boolean down) {}
+	public void moveDown(boolean down) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".moveDown()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".moveDown()");
+		
+	}
 	
 	
 	/**
@@ -68,7 +113,17 @@ public class Player extends Killable {
 	 * @param left ???????
 	 * @return void
 	 */
-	public void moveLeft(boolean left) {}
+	public void moveLeft(boolean left) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".moveLeft()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".moveLeft()");
+		
+	}
 	
 	
 	/**
@@ -76,7 +131,17 @@ public class Player extends Killable {
 	 * @param right ???????
 	 * @return void
 	 */
-	public void moveRight(boolean right) {}
+	public void moveRight(boolean right) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".moveRight()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".moveRight()");
+		
+	}
 	
 	
 	/**
@@ -84,7 +149,17 @@ public class Player extends Killable {
 	 * @param pick ???????
 	 * @return void
 	 */
-	public void pickUp(boolean pick) {}
+	public void pickUp(boolean pick) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".pickUp()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".pickUp()");
+		
+	}
 	
 	
 	/**
@@ -93,7 +168,17 @@ public class Player extends Killable {
 	 * @param y Az y koordinata.
 	 * @return void
 	 */
-	public void lookAt(double x,double y) {}
+	public void lookAt(double x,double y) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".lookAt()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".lookAt()");
+		
+	}
 	
 	
 	/**
@@ -101,7 +186,17 @@ public class Player extends Killable {
 	 * @param shootingYellow ???????
 	 * @return void
 	 */
-	public void shootYellow(boolean shootingYellow) {}
+	public void shootYellow(boolean shootingYellow) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".shootYellow()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".shootYellow()");
+		
+	}
 	
 	
 	/**
@@ -109,76 +204,190 @@ public class Player extends Killable {
 	 * @param shootingBlue ???????
 	 * @return void
 	 */
-	public void shootBlue(boolean shootingBlue) {}
+	public void shootBlue(boolean shootingBlue) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".shootBlue()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".shootBlue()");
+		
+	}
 	
 	
 	/**
 	 * Ezzel lehet megolni a jatekost.
 	 * @return void
 	 */
-	public void kill() {}
+	public void kill() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".kill()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".kill()");
+		
+	}
 	
 	
 	/**
 	 * Ez a fuggveny lepteti elore az allapotat az idoben.
 	 * @return void
 	 */
-	public void step() {}
+	public void step() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".step()");
+		Depth.getInstance().enterFunction();
+		
+		move();
+		carryBox();
+		shoot();
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".step()");
+		
+	}
 	
 	
 	/**
 	 * Ez a fuggveny valositja meg a jatekos mozgasat.
 	 * @return void
 	 */
-	public void move() {}
+	public void move() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".move()");
+		Depth.getInstance().enterFunction();
+		
+		double normalizedDirectionX = 0;
+		double normalizedDirectionY = 0;
+		worldObject.setDisplacementX(normalizedDirectionX);
+		worldObject.setDisplacementY(normalizedDirectionY);
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".move()");
+		
+	}
 	
 	
 	/**
 	 * Ez a fuggveny valositja meg a doboz cipeleset.
 	 * @return void
 	 */
-	public void carryBox() {}
+	public void carryBox() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".carryBox()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".carryBox()");
+		
+	}
 	
 	
 	/**
 	 * Ez a fuggveny valositja meg a lovest.
 	 * @return void
 	 */
-	public void shoot() {}
+	public void shoot() {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".shoot()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".shoot()");
+		
+	}
 	
 	
 	@Override
 	public void visit(ISpecWall wall) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
 		//TODO Lorant
 	}
 
 	
 	@Override
 	public void visit(IKillable killable) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
 		//TODO Lorant
 	}
 
 	
 	@Override
 	public void visit(ICarriable carriable) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
+		
 		//TODO Lorant
 	}
 
 	
 	@Override
 	public void visit(IZPM zpm) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
+		
 		//TODO Lorant
 	}
 
 	
 	@Override
 	public void visit(ITeleportable teleportable) {
+		
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".visit()");
+		Depth.getInstance().enterFunction();
+				
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".visit()");
+		
 		//TODO Lorant
 	}
 
 	
 	@Override
 	public void notify(IWorldObject obj) {
+		
 		//TODO Lorant
+		obj.getVisitable();
 	}
 }

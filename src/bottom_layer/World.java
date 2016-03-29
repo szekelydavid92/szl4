@@ -62,7 +62,7 @@ public class World {
 		System.out.print(name + ".step()\n");
 		Depth.getInstance().enterFunction();
 		
-		for(int i=0; i<objects.size(); i++){
+		for(int i=0; i<objects.size(); i++) {
 			objects.get(i).step();
 		}
 		

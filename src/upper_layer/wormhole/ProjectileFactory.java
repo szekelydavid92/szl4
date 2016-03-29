@@ -20,7 +20,7 @@ public class ProjectileFactory implements IProjectileFactory {
 		System.out.print(name + ".createProjectile()\n");
 		Depth.getInstance().enterFunction();
 		
-		
+		iwo.createObject(12, 12);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

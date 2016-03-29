@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import bottom_layer.World;
 import bottom_layer.WorldObject;
+import bottom_layer.WorldObjectFactory;
 import upper_layer.entity.Box;
 import upper_layer.entity.Door;
 import upper_layer.entity.Player;
@@ -118,21 +119,22 @@ public class SkeletonMain {
 	static void case_2() { //Sarga lovedek lovese
 				
 		System.out.println("Creating objects");
-		
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();
 		ProjectileFactory pf = new ProjectileFactory();
+		WorldObjectFactory wof = new WorldObjectFactory();
 		
 		p.worldObject = pwo;
 		p.projFactory = pf;
-		pwo.setCollisionObserver(p);
+		pf.iwo = wof;
+		
+		pwo.setCollisionObserver(p);//elvileg nem kell ide
 		
 		System.out.println("\nO Neill lovesenek lehivasa");
 		p.shootYellow(true);
 		
 		System.out.println("O Neill viselkedese");
 		p.shoot();
-		//TODO LORANT
 				
 	}
 	

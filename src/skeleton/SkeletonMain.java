@@ -176,12 +176,17 @@ public class SkeletonMain {
 		Stargate yellow = new Stargate();
 		yellow.mask(wall);	*/	
 		
-		
+
+		Projectile projectile = new Projectile();
 		
 		WorldObject obj = new WorldObject();
-		Projectile projectile = new Projectile();
-		WormHole wh = new WormHole(null, null);
-		SpecWall sw = new SpecWall();
+		WormHole wormHole = new WormHole();
+		SpecWall specWall = new SpecWall();
+		SpecWall masked = new SpecWall();
+		
+		projectile.wormHole = wormHole;
+		
+		obj.visitable = specWall;
 		
 		//projectile.
 		
@@ -189,7 +194,7 @@ public class SkeletonMain {
 				
 	}
 	//Kek csillagkapu nyitasa
-	static void case_5(){
+	/*static void case_5(){
 				
 		WorldObject projectileWO = new WorldObject();
 		Projectile projectile = new Projectile();
@@ -201,13 +206,12 @@ public class SkeletonMain {
 		
 		projectileWO.notify(obj); //innen indul
 		
-		WormHole wh = new WormHole(null,null);
+		WormHole wh = new WormHole();
 		wh.setBlue(wall);
 		
-		Stargate blue = new Stargate();
-		blue.mask(wall);
+		//blue.mask(wall);
 		
-	}
+	}*/
 	//Csillagkapu atjaras
 	static void case_6(){
 				
@@ -216,12 +220,11 @@ public class SkeletonMain {
 		obj.setCollisionObserver(pl);
 		
 		WorldObject wallObject = new WorldObject();
-		Stargate s = new Stargate();
 		wallObject.setCollisionObserver(s);
 		
 		wallObject.notify(obj);
 		
-		WormHole wh = new WormHole(null,null);
+		WormHole wh = new WormHole();
 				
 	}
 	
@@ -352,8 +355,8 @@ public class SkeletonMain {
 	static void case_13(){
 		
 		//LoCI!!!
-		//A Chasm-nak nincs IVisitable-je igy amikor le akarjuk kerni a GetVisitable()-t akkor hibát dob
-		//valahogy lekéne tiltan mar a wolrd checkCollison-jeben h nem visitelje ha a masik worldobject chasm		
+		//A Chasm-nak nincs IVisitable-je igy amikor le akarjuk kerni a GetVisitable()-t akkor hibï¿½t dob
+		//valahogy lekï¿½ne tiltan mar a wolrd checkCollison-jeben h nem visitelje ha a masik worldobject chasm		
 		
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();

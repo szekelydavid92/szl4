@@ -6,8 +6,12 @@ import common.IProjectileFactory;
 import common.ISpecWall;
 import common.ITeleportable;
 import common.IVisitor;
+import common.IVisitable;
 import common.IWorldObject;
 import common.IZPM;
+
+import java.io.IOException;
+
 import common.Colour;
 import skeleton.Depth;
 
@@ -23,6 +27,7 @@ public class Player extends Killable implements ITeleportable {
 	private double posX, posY;
 	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	public IProjectileFactory projFactory;
+	public ICarriable box;
 	private boolean TMPShootYellow = false; //teszteles miatt
 	private boolean TMPShootBlue = false; 	//teszteles miatt
 	
@@ -167,6 +172,8 @@ public class Player extends Killable implements ITeleportable {
 		System.out.print(name + ".pickUp(" + pick + ")\n");
 		Depth.getInstance().enterFunction();
 		
+		
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".pickUp()\n");
@@ -302,7 +309,35 @@ public class Player extends Killable implements ITeleportable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".carryBox()\n");
 		Depth.getInstance().enterFunction();
-				
+
+		System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
+		try {
+			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(skeleton.SkeletonMain.line == "i")
+			box.setPos(12, 12);
+		if(skeleton.SkeletonMain.line == "n") {
+			Depth.getInstance().returnFromFunction();
+			Depth.getInstance().printTabs();
+			System.out.print("ret " + name + ".carryBox()\n");
+			return;
+		}
+		
+		System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
+		try {
+			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(skeleton.SkeletonMain.line == "i")
+			box.release();
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".carryBox()\n");
@@ -377,13 +412,20 @@ public class Player extends Killable implements ITeleportable {
 		//TODO Lorant
 	}
 
-	
+	/**
+	 * Meglatogatunk egy ZPM objektumot es felvesszuk.
+	 * @param zpm: mutato a ZPM objektumra.
+	 * @return void
+	 */
 	@Override
 	public void visit(IZPM zpm) {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
+		
+		if (zpm != null)
+		zpm.pickUp();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -410,8 +452,18 @@ public class Player extends Killable implements ITeleportable {
 	
 	@Override
 	public void notify(IWorldObject obj) {
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".notify(" + "zmpObject" + ")\n");
+		Depth.getInstance().enterFunction();	
 		
-		//TODO Lorant
-		obj.getVisitable();
+		IVisitable visitable=obj.getVisitable();
+		if (visitable != null)
+			visitable.accept(this);
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".notify() \n");
+		
+		
 	}
 }

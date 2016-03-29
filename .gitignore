@@ -1,1 +1,5 @@
 /bin/
+/compile.bat
+/compile.sh
+/exec.bat
+/exec.sh

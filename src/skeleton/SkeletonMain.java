@@ -181,6 +181,7 @@ public class SkeletonMain {
 		
 		WorldObject wallObj = new WorldObject();
 		WorldObject maskedWallObj = new WorldObject();
+		
 		WormHole wormHole = new WormHole();
 		SpecWall specWall = new SpecWall();
 		SpecWall maskedWall = new SpecWall();
@@ -197,6 +198,7 @@ public class SkeletonMain {
 		
 		System.out.print("Initialization finished.\n");
 		//projectile.
+		
 		System.out.print("Test case 4");
 		projectile.notify(wallObj);
 				
@@ -204,19 +206,28 @@ public class SkeletonMain {
 	//Kek csillagkapu nyitasa
 	/*static void case_5(){
 				
-		WorldObject projectileWO = new WorldObject();
-		Projectile projectile = new Projectile();
-		projectileWO.setCollisionObserver(projectile);
+	//	WorldObject projectileWO = new WorldObject();
+		//Projectile projectile = new Projectile();
+		//projectileWO.setCollisionObserver(projectile);
 		
-		WorldObject obj = new WorldObject();
-		SpecWall wall = new SpecWall();
-		obj.setCollisionObserver(wall);
+		//WorldObject obj = new WorldObject();
+		//SpecWall wall = new SpecWall();
+		//obj.setCollisionObserver(wall);
 		
-		projectileWO.notify(obj); //innen indul
+	//	projectileWO.notify(obj); //innen indul
 		
+<<<<<<< HEAD
+	//	WormHole wh = new WormHole(null,null);
+	//	wh.setBlue(wall);
+=======
 		WormHole wh = new WormHole();
 		wh.setBlue(wall);
+>>>>>>> branch 'master' of https://github.com/szekelydavid92/szl4
 		
+<<<<<<< HEAD
+//		Stargate blue = new Stargate();
+=======
+>>>>>>> branch 'master' of https://github.com/szekelydavid92/szl4
 		//blue.mask(wall);
 		
 	}*/
@@ -227,6 +238,10 @@ public class SkeletonMain {
 		Player player = new Player();
 		obj.visitable = player;
 		obj.setCollisionObserver(player);
+				
+		//WorldObject obj = new WorldObject();
+		//Player pl = new Player();
+		//obj.setCollisionObserver(pl);
 		
 		WorldObject yellowWallObject = new WorldObject();
 		WorldObject blueWallObject = new WorldObject();
@@ -239,8 +254,9 @@ public class SkeletonMain {
 		yellowWallObject.setCollisionObserver(wormHole.yellowGate);
 		blueWallObject.setCollisionObserver(wormHole.blueGate);
 		//wallObject.setCollisionObserver(s);
-		
+
 		System.out.print("Initialization finished.\n");
+//		wallObject.notify(obj);
 		
 		/*
 		 * Ebben elter a specifikacotol! Elore kell megadni, hogy a
@@ -292,13 +308,22 @@ public class SkeletonMain {
 	//Doboz lerakasa
 	static void case_8(){
 				
-		WorldObject o1 = new WorldObject();
+		/*WorldObject o1 = new WorldObject();
 		Player p =	new Player();
 		o1.setCollisionObserver(p);
 		
 		WorldObject boxWorldObjectt = new WorldObject();
 		Box b =	new Box();
 		boxWorldObjectt.setCollisionObserver(b);
+		
+		p.carryBox();*/
+		
+		Player p = new Player();
+		Box b = new Box();
+		WorldObject wo = new WorldObject();
+		
+		b.worldObject = wo;
+		p.box = b;
 		
 		p.carryBox();
 				
@@ -308,11 +333,14 @@ public class SkeletonMain {
 						
 		WorldObject o1 = new WorldObject();
 		Player p = new Player();
+		o1.name="playerObject";
 		o1.setCollisionObserver(p);
 		
 		WorldObject o2 = new WorldObject();
 		ZPM	z = new ZPM();
 		o2.setCollisionObserver(z);
+		o2.setVisitable(z);
+		o2.name="zpmObject";
 		
 		World w	= new World();
 		w.addWorldObject(o1);

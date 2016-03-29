@@ -35,5 +35,7 @@ public class WorldObjectFactory implements IWorldObjectFactory {
 		
 		return worldObject;
 	}
+	
+	
 
 }

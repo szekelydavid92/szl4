@@ -8,8 +8,8 @@ import java.util.Vector;
 import skeleton.Depth;
 
 /**
- * Ez az az osztály reprezentálja a virtuális világot. Tartarmaz egy WorldObject tömböt.
- * Fõ feladata, hogy a tömb elemeit léptesse az idõben.
+ * Ez az az osztaly reprezentalja a virtualis vilagot. Tartalmaz egy WorldObject tombot.
+ * Fo feladata, hogy a tomb elemeit leptesse az idoben.
  */
 public class World {
 	
@@ -20,7 +20,7 @@ public class World {
 		objects = new Vector<WorldObject>();
 	}
 	
-	//Ütközés ellenõrzés.
+	//Utkozes ellenorzes.
 	public void checkCollision() {
 		
 		Depth.getInstance().printTabs();
@@ -47,7 +47,7 @@ public class World {
 	};
 	
 	/**
-	 * Léptetés megvalósítása.
+	 * Leptetes megvalositasa.
 	 * @return void
 	 */
 	public void step() {

@@ -18,17 +18,17 @@ public class Player extends Killable {
 	 */
 	
 	private double posX, posY;
-	public String name; //O kell az objektum nevenek a kiprintelesehez!
+	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	
 	public void forcedRelelease() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".forcedRelelease()");
+		System.out.print(name + ".forcedRelelease()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".forcedRelelease()");
+		System.out.print("ret " + name + ".forcedRelelease()\n");
 		
 	}
 	
@@ -40,12 +40,12 @@ public class Player extends Killable {
 	 */
 	private boolean validPos(double x, double y){
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".validPos()");
+		System.out.print(name + ".validPos()\n");
 		Depth.getInstance().enterFunction();
 			
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".validPos()");
+		System.out.print("ret " + name + ".validPos()\n");
 		return true;
 	}
 	
@@ -58,7 +58,7 @@ public class Player extends Killable {
 	public void teleport(double x, double y) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".teleport()");
+		System.out.print(name + ".teleport()\n");
 		Depth.getInstance().enterFunction();
 			
 		if(validPos(x, y)){
@@ -69,7 +69,7 @@ public class Player extends Killable {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".teleport()");
+		System.out.print("ret " + name + ".teleport()\n");
 	
 	}
 	
@@ -81,12 +81,12 @@ public class Player extends Killable {
 	 */
 	public void moveUp(boolean up) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".moveUp()");
+		System.out.print(name + ".moveUp()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".moveUp()");
+		System.out.print("ret " + name + ".moveUp()\n");
 	}
 	
 	
@@ -98,12 +98,12 @@ public class Player extends Killable {
 	public void moveDown(boolean down) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".moveDown()");
+		System.out.print(name + ".moveDown()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".moveDown()");
+		System.out.print("ret " + name + ".moveDown()\n");
 		
 	}
 	
@@ -116,12 +116,12 @@ public class Player extends Killable {
 	public void moveLeft(boolean left) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".moveLeft()");
+		System.out.print(name + ".moveLeft()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".moveLeft()");
+		System.out.print("ret " + name + ".moveLeft()\n");
 		
 	}
 	
@@ -134,12 +134,12 @@ public class Player extends Killable {
 	public void moveRight(boolean right) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".moveRight()");
+		System.out.print(name + ".moveRight()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".moveRight()");
+		System.out.print("ret " + name + ".moveRight()\n");
 		
 	}
 	
@@ -152,12 +152,12 @@ public class Player extends Killable {
 	public void pickUp(boolean pick) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".pickUp()");
+		System.out.print(name + ".pickUp()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".pickUp()");
+		System.out.print("ret " + name + ".pickUp()\n");
 		
 	}
 	
@@ -171,12 +171,12 @@ public class Player extends Killable {
 	public void lookAt(double x,double y) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".lookAt()");
+		System.out.print(name + ".lookAt()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".lookAt()");
+		System.out.print("ret " + name + ".lookAt()\n");
 		
 	}
 	
@@ -189,12 +189,12 @@ public class Player extends Killable {
 	public void shootYellow(boolean shootingYellow) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".shootYellow()");
+		System.out.print(name + ".shootYellow()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".shootYellow()");
+		System.out.print("ret " + name + ".shootYellow()\n");
 		
 	}
 	
@@ -207,12 +207,12 @@ public class Player extends Killable {
 	public void shootBlue(boolean shootingBlue) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".shootBlue()");
+		System.out.print(name + ".shootBlue()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".shootBlue()");
+		System.out.print("ret " + name + ".shootBlue()\n");
 		
 	}
 	
@@ -224,12 +224,12 @@ public class Player extends Killable {
 	public void kill() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".kill()");
+		System.out.print(name + ".kill()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".kill()");
+		System.out.print("ret " + name + ".kill()\n");
 		
 	}
 	
@@ -241,7 +241,7 @@ public class Player extends Killable {
 	public void step() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".step()");
+		System.out.print(name + ".step()\n");
 		Depth.getInstance().enterFunction();
 		
 		move();
@@ -250,7 +250,7 @@ public class Player extends Killable {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".step()");
+		System.out.print("ret " + name + ".step()\n");
 		
 	}
 	
@@ -262,7 +262,7 @@ public class Player extends Killable {
 	public void move() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".move()");
+		System.out.print(name + ".move()\n");
 		Depth.getInstance().enterFunction();
 		
 		double normalizedDirectionX = 0;
@@ -272,7 +272,7 @@ public class Player extends Killable {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".move()");
+		System.out.print("ret " + name + ".move()\n");
 		
 	}
 	
@@ -284,12 +284,12 @@ public class Player extends Killable {
 	public void carryBox() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".carryBox()");
+		System.out.print(name + ".carryBox()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".carryBox()");
+		System.out.print("ret " + name + ".carryBox()\n");
 		
 	}
 	
@@ -301,12 +301,12 @@ public class Player extends Killable {
 	public void shoot() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".shoot()");
+		System.out.print(name + ".shoot()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".shoot()");
+		System.out.print("ret " + name + ".shoot()\n");
 		
 	}
 	
@@ -315,12 +315,12 @@ public class Player extends Killable {
 	public void visit(ISpecWall wall) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.print("ret " + name + ".visit()\n");
 		//TODO Lorant
 	}
 
@@ -329,12 +329,12 @@ public class Player extends Killable {
 	public void visit(IKillable killable) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.print("ret " + name + ".visit()\n");
 		//TODO Lorant
 	}
 
@@ -343,12 +343,12 @@ public class Player extends Killable {
 	public void visit(ICarriable carriable) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.print("ret " + name + ".visit()\n");
 		
 		//TODO Lorant
 	}
@@ -358,12 +358,12 @@ public class Player extends Killable {
 	public void visit(IZPM zpm) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.print("ret " + name + ".visit()\n");
 		
 		//TODO Lorant
 	}
@@ -373,12 +373,12 @@ public class Player extends Killable {
 	public void visit(ITeleportable teleportable) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.print("ret " + name + ".visit()\n");
 		
 		//TODO Lorant
 	}

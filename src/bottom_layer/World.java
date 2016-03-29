@@ -24,7 +24,7 @@ public class World {
 	public void checkCollision() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".checkCollision()");
+		System.out.print(name + ".checkCollision()\n");
 		Depth.getInstance().enterFunction();
 		
 		WorldObject temp1,temp2;
@@ -43,7 +43,7 @@ public class World {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".checkCollision()");
+		System.out.print("ret " + name + ".checkCollision()\n");
 		
 	};
 	
@@ -54,7 +54,7 @@ public class World {
 	public void step() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".step()");
+		System.out.print(name + ".step()\n");
 		Depth.getInstance().enterFunction();
 		
 		for(int i=0; i<objects.size(); i++){
@@ -63,7 +63,7 @@ public class World {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".checkCollision()");
+		System.out.print("ret " + name + ".checkCollision()\n");
 		
 	}	
 	
@@ -73,25 +73,25 @@ public class World {
 	public void addWorldObject(WorldObject obj){
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".addWorldObject()");
+		System.out.print(name + ".addWorldObject()\n");
 		Depth.getInstance().enterFunction();
 		
 		objects.add(obj);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".addWorldObject()");
+		System.out.print("ret " + name + ".addWorldObject()\n");
 	}
 	
 	public WorldObject getWorldObject(int n){
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".getWorldObject()");
+		System.out.print(name + ".getWorldObject()\n");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".getWorldObject()");
+		System.out.print("ret " + name + ".getWorldObject()\n");
 		
 		return objects.get(n);
 	}
@@ -99,12 +99,12 @@ public class World {
 	public List<WorldObject> getAllWorldObject(){
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".getAllWorldObject()");
+		System.out.print(name + ".getAllWorldObject()\n");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".getAllWorldObject()");
+		System.out.print("ret " + name + ".getAllWorldObject()\n");
 		
 		return objects;
 	}

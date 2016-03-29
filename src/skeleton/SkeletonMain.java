@@ -54,12 +54,13 @@ public class SkeletonMain {
 		
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();
+		p.worldObject = pwo;
 		pwo.setCollisionObserver(p);
 		
 		World w = new World();
 		w.addWorldObject(pwo);
 				
-		System.out.println("O Neill vezerlofuggvenyeinek tesztelese\n");
+		System.out.println("\nO Neill vezerlofuggvenyeinek tesztelese\n");
 		//FEL
 		System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
 		try {
@@ -104,7 +105,10 @@ public class SkeletonMain {
 		if(line.equals("i")) p.moveLeft(true);
 		if(line.equals("n")) p.moveLeft(false);
 		
+		System.out.println("\nO Neill jateklogikabeli tesztelese:");
 		p.step();
+		
+		System.out.println("\nO Neill WordlObjectjenek tesztelese:");
 		w.step();
 	}
 	
@@ -314,7 +318,7 @@ public class SkeletonMain {
 				
 	}
 	static void writeCases(){
-		System.out.println("O Neill mozgatasa[1]");
+		System.out.println("\nO Neill mozgatasa[1]");
 		System.out.println("Sarga lovedek lovese[2]");
 		System.out.println("Kek lovedek lovese[3]");
 		System.out.println("Sarga csillagkapu nyitasa[4]");

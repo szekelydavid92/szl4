@@ -28,12 +28,15 @@ public class Box extends Killable implements ICarriable {
 	public void setPos(double x, double y) {
 		
 		Depth.getInstance().printTabs();
-		System.out.println(name + ".setPos()");
+		System.out.println(name + ".setPos()\n");
 		Depth.getInstance().enterFunction();
+		
+		worldObject.setPosX(x);
+		worldObject.setPosY(y);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".setPos()");
+		System.out.println("ret " + name + ".setPos()\n");
 		
 	}	
 	

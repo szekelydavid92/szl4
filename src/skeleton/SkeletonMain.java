@@ -253,7 +253,7 @@ public class SkeletonMain {
 	//Doboz lerakasa
 	static void case_8(){
 				
-		WorldObject o1 = new WorldObject();
+		/*WorldObject o1 = new WorldObject();
 		Player p =	new Player();
 		o1.setCollisionObserver(p);
 		
@@ -261,7 +261,20 @@ public class SkeletonMain {
 		Box b =	new Box();
 		boxWorldObjectt.setCollisionObserver(b);
 		
+		p.carryBox();*/
+		
+		Player p = new Player();
+		Box b = new Box();
+		WorldObject wo = new WorldObject();
+		
+		b.worldObject = wo;
+		
 		p.carryBox();
+		System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
+		line = in.readLine();
+		
+		if(line == "i")
+			b.setPos(12, 12);
 				
 	}
 	//ZPM felvetele

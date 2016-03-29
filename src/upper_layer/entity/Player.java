@@ -295,6 +295,8 @@ public class Player extends Killable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".carryBox()\n");
 		Depth.getInstance().enterFunction();
+		
+		
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

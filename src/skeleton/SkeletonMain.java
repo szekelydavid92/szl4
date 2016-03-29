@@ -55,11 +55,11 @@ public class SkeletonMain {
 	static void case_1() {
 		
 		//System.out.println("Creating objects");
-		Player p = new Player();
+		Player player = new Player();
 		WorldObject pwo = new WorldObject();
 		World w = new World();
 		
-		p.worldObject = pwo;
+		player.worldObject = pwo;
 		//pwo.setCollisionObserver(p); 
 		//w.addWorldObject(pwo);
 		w.objects.add(pwo);	
@@ -73,8 +73,8 @@ public class SkeletonMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) p.moveUp(true);
-		if(line.equals("n")) p.moveUp(false);
+		if(line.equals("i")) player.moveUp(true);
+		if(line.equals("n")) player.moveUp(false);
 		//LE
 		System.out.println("Kerem, adja meg, hogy O Neill lefele mozogjon-e![i/n]\n");
 		try {
@@ -83,8 +83,8 @@ public class SkeletonMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) p.moveDown(true);
-		if(line.equals("n")) p.moveDown(false);
+		if(line.equals("i")) player.moveDown(true);
+		if(line.equals("n")) player.moveDown(false);
 		//JOBBRA
 		System.out.println("Kerem, adja meg, hogy O Neill jobbra mozogjon-e![i/n]\n");
 		try {
@@ -93,8 +93,8 @@ public class SkeletonMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) 		{p.moveRight(true);}
-		else if(line.equals("n")) 	{p.moveRight(false);}
+		if(line.equals("i")) 		{player.moveRight(true);}
+		else if(line.equals("n")) 	{player.moveRight(false);}
 		else {
 			System.out.println("ERROR: Ervenytelen bemenet!/n");
 		}
@@ -106,11 +106,11 @@ public class SkeletonMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) p.moveLeft(true);
-		if(line.equals("n")) p.moveLeft(false);
+		if(line.equals("i")) player.moveLeft(true);
+		if(line.equals("n")) player.moveLeft(false);
 		
 		System.out.println("\nO Neill jateklogikabeli tesztelese:");
-		p.step();
+		player.step();
 		
 		System.out.println("\nO Neill WordlObjectjenek tesztelese:");
 		w.step();
@@ -174,7 +174,7 @@ public class SkeletonMain {
 		wh1.setYellow(wall);
 		
 		Stargate yellow = new Stargate();
-		yellow.mask(wall);	*/	
+		yellow.mask(wall);	*/	/*
 		
 		System.out.print("Initializing test case 4\n");
 		Projectile projectile = new Projectile();
@@ -201,7 +201,8 @@ public class SkeletonMain {
 		
 		System.out.print("Test case 4");
 		projectile.notify(wallObj);
-				
+		*/
+		WormholeTest.CsillagkapuNyitas();	
 	}
 	//Kek csillagkapu nyitasa
 	/*static void case_5(){
@@ -232,7 +233,7 @@ public class SkeletonMain {
 		
 	}*/
 	//Csillagkapu atjaras
-	static void case_6(){
+	static void case_6(){/*
 		System.out.print("Initializing test case 5\n");
 		WorldObject obj = new WorldObject();
 		Player player = new Player();
@@ -261,7 +262,7 @@ public class SkeletonMain {
 		/*
 		 * Ebben elter a specifikacotol! Elore kell megadni, hogy a
 		 * sárga vagy a kék kapun megyunk be
-		 */
+		 * /
 		boolean isYellow = true;
 		System.out.println("Kerem, adja meg, hogy melyik (sarga vagy kek) portalba lepett![s/k]\n");
 		try {
@@ -279,8 +280,9 @@ public class SkeletonMain {
 			yellowWallObject.notify(obj);
 		} else {
 			blueWallObject.notify(obj);
-		}
-				
+		}*/
+		
+		WormholeTest.CsillagkapuAtjaras();
 	}
 	
 	//Doboz felvetele

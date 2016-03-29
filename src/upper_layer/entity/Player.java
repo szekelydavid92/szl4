@@ -27,7 +27,7 @@ public class Player extends Killable implements ITeleportable {
 	private double posX, posY;
 	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	public IProjectileFactory projFactory;
-	public ICarriable box;
+	public ICarriable box = null;
 	private boolean TMPShootYellow = false; //teszteles miatt
 	private boolean TMPShootBlue = false; 	//teszteles miatt
 	
@@ -309,34 +309,40 @@ public class Player extends Killable implements ITeleportable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".carryBox()\n");
 		Depth.getInstance().enterFunction();
-
-		System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
-		try {
-			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		if(skeleton.SkeletonMain.line == "i")
-			box.setPos(12, 12);
-		if(skeleton.SkeletonMain.line == "n") {
-			Depth.getInstance().returnFromFunction();
-			Depth.getInstance().printTabs();
-			System.out.print("ret " + name + ".carryBox()\n");
-			return;
+		if(box != null)
+		{
+			System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
+			try {
+				skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			if(skeleton.SkeletonMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparálunk. :P*/
+				box.setPos(12, 12);
+			}
+			
+			if(skeleton.SkeletonMain.line.equals("n")) { /*Sztringeket a .equals()-szal komparálunk. :P*/
+				Depth.getInstance().returnFromFunction();
+				Depth.getInstance().printTabs();
+				System.out.print("ret " + name + ".carryBox()\n");
+				return;
+			}
+			
+			System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
+			try {
+				skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			if(skeleton.SkeletonMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparálunk. :P*/
+				box.release();
+			}
 		}
-		
-		System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
-		try {
-			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		if(skeleton.SkeletonMain.line == "i")
-			box.release();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

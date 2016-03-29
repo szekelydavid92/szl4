@@ -328,7 +328,7 @@ public class WorldObject implements IWorldObject {
 	public void setCollisionObserver(ICollisionObserver observer) {
 
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setCollisionObserver(" + observerName + ")\n");
+		System.out.print(name + ".setCollisionObserver()\n");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
@@ -341,7 +341,7 @@ public class WorldObject implements IWorldObject {
 	public void setVisitable(IVisitable visitable) {
 
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setVisitable(" + observerName + ")\n");
+		System.out.print(name + ".setVisitable()\n");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();

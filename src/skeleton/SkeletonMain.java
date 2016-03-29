@@ -448,8 +448,8 @@ public class SkeletonMain {
 	static void writeCases(){
 		System.out.println("\nO Neill mozgatasa[0]");
 		System.out.println("ZPM felvetele[1]");
-		System.out.println("Sarga lovedek lovese[2]");
-		System.out.println("Kek lovedek lovese[3]");
+		System.out.println("Kek lovedek lovese[2]");
+		System.out.println("Sarga lovedek lovese[3]");
 		System.out.println("Csillagkapu nyitasa[4]");
 		System.out.println("Csillagkapu atjarasa[5]");
 		System.out.println("Doboz felvetele[6]");

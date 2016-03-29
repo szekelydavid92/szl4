@@ -78,7 +78,7 @@ public class World {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".checkCollision()\n");
+		System.out.print("ret " + name + ".step()\n");
 		
 	}	
 	

@@ -1,5 +1,6 @@
 package upper_layer.wormhole;
 
+import common.Colour;
 import common.ISpecWall;
 import common.ITeleportable;
 import common.IZPM;
@@ -12,18 +13,18 @@ public class WormHole {
 	
 	//ISpecWall yellowWall;	//nem tudom h kellenek-e ezek ide - topi
 	//ISpecWall blueWall;	//nem tudom h kellenek-e ezek ide - topi
-	public Stargate blueGate;
-	public Stargate yellowGate;
+	public Stargate blueGate = new Stargate(this,Colour.BLUE);
+	public Stargate yellowGate = new Stargate(this,Colour.YELLOW);
 	public String name;
 	
-	public WormHole(ISpecWall yelloW , ISpecWall blueW ) { //ezek miért nem alapból null-ok?
+	public WormHole(/*ISpecWall yelloW , ISpecWall blueW*/) { //ezek miï¿½rt nem alapbï¿½l null-ok?
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".WormHole()\n");
 		Depth.getInstance().enterFunction();
 		
-		setYellow(yelloW);
-		setBlue(blueW);
+		//setYellow(yelloW);
+		//setBlue(blueW);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -42,7 +43,6 @@ public class WormHole {
 		System.out.print(name + ".setBlue()\n");
 		Depth.getInstance().enterFunction();
 		
-		//blueWall = wall;
 		blueGate.mask(wall);
 		
 		Depth.getInstance().returnFromFunction();
@@ -63,13 +63,11 @@ public class WormHole {
 		System.out.print(name + ".setYellow()\n");
 		Depth.getInstance().enterFunction();
 		
-		//yellowWall = wall;
 		yellowGate.mask(wall);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".setYellow()\n");
-
 	}
 	
 	
@@ -83,6 +81,9 @@ public class WormHole {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".teleportToYellow()");
 		Depth.getInstance().enterFunction();
+		
+		double yellowX=0.0,yellowY=0.0;
+		t.teleport(yellowX,yellowY);
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -101,7 +102,10 @@ public class WormHole {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".teleportToBlue()");
 		Depth.getInstance().enterFunction();
-				
+
+		double blueX=0.0,blueY=0.0;
+		t.teleport(blueX,blueY);
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".teleportToBlue()");

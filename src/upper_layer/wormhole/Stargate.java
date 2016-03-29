@@ -16,39 +16,46 @@ import skeleton.Depth;
 /**
  * O a csillagkapu. Ha egy jatekos utkozik vele, atteleportalja a masik csillagkapuhoz.
  */
-public class Stargate implements IStargate, ICollisionObserver {
+public class Stargate implements IStargate/*, ICollisionObserver*/ {
 
 	public String name;
 	public Colour colour;
 	private ISpecWall masked = null;
 	
+	WormHole wormHole;
+	
+	Stargate(WormHole wormHole,Colour colour){
+		this.wormHole = wormHole;
+		this.colour = colour;
+	}
+	
 	@Override
 	public void visit(ISpecWall wall) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 
 	
 	@Override
 	public void visit(IKillable killable) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 
 	
 	@Override
 	public void visit(ICarriable carriable) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 
 	
 	@Override
 	public void visit(IZPM zpm) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 
 	
 	@Override
 	public void visit(IScale scale) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 
 	
@@ -60,7 +67,12 @@ public class Stargate implements IStargate, ICollisionObserver {
 		Depth.getInstance().enterFunction();
 		
 		//!!!!!!!!!!!!!!!
-		
+		if(colour == Colour.BLUE) {
+			wormHole.teleportToYellow(teleportable);
+		}
+		if(colour == Colour.YELLOW) {
+			wormHole.teleportToBlue(teleportable);
+		}
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".visit()");
@@ -77,6 +89,8 @@ public class Stargate implements IStargate, ICollisionObserver {
 		//!!!!!!!!!!!!!!!!!!!!!!lorant
 		if(masked != null)
 			masked.restore();
+		
+		masked = wall;
 		wall.replace(this);
 		//wall.obj.setCollisionObserver(this);
 		

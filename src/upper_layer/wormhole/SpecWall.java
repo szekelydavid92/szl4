@@ -56,6 +56,7 @@ public class SpecWall implements ISpecWall {
 		Depth.getInstance().enterFunction();
 		
 		//TODO Lorant
+		iwo.setCollisionObserver(o);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

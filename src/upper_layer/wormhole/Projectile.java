@@ -16,6 +16,7 @@ import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
 import skeleton.Depth;
+import skeleton.SkeletonMain;
 
 /**
  * Lovedek. Amennyiben SpecWall-al utkozik, ott nyit egy WormHole-t.
@@ -34,7 +35,7 @@ public class Projectile implements ICollisionObserver, IVisitor {
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader in = SkeletonMain.in; //Shortcut
 		String line = null;
 		
 		System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
@@ -58,31 +59,31 @@ public class Projectile implements ICollisionObserver, IVisitor {
 	
 	@Override
 	public void visit(IKillable killable) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 
 	
 	@Override
 	public void visit(ICarriable carriable) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 	
 
 	@Override
 	public void visit(IZPM zpm) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 
 	
 	@Override
 	public void visit(IScale scale) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 
 	
 	@Override
 	public void visit(ITeleportable teleportable) {
-		//Nem hívódik meg.
+		//Nem hï¿½vï¿½dik meg.
 	}
 	
 

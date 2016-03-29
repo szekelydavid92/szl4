@@ -15,14 +15,14 @@ public class Door extends ColEntity implements IDoor {
 	public void close() {
 			
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".close()");
+		System.out.println(name + ".close()");
 		Depth.getInstance().enterFunction();
 		
 		opened = false;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".close()");
+		System.out.println("ret " + name + ".close()");
 		
 	}
 	
@@ -30,26 +30,26 @@ public class Door extends ColEntity implements IDoor {
 	public void open() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".open()");
+		System.out.println(name + ".open()");
 		Depth.getInstance().enterFunction();
 		
 		opened = true;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".open()");
+		System.out.println("ret " + name + ".open()");
 	}
 
 	@Override
 	public void step() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".step()");
+		System.out.println(name + ".step()");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".step()");
+		System.out.println("ret " + name + ".step()");
 		
 	}
 }

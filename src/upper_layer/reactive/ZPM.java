@@ -24,14 +24,14 @@ public class ZPM implements IZPM, ICollisionObserver {
 	public void accept(IVisitor visitor) {
 		//TODO Lorant
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".accept()");
+		System.out.println(name + ".accept()");
 		Depth.getInstance().enterFunction();
 		
 		visitor.visit(this);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".accept()");
+		System.out.println("ret " + name + ".accept()");
 		
 	}
 
@@ -44,12 +44,12 @@ public class ZPM implements IZPM, ICollisionObserver {
 	public boolean isPicked() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".isPicked()");
+		System.out.println(name + ".isPicked()");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".isPicked()");
+		System.out.println("ret " + name + ".isPicked()");
 		
 		return true;
 	}
@@ -63,12 +63,12 @@ public class ZPM implements IZPM, ICollisionObserver {
 	public void pickUp() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".pickUp()");
+		System.out.println(name + ".pickUp()");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".pickUp()");
+		System.out.println("ret " + name + ".pickUp()");
 		
 	}
 

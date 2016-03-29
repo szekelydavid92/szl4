@@ -55,14 +55,14 @@ public class Chasm implements ICollisionObserver, IVisitor {
 	public void visit(IKillable killable) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 		
 		killable.kill();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.println("ret " + name + ".visit()");
 		//TODO Lorant
 	}
 
@@ -178,7 +178,7 @@ public class Chasm implements ICollisionObserver, IVisitor {
 		
 		//TODO LORANT
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 		
 		IVisitable visitable = obj.getVisitable();
@@ -191,6 +191,6 @@ public class Chasm implements ICollisionObserver, IVisitor {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.println("ret " + name + ".visit()");
 	}
 }

@@ -122,4 +122,6 @@ public interface IWorldObject {
 	 * @return IVisitable
 	 */
 	public IVisitable getVisitable();
+	
+	
 }

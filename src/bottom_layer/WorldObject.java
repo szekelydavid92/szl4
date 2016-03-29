@@ -387,12 +387,12 @@ public class WorldObject implements IWorldObject {
 	public IVisitable getVisitable() {
 
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".getIVisitable()\n");
+		System.out.print(name + ".getVisitable()\n");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".getIVisitable()\n");
+		System.out.print("ret " + name + ".getVisitable()\n");
 		
 		return visitable;
 	}

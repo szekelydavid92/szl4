@@ -178,50 +178,50 @@ public class SkeletonMain {
 		
 		
 		
-		WorldObject obj = new WorldObject();
-		Projectile projectile = new Projectile();
-		WormHole wh = new WormHole(null, null);
-		SpecWall sw = new SpecWall();
+	//	WorldObject obj = new WorldObject();
+		//Projectile projectile = new Projectile();
+		//WormHole wh = new WormHole(null, null);
+		//SpecWall sw = new SpecWall();
 		
 		//projectile.
 		
-		projectile.notify(obj);
+		//projectile.notify(obj);
 				
 	}
 	//Kek csillagkapu nyitasa
 	static void case_5(){
 				
-		WorldObject projectileWO = new WorldObject();
-		Projectile projectile = new Projectile();
-		projectileWO.setCollisionObserver(projectile);
+	//	WorldObject projectileWO = new WorldObject();
+		//Projectile projectile = new Projectile();
+		//projectileWO.setCollisionObserver(projectile);
 		
-		WorldObject obj = new WorldObject();
-		SpecWall wall = new SpecWall();
-		obj.setCollisionObserver(wall);
+		//WorldObject obj = new WorldObject();
+		//SpecWall wall = new SpecWall();
+		//obj.setCollisionObserver(wall);
 		
-		projectileWO.notify(obj); //innen indul
+	//	projectileWO.notify(obj); //innen indul
 		
-		WormHole wh = new WormHole(null,null);
-		wh.setBlue(wall);
+	//	WormHole wh = new WormHole(null,null);
+	//	wh.setBlue(wall);
 		
-		Stargate blue = new Stargate();
-		blue.mask(wall);
+//		Stargate blue = new Stargate();
+		//blue.mask(wall);
 		
 	}
 	//Csillagkapu atjaras
 	static void case_6(){
 				
-		WorldObject obj = new WorldObject();
-		Player pl = new Player();
-		obj.setCollisionObserver(pl);
+		//WorldObject obj = new WorldObject();
+		//Player pl = new Player();
+		//obj.setCollisionObserver(pl);
 		
-		WorldObject wallObject = new WorldObject();
-		Stargate s = new Stargate();
-		wallObject.setCollisionObserver(s);
+		//WorldObject wallObject = new WorldObject();
+	//	Stargate s = new Stargate();
+	//	wallObject.setCollisionObserver(s);
 		
-		wallObject.notify(obj);
+//		wallObject.notify(obj);
 		
-		WormHole wh = new WormHole(null,null);
+	//	WormHole wh = new WormHole(null,null);
 				
 	}
 	
@@ -276,11 +276,14 @@ public class SkeletonMain {
 						
 		WorldObject o1 = new WorldObject();
 		Player p = new Player();
+		o1.name="playerObject";
 		o1.setCollisionObserver(p);
 		
 		WorldObject o2 = new WorldObject();
 		ZPM	z = new ZPM();
 		o2.setCollisionObserver(z);
+		o2.setVisitable(z);
+		o2.name="zpmObject";
 		
 		World w	= new World();
 		w.addWorldObject(o1);

@@ -31,7 +31,10 @@ public class World {
 		System.out.print(name + ".checkCollision()\n");
 		Depth.getInstance().enterFunction();
 		Depth.getInstance().printTabs();
-		System.out.println("vmi");
+		System.out.println("Belépés a collision detekciós ciklusba. ");
+		
+		
+		
 		
 		WorldObject temp1,temp2;
 		
@@ -48,7 +51,7 @@ public class World {
 		}
 		
 		Depth.getInstance().printTabs();
-		System.out.println("vmi");
+		System.out.println("Visszatérés a collision detekciós ciklusból");
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".checkCollision()\n");

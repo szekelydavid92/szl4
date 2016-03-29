@@ -5,6 +5,7 @@ import common.IKillable;
 import common.IProjectileFactory;
 import common.ISpecWall;
 import common.ITeleportable;
+import common.IVisitable;
 import common.IWorldObject;
 import common.IZPM;
 import common.Colour;
@@ -372,13 +373,20 @@ public class Player extends Killable {
 		//TODO Lorant
 	}
 
-	
+	/**
+	 * Meglatogatunk egy ZPM objektumot es felvesszuk.
+	 * @param zpm: mutato a ZPM objektumra.
+	 * @return void
+	 */
 	@Override
 	public void visit(IZPM zpm) {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
+		
+		if (zpm != null)
+		zpm.pickUp();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -405,8 +413,16 @@ public class Player extends Killable {
 	
 	@Override
 	public void notify(IWorldObject obj) {
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".notify(" + "zmpObject" + ")\n");
+		Depth.getInstance().enterFunction();	
 		
-		//TODO Lorant
-		obj.getVisitable();
+		IVisitable visitable=obj.getVisitable();
+		if (visitable != null)
+			visitable.accept(this);
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".notify() \n");
 	}
 }

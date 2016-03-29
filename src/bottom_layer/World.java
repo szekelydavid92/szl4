@@ -11,6 +11,7 @@ import skeleton.Depth;
 /**
  * Ez az az osztaly reprezentalja a virtualis vilagot. Tartalmaz egy WorldObject tombot.
  * Fo feladata, hogy a tomb elemeit leptesse az idoben.
+ * 
  */
 public class World {
 	

@@ -78,7 +78,7 @@ public class Projectile implements ICollisionObserver, IVisitor {
 		sw = obj.getVisitable();
 		sw.accept(this);
 		
-		if()
+		
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

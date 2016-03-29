@@ -25,6 +25,7 @@ public class Player extends Killable {
 	private double posX, posY;
 	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	public IProjectileFactory projFactory;
+	public ICarriable box;
 	private boolean TMPShootYellow = false; //teszteles miatt
 	private boolean TMPShootBlue = false; 	//teszteles miatt
 	
@@ -162,6 +163,8 @@ public class Player extends Killable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".pickUp(" + pick + ")\n");
 		Depth.getInstance().enterFunction();
+		
+		
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -308,7 +311,13 @@ public class Player extends Killable {
 		}
 		
 		if(skeleton.SkeletonMain.line == "i")
-			//b.setPos(12, 12);
+			box.setPos(12, 12);
+		if(skeleton.SkeletonMain.line == "n") {
+			Depth.getInstance().returnFromFunction();
+			Depth.getInstance().printTabs();
+			System.out.print("ret " + name + ".carryBox()\n");
+			return;
+		}
 		
 		System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
 		try {
@@ -319,9 +328,7 @@ public class Player extends Killable {
 		}
 		
 		if(skeleton.SkeletonMain.line == "i")
-			;
-		if(skeleton.SkeletonMain.line == "n")
-			;
+			box.release();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -431,7 +438,8 @@ public class Player extends Killable {
 	@Override
 	public void notify(IWorldObject obj) {
 		
-		//TODO Lorant
 		obj.getVisitable();
+		box.accept(this);
+		
 	}
 }

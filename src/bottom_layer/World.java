@@ -48,9 +48,9 @@ public class World {
 			}
 		}
 		
+		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("Kilepes a collision detekcios ciklusbol");
-		Depth.getInstance().returnFromFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

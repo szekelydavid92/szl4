@@ -268,6 +268,7 @@ public class SkeletonMain {
 		WorldObject wo = new WorldObject();
 		
 		b.worldObject = wo;
+		p.box = b;
 		
 		p.carryBox();
 				

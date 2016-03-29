@@ -27,7 +27,7 @@ public class WorldObjectFactory implements IWorldObjectFactory {
 		Depth.getInstance().enterFunction();
 		
 		WorldObject worldObject = new WorldObject();
-		world.objects.add(worldObject);
+		//world.objects.add(worldObject);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

@@ -11,7 +11,7 @@ import skeleton.Depth;
  */
 public class ProjectileFactory implements IProjectileFactory {
 	
-	public String name;
+	public String name = "projFactory";
 	public IWorldObjectFactory iwof;
 	private IWorldObject wo;
 	
@@ -19,7 +19,7 @@ public class ProjectileFactory implements IProjectileFactory {
 	public void createProjectile(Colour colour, double pX, double pY, double mX, double mY) { //p: player, m: mouse
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".createProjectile()\n");
+		System.out.print(name + ".createProjectile(" + colour + "playerX, playerY, dirX, dirY)\n");
 		Depth.getInstance().enterFunction();
 		
 		Projectile p = new Projectile();

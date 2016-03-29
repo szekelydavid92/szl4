@@ -143,11 +143,18 @@ public class SkeletonMain {
 		
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();
-		p.worldObject = pwo;
-		pwo.setCollisionObserver(p);
+		ProjectileFactory pf = new ProjectileFactory();
+		WorldObjectFactory wof = new WorldObjectFactory();
 		
+		p.worldObject = pwo;
+		p.projFactory = pf;
+		pf.iwof = wof;
+		
+		System.out.println("\nO Neill lovesenek lehivasa");
+		p.shootYellow(true);
+		
+		System.out.println("O Neill viselkedese");
 		p.shoot();
-		//TODO LORANT
 			
 	}
 	//Sarga csillagkapu nyitasa

@@ -151,7 +151,7 @@ public class SkeletonMain {
 		pf.iwof = wof;
 		
 		System.out.println("\nO Neill lovesenek lehivasa");
-		p.shootYellow(true);
+		p.shootBlue(true);
 		
 		System.out.println("O Neill viselkedese");
 		p.shoot();

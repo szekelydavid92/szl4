@@ -422,9 +422,15 @@ public class SkeletonMain {
 		o1.setCollisionObserver(b);
 		o1.setVisitable(b);
 		
+		b.name = "box";
+		o1.name = "boxObject";
+		
 		WorldObject o2 = new WorldObject();
 		Chasm c = new Chasm();
 		o2.setCollisionObserver(c);
+		
+		c.name = "chasm";
+		o2.name = "chasmObj";
 		
 		World w = new World();
 		w.addWorldObject(o2);

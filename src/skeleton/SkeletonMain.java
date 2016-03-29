@@ -352,6 +352,7 @@ public class SkeletonMain {
 		System.out.println("ZPM felvetele[9]");
 		System.out.println("Ajto nyitasa[10]");
 		System.out.println("Ajto zarasa[11]");
-		System.out.println("Objektum megsemmisulese[12]");
+		System.out.println("Player Objektum megsemmisulese[12]");
+		System.out.println("Box Objektum megsemmisulese[13]");
 	}
 }

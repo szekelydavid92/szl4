@@ -15,12 +15,14 @@ import skeleton.Depth;
  */
 public class World {
 	
-	List<WorldObject> objects = new ArrayList<WorldObject>();
+	public List<WorldObject> objects = new ArrayList<WorldObject>();
 	public String name = "world";
 	
 	public World() {}
 	
-	//Utkozes ellenorzes.
+	/**
+	 * @brief Utkozes ellenorzes.
+	 */
 	public void checkCollision() {
 		
 		Depth.getInstance().printTabs();
@@ -68,7 +70,9 @@ public class World {
 	}	
 	
 	/*
-	 *  UJITAS!!
+	 *  Ezek a fuggvenyek a teszteles megkonnyitese
+	 *  miatt jottek letre
+	 *  
 	 */
 	public void addWorldObject(WorldObject obj){
 		

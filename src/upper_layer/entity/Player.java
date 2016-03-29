@@ -249,7 +249,12 @@ public class Player extends Killable implements ITeleportable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".kill()\n");
 		Depth.getInstance().enterFunction();
-				
+		
+		if (box!=null)
+			box.release();
+		
+		box=null;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".kill()\n");

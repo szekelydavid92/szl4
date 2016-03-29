@@ -1,6 +1,8 @@
 package upper_layer.entity;
 
+import common.CollisionResponse;
 import common.IDoor;
+import common.IWorldObject;
 import skeleton.Depth;
 
 /**
@@ -10,6 +12,7 @@ import skeleton.Depth;
 public class Door extends ColEntity implements IDoor {
 	private boolean opened;
 	public String name; //O kell az objektum nevenek a kiprintelesehez!
+	public IWorldObject worldObject;
 	
 	@Override
 	public void close() {
@@ -25,6 +28,8 @@ public class Door extends ColEntity implements IDoor {
 		System.out.println("ret " + name + ".close()");
 		
 	}
+	
+	
 	
 	@Override
 	public void open() {
@@ -46,6 +51,16 @@ public class Door extends ColEntity implements IDoor {
 		Depth.getInstance().printTabs();
 		System.out.println(name + ".step()");
 		Depth.getInstance().enterFunction();
+		
+		System.out.println("Az opened változó értéke:" + opened);
+		
+		if (opened ==true) 
+			worldObject.setCollisionResponse(CollisionResponse.PASS);
+		
+		else 
+			worldObject.setCollisionResponse(CollisionResponse.IMMOVABLE);
+		
+		opened=false;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

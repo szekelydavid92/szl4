@@ -43,6 +43,7 @@ public class GameLoop {
 		world.checkCollision();
 		world.step();
 		
+		System.out.println("Entitások léptetése");
 		for(IEntity e : Entites)
 		{
 			e.step();

@@ -8,6 +8,7 @@ import common.IScale;
 import common.ISpecWall;
 import common.IStargate;
 import common.ITeleportable;
+import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
@@ -107,7 +108,11 @@ public class Stargate implements IStargate/*, ICollisionObserver*/ {
 		System.out.print(name + ".notify()\n");
 		Depth.getInstance().enterFunction();
 		
-		obj.getVisitable().accept((IVisitor)this);
+		IVisitable visitable = obj.getVisitable();
+		
+		if(visitable != null) {
+			visitable.accept((IVisitor)this);
+		}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

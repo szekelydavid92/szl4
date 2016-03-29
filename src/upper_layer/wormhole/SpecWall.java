@@ -37,7 +37,9 @@ public class SpecWall implements ISpecWall {
 		System.out.print(name + ".accept()");
 		Depth.getInstance().enterFunction();
 		
-		visitor.visit((ISpecWall)this);
+		//visitor.visit((ISpecWall)this);
+		visitor.visit(this);
+		
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

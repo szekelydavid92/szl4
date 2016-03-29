@@ -170,11 +170,21 @@ public class SkeletonMain {
 		
 		projectileWO.notify(obj); //innen indul
 		
-		WormHole wh = new WormHole(null,null);
-		wh.setYellow(wall);
+		WormHole wh1 = new WormHole(null,null);
+		wh1.setYellow(wall);
 		
 		Stargate yellow = new Stargate();
 		yellow.mask(wall);		
+		
+		
+		
+		WorldObject wo = new WorldObject();
+		Projectile p = new Projectile();
+		WormHole wh = new WormHole(null, null);
+		SpecWall sw = new SpecWall();
+		
+		
+		p.notify(wo);
 				
 	}
 	//Kek csillagkapu nyitasa

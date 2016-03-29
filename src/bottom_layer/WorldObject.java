@@ -222,7 +222,7 @@ public class WorldObject implements IWorldObject {
 		
 		if(skeleton.SkeletonMain.line.equals("i")) {collides = true;}
 		else if(skeleton.SkeletonMain.line.equals("n")) {collides = false;}
-		else {System.out.print("ERROR: Ervénytelen bemenet");}
+		else {System.out.print("ERROR: Ervï¿½nytelen bemenet");}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -258,7 +258,7 @@ public class WorldObject implements IWorldObject {
 	 */
 	public void setDisplacementX(double x) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setDisplacementX(" + xName + "," + yName + ")\n");
+		System.out.print(name + ".setDisplacementX(" + xName + ")\n");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
@@ -275,7 +275,7 @@ public class WorldObject implements IWorldObject {
 	 */
 	public void setDisplacementY(double y) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setDisplacementY(" + yName + "," + yName + ")\n");
+		System.out.print(name + ".setDisplacementY(" + yName + ")\n");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
@@ -339,7 +339,7 @@ public class WorldObject implements IWorldObject {
 		
 		this.observer=observer;
 	}
-	//új!!!!!!!!!!!!!!!!!!!!!!!!!
+	//ï¿½j!!!!!!!!!!!!!!!!!!!!!!!!!
 	public void setVisitable(IVisitable visitable) {
 
 		Depth.getInstance().printTabs();

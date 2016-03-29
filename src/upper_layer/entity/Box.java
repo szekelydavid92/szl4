@@ -107,7 +107,7 @@ public class Box extends Killable implements ICarriable {
 		System.out.println(name + ".accept()");
 		Depth.getInstance().enterFunction();
 		
-		//visitor.visit((IKillable)this);
+		visitor.visit((IKillable)this);
 		//visitor.visit((ICarriable)this);
 		visitor.visit((ICarriable)this);
 				

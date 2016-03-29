@@ -30,7 +30,7 @@ public class World {
 		WorldObject temp1,temp2;
 		
 		for(int i=0; i<objects.size(); i++){
-			for(int j=0; j<objects.size(); j++){
+			for(int j=i+1; j<objects.size(); j++){
 			temp1 = objects.get(i);
 			temp2 = objects.get(j);
 			

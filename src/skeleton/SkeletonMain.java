@@ -160,7 +160,7 @@ public class SkeletonMain {
 	//Sarga csillagkapu nyitasa
 	static void case_4(){
 		
-		WorldObject projectileWO = new WorldObject();
+		/*WorldObject projectileWO = new WorldObject();
 		Projectile projectile = new Projectile();
 		projectileWO.setCollisionObserver(projectile);
 		
@@ -174,17 +174,18 @@ public class SkeletonMain {
 		wh1.setYellow(wall);
 		
 		Stargate yellow = new Stargate();
-		yellow.mask(wall);		
+		yellow.mask(wall);	*/	
 		
 		
 		
-		WorldObject wo = new WorldObject();
-		Projectile p = new Projectile();
+		WorldObject obj = new WorldObject();
+		Projectile projectile = new Projectile();
 		WormHole wh = new WormHole(null, null);
 		SpecWall sw = new SpecWall();
 		
+		projectile.
 		
-		p.notify(wo);
+		projectile.notify(obj);
 				
 	}
 	//Kek csillagkapu nyitasa

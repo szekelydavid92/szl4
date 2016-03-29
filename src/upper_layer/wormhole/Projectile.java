@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import common.Colour;
 import common.ICarriable;
 import common.ICollisionObserver;
 import common.IKillable;
@@ -23,6 +24,8 @@ public class Projectile implements ICollisionObserver, IVisitor {
 	
 	public String name = "projectile";
 	public WormHole wormHole;
+	public Colour colour;
+	IVisitable iv; //importot is kivenni
 	
 	@Override
 	public void visit(ISpecWall wall) {
@@ -92,7 +95,6 @@ public class Projectile implements ICollisionObserver, IVisitor {
 		Depth.getInstance().enterFunction();
 		
 		//obj.getVisitable().accept((IVisitor)this);
-		IVisitable iv; //importot is kivenni
 		
 		iv = obj.getVisitable();
 		if(iv != null)

@@ -225,10 +225,10 @@ public class SkeletonMain {
 				
 	}
 	
-	//Doboz felvÃ©tele
+	//Doboz felvetele
 	static void case_7(){
 			
-		Player p = new Player();
+		/*Player p = new Player();
 		WorldObject o1 = new WorldObject();
 		o1.setCollisionObserver(p);
 		
@@ -240,7 +240,21 @@ public class SkeletonMain {
 		world.addWorldObject(o1);
 		world.addWorldObject(o2);
 		
-		world.checkCollision();
+		world.checkCollision();*/
+		
+		
+		World w = new World();
+		WorldObject wo1 = new WorldObject();
+		WorldObject wo2 = new WorldObject();
+		Player p = new Player();
+		Box b = new Box();
+		
+		System.out.println("O Neill dobozfelemelesenek lehivasa");
+		p.pickUp(true);
+		
+		System.out.println("O Neill es a doboz utkozesenk a tesztelese");
+		w.checkCollision();
+		
 					
 	}
 	//Doboz lerakasa
@@ -257,7 +271,7 @@ public class SkeletonMain {
 		p.carryBox();
 				
 	}
-	//ZPM felvÃ©tele
+	//ZPM felvetele
 	static void case_9(){
 						
 		WorldObject o1 = new WorldObject();
@@ -337,9 +351,9 @@ public class SkeletonMain {
 	//Objektum megsemmiselese /box
 	static void case_13(){
 		
-		//LÓCI!!!
-		//A Chasm-nak nincs IVisitable-je így amikor le akarjuk kérni a GetVisitable()-t akkor hibát dob
-		//valahogy lekéne tiltan már a wolrd checkCollison-jében h nem visitelje ha a másik worldobject chasm		
+		//LoCI!!!
+		//A Chasm-nak nincs IVisitable-je igy amikor le akarjuk kerni a GetVisitable()-t akkor hibát dob
+		//valahogy lekéne tiltan mar a wolrd checkCollison-jeben h nem visitelje ha a masik worldobject chasm		
 		
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();

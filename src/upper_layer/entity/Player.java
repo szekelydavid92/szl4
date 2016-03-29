@@ -160,6 +160,8 @@ public class Player extends Killable {
 		System.out.print(name + ".pickUp()\n");
 		Depth.getInstance().enterFunction();
 				
+		
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".pickUp()\n");

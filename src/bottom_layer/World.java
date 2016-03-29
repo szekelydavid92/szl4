@@ -30,6 +30,8 @@ public class World {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".checkCollision()\n");
 		Depth.getInstance().enterFunction();
+		Depth.getInstance().printTabs();
+		System.out.println("vmi");
 		
 		WorldObject temp1,temp2;
 		
@@ -45,6 +47,8 @@ public class World {
 			}
 		}
 		
+		Depth.getInstance().printTabs();
+		System.out.println("vmi");
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".checkCollision()\n");

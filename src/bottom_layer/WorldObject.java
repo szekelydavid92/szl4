@@ -19,7 +19,7 @@ import skeleton.Depth;
  */
 public class WorldObject implements IWorldObject {
 	
-	public IVisitable iv;
+	
 	public String name = "worldObj"; //O kell az objektum nevenek a kiprintelesehez!
 	
 	/* Ez az objektum felelos azert, hogy
@@ -393,7 +393,7 @@ public class WorldObject implements IWorldObject {
 		System.out.print("ret " + name + ".getVisitable()\n");
 		
 		//return visitable;
-		return iv;
+		return visitable;
 	}
 
 }

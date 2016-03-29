@@ -35,7 +35,7 @@ public class SkeletonMain {
 				else if(line.equals("2")) 	case_2();
 				else if(line.equals("3")) 	case_3();
 				else if(line.equals("4")) 	case_4();
-				else if(line.equals("5")) 	case_5();
+				//else if(line.equals("5")) 	case_5();
 				else if(line.equals("6")) 	case_6();
 				else if(line.equals("7")) 	case_7();
 				else if(line.equals("8")) 	case_8();
@@ -220,7 +220,7 @@ public class SkeletonMain {
 		obj.setCollisionObserver(pl);
 		
 		WorldObject wallObject = new WorldObject();
-		wallObject.setCollisionObserver(s);
+		//wallObject.setCollisionObserver(s);
 		
 		wallObject.notify(obj);
 		
@@ -230,27 +230,17 @@ public class SkeletonMain {
 	
 	//Doboz felvetele
 	static void case_7(){
-			
-		/*Player p = new Player();
-		WorldObject o1 = new WorldObject();
-		o1.setCollisionObserver(p);
-		
-		WorldObject o2 = new WorldObject();
-		Box b =	new Box();
-		o2.setCollisionObserver(b);
-		
-		World world = new World();
-		world.addWorldObject(o1);
-		world.addWorldObject(o2);
-		
-		world.checkCollision();*/
-		
 		
 		World w = new World();
 		WorldObject wo1 = new WorldObject();
 		WorldObject wo2 = new WorldObject();
 		Player p = new Player();
 		Box b = new Box();
+		
+		p.worldObject = wo1;
+		b.worldObject = wo2;
+		w.objects.add(wo1);
+		w.objects.add(wo2);
 		
 		System.out.println("O Neill dobozfelemelesenek lehivasa");
 		p.pickUp(true);

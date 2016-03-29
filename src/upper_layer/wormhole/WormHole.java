@@ -10,14 +10,16 @@ import skeleton.Depth;
  */
 public class WormHole {
 	
-	ISpecWall yellowWall;
-	ISpecWall blueWall;
+	//ISpecWall yellowWall;	//nem tudom h kellenek-e ezek ide - topi
+	//ISpecWall blueWall;	//nem tudom h kellenek-e ezek ide - topi
+	public Stargate blueGate;
+	public Stargate yellowGate;
 	public String name;
 	
-	public WormHole(ISpecWall yelloW , ISpecWall blueW ){
+	public WormHole(ISpecWall yelloW , ISpecWall blueW ) { //ezek miért nem alapból null-ok?
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".WormHole()");
+		System.out.print(name + ".WormHole()\n");
 		Depth.getInstance().enterFunction();
 		
 		setYellow(yelloW);
@@ -25,7 +27,7 @@ public class WormHole {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".WormHole()");
+		System.out.print("ret " + name + ".WormHole()\n");
 		
 	}
 	
@@ -37,14 +39,15 @@ public class WormHole {
 	public void setBlue(ISpecWall wall) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setBlue()");
+		System.out.print(name + ".setBlue()\n");
 		Depth.getInstance().enterFunction();
 		
-		blueWall = wall;
+		//blueWall = wall;
+		blueGate.mask(wall);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".setBlue()");
+		System.out.print("ret " + name + ".setBlue()\n");
 		
 	}
 	
@@ -57,14 +60,15 @@ public class WormHole {
 	public void setYellow(ISpecWall wall) {
 
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setYellow()");
+		System.out.print(name + ".setYellow()\n");
 		Depth.getInstance().enterFunction();
 		
-		yellowWall = wall;
+		//yellowWall = wall;
+		yellowGate.mask(wall);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".setYellow()");
+		System.out.print("ret " + name + ".setYellow()\n");
 
 	}
 	

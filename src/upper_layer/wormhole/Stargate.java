@@ -1,5 +1,6 @@
 package upper_layer.wormhole;
 
+import common.Colour;
 import common.ICarriable;
 import common.ICollisionObserver;
 import common.IKillable;
@@ -18,6 +19,8 @@ import skeleton.Depth;
 public class Stargate implements IStargate, ICollisionObserver {
 
 	public String name;
+	public Colour colour;
+	private ISpecWall masked = null;
 	
 	@Override
 	public void visit(ISpecWall wall) {
@@ -67,16 +70,19 @@ public class Stargate implements IStargate, ICollisionObserver {
 	
 	@Override
 	public void mask(ISpecWall wall) {
-		//TODO Lorant
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".mask()");
+		System.out.print(name + ".mask()\n");
 		Depth.getInstance().enterFunction();
 		
-		//!!!!!!!!!!!!!!!!!!!!!!
+		//!!!!!!!!!!!!!!!!!!!!!!lorant
+		if(masked != null)
+			masked.restore();
+		wall.replace(this);
+		//wall.obj.setCollisionObserver(this);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".mask()");
+		System.out.print("ret " + name + ".mask()\n");
 	}
 
 	

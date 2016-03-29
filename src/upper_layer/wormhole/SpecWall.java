@@ -13,6 +13,7 @@ import skeleton.Depth;
 public class SpecWall implements ISpecWall {
 	
 	public String name;
+	public IWorldObject iwo;
 	
 	@Override
 	public void notify(IWorldObject obj) {
@@ -39,7 +40,6 @@ public class SpecWall implements ISpecWall {
 		
 		//visitor.visit((ISpecWall)this);
 		visitor.visit(this);
-		
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -68,14 +68,14 @@ public class SpecWall implements ISpecWall {
 	public void restore() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".restore()");
+		System.out.print(name + ".restore()\n");
 		Depth.getInstance().enterFunction();
 		
-		//TODO Lorant
+		iwo.setCollisionObserver(this);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".restore()");
+		System.out.print("ret " + name + ".restore()\n");
 		
 	}
 

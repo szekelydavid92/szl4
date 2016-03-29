@@ -7,6 +7,7 @@ import common.ISpecWall;
 import common.ITeleportable;
 import common.IWorldObject;
 import common.IZPM;
+import common.Colour;
 import skeleton.Depth;
 
 /**
@@ -300,15 +301,15 @@ public class Player extends Killable {
 	 * Ez a fuggveny valositja meg a lovest.
 	 * @return void
 	 */
-	public void shoot() {
+	public void shoot() { //Ha ezt kiszeded innen, akkor ne felejtsd el az import Colourt is kiszedni
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".shoot()\n");
 		Depth.getInstance().enterFunction();
 		
-		worldObject.getPosX();
-		worldObject.getPosY();
-		
+		double x = worldObject.getPosX();
+		double y = worldObject.getPosY();
+		projFactory.createProjectile(Colour.YELLOW, x, y, 0.0, 0.0);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

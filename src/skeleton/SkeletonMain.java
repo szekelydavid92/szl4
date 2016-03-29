@@ -15,6 +15,7 @@ import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
 import upper_layer.reactive.ZPM;
 import upper_layer.wormhole.Projectile;
+import upper_layer.wormhole.ProjectileFactory;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
@@ -60,7 +61,7 @@ public class SkeletonMain {
 		World w = new World();
 		w.addWorldObject(pwo);
 				
-		System.out.println("\nO Neill vezerlofuggvenyeinek tesztelese\n");
+		System.out.println("\nO Neill vezerlofuggvenyeinek tesztelese");
 		//FEL
 		System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
 		try {
@@ -117,14 +118,17 @@ public class SkeletonMain {
 				
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();
-		//ProjectileFactory pf = new ProjectileFactory();
+		ProjectileFactory pf = new ProjectileFactory();
 		
 		p.worldObject = pwo;
+		p.projFactory = pf;
 		pwo.setCollisionObserver(p);
 		
-		System.out.println("\nO Neill lovesenek lehivasa\n");
+		System.out.println("\nO Neill lovesenek lehivasa");
+		p.shootYellow(true);
 		
-		p.shoot();
+		System.out.println("O Neill viselkedese");
+		p.shoot();		
 		//TODO LORANT
 				
 	}

@@ -9,5 +9,5 @@ public interface IProjectileFactory {
 	 * @param colour Az adott szinu enum.
 	 * @return void
 	 */
-	public void createProjectile(Colour colour);
+	public void createProjectile(Colour colour, double pX, double pY, double mX, double mY); //p: player, m: mouse
 }

@@ -7,6 +7,9 @@ import common.ISpecWall;
 import common.ITeleportable;
 import common.IWorldObject;
 import common.IZPM;
+
+import java.io.IOException;
+
 import common.Colour;
 import skeleton.Depth;
 
@@ -295,9 +298,31 @@ public class Player extends Killable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".carryBox()\n");
 		Depth.getInstance().enterFunction();
+
+		System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
+		try {
+			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		if(skeleton.SkeletonMain.line == "i")
+			//b.setPos(12, 12);
 		
-				
+		System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
+		try {
+			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(skeleton.SkeletonMain.line == "i")
+			;
+		if(skeleton.SkeletonMain.line == "n")
+			;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".carryBox()\n");

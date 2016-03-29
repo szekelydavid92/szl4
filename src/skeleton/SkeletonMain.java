@@ -270,11 +270,6 @@ public class SkeletonMain {
 		b.worldObject = wo;
 		
 		p.carryBox();
-		System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
-		line = in.readLine();
-		
-		if(line == "i")
-			b.setPos(12, 12);
 				
 	}
 	//ZPM felvetele

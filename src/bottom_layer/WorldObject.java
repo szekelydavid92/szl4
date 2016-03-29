@@ -45,6 +45,8 @@ public class WorldObject implements IWorldObject {
 		System.out.print(name + ".step()");
 		Depth.getInstance().enterFunction();
 		
+		
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".step()");

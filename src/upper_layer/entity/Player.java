@@ -265,7 +265,10 @@ public class Player extends Killable {
 		System.out.print(name + ".move()");
 		Depth.getInstance().enterFunction();
 		
-		
+		double normalizedDirectionX = 0;
+		double normalizedDirectionY = 0;
+		worldObject.setDisplacementX(normalizedDirectionX);
+		worldObject.setDisplacementY(normalizedDirectionY);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

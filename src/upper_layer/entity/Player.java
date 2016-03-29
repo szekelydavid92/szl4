@@ -1,6 +1,7 @@
 package upper_layer.entity;
 
 import common.ICarriable;
+import common.ICarrier;
 import common.IKillable;
 import common.IProjectileFactory;
 import common.ISpecWall;
@@ -18,7 +19,7 @@ import skeleton.Depth;
 /**
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
  */
-public class Player extends Killable implements ITeleportable {
+public class Player extends Killable implements ITeleportable,ICarrier {
 	/**
 	 * Ezzel a fuggvennyel lehet rakenyszeriteni a jatekost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisul.
 	 * @return void
@@ -36,12 +37,14 @@ public class Player extends Killable implements ITeleportable {
 		visitor.visit((ITeleportable) this);
 	}
 	
-	public void forcedRelelease() {
+	public void forcedRelease() {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".forcedRelelease()\n");		
 		Depth.getInstance().enterFunction();
-				
+		
+		box=null;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".forcedRelelease()\n");

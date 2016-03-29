@@ -446,6 +446,7 @@ public class MarkoMain {
 		b.name="box";
 		o1.setCollisionObserver(b);
 		o1.setVisitable(b);
+		b.regCarrier(new Player());
 		
 		WorldObject o2 = new WorldObject();
 		o2.name="chasmObject";

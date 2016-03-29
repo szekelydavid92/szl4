@@ -89,6 +89,11 @@ public class Box extends Killable implements ICarriable {
 		System.out.println(name + ".kill()");
 		Depth.getInstance().enterFunction();
 		
+		if (carrier != null)
+			carrier.forcedRelease();
+		
+		carrier=null;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".kill()");

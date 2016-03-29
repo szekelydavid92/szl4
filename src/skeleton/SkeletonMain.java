@@ -128,7 +128,7 @@ public class SkeletonMain {
 		p.shootYellow(true);
 		
 		System.out.println("O Neill viselkedese");
-		p.shoot();		
+		p.shoot();
 		//TODO LORANT
 				
 	}

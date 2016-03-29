@@ -22,6 +22,8 @@ public class Player extends Killable {
 	private double posX, posY;
 	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	public IProjectileFactory projFactory;
+	private boolean TMPShootYellow = false; //teszteles miatt
+	private boolean TMPShootBlue = false; 	//teszteles miatt
 	
 	public void forcedRelelease() {
 		
@@ -192,12 +194,14 @@ public class Player extends Killable {
 	public void shootYellow(boolean shootingYellow) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".shootYellow()\n");
+		System.out.print(name + ".shootYellow(true)\n");
 		Depth.getInstance().enterFunction();
+		
+		TMPShootYellow = true;
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".shootYellow()\n");
+		System.out.print("ret " + name + ".shootYellow(true)\n");
 		
 	}
 	
@@ -210,12 +214,14 @@ public class Player extends Killable {
 	public void shootBlue(boolean shootingBlue) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".shootBlue()\n");
+		System.out.print(name + ".shootBlue(true)\n");
 		Depth.getInstance().enterFunction();
 				
+		TMPShootBlue = true;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".shootBlue()\n");
+		System.out.print("ret " + name + ".shootBlue(true)\n");
 		
 	}
 	
@@ -301,7 +307,7 @@ public class Player extends Killable {
 	 * Ez a fuggveny valositja meg a lovest.
 	 * @return void
 	 */
-	public void shoot() { //Ha ezt kiszeded innen, akkor ne felejtsd el az import Colourt is kiszedni
+	public void shoot() { 
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".shoot()\n");
@@ -309,8 +315,12 @@ public class Player extends Killable {
 		
 		double x = worldObject.getPosX();
 		double y = worldObject.getPosY();
-		projFactory.createProjectile(Colour.YELLOW, x, y, 0.0, 0.0);
 		
+		if(TMPShootYellow)
+			projFactory.createProjectile(Colour.YELLOW, x, y, 1.0, 1.0);
+		if(TMPShootBlue)
+			projFactory.createProjectile(Colour.BLUE, x, y, 1.0, 1.0);
+			
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".shoot()\n");

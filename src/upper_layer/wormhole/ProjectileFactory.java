@@ -2,6 +2,7 @@ package upper_layer.wormhole;
 
 import common.Colour;
 import common.IProjectileFactory;
+import common.IWorldObjectFactory;
 import skeleton.Depth;
 
 /**
@@ -10,6 +11,7 @@ import skeleton.Depth;
 public class ProjectileFactory implements IProjectileFactory {
 	
 	public String name;
+	public IWorldObjectFactory iwo;
 	
 	@Override
 	public void createProjectile(Colour colour, double pX, double pY, double mX, double mY) { //p: player, m: mouse

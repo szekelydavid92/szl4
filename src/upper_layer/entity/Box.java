@@ -27,12 +27,12 @@ public class Box extends Killable implements ICarriable {
 	public void setPos(double x, double y) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setPos()");
+		System.out.println(name + ".setPos()");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".setPos()");
+		System.out.println("ret " + name + ".setPos()");
 		
 	}	
 	
@@ -44,14 +44,14 @@ public class Box extends Killable implements ICarriable {
 	public void regCarrier(ICarrier c) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".regCarrier()");
+		System.out.println(name + ".regCarrier()");
 		Depth.getInstance().enterFunction();
 		
 		carrier=c;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".regCarrier()");
+		System.out.println("ret " + name + ".regCarrier()");
 		
 		//TODO Lorant
 	}
@@ -64,14 +64,14 @@ public class Box extends Killable implements ICarriable {
 	public void release() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".release()");
+		System.out.println(name + ".release()");
 		Depth.getInstance().enterFunction();
 		
 		carrier=null;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".release()");
+		System.out.println("ret " + name + ".release()");
 	}
 	
 	
@@ -82,12 +82,12 @@ public class Box extends Killable implements ICarriable {
 	public void kill() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".kill()");
+		System.out.println(name + ".kill()");
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".kill()");
+		System.out.println("ret " + name + ".kill()");
 		
 	}
 	
@@ -100,7 +100,7 @@ public class Box extends Killable implements ICarriable {
 	public void accept(IVisitor visitor) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".accept()");
+		System.out.println(name + ".accept()");
 		Depth.getInstance().enterFunction();
 		
 		visitor.visit((IKillable)this);
@@ -108,7 +108,7 @@ public class Box extends Killable implements ICarriable {
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".accept()");
+		System.out.println("ret " + name + ".accept()");
 		
 	}
 	
@@ -120,14 +120,14 @@ public class Box extends Killable implements ICarriable {
 	 */
 	public void notify(IWorldObject o) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".notify()");
+		System.out.println(name + ".notify()");
 		Depth.getInstance().enterFunction();
 		
 		//TODO
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".notify()");
+		System.out.println("ret " + name + ".notify()");
 	}
 	
 	
@@ -138,12 +138,12 @@ public class Box extends Killable implements ICarriable {
 	public void step() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".step()");
+		System.out.println(name + ".step()");
 		Depth.getInstance().enterFunction();
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".step()");
+		System.out.println("ret " + name + ".step()");
 		
 	}
 
@@ -151,12 +151,12 @@ public class Box extends Killable implements ICarriable {
 	public void visit(ISpecWall wall) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.println("ret " + name + ".visit()");
 	}
 
 
@@ -164,12 +164,12 @@ public class Box extends Killable implements ICarriable {
 	public void visit(IKillable killable) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.println("ret " + name + ".visit()");
 	}
 
 
@@ -177,12 +177,12 @@ public class Box extends Killable implements ICarriable {
 	public void visit(ICarriable carriable) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.println("ret " + name + ".visit()");
 	}
 
 
@@ -190,12 +190,12 @@ public class Box extends Killable implements ICarriable {
 	public void visit(IZPM zpm) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.println("ret " + name + ".visit()");
 	}
 
 
@@ -203,11 +203,11 @@ public class Box extends Killable implements ICarriable {
 	public void visit(ITeleportable teleportable) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.println("ret " + name + ".visit()");
 	}
 }

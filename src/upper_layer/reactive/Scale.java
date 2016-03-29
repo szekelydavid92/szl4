@@ -36,14 +36,14 @@ public class Scale implements IScale, IVisitable, ICollisionObserver{
 	public void accept(IVisitor visitor) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".accept()");
+		System.out.println(name + ".accept()");
 		Depth.getInstance().enterFunction();
 		
 		visitor.visit(this);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".accept()");
+		System.out.println("ret " + name + ".accept()");
 		
 		//TODO Lorant
 	}
@@ -57,14 +57,14 @@ public class Scale implements IScale, IVisitable, ICollisionObserver{
 	public void push() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".push()");
+		System.out.println(name + ".push()");
 		Depth.getInstance().enterFunction();
 		
 		door.open();
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".push()");
+		System.out.println("ret " + name + ".push()");
 	}
 
 }

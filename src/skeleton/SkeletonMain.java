@@ -286,6 +286,7 @@ public class SkeletonMain {
 		o2.setCollisionObserver(s);
 		
 		Door d = new Door();
+		s.door=d;
 		
 		World w = new World();
 		w.addWorldObject(o1);
@@ -335,17 +336,24 @@ public class SkeletonMain {
 	//Objektum megsemmiselese /box
 	static void case_13(){
 		
+		//LÓCI!!!
+		//A Chasm-nak nincs IVisitable-je így amikor le akarjuk kérni a GetVisitable()-t akkor hibát dob
+		//valahogy lekéne tiltan már a wolrd checkCollison-jében h nem visitelje ha a másik worldobject chasm		
+		
 		WorldObject o1 = new WorldObject();
 		Box b = new Box();
 		o1.setCollisionObserver(b);
+		o1.setVisitable(b);
 		
 		WorldObject o2 = new WorldObject();
 		Chasm c = new Chasm();
 		o2.setCollisionObserver(c);
 		
 		World w = new World();
-		w.addWorldObject(o1);
 		w.addWorldObject(o2);
+		w.addWorldObject(o1);
+		
+		System.out.println(w.objects.size());
 		
 		w.checkCollision();
 				

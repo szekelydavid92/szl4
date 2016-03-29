@@ -3,6 +3,7 @@ package upper_layer.entity;
 import common.ICarriable;
 import common.ICarrier;
 import common.IKillable;
+import common.IScale;
 import common.ISpecWall;
 import common.ITeleportable;
 import common.IVisitor;
@@ -123,7 +124,7 @@ public class Box extends Killable implements ICarriable {
 		System.out.println(name + ".notify()");
 		Depth.getInstance().enterFunction();
 		
-		//TODO
+		o.getVisitable().accept((IVisitor)this);
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -206,6 +207,19 @@ public class Box extends Killable implements ICarriable {
 		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 						
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.println("ret " + name + ".visit()");
+	}
+	@Override
+	public void visit(IScale scale){
+		
+		Depth.getInstance().printTabs();
+		System.out.println(name + ".visit()");
+		Depth.getInstance().enterFunction();
+		
+		scale.push();
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".visit()");

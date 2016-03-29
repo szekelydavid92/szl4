@@ -49,7 +49,8 @@ public class Scale implements IScale, IVisitable, ICollisionObserver{
 	}
 	
 	/**
-	 * @brief Ezzel a fuggvennyel kepes egy suly lenyomni egy merleget.
+	 * @brief Ezzel a fuggvennyel kepes egy suly lenyomni egy merleget, es
+	 * kinyitni a hozza tartozo ajtot.
 	 * 
 	 * @return void
 	 */

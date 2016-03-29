@@ -288,22 +288,25 @@ public class MarkoMain {
 	//Doboz felvetele
 	static void case_7(){
 		
-		World w = new World();
+		World world = new World();
 		WorldObject wo1 = new WorldObject();
 		WorldObject wo2 = new WorldObject();
-		Player p = new Player();
-		Box b = new Box();
+		Player player = new Player();
+		Box box = new Box();
 		
-		p.worldObject = wo1;
-		b.worldObject = wo2;
-		w.objects.add(wo1);
-		w.objects.add(wo2);
+		player.worldObject = wo1;
+		box.worldObject = wo2;
+		world.objects.add(wo1);
+		world.objects.add(wo2);
+		wo1.setCollisionObserver(player);
+		wo2.setCollisionObserver(box);
+		wo2.setVisitable(box);
 		
 		System.out.println("O Neill dobozfelemelesenek lehivasa");
-		p.pickUp(true);
+		player.pickUp(true);
 		
 		System.out.println("O Neill es a doboz utkozesenek a tesztelese");
-		w.checkCollision();
+		world.checkCollision();
 		
 					
 	}

@@ -338,6 +338,7 @@ public class WorldObject implements IWorldObject {
 		System.out.print("ret " + name + ".setCollisionObserver()\n");
 		
 		this.observer=observer;
+		this.visitable=(IVisitable)this;
 	}
 	
 	

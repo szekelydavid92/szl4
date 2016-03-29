@@ -12,7 +12,7 @@ import skeleton.Depth;
  */
 public class SpecWall implements ISpecWall {
 	
-	public String name;
+	public String name = "wall";
 	public IWorldObject iwo;
 	
 	@Override

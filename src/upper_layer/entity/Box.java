@@ -7,6 +7,7 @@ import common.IKillable;
 import common.IScale;
 import common.ISpecWall;
 import common.ITeleportable;
+import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
@@ -136,7 +137,12 @@ public class Box extends Killable implements ICarriable {
 		System.out.println(name + ".notify()");
 		Depth.getInstance().enterFunction();
 		
-		o.getVisitable().accept((IVisitor)this);
+		IVisitable visitable = o.getVisitable();
+		
+		if(visitable != null)
+		{
+			visitable.accept((IVisitor)this);
+		}
 						
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

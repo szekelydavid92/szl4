@@ -29,8 +29,17 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	private boolean TMPShootBlue = false; 	//teszteles miatt
 	
 	public void accept(IVisitor visitor){
+
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".accept()\n");		
+		Depth.getInstance().enterFunction();
+		
 		visitor.visit((IKillable) this);
 		visitor.visit((ITeleportable) this);
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".accept()\n");
 	}
 	
 	/**

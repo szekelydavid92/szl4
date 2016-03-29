@@ -328,28 +328,22 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 				e.printStackTrace();
 			}
 			
-			if(skeleton.SkeletonMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparálunk. :P*/
+			if(skeleton.SkeletonMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
+				System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
+				try {
+					skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if (skeleton.SkeletonMain.line.equals("i"))
+					box.release();
+			}
+			
+			if(skeleton.SkeletonMain.line.equals("n")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
 				box.setPos(12, 12);
 			}
 			
-			if(skeleton.SkeletonMain.line.equals("n")) { /*Sztringeket a .equals()-szal komparálunk. :P*/
-				Depth.getInstance().returnFromFunction();
-				Depth.getInstance().printTabs();
-				System.out.print("ret " + name + ".carryBox()\n");
-				return;
-			}
-			
-			System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
-			try {
-				skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			if(skeleton.SkeletonMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparálunk. :P*/
-				box.release();
-			}
 		}
 		
 		Depth.getInstance().returnFromFunction();
@@ -418,7 +412,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
-				
+		carriable.regCarrier(this);
+		box=carriable;
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".visit()\n");

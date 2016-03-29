@@ -1,5 +1,6 @@
 package upper_layer.entity;
 
+import common.CollisionResponse;
 import common.ICarriable;
 import common.ICarrier;
 import common.IKillable;
@@ -18,6 +19,7 @@ public class Box extends Killable implements ICarriable {
 	
 	ICarrier carrier; //referencia a hordozora
 	public String name = "Box";
+	public IWorldObject worldObject;
 	
 	/**
 	 * A dobozt cipelo objektum ezen keresztul tudja beallitani a doboz objektum poziciojat.
@@ -28,7 +30,7 @@ public class Box extends Killable implements ICarriable {
 	public void setPos(double x, double y) {
 		
 		Depth.getInstance().printTabs();
-		System.out.println(name + ".setPos()\n");
+		System.out.println(name + ".setPos()");
 		Depth.getInstance().enterFunction();
 		
 		worldObject.setPosX(x);
@@ -36,7 +38,7 @@ public class Box extends Killable implements ICarriable {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".setPos()\n");
+		System.out.println("ret " + name + ".setPos()");
 		
 	}	
 	
@@ -52,6 +54,7 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().enterFunction();
 		
 		carrier=c;
+		worldObject.setCollisionResponse(CollisionResponse.PASS);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

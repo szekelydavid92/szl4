@@ -57,14 +57,15 @@ public class MarkoMain {
 	static void case_1() {
 		
 		//System.out.println("Creating objects");
-		Player p = new Player();
+		Player player = new Player();
 		WorldObject pwo = new WorldObject();
-		World w = new World();
+		pwo.name="playerObject";
+		World world = new World();
 		
-		p.worldObject = pwo;
+		player.worldObject = pwo;
 		//pwo.setCollisionObserver(p); 
 		//w.addWorldObject(pwo);
-		w.objects.add(pwo);	
+		world.objects.add(pwo);	
 	
 		System.out.println("O Neill vezerlofuggvenyeinek tesztelese");
 		//FEL
@@ -75,8 +76,8 @@ public class MarkoMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) p.moveUp(true);
-		if(line.equals("n")) p.moveUp(false);
+		if(line.equals("i")) player.moveUp(true);
+		if(line.equals("n")) player.moveUp(false);
 		//LE
 		System.out.println("Kerem, adja meg, hogy O Neill lefele mozogjon-e![i/n]\n");
 		try {
@@ -85,8 +86,8 @@ public class MarkoMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) p.moveDown(true);
-		if(line.equals("n")) p.moveDown(false);
+		if(line.equals("i")) player.moveDown(true);
+		if(line.equals("n")) player.moveDown(false);
 		//JOBBRA
 		System.out.println("Kerem, adja meg, hogy O Neill jobbra mozogjon-e![i/n]\n");
 		try {
@@ -95,8 +96,8 @@ public class MarkoMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) 		{p.moveRight(true);}
-		else if(line.equals("n")) 	{p.moveRight(false);}
+		if(line.equals("i")) 		{player.moveRight(true);}
+		else if(line.equals("n")) 	{player.moveRight(false);}
 		else {
 			System.out.println("ERROR: Ervenytelen bemenet!/n");
 		}
@@ -108,14 +109,14 @@ public class MarkoMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(line.equals("i")) p.moveLeft(true);
-		if(line.equals("n")) p.moveLeft(false);
+		if(line.equals("i")) player.moveLeft(true);
+		if(line.equals("n")) player.moveLeft(false);
 		
 		System.out.println("\nO Neill jateklogikabeli tesztelese:");
-		p.step();
+		player.step();
 		
 		System.out.println("\nO Neill WordlObjectjenek tesztelese:");
-		w.step();
+		world.step();
 	}
 	
 	
@@ -323,14 +324,15 @@ public class MarkoMain {
 		
 		p.carryBox();*/
 		
-		Player p = new Player();
-		Box b = new Box();
+		Player player = new Player();
+		Box box = new Box();
 		WorldObject wo = new WorldObject();
+		wo.name="boxObject";
 		
-		b.worldObject = wo;
-		p.box = b;
+		box.worldObject = wo;
+		player.box = box;
 		
-		p.carryBox();
+		player.carryBox();
 				
 	}
 	//ZPM felvetele

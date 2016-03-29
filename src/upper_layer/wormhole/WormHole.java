@@ -15,7 +15,7 @@ public class WormHole {
 	//ISpecWall blueWall;	//nem tudom h kellenek-e ezek ide - topi
 	public Stargate blueGate = new Stargate(this,Colour.BLUE);
 	public Stargate yellowGate = new Stargate(this,Colour.YELLOW);
-	public String name;
+	public String name = "wormHole";
 	
 	public WormHole(/*ISpecWall yelloW , ISpecWall blueW*/) { //ezek mi�rt nem alapb�l null-ok?
 		
@@ -23,6 +23,8 @@ public class WormHole {
 		System.out.print(name + ".WormHole()\n");
 		Depth.getInstance().enterFunction();
 		
+		blueGate.name = "blue";
+		yellowGate.name = "yellow";
 		//setYellow(yelloW);
 		//setBlue(blueW);
 		
@@ -79,7 +81,7 @@ public class WormHole {
 	public void teleportToYellow(ITeleportable t) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".teleportToYellow()");
+		System.out.print(name + ".teleportToYellow()\n");
 		Depth.getInstance().enterFunction();
 		
 		double yellowX=0.0,yellowY=0.0;
@@ -87,7 +89,7 @@ public class WormHole {
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".teleportToYellow()");
+		System.out.print("ret " + name + ".teleportToYellow()\n");
 		//TODO Lorant
 	}
 	
@@ -100,7 +102,7 @@ public class WormHole {
 	public void teleportToBlue(ITeleportable t) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".teleportToBlue()");
+		System.out.print(name + ".teleportToBlue()\n");
 		Depth.getInstance().enterFunction();
 
 		double blueX=0.0,blueY=0.0;
@@ -108,7 +110,7 @@ public class WormHole {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".teleportToBlue()");
+		System.out.print("ret " + name + ".teleportToBlue()\n");
 		//TODO Lorant
 	}
 }

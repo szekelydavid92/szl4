@@ -176,21 +176,29 @@ public class SkeletonMain {
 		Stargate yellow = new Stargate();
 		yellow.mask(wall);	*/	
 		
-
+		System.out.print("Initializing test case 4\n");
 		Projectile projectile = new Projectile();
 		
-		WorldObject obj = new WorldObject();
+		WorldObject wallObj = new WorldObject();
+		WorldObject maskedWallObj = new WorldObject();
 		WormHole wormHole = new WormHole();
 		SpecWall specWall = new SpecWall();
-		SpecWall masked = new SpecWall();
+		SpecWall maskedWall = new SpecWall();
 		
 		projectile.wormHole = wormHole;
 		
-		obj.visitable = specWall;
+		wallObj.visitable = specWall;
+		maskedWallObj.visitable = maskedWall;
 		
+		specWall.iwo = wallObj;
+		maskedWall.iwo = maskedWallObj;
+		
+		wormHole.yellowGate.mask(maskedWall);
+		
+		System.out.print("Initialization finished.\n");
 		//projectile.
-		
-		projectile.notify(obj);
+		System.out.print("Test case 4");
+		projectile.notify(wallObj);
 				
 	}
 	//Kek csillagkapu nyitasa
@@ -214,17 +222,48 @@ public class SkeletonMain {
 	}*/
 	//Csillagkapu atjaras
 	static void case_6(){
-				
+		System.out.print("Initializing test case 5\n");
 		WorldObject obj = new WorldObject();
-		Player pl = new Player();
-		obj.setCollisionObserver(pl);
+		Player player = new Player();
+		obj.visitable = player;
+		obj.setCollisionObserver(player);
 		
-		WorldObject wallObject = new WorldObject();
+		WorldObject yellowWallObject = new WorldObject();
+		WorldObject blueWallObject = new WorldObject();
+		
+		WormHole wormHole = new WormHole();
+		
+		wormHole.yellowGate.name = "stargate";
+		wormHole.blueGate.name = "stargate";
+		
+		yellowWallObject.setCollisionObserver(wormHole.yellowGate);
+		blueWallObject.setCollisionObserver(wormHole.blueGate);
 		//wallObject.setCollisionObserver(s);
 		
-		wallObject.notify(obj);
+		System.out.print("Initialization finished.\n");
 		
-		WormHole wh = new WormHole();
+		/*
+		 * Ebben elter a specifikacotol! Elore kell megadni, hogy a
+		 * sárga vagy a kék kapun megyunk be
+		 */
+		boolean isYellow = true;
+		System.out.println("Kerem, adja meg, hogy melyik (sarga vagy kek) portalba lepett![s/k]\n");
+		try {
+			line = in.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(line.equals("s")) 		{isYellow = true;}
+		else if(line.equals("k")) 	{isYellow = false;}
+		else {
+			System.out.println("ERROR: Ervenytelen bemenet!/n");
+		}
+		if(isYellow){
+			yellowWallObject.notify(obj);
+		} else {
+			blueWallObject.notify(obj);
+		}
 				
 	}
 	

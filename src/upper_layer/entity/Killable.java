@@ -24,7 +24,10 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 * @param visitor ???????????
 	 * @return void
 	 */
-	public void accept(IVisitor visitor) {}
+	public void accept(IVisitor visitor)
+	{
+		visitor.visit((IKillable) this);
+	}
 	
 	
 	/**

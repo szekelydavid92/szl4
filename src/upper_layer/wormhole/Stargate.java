@@ -63,7 +63,7 @@ public class Stargate implements IStargate/*, ICollisionObserver*/ {
 	public void visit(ITeleportable teleportable) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
+		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
 		//!!!!!!!!!!!!!!!
@@ -75,7 +75,7 @@ public class Stargate implements IStargate/*, ICollisionObserver*/ {
 		}
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
+		System.out.print("ret " + name + ".visit()\n");
 		
 	}
 
@@ -104,14 +104,14 @@ public class Stargate implements IStargate/*, ICollisionObserver*/ {
 	public void notify(IWorldObject obj) {
 		//TODO Lorant
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".notify()");
+		System.out.print(name + ".notify()\n");
 		Depth.getInstance().enterFunction();
 		
 		obj.getVisitable().accept((IVisitor)this);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".notify()");
+		System.out.print("ret " + name + ".notify()\n");
 	}
 
 }

@@ -5,6 +5,7 @@ import common.IKillable;
 import common.IProjectileFactory;
 import common.ISpecWall;
 import common.ITeleportable;
+import common.IVisitor;
 import common.IVisitable;
 import common.IWorldObject;
 import common.IZPM;
@@ -17,7 +18,7 @@ import skeleton.Depth;
 /**
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
  */
-public class Player extends Killable {
+public class Player extends Killable implements ITeleportable {
 	/**
 	 * Ezzel a fuggvennyel lehet rakenyszeriteni a jatekost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisul.
 	 * @return void
@@ -29,6 +30,11 @@ public class Player extends Killable {
 	public ICarriable box;
 	private boolean TMPShootYellow = false; //teszteles miatt
 	private boolean TMPShootBlue = false; 	//teszteles miatt
+	
+	public void accept(IVisitor visitor){
+		visitor.visit((IKillable) this);
+		visitor.visit((ITeleportable) this);
+	}
 	
 	public void forcedRelelease() {
 		
@@ -70,12 +76,13 @@ public class Player extends Killable {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".teleport()\n");
 		Depth.getInstance().enterFunction();
-			
+		/*	
 		if(validPos(x, y)){
 			posX = x;
 			posY = y;
 		} else {	
 		}
+		*/
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

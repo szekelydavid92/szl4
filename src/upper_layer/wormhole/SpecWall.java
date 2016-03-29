@@ -19,14 +19,14 @@ public class SpecWall implements ISpecWall {
 	public void notify(IWorldObject obj) {
 		//TODO
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".notify()");
+		System.out.print(name + ".notify()\n");
 		Depth.getInstance().enterFunction();
 		
 		obj.getVisitable().accept((IVisitor)this);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".notify()");
+		System.out.print("ret " + name + ".notify()\n");
 		
 	}
 
@@ -35,7 +35,7 @@ public class SpecWall implements ISpecWall {
 	public void accept(IVisitor visitor) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".accept()");
+		System.out.print(name + ".accept()\n");
 		Depth.getInstance().enterFunction();
 		
 		//visitor.visit((ISpecWall)this);
@@ -43,7 +43,7 @@ public class SpecWall implements ISpecWall {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".accept()");
+		System.out.print("ret " + name + ".accept()\n");
 		
 	}
 
@@ -52,7 +52,7 @@ public class SpecWall implements ISpecWall {
 	public void replace(IStargate o) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".replace()");
+		System.out.print(name + ".replace()\n");
 		Depth.getInstance().enterFunction();
 		
 		//TODO Lorant
@@ -60,7 +60,7 @@ public class SpecWall implements ISpecWall {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".replace()");
+		System.out.print("ret " + name + ".replace()\n");
 		
 	}
 

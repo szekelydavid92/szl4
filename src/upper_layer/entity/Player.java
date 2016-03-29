@@ -28,7 +28,7 @@ public class Player extends Killable {
 	public void forcedRelelease() {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".forcedRelelease()\n");
+		System.out.print(name + ".forcedRelelease()\n");		
 		Depth.getInstance().enterFunction();
 				
 		Depth.getInstance().returnFromFunction();

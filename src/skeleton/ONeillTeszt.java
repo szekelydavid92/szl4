@@ -14,7 +14,7 @@ import upper_layer.reactive.ZPM;
 class ONeillTeszt {
 	//O Neill mozgatasa
 		static void ONeillMozgatas() {
-			
+			System.out.print("Teszteset inicializalasa\n");
 			//System.out.println("Creating objects");
 			Player player = new Player();
 			WorldObject playerWorldObject = new WorldObject();
@@ -26,7 +26,8 @@ class ONeillTeszt {
 			w.objects.add(playerWorldObject);	
 			
 			String line = "n";
-			
+
+			System.out.print("Initialization finished.\n");
 			System.out.println("O Neill vezerlofuggvenyeinek tesztelese");
 			//FEL
 			System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
@@ -80,6 +81,7 @@ class ONeillTeszt {
 		}
 		
 		static void zpmFelvetel() {
+			System.out.print("Teszteset inicializalasa\n");
 			WorldObject o1 = new WorldObject();
 			Player p = new Player();
 			o1.name="playerObject";
@@ -94,12 +96,14 @@ class ONeillTeszt {
 			World w	= new World();
 			w.addWorldObject(o1);
 			w.addWorldObject(o2);
-			
+
+			System.out.print("Initialization finished.\n");
 			w.checkCollision();
 		
 		}
 		
 		static void oNeillMeghal() {
+			System.out.print("Teszteset inicializalasa\n");
 			
 			WorldObject o1 = new WorldObject();
 			Player player = new Player();
@@ -117,11 +121,13 @@ class ONeillTeszt {
 			World world = new World();
 			world.addWorldObject(o2);
 			world.addWorldObject(o1);
-			
+
+			System.out.print("Initialization finished.\n");
 			world.checkCollision();
 		}
 		
 		static void dobozFelvetel() {
+			System.out.print("Teszteset inicializalasa\n");
 			World world = new World();
 			WorldObject wo1 = new WorldObject();
 			wo1.name="playerObject";
@@ -137,7 +143,8 @@ class ONeillTeszt {
 			wo1.setCollisionObserver(player);
 			wo2.setCollisionObserver(box);
 			wo2.setVisitable(box);
-			
+
+			System.out.print("Initialization finished.\n");
 			System.out.println("O Neill dobozfelemelesenek lehivasa");
 			player.pickUp(true);
 			
@@ -147,6 +154,7 @@ class ONeillTeszt {
 		}
 		
 		static void dobozLerakas() {
+			System.out.print("Teszteset inicializalasa\n");
 			Player player = new Player();
 			Box box = new Box();
 			WorldObject wo = new WorldObject();
@@ -154,7 +162,8 @@ class ONeillTeszt {
 			
 			box.worldObject = wo;
 			player.box = box;
-			
+
+			System.out.print("Initialization finished.\n");
 			player.carryBox();
 		}
 		

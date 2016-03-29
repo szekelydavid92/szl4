@@ -327,8 +327,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".carryBox()\n");
 		Depth.getInstance().enterFunction();
 		
-		if(box != null)
-		{
+		if(box != null) {
+			Depth.getInstance().printTabs();
 			System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
 			try {
 				skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
@@ -338,6 +338,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 			}
 			
 			if(skeleton.SkeletonMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
+				Depth.getInstance().printTabs();
 				System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
 				try {
 					skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
@@ -403,7 +404,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	@Override
 	public void visit(IKillable killable) {
-		
+		/*
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
@@ -411,6 +412,12 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".visit()\n");
+		*/
+		
+		/*
+		 * Ez a függvény nem csinál semmit
+		 * Lóránt
+		 */
 		//TODO Lorant
 	}
 

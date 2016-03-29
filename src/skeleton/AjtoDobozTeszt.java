@@ -19,6 +19,7 @@ public class AjtoDobozTeszt {
 	public static String name = "AjtoDobozTeszt";
 	
 	static void ajtoNyitasZaras() {
+		System.out.print("Teszteset inicializalasa\n");
 		Box box = new Box();
 		box.name="box";
 		WorldObject o1 = new WorldObject();
@@ -51,7 +52,7 @@ public class AjtoDobozTeszt {
 		gameLoop.name="gameLoop";
 		gameLoop.Entites.add(door);
 		
-		
+		System.out.print("Initialization finished.\n");
 		String line="i"; // menj�nk-e egy ciklust
 		while (line.equals("i")) {
 		
@@ -60,18 +61,19 @@ public class AjtoDobozTeszt {
 	
 			gameLoop.run();
 		
-		System.out.println("Menjunk meg egy GameLoop ciklust? [i/n]\n");
-		try {
-			line = in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			System.out.println("Menjunk meg egy GameLoop ciklust? [i/n]\n");
+			try {
+				line = in.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}
 	
 	static void boxMeghal() {
+		System.out.print("Teszteset inicializalasa\n");
 		WorldObject o1 = new WorldObject();
 		o1.name="boxObject";
 		Box b = new Box();
@@ -92,9 +94,8 @@ public class AjtoDobozTeszt {
 		w.addWorldObject(o1);
 		
 		System.out.println(w.objects.size());
-		
+
+		System.out.print("Initialization finished.\n");
 		w.checkCollision();
-		{
-	}
 	}
 }

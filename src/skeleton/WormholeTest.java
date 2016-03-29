@@ -12,6 +12,7 @@ import upper_layer.wormhole.WormHole;
 
 class WormholeTest {
 	static void SargaLovedekLovese() { //Sarga lovedek lovese
+		System.out.print("Teszteset inicializalasa\n");
 				
 		//System.out.println("Creating objects");
 		Player p = new Player();
@@ -24,7 +25,8 @@ class WormholeTest {
 		pf.iwof = wof;
 		
 		//pwo.setCollisionObserver(p);//elvileg nem kell ide
-		
+
+		System.out.print("Initialization finished.\n");
 		System.out.println("\nO Neill lovesenek lehivasa");
 		p.shootYellow(true);
 		
@@ -34,6 +36,7 @@ class WormholeTest {
 	}
 	
 	static void KekLovedekLovese() { //Kek lovedek lovese
+		System.out.print("Teszteset inicializalasa\n");
 		
 		Player p = new Player();
 		WorldObject pwo = new WorldObject();
@@ -43,7 +46,8 @@ class WormholeTest {
 		p.worldObject = pwo;
 		p.projFactory = pf;
 		pf.iwof = wof;
-		
+
+		System.out.print("Initialization finished.\n");
 		System.out.println("\nO Neill lovesenek lehivasa");
 		p.shootBlue(true);
 		
@@ -53,7 +57,7 @@ class WormholeTest {
 	}
 	
 	static void CsillagkapuNyitas(){
-		System.out.print("Initializing Kek vagy sarga csillagkapu nyitasa\n");
+		System.out.print("Teszteset inicializalasa\n");
 		Projectile projectile = new Projectile();
 		
 		WorldObject wallObj = new WorldObject();
@@ -72,8 +76,8 @@ class WormholeTest {
 		maskedWall.iwo = maskedWallObj;
 		
 		wormHole.yellowGate.mask(maskedWall);
-		
-		System.out.print("Initialization finished.\n\n");
+
+		System.out.print("Initialization finished.\n");
 		
 		System.out.print("Kek vagy sarga csillagkapu nyitasa\n");
 		projectile.notify(wallObj);
@@ -81,7 +85,7 @@ class WormholeTest {
 	}
 	
 	static void CsillagkapuAtjaras(){
-		System.out.print("Initializing test case 5\n");
+		System.out.print("Teszteset inicializalasa\n");
 		WorldObject obj = new WorldObject();
 		Player player = new Player();
 		obj.visitable = player;

@@ -1,17 +1,17 @@
 package common;
 
-import bottom_layer.WorldObject;
-
 /**
  * Az ot megvalosito osztalyoknak letre kell tudniuk hozni WorldObjecteket, adott szelesseggel, es hosszusaggal.
  */
 public interface IWorldObjectFactory {
+	
 	/**
-	 * WorldObject objektum letrehozasaert felel.
-	 * @param width Objektum szelessege.
-	 * @param height Objektum magassaga.
-	 * @return void
+	 * @brief IWorldObject interfeszt megvalosito osztaly peldanyt hoz letre.
+	 * 
+	 * @param width Letrehozando objektum szelessege.
+	 * @param height Letrehozando objektum magassaga.
+	 * @return IWorldObject - a letrehozott peldanyra mutato referencia
 	 */
-	public WorldObject createObject(double width, double height);
+	public IWorldObject createObject(double width, double height);
 
 }

@@ -237,9 +237,12 @@ public class WorldObject implements IWorldObject {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//TODO Meg kene formazni a kodot.
+		
 		if(skeleton.SkeletonMain.line.equals("i")) {collides = true;}
 		else if(skeleton.SkeletonMain.line.equals("n")) {collides = false;}
-		else System.out.print("ERROR: Ervénytelen bemenet");	
+		else {System.out.print("ERROR: Ervénytelen bemenet");}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

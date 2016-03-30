@@ -220,7 +220,7 @@ public class WorldObject implements IWorldObject {
 		
 		if(skeleton.SkeletonMain.line.equals("i")) {collides = true;}
 		else if(skeleton.SkeletonMain.line.equals("n")) {collides = false;}
-		else {System.out.print("ERROR: Ervenytelen bemenet");}
+		else {System.out.println("ERROR: Ervenytelen bemenet");}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

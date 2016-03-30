@@ -53,6 +53,7 @@ public class AjtoDobozTeszt {
 		gameLoop.Entites.add(door);
 		
 		System.out.print("Initialization finished.\n");
+		System.out.print("Ajto nyitasanak es zarasanak tesztelese.\n");
 		String line="i"; // menj�nk-e egy ciklust
 		while (line.equals("i")) {
 		
@@ -92,10 +93,9 @@ public class AjtoDobozTeszt {
 		World w = new World();
 		w.addWorldObject(o2);
 		w.addWorldObject(o1);
-		
-		System.out.println(w.objects.size());
 
 		System.out.print("Initialization finished.\n");
+		System.out.print("Chasm es Box utkozesenek vizsgalata.\n");
 		w.checkCollision();
 	}
 }

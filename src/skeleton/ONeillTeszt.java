@@ -124,6 +124,7 @@ class ONeillTeszt {
 			world.addWorldObject(o1);
 
 			System.out.print("Initialization finished.\n");
+			System.out.print("Chasm es O'Neill utkozesenek vizsgalata.\n");
 			world.checkCollision();
 		}
 		
@@ -136,7 +137,8 @@ class ONeillTeszt {
 			wo2.name="boxObject";
 			Player player = new Player();
 			Box box = new Box();
-			
+
+			wo1.visitable = player;
 			player.worldObject = wo1;
 			box.worldObject = wo2;
 			world.objects.add(wo1);

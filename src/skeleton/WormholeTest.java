@@ -90,6 +90,8 @@ class WormholeTest {
 		Player player = new Player();
 		obj.visitable = player;
 		obj.setCollisionObserver(player);
+		
+		obj.name = "playerObject";
 				
 		//WorldObject obj = new WorldObject();
 		//Player pl = new Player();
@@ -106,6 +108,9 @@ class WormholeTest {
 		yellowWallObject.setCollisionObserver(wormHole.yellowGate);
 		blueWallObject.setCollisionObserver(wormHole.blueGate);
 		//wallObject.setCollisionObserver(s);
+		
+		yellowWallObject.name = "wallObject";
+		blueWallObject.name = "wallObject";
 
 		System.out.print("Initialization finished.\n");
 //		wallObject.notify(obj);

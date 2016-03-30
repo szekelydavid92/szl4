@@ -457,5 +457,6 @@ public class SkeletonMain {
 		System.out.println("Ajto nyitasa es zarasa[8]");
 		System.out.println("Player Objektum megsemmisulese[9]");
 		System.out.println("Box Objektum megsemmisulese[10]");
+		System.out.println("Barmi mas: kilepes");
 	}
 }

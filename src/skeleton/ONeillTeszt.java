@@ -98,7 +98,7 @@ class ONeillTeszt {
 			w.addWorldObject(o2);
 
 			System.out.print("Initialization finished.\n");
-			System.out.print("ZPM és O'Neill utkozesenek tesztelese");
+			System.out.print("ZPM es O'Neill utkozesenek tesztelese\n");
 			w.checkCollision();
 		
 		}

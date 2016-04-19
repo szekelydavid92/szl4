@@ -20,9 +20,11 @@ public class AjtoDobozTeszt {
 	
 	static void ajtoNyitasZaras() {
 		System.out.print("Teszteset inicializalasa\n");
-		Box box = new Box();
-		box.name="box";
+		
 		WorldObject o1 = new WorldObject();
+		Box box = new Box(o1);
+		box.name="box";
+		
 		o1.setCollisionObserver(box);
 		o1.name="boxObject";
 		
@@ -37,12 +39,12 @@ public class AjtoDobozTeszt {
 		probaWorld.addWorldObject(o1);
 		probaWorld.addWorldObject(o2);
 		
-		
-		Door door = new Door();
+
+		WorldObject doorObject=new WorldObject();
+		Door door = new Door(doorObject);
 		scale.door=door;
 		door.name="door";
-		WorldObject doorObject=new WorldObject();
-		door.worldObject=doorObject;
+		//door.worldObject=doorObject;
 		doorObject.name="doorObject";
 		
 		//World probaWorld=new World(); 
@@ -77,12 +79,13 @@ public class AjtoDobozTeszt {
 		System.out.print("Teszteset inicializalasa\n");
 		WorldObject o1 = new WorldObject();
 		o1.name="boxObject";
-		Box b = new Box();
-		b.worldObject=o1;
+		Box b = new Box(o1);
+		//b.worldObject=o1;
 		b.name="box";
 		o1.setCollisionObserver(b);
 		o1.setVisitable(b);
-		b.regCarrier(new Player());
+		WorldObject playerObject = new WorldObject();
+		b.regCarrier(new Player(playerObject));
 		
 		WorldObject o2 = new WorldObject();
 		o2.name="chasmObject";

@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.Vector;
 
 import bottom_layer.World;
@@ -21,16 +23,55 @@ import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
 
-public class ProtoMain {	
-	public static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+/*
+ * Aprilis 19 21:00 Seres kommentezte a kodot, megirta a WorldObjectFactory, a ColEntity,
+ * a Killable, a Player, a Box konstruktorat.
+ */
+
+public class ProtoMain {
+	
+	/*
+	 * A Scanner azert kell, mert azzal lehet konnyen parsolni szamokat meg stringeket.
+	 */
+	public static Scanner in = new Scanner(System.in);
+	
 	public static String line = null;
 	public static String name = "SkeletonMain";
+	
+	static boolean IsRunning;
+	static Map<String,IProtoCommand> Commands;
+	
+	static void Logic(String cmd[])
+	{
+		if(cmd.length == 0)
+		{
+			return;
+		}
+		
+		if(cmd[0].equals("exit"))
+		{
+			IsRunning = false;
+		}
+		else
+		{
+			IProtoCommand program = Commands.get(cmd[0]);
+			
+			if(program == null)
+			{
+				System.out.print(cmd[0] + ": command not found\n");
+			}
+			else
+			{
+				program.Execute(in);
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
 		
-		while (true) {	
-	        try {
+		while (true) {
 	        	writeCases();
-				line = in.readLine();
+				line = in.next();
 				if(line.equals("0")) 		{ONeillTeszt.ONeillMozgatas();}
 				else if(line.equals("1")) 	{ONeillTeszt.zpmFelvetel();}
 				else if(line.equals("2")) 	{WormholeTest.KekLovedekLovese();}
@@ -43,10 +84,6 @@ public class ProtoMain {
 				else if(line.equals("9")) 	{ONeillTeszt.oNeillMeghal();}
 				else if(line.equals("10")) 	{AjtoDobozTeszt.boxMeghal();}
 				else {break;}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 	    }
 	}/*
 	//O Neill mozgatasa

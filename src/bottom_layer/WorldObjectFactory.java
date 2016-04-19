@@ -5,7 +5,7 @@ import common.IWorldObjectFactory;
 import proto.Depth;
 
 /**
- * O hozza letre a WorldObject-et.
+ * @brief O hozza letre a WorldObject-et.
  */
 public class WorldObjectFactory implements IWorldObjectFactory {
 	
@@ -20,8 +20,7 @@ public class WorldObjectFactory implements IWorldObjectFactory {
 	 * @return IWorldObject - a letrehozott peldanyra mutato referencia
 	 */
 	@Override
-	public IWorldObject createObject(double width, double height)
-	{
+	public IWorldObject createObject(double width, double height) {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".createObject()\n");
 		Depth.getInstance().enterFunction();
@@ -36,6 +35,7 @@ public class WorldObjectFactory implements IWorldObjectFactory {
 		return worldObject;
 	}
 	
-	
-
+	public WorldObjectFactory(World world) {
+		this.world = world;
+	}
 }

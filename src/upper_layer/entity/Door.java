@@ -10,9 +10,10 @@ import proto.Depth;
  * akkor az also retegbeli reprezentaciojat ateresztove teszi, ha nem, akkor mozdithatatlanna.
  */
 public class Door extends ColEntity implements IDoor {
-	private boolean opened;
+	
+	private boolean opened = false;
+	
 	public String name; //O kell az objektum nevenek a kiprintelesehez!
-	public IWorldObject worldObject;
 	
 	@Override
 	public void close() {
@@ -65,5 +66,10 @@ public class Door extends ColEntity implements IDoor {
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".step()");
 		
+	}
+	
+	public Door(IWorldObject worldObject) {
+		super(worldObject);
+		// TODO Auto-generated constructor stub
 	}
 }

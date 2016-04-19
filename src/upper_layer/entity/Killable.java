@@ -12,6 +12,7 @@ import common.IWorldObject;
  * van also retegbeli reprezentacioja, minden iteracioban elorelepteti az allapotat, es megolheto.
  */
 public abstract class Killable extends ColEntity implements IKillable, IVisitor, IVisitable, ICollisionObserver {
+	
 	/**
 	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
 	 * @return void
@@ -44,4 +45,12 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 * @return void
 	 */
 	public abstract void notify(IWorldObject obj);
+	
+	protected Killable(IWorldObject worldObject) {
+		super(worldObject);
+		
+		worldObject.setVisitable(this);
+		worldObject.setCollisionObserver(this);
+		// TODO Auto-generated constructor stub
+	}
 }

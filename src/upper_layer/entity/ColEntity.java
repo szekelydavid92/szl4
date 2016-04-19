@@ -4,15 +4,21 @@ import common.IEntity;
 import common.IWorldObject;
 
 /**
- * Az Entity interfeszt implementalo absztrakt osztaly, van referenciaja egy IWorldObjectre,
+ * @brief Az Entity interfeszt implementalo absztrakt osztaly, van referenciaja egy IWorldObjectre,
  * belole orokol minden olyan Entity, akinek van also retegbeli reprezentacioja.
  */
 public abstract class ColEntity implements IEntity {
-	public IWorldObject worldObject;
+	
+	protected IWorldObject worldObject;
 	
 	/**
-	 * A ColEntity-bol oroklo objektumok ebben a fuggvenyben leptetik elore az allapotukat az idoben.
+	 * @brief A ColEntity-bol oroklo objektumok ebben a fuggvenyben leptetik elore az allapotukat az idoben.
 	 * @return void
 	 */
 	public abstract void step();
+	
+	protected ColEntity(IWorldObject worldObject) {
+		this.worldObject = worldObject;
+	}
+	
 }

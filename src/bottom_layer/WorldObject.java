@@ -211,12 +211,9 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
 		
-		try {
-			proto.ProtoMain.line = proto.ProtoMain.in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		proto.ProtoMain.line = proto.ProtoMain.in.next();
+		
 		
 		if(proto.ProtoMain.line.equals("i")) {collides = true;}
 		else if(proto.ProtoMain.line.equals("n")) {collides = false;}

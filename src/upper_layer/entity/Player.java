@@ -20,7 +20,8 @@ import common.Colour;
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
  */
 public class Player extends Killable implements ITeleportable,ICarrier {
-	
+
+
 	private double posX, posY;
 	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	public IProjectileFactory projFactory;
@@ -330,22 +331,16 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		if(box != null) {
 			Depth.getInstance().printTabs();
 			System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
-			try {
-				proto.ProtoMain.line = proto.ProtoMain.in.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+			proto.ProtoMain.line = proto.ProtoMain.in.next();
+			
 			
 			if(proto.ProtoMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
 				Depth.getInstance().printTabs();
 				System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
-				try {
-					proto.ProtoMain.line = proto.ProtoMain.in.readLine();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
+				proto.ProtoMain.line = proto.ProtoMain.in.next();
+				
 				if (proto.ProtoMain.line.equals("i"))
 					box.release();
 			}
@@ -490,5 +485,10 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print("ret " + name + ".notify() \n");
 		
 		
+	}
+	
+	public Player(IWorldObject worldObject) {
+		super(worldObject);
+		// TODO Auto-generated constructor stub
 	}
 }

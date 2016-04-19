@@ -16,11 +16,11 @@ class ONeillTeszt {
 		static void ONeillMozgatas() {
 			System.out.print("Teszteset inicializalasa\n");
 			//System.out.println("Creating objects");
-			Player player = new Player();
 			WorldObject playerWorldObject = new WorldObject();
+			Player player = new Player(playerWorldObject);
 			World w = new World();
 			
-			player.worldObject = playerWorldObject;
+			//player.worldObject = playerWorldObject;
 			//pwo.setCollisionObserver(p); 
 			//w.addWorldObject(pwo);
 			w.objects.add(playerWorldObject);	
@@ -31,32 +31,23 @@ class ONeillTeszt {
 			System.out.println("O Neill vezerlofuggvenyeinek tesztelese");
 			//FEL
 			System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
-			try {
-				line = ProtoMain.in.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+			line = ProtoMain.in.next();
+			
 			if(line.equals("i")) player.moveUp(true);
 			if(line.equals("n")) player.moveUp(false);
 			//LE
 			System.out.println("Kerem, adja meg, hogy O Neill lefele mozogjon-e![i/n]\n");
-			try {
-				line = ProtoMain.in.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+			line = ProtoMain.in.next();
+			
 			if(line.equals("i")) player.moveDown(true);
 			if(line.equals("n")) player.moveDown(false);
 			//JOBBRA
 			System.out.println("Kerem, adja meg, hogy O Neill jobbra mozogjon-e![i/n]\n");
-			try {
-				line = ProtoMain.in.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+			line = ProtoMain.in.next();
+			
 			if(line.equals("i")) 		{player.moveRight(true);}
 			else if(line.equals("n")) 	{player.moveRight(false);}
 			else {
@@ -64,12 +55,9 @@ class ONeillTeszt {
 			}
 			//BALRA
 			System.out.println("Kerem, adja meg, hogy O Neill balra mozogjon-e![i/n]\n");
-			try {
-				line = ProtoMain.in.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+			line = ProtoMain.in.next();
+			
 			if(line.equals("i")) player.moveLeft(true);
 			if(line.equals("n")) player.moveLeft(false);
 			
@@ -83,7 +71,7 @@ class ONeillTeszt {
 		static void zpmFelvetel() {
 			System.out.print("Teszteset inicializalasa\n");
 			WorldObject o1 = new WorldObject();
-			Player p = new Player();
+			Player p = new Player(o1);
 			o1.name="playerObject";
 			o1.setCollisionObserver(p);
 			
@@ -107,11 +95,12 @@ class ONeillTeszt {
 			System.out.print("Teszteset inicializalasa\n");
 			
 			WorldObject o1 = new WorldObject();
-			Player player = new Player();
+			Player player = new Player(o1);
 			o1.setCollisionObserver(player);
 			o1.setVisitable(player);
 			o1.name="playerWorldOBject";
-			Box box=new Box();
+			WorldObject boxObj = new WorldObject();
+			Box box=new Box(boxObj);
 			player.box=box;
 			
 			WorldObject o2 = new WorldObject();
@@ -135,12 +124,12 @@ class ONeillTeszt {
 			wo1.name="playerObject";
 			WorldObject wo2 = new WorldObject();
 			wo2.name="boxObject";
-			Player player = new Player();
-			Box box = new Box();
+			Player player = new Player(wo1);
+			Box box = new Box(wo2);
 
 			wo1.visitable = player;
-			player.worldObject = wo1;
-			box.worldObject = wo2;
+			//player.worldObject = wo1;
+			//box.worldObject = wo2;
 			world.objects.add(wo1);
 			world.objects.add(wo2);
 			wo1.setCollisionObserver(player);
@@ -158,12 +147,15 @@ class ONeillTeszt {
 		
 		static void dobozLerakas() {
 			System.out.print("Teszteset inicializalasa\n");
-			Player player = new Player();
-			Box box = new Box();
 			WorldObject wo = new WorldObject();
 			wo.name="boxObject";
+			WorldObject wo2 = new WorldObject();
+			wo2.name="playerObject";
+
+			Player player = new Player(wo2);
+			Box box = new Box(wo);
 			
-			box.worldObject = wo;
+			//box.worldObject = wo;
 			player.box = box;
 
 			System.out.print("Initialization finished.\n");

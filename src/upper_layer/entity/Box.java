@@ -14,16 +14,16 @@ import common.IZPM;
 import proto.Depth;
 
 /**
- * Ez a doboz. Az ICarrier interfeszt megvalasito objektum kepes oket mozgatni.
+ * @brief Ez a doboz. Az ICarrier interfeszt megvalasito objektum kepes oket mozgatni.
  */
 public class Box extends Killable implements ICarriable {
 	
 	ICarrier carrier; //referencia a hordozora
 	public String name = "Box";
-	public IWorldObject worldObject;
 	
 	/**
-	 * A dobozt cipelo objektum ezen keresztul tudja beallitani a doboz objektum poziciojat.
+	 * @brief A dobozt cipelo objektum ezen keresztul tudja beallitani a doboz objektum poziciojat.
+	 * 
 	 * @param x Az elso parameter az x koordinata.
 	 * @param y A masodik parameter az y koordinata.
 	 * @return void
@@ -44,7 +44,8 @@ public class Box extends Killable implements ICarriable {
 	}	
 	
 	/**
-	 * Itt ertesul a doboz objektum, hogy a parameterkent kapott ICarrier interface-t megvalosito objektum ot cipeli.
+	 * @brief Itt ertesul a doboz objektum, hogy a parameterkent kapott ICarrier interface-t megvalosito objektum ot cipeli.
+	 * 
 	 * @param c ICarrier interfeszt megvalosito objektum.
 	 * @return void
 	 */
@@ -60,13 +61,12 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".regCarrier()");
-		
-		//TODO Lorant
 	}
 	
 	
 	/**
-	 * A hordozo objektum ezen keresztul ertesiti a doboz objektumot, hogy elengedte.
+	 * @brief A hordozo objektum ezen keresztul ertesiti a doboz objektumot, hogy elengedte.
+	 * 
 	 * @return void
 	 */	
 	public void release() {
@@ -84,7 +84,8 @@ public class Box extends Killable implements ICarriable {
 	
 	
 	/**
-	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
+	 * @brief Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
+	 * 
 	 * @return void
 	 */	
 	public void kill() {
@@ -106,7 +107,7 @@ public class Box extends Killable implements ICarriable {
 	
 	
 	/**
-	 * Ezen keresztul kozli a doboz, hogy a killable es carriable.
+	 * @brief Ezen keresztul kozli a doboz, hogy o killable es carriable.
 	 * @param visitor IVisitor interfeszt megvalasito objektum.
 	 * @return void
 	 */
@@ -241,5 +242,10 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".visit()");
+	}
+	
+	public Box(IWorldObject worldObject) {
+		super(worldObject);
+		// TODO Auto-generated constructor stub
 	}
 }

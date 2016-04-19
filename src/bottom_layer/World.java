@@ -87,7 +87,7 @@ public class World {
 	 *  miatt jottek letre
 	 *  
 	 */
-	public void addWorldObject(WorldObject obj){
+	public void addWorldObject(WorldObject obj) {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".addWorldObject()\n");
@@ -100,7 +100,7 @@ public class World {
 		System.out.print("ret " + name + ".addWorldObject()\n");
 	}
 	
-	public WorldObject getWorldObject(int n){
+	public WorldObject getWorldObject(int n) {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".getWorldObject()\n");
@@ -113,7 +113,7 @@ public class World {
 		return objects.get(n);
 	}
 	
-	public List<WorldObject> getAllWorldObject(){
+	public List<WorldObject> getAllWorldObject() {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".getAllWorldObject()\n");

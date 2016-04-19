@@ -35,18 +35,14 @@ public class Projectile implements ICollisionObserver, IVisitor {
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
-		BufferedReader in = ProtoMain.in; //Shortcut
+		//Scanner in = ProtoMain.in; //Shortcut
 		String line = null;
 
 		Depth.getInstance().printTabs();
 		System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
 		
-		try {
-			line = in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		line = ProtoMain.in.next();
+		
 		if(line.equals("s"))
 			wormHole.setYellow(wall);
 		if(line.equals("k"))

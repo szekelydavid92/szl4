@@ -123,5 +123,8 @@ public interface IWorldObject {
 	 */
 	public IVisitable getVisitable();
 	
+	//TODO: kommentelni kéne
+	public void setVisitable(IVisitable visitable);
+	
 	
 }

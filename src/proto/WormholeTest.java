@@ -2,6 +2,7 @@ package proto;
 
 import java.io.IOException;
 
+import bottom_layer.World;
 import bottom_layer.WorldObject;
 import bottom_layer.WorldObjectFactory;
 import upper_layer.entity.Player;
@@ -13,14 +14,16 @@ import upper_layer.wormhole.WormHole;
 class WormholeTest {
 	static void SargaLovedekLovese() { //Sarga lovedek lovese
 		System.out.print("Teszteset inicializalasa\n");
+		
+		World w = new World();
 				
 		//System.out.println("Creating objects");
-		Player p = new Player();
 		WorldObject pwo = new WorldObject();
+		Player p = new Player(pwo);
 		ProjectileFactory pf = new ProjectileFactory();
-		WorldObjectFactory wof = new WorldObjectFactory();
+		WorldObjectFactory wof = new WorldObjectFactory(w);
 		
-		p.worldObject = pwo;
+		
 		p.projFactory = pf;
 		pf.iwof = wof;
 		
@@ -37,13 +40,15 @@ class WormholeTest {
 	
 	static void KekLovedekLovese() { //Kek lovedek lovese
 		System.out.print("Teszteset inicializalasa\n");
+
+		World w = new World();
 		
-		Player p = new Player();
 		WorldObject pwo = new WorldObject();
-		ProjectileFactory pf = new ProjectileFactory();
-		WorldObjectFactory wof = new WorldObjectFactory();
+		Player p = new Player(pwo);
 		
-		p.worldObject = pwo;
+		ProjectileFactory pf = new ProjectileFactory();
+		WorldObjectFactory wof = new WorldObjectFactory(w);
+		
 		p.projFactory = pf;
 		pf.iwof = wof;
 
@@ -87,7 +92,7 @@ class WormholeTest {
 	static void CsillagkapuAtjaras(){
 		System.out.print("Teszteset inicializalasa\n");
 		WorldObject obj = new WorldObject();
-		Player player = new Player();
+		Player player = new Player(obj);
 		obj.visitable = player;
 		obj.setCollisionObserver(player);
 		
@@ -122,12 +127,9 @@ class WormholeTest {
 		String line = "";
 		boolean isYellow = true;
 		System.out.println("Kerem, adja meg, hogy melyik (sarga vagy kek) portalba lepett![s/k]\n");
-		try {
-			line = ProtoMain.in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		line = ProtoMain.in.next();
+		
 		if(line.equals("s")) 		{isYellow = true;}
 		else if(line.equals("k")) 	{isYellow = false;}
 		else {

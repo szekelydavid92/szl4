@@ -25,7 +25,8 @@ import upper_layer.wormhole.WormHole;
 
 /*
  * Aprilis 19 21:00 Seres kommentezte a kodot, megirta a WorldObjectFactory, a ColEntity,
- * a Killable, a Player, a Box konstruktorat.
+ * a Killable, a Player, a Box, a Projectile, a ProjectileFactory, a SpecWall, a Stargate,
+ * a WormHole, konstruktorat.
  */
 
 public class ProtoMain {

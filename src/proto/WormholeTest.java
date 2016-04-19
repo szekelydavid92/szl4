@@ -5,6 +5,7 @@ import java.io.IOException;
 import bottom_layer.World;
 import bottom_layer.WorldObject;
 import bottom_layer.WorldObjectFactory;
+import common.Colour;
 import upper_layer.entity.Player;
 import upper_layer.wormhole.Projectile;
 import upper_layer.wormhole.ProjectileFactory;
@@ -16,16 +17,17 @@ class WormholeTest {
 		System.out.print("Teszteset inicializalasa\n");
 		
 		World w = new World();
-				
+
+		WormHole wormHole = new WormHole();
+		
 		//System.out.println("Creating objects");
 		WorldObject pwo = new WorldObject();
 		Player p = new Player(pwo);
-		ProjectileFactory pf = new ProjectileFactory();
 		WorldObjectFactory wof = new WorldObjectFactory(w);
+		ProjectileFactory pf = new ProjectileFactory(wof,wormHole);
 		
 		
 		p.projFactory = pf;
-		pf.iwof = wof;
 		
 		//pwo.setCollisionObserver(p);//elvileg nem kell ide
 
@@ -46,11 +48,12 @@ class WormholeTest {
 		WorldObject pwo = new WorldObject();
 		Player p = new Player(pwo);
 		
-		ProjectileFactory pf = new ProjectileFactory();
+		WormHole wormHole = new WormHole();
+		
 		WorldObjectFactory wof = new WorldObjectFactory(w);
+		ProjectileFactory pf = new ProjectileFactory(wof,wormHole);
 		
 		p.projFactory = pf;
-		pf.iwof = wof;
 
 		System.out.print("Initialization finished.\n");
 		System.out.println("\nO Neill lovesenek lehivasa");
@@ -63,22 +66,37 @@ class WormholeTest {
 	
 	static void CsillagkapuNyitas(){
 		System.out.print("Teszteset inicializalasa\n");
-		Projectile projectile = new Projectile();
+		
+		String line = null;
+
+		Depth.getInstance().printTabs();
+		System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
+				
+		line = ProtoMain.in.next();
+		
+		Colour colour;
+		if(line.equals("s"))
+		{
+			colour = Colour.YELLOW;
+		}
+		else
+		{
+			colour = Colour.BLUE;
+		}
+		
 		
 		WorldObject wallObj = new WorldObject();
 		WorldObject maskedWallObj = new WorldObject();
 		
 		WormHole wormHole = new WormHole();
-		SpecWall specWall = new SpecWall();
-		SpecWall maskedWall = new SpecWall();
+		SpecWall specWall = new SpecWall(wallObj);
+		SpecWall maskedWall = new SpecWall(maskedWallObj);
 		
-		projectile.wormHole = wormHole;
+		Projectile projectile = new Projectile(colour,wormHole);
 		
 		wallObj.visitable = specWall;
 		maskedWallObj.visitable = maskedWall;
 		
-		specWall.iwo = wallObj;
-		maskedWall.iwo = maskedWallObj;
 		
 		wormHole.yellowGate.mask(maskedWall);
 

@@ -3,6 +3,7 @@ package upper_layer.reactive;
 import common.ICarriable;
 import common.ICollisionObserver;
 import common.IKillable;
+import common.IProjectile;
 import common.IScale;
 import common.ISpecWall;
 import common.ITeleportable;
@@ -29,18 +30,14 @@ public class Chasm implements ICollisionObserver, IVisitor {
 	@Override
 	public void visit(ISpecWall wall) {
 		/*
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
-		Depth.getInstance().enterFunction();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
-		*/
-		
+		 * Nem torodunk az esettel.
+		 */
+	}
+
+	@Override
+	public void visit(IProjectile projectile) {
 		/*
-		 * Ez nem hivodik le soha, vagy ha igen, nem vagyunk ra kivancsiak.
-		 * Lorant
+		 * Nem torodunk az esettel.
 		 */
 	}
 
@@ -63,7 +60,6 @@ public class Chasm implements ICollisionObserver, IVisitor {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".visit()");
-		//TODO Lorant
 	}
 
 	/**
@@ -76,18 +72,7 @@ public class Chasm implements ICollisionObserver, IVisitor {
 	@Override
 	public void visit(ICarriable carriable) {
 		/*
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
-		Depth.getInstance().enterFunction();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
-		*/
-
-		/*
-		 * Ez lehivodik, de nem vagyunk ra kivancsiak, mert ures a fuggvenytorzs
-		 * Lorant
+		 * Nem torodunk az esettel.
 		 */
 	}
 
@@ -101,18 +86,7 @@ public class Chasm implements ICollisionObserver, IVisitor {
 	@Override
 	public void visit(IZPM zpm) {
 		/*
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
-		Depth.getInstance().enterFunction();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
-		*/
-		
-		/*
-		 * Ez nem hivodik le soha, vagy ha igen, nem vagyunk ra kivancsiak.
-		 * Lorant
+		 * Nem torodunk az esettel.
 		 */
 	}
 
@@ -126,18 +100,7 @@ public class Chasm implements ICollisionObserver, IVisitor {
 	@Override
 	public void visit(IScale scale) {
 		/*
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
-		Depth.getInstance().enterFunction();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
-		*/
-		
-		/*
-		 * Ez nem hivodik le soha, vagy ha igen, nem vagyunk ra kivancsiak.
-		 * Lorant
+		 * Nem torodunk az esettel.
 		 */
 	}
 
@@ -151,18 +114,7 @@ public class Chasm implements ICollisionObserver, IVisitor {
 	@Override
 	public void visit(ITeleportable teleportable) {
 		/*
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()");
-		Depth.getInstance().enterFunction();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()");
-		*/
-		
-		/*
-		 * Ez lehivodik, de nem vagyunk ra kivancsiak, mert ures a fuggvenytorzs
-		 * Lorant
+		 * Nem torodunk az esettel.
 		 */
 	}
 
@@ -175,15 +127,12 @@ public class Chasm implements ICollisionObserver, IVisitor {
 	 */
 	@Override
 	public void notify(IWorldObject obj) {
-		
-		//TODO LORANT
 		Depth.getInstance().printTabs();
 		System.out.println(name + ".notify()");
 		Depth.getInstance().enterFunction();
 		
 		IVisitable visitable = obj.getVisitable();
 		
-		//obj.getVisitable().accept(this); EZT NEM SZABAD CSAK UGY LEHIVNI, MERT LEHET NULLPOINTER!
 		if(visitable != null)
 		{
 			visitable.accept(this);

@@ -15,6 +15,9 @@ public class Scale implements IScale, IVisitable, ICollisionObserver{
 	
 	public String name = "scale";
 	
+	/*
+	 * Attributumok
+	 */
 	public IDoor door;
 	
 	@Override

@@ -8,6 +8,7 @@ import common.Colour;
 import common.ICarriable;
 import common.ICollisionObserver;
 import common.IKillable;
+import common.IProjectile;
 import common.IScale;
 import common.ISpecWall;
 import common.ITeleportable;
@@ -21,12 +22,33 @@ import proto.ProtoMain;
 /**
  * Lovedek. Amennyiben SpecWall-al utkozik, ott nyit egy WormHole-t.
  */
-public class Projectile implements ICollisionObserver, IVisitor {
+public class Projectile implements IProjectile, ICollisionObserver, IVisitable, IVisitor {
 	
 	public String name = "projectile";
-	public WormHole wormHole;
-	public Colour colour;
-	//private IVisitable iv; //importot is kivenni
+	
+	/*
+	 * Attributumok
+	 */
+	private Colour colour;
+	private WormHole wormHole;
+	
+	/*
+	 * Metodusok
+	 */
+	
+	/**
+	 * @brief Konstruktor
+	 */
+	public Projectile(Colour colour,WormHole wormHole)
+	{
+		this.colour = colour;
+		this.wormHole = wormHole;
+	}
+	
+	@Override
+	public Colour getColour() {
+		return colour;
+	}
 	
 	@Override
 	public void visit(ISpecWall wall) {
@@ -36,71 +58,93 @@ public class Projectile implements ICollisionObserver, IVisitor {
 		Depth.getInstance().enterFunction();
 		
 		//Scanner in = ProtoMain.in; //Shortcut
-		String line = null;
+		//String line = null;
 
-		Depth.getInstance().printTabs();
-		System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
+		//Depth.getInstance().printTabs();
+		//System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
 		
-		line = ProtoMain.in.next();
+		//line = ProtoMain.in.next();
 		
-		if(line.equals("s"))
+		if(colour == Colour.YELLOW) {
 			wormHole.setYellow(wall);
-		if(line.equals("k"))
+		}
+		if(colour == Colour.BLUE) {
 			wormHole.setBlue(wall);
+		}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".visit()\n");
 	}
 
+	@Override
+	public void accept(IVisitor visitor) {
+		visitor.visit(this);
+		
+	}
 	
 	@Override
 	public void visit(IKillable killable) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	
 	@Override
 	public void visit(ICarriable carriable) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 	
 
 	@Override
 	public void visit(IZPM zpm) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	
 	@Override
 	public void visit(IScale scale) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	
 	@Override
 	public void visit(ITeleportable teleportable) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
-	
+
 
 	@Override
+	public void visit(IProjectile projectile) {
+		/*
+		 * Nem torodunk az esettel.
+		 */
+	}
+	
+	@Override
 	public void notify(IWorldObject obj) {
-		
-		//TODO
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".notify()\n");
 		Depth.getInstance().enterFunction();
 		
-		//obj.getVisitable().accept((IVisitor)this);
-		
 		IVisitable visitable = obj.getVisitable();
-		if(visitable != null)
+		if(visitable != null) {
 			visitable.accept(this);
+		}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".notify()\n");
 		
 	}
+	
 }

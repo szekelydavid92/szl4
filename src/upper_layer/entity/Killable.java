@@ -2,6 +2,7 @@ package upper_layer.entity;
 
 import common.ICollisionObserver;
 import common.IKillable;
+import common.IProjectile;
 import common.IScale;
 import common.IVisitable;
 import common.IVisitor;
@@ -17,7 +18,9 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
 	 * @return void
 	 */
-	public void kill() {}
+	public void kill() {
+		
+	}
 	
 	
 	/**
@@ -25,8 +28,7 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 * @param visitor ???????????
 	 * @return void
 	 */
-	public void accept(IVisitor visitor)
-	{
+	public void accept(IVisitor visitor) {
 		visitor.visit((IKillable) this);
 	}
 	
@@ -36,8 +38,13 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 * @param scale ????????
 	 * @return void
 	 */
-	public void visit(IScale scale) {}
+	public void visit(IScale scale) {
+		
+	}
 	
+	public void visit(IProjectile projectile) {
+		
+	}
 	
 	/**
 	 * Ezen keresztol ertesul az utkozes bekovetkezterol.

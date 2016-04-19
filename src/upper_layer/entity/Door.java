@@ -16,6 +16,20 @@ public class Door extends ColEntity implements IDoor {
 	public String name; //O kell az objektum nevenek a kiprintelesehez!
 	
 	@Override
+	public void open() {
+		
+		Depth.getInstance().printTabs();
+		System.out.println(name + ".open()");
+		Depth.getInstance().enterFunction();
+		
+		opened = true;
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.println("ret " + name + ".open()");
+	}
+	
+	@Override
 	public void close() {
 			
 		Depth.getInstance().printTabs();
@@ -29,22 +43,6 @@ public class Door extends ColEntity implements IDoor {
 		System.out.println("ret " + name + ".close()");
 		
 	}
-	
-	
-	
-	@Override
-	public void open() {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".open()");
-		Depth.getInstance().enterFunction();
-		
-		opened = true;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".open()");
-	}
 
 	@Override
 	public void step() {
@@ -54,13 +52,14 @@ public class Door extends ColEntity implements IDoor {
 		Depth.getInstance().enterFunction();
 		
 		
-		if (opened ==true) 
+		if (opened ==true) {
 			worldObject.setCollisionResponse(CollisionResponse.PASS);
-		
-		else 
+		}
+		else { 
 			worldObject.setCollisionResponse(CollisionResponse.IMMOVABLE);
+		}
 		
-		opened=false;
+		close();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -70,6 +69,8 @@ public class Door extends ColEntity implements IDoor {
 	
 	public Door(IWorldObject worldObject) {
 		super(worldObject);
-		// TODO Auto-generated constructor stub
+		/*
+		 * Nem csinál semmit.
+		 */
 	}
 }

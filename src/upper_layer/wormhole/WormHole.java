@@ -7,17 +7,25 @@ import common.IZPM;
 import proto.Depth;
 
 /**
- * O felelos azert, hogy a ket csillagkapu kozott teleportalni lehessen.
+ * @brief O felelos azert, hogy a ket csillagkapu kozott teleportalni lehessen.
  */
 public class WormHole {
-	
-	//ISpecWall yellowWall;	//nem tudom h kellenek-e ezek ide - topi
-	//ISpecWall blueWall;	//nem tudom h kellenek-e ezek ide - topi
-	public Stargate blueGate = new Stargate(this,Colour.BLUE);
-	public Stargate yellowGate = new Stargate(this,Colour.YELLOW);
 	public String name = "wormHole";
 	
-	public WormHole(/*ISpecWall yelloW , ISpecWall blueW*/) { //ezek mi�rt nem alapb�l null-ok?
+	/*
+	 * Attributumok
+	 */
+	public Stargate blueGate = new Stargate(Colour.BLUE,this);
+	public Stargate yellowGate = new Stargate(Colour.YELLOW,this);
+	
+	/*
+	 * Metodusok
+	 */
+	
+	/**
+	 * @brief Konstruktor
+	 */
+	public WormHole() {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".WormHole()\n");
@@ -25,8 +33,6 @@ public class WormHole {
 		
 		blueGate.name = "blue";
 		yellowGate.name = "yellow";
-		//setYellow(yelloW);
-		//setBlue(blueW);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -35,8 +41,9 @@ public class WormHole {
 	}
 	
 	/**
-	 * Beallitja a kek kaput egy falra.
-	 * @param wall ??????????
+	 * @brief Kinyitja a kek kaput egy specialis falon.
+	 * 
+	 * @param wall a specialis fal, amin kaput nyitunk.
 	 * @return void
 	 */
 	public void setBlue(ISpecWall wall) {
@@ -55,8 +62,9 @@ public class WormHole {
 	
 	
 	/**
-	 * Beallitja a sarga kaput egy falra.
-	 * @param wall ?????????
+	 * @brief Kinyitja a sarga kaput egy specialis falon.
+	 * 
+	 * @param wall a specialis fal, amin kaput nyitunk.
 	 * @return void
 	 */
 	public void setYellow(ISpecWall wall) {
@@ -74,43 +82,43 @@ public class WormHole {
 	
 	
 	/**
-	 * Player osztalyt teleportalja a sarga kapuhoz.
-	 * @param t ???????
+	 * @brief Atteleportal egy teleportalhato objektumot a sarga kapuhoz.
+	 * 
+	 * @param teleportable a teleportalhato objektum
 	 * @return void
 	 */
-	public void teleportToYellow(ITeleportable t) {
+	public void teleportToYellow(ITeleportable teleportable) {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".teleportToYellow()\n");
 		Depth.getInstance().enterFunction();
 		
 		double yellowX=0.0,yellowY=0.0;
-		t.teleport(yellowX,yellowY);
+		teleportable.teleport(yellowX,yellowY);
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".teleportToYellow()\n");
-		//TODO Lorant
 	}
 	
 	
 	/**
-	 * Player osztalyt teleportalja a kek kapuhoz.
-	 * @param t ?????????
+	 * @brief Atteleportal egy teleportalhato objektumot a kek kapuhoz.
+	 * 
+	 * @param teleportable a teleportalhato objektum
 	 * @return void
 	 */
-	public void teleportToBlue(ITeleportable t) {
+	public void teleportToBlue(ITeleportable teleportable) {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".teleportToBlue()\n");
 		Depth.getInstance().enterFunction();
 
 		double blueX=0.0,blueY=0.0;
-		t.teleport(blueX,blueY);
+		teleportable.teleport(blueX,blueY);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".teleportToBlue()\n");
-		//TODO Lorant
 	}
 }

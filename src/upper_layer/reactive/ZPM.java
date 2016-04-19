@@ -9,15 +9,24 @@ import proto.Depth;
 /**
  * @brief ZPM. Ket allapota van, felvett es nem felvett. 
  */
-public class ZPM implements IZPM, ICollisionObserver {
+public class ZPM implements IZPM/*, ICollisionObserver*/ {
 	
 	public String name = "zpm";
 	
+	/*
+	 * Attributumok
+	 */
+	boolean picked = false;
+	
+	/*
+	 * Metodusok
+	 */
+	
 	/**
 	 * @brief az IVisitable interface fuggvenye, ebben kozli a parameterben
-	 * kapott visitorrel a tipusat.
+	 * kapott visitorrel, hogy o egy zpm.
 	 * 
-	 * @param visitor az zpm-en muveletet vegzo visitor
+	 * @param visitor a zpm-en muveletet vegzo visitor
 	 * @return void
 	 */
 	@Override
@@ -51,7 +60,7 @@ public class ZPM implements IZPM, ICollisionObserver {
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".isPicked()");
 		
-		return true;
+		return picked;
 	}
 
 	/**
@@ -66,20 +75,23 @@ public class ZPM implements IZPM, ICollisionObserver {
 		System.out.println(name + ".pickUp()");
 		Depth.getInstance().enterFunction();
 		
+		picked = true;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".pickUp()");
 		
 	}
 
-	
+	/*
 	@Override
 	public void notify(IWorldObject obj) {
 		
 		/*
 		 * Nem hivodik meg. A ZPM nem csinal semmit a vele utkozokkel, ertelmetlen a letezese.
-		 */
+		 * /
 		
 	}
+	*/
 
 }

@@ -58,4 +58,7 @@ public interface IVisitor {
 	 * @return void
 	 */
 	public void visit(ITeleportable teleportable);
+
+
+	public void visit(IProjectile projectile);
 }

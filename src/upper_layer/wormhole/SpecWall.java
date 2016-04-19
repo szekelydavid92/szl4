@@ -2,6 +2,7 @@ package upper_layer.wormhole;
 
 import common.ISpecWall;
 import common.IStargate;
+import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import proto.Depth;
@@ -13,23 +14,41 @@ import proto.Depth;
 public class SpecWall implements ISpecWall {
 	
 	public String name = "wall";
-	public IWorldObject iwo;
 	
+	/*
+	 * Attributumok
+	 */
+	private IWorldObject worldObject;
+	
+	/*
+	 * Metodusok
+	 */
+	
+	/**
+	 * @brief Konstruktor
+	 */
+	public SpecWall(IWorldObject worldObject) {
+		this.worldObject = worldObject;
+		this.worldObject.setVisitable(this);
+	}
+	
+	/*
 	@Override
 	public void notify(IWorldObject obj) {
-		//TODO
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".notify()\n");
 		Depth.getInstance().enterFunction();
 		
-		obj.getVisitable().accept((IVisitor)this);
+		IVisitable visitable = obj.getVisitable();
+		if(visitable != null) {
+			visitable.accept(this);
+		}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".notify()\n");
-		
 	}
-
+	*/
 	
 	@Override
 	public void accept(IVisitor visitor) {
@@ -38,7 +57,6 @@ public class SpecWall implements ISpecWall {
 		System.out.print(name + ".accept()\n");
 		Depth.getInstance().enterFunction();
 		
-		//visitor.visit((ISpecWall)this);
 		visitor.visit(this);
 		
 		Depth.getInstance().returnFromFunction();
@@ -46,24 +64,22 @@ public class SpecWall implements ISpecWall {
 		System.out.print("ret " + name + ".accept()\n");
 		
 	}
-
 	
 	@Override
-	public void replace(IStargate o) {
+	public void replace(IStargate stargate) {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".replace()\n");
 		Depth.getInstance().enterFunction();
 		
-		//TODO Lorant
-		iwo.setCollisionObserver(o);
+		//worldObject.setVisitable(stargate); ///Lehet, hogy erre szükség lesz.
+		worldObject.setCollisionObserver(stargate);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".replace()\n");
 		
 	}
-
 	
 	@Override
 	public void restore() {
@@ -71,13 +87,14 @@ public class SpecWall implements ISpecWall {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".restore()\n");
 		Depth.getInstance().enterFunction();
-		
-		iwo.setCollisionObserver(this);
+
+		//worldObject.setVisitable(this); ///Lehet, hogy erre szükség lesz.
+		worldObject.setCollisionObserver(null);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".restore()\n");
 		
 	}
-
+	
 }

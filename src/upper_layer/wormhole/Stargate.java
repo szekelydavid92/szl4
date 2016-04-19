@@ -4,6 +4,7 @@ import common.Colour;
 import common.ICarriable;
 import common.ICollisionObserver;
 import common.IKillable;
+import common.IProjectile;
 import common.IScale;
 import common.ISpecWall;
 import common.IStargate;
@@ -17,46 +18,74 @@ import proto.Depth;
 /**
  * O a csillagkapu. Ha egy jatekos utkozik vele, atteleportalja a masik csillagkapuhoz.
  */
-public class Stargate implements IStargate/*, ICollisionObserver*/ {
+public class Stargate implements IStargate{
 
 	public String name;
-	public Colour colour;
-	private ISpecWall masked = null;
 	
+	/*
+	 * Attributumok
+	 */
+	public Colour colour;
 	WormHole wormHole;
 	
-	Stargate(WormHole wormHole,Colour colour){
-		this.wormHole = wormHole;
+	private ISpecWall masked = null;
+	
+	/*
+	 * Metodusok
+	 */
+	
+	/**
+	 * @brief Konstruktor
+	 */
+	Stargate(Colour colour,WormHole wormHole) {
 		this.colour = colour;
+		this.wormHole = wormHole;
 	}
 	
 	@Override
 	public void visit(ISpecWall wall) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	
 	@Override
 	public void visit(IKillable killable) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	
 	@Override
 	public void visit(ICarriable carriable) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	
 	@Override
 	public void visit(IZPM zpm) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	
 	@Override
 	public void visit(IScale scale) {
-		//Nem h�v�dik meg.
+		/*
+		 * Nem torodunk az esettel.
+		 */
+	}
+
+	@Override
+	public void visit(IProjectile projectile) {
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	
@@ -67,13 +96,13 @@ public class Stargate implements IStargate/*, ICollisionObserver*/ {
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
-		//!!!!!!!!!!!!!!!
 		if(colour == Colour.BLUE) {
 			wormHole.teleportToYellow(teleportable);
 		}
 		if(colour == Colour.YELLOW) {
 			wormHole.teleportToBlue(teleportable);
 		}
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".visit()\n");
@@ -103,7 +132,6 @@ public class Stargate implements IStargate/*, ICollisionObserver*/ {
 	
 	@Override
 	public void notify(IWorldObject obj) {
-		//TODO Lorant
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".notify()\n");
 		Depth.getInstance().enterFunction();
@@ -118,5 +146,5 @@ public class Stargate implements IStargate/*, ICollisionObserver*/ {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".notify()\n");
 	}
-
+	
 }

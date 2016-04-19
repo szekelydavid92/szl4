@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 import java.io.IOException;
 
@@ -123,7 +123,7 @@ class WormholeTest {
 		boolean isYellow = true;
 		System.out.println("Kerem, adja meg, hogy melyik (sarga vagy kek) portalba lepett![s/k]\n");
 		try {
-			line = SkeletonMain.in.readLine();
+			line = ProtoMain.in.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -4,7 +4,7 @@ import common.Colour;
 import common.IProjectileFactory;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * Megvalositja az IProjectileFactory Interface-t.

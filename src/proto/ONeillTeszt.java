@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 import java.io.IOException;
 
@@ -32,7 +32,7 @@ class ONeillTeszt {
 			//FEL
 			System.out.println("Kerem, adja meg, hogy O Neill felfele mozogjon-e![i/n]\n");
 			try {
-				line = SkeletonMain.in.readLine();
+				line = ProtoMain.in.readLine();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -42,7 +42,7 @@ class ONeillTeszt {
 			//LE
 			System.out.println("Kerem, adja meg, hogy O Neill lefele mozogjon-e![i/n]\n");
 			try {
-				line = SkeletonMain.in.readLine();
+				line = ProtoMain.in.readLine();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -52,7 +52,7 @@ class ONeillTeszt {
 			//JOBBRA
 			System.out.println("Kerem, adja meg, hogy O Neill jobbra mozogjon-e![i/n]\n");
 			try {
-				line = SkeletonMain.in.readLine();
+				line = ProtoMain.in.readLine();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -65,7 +65,7 @@ class ONeillTeszt {
 			//BALRA
 			System.out.println("Kerem, adja meg, hogy O Neill balra mozogjon-e![i/n]\n");
 			try {
-				line = SkeletonMain.in.readLine();
+				line = ProtoMain.in.readLine();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

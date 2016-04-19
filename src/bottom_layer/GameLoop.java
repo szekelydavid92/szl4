@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import common.IEntity;
-import skeleton.Depth;
+import proto.Depth;
 
 /* 
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

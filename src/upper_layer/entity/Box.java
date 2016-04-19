@@ -11,7 +11,7 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * Ez a doboz. Az ICarrier interfeszt megvalasito objektum kepes oket mozgatni.

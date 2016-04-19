@@ -4,7 +4,7 @@ import common.ICollisionObserver;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * @brief ZPM. Ket allapota van, felvett es nem felvett. 

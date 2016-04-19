@@ -4,7 +4,7 @@ import common.Colour;
 import common.ISpecWall;
 import common.ITeleportable;
 import common.IZPM;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * O felelos azert, hogy a ket csillagkapu kozott teleportalni lehessen.

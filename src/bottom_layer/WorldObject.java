@@ -7,7 +7,7 @@ import common.ICollisionObserver;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * @brief Ez az osztaly egy AABB-t modellez, ami egy
@@ -212,14 +212,14 @@ public class WorldObject implements IWorldObject {
 		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
 		
 		try {
-			skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+			proto.ProtoMain.line = proto.ProtoMain.in.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if(skeleton.SkeletonMain.line.equals("i")) {collides = true;}
-		else if(skeleton.SkeletonMain.line.equals("n")) {collides = false;}
+		if(proto.ProtoMain.line.equals("i")) {collides = true;}
+		else if(proto.ProtoMain.line.equals("n")) {collides = false;}
 		else {System.out.println("ERROR: Ervenytelen bemenet");}
 		
 		Depth.getInstance().returnFromFunction();

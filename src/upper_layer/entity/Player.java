@@ -10,11 +10,11 @@ import common.IVisitor;
 import common.IVisitable;
 import common.IWorldObject;
 import common.IZPM;
+import proto.Depth;
 
 import java.io.IOException;
 
 import common.Colour;
-import skeleton.Depth;
 
 /**
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
@@ -331,26 +331,26 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 			Depth.getInstance().printTabs();
 			System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
 			try {
-				skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+				proto.ProtoMain.line = proto.ProtoMain.in.readLine();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			if(skeleton.SkeletonMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
+			if(proto.ProtoMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
 				Depth.getInstance().printTabs();
 				System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
 				try {
-					skeleton.SkeletonMain.line = skeleton.SkeletonMain.in.readLine();
+					proto.ProtoMain.line = proto.ProtoMain.in.readLine();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				if (skeleton.SkeletonMain.line.equals("i"))
+				if (proto.ProtoMain.line.equals("i"))
 					box.release();
 			}
 			
-			if(skeleton.SkeletonMain.line.equals("n")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
+			if(proto.ProtoMain.line.equals("n")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
 				box.setPos(12, 12);
 			}
 			

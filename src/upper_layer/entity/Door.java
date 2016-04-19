@@ -3,7 +3,7 @@ package upper_layer.entity;
 import common.CollisionResponse;
 import common.IDoor;
 import common.IWorldObject;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * O az ajto. Ket allapota van: nyitott ill. zart. Ha valaki kinyitja,

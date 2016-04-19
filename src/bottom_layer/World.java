@@ -2,11 +2,11 @@ package bottom_layer;
 
 import java.util.ArrayList;
 import java.util.List;
-import skeleton.SkeletonMain;
+
+import proto.Depth;
+import proto.ProtoMain;
 
 import java.io.IOException;
-
-import skeleton.Depth;
 
 /**
  * @brief Ez az az osztaly reprezentalja a virtualis vilagot. Tartalmaz egy WorldObject tombot.

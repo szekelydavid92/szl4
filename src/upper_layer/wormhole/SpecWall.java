@@ -4,7 +4,7 @@ import common.ISpecWall;
 import common.IStargate;
 import common.IVisitor;
 import common.IWorldObject;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * Ez az, akire portalt lehet loni. Ha egy teleportalhato valakivel utkozik,

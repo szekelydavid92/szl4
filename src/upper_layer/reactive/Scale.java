@@ -6,7 +6,7 @@ import common.IScale;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * @brief O a merleg. Ha valaki lenyomja, akkor kinyitja a hozza tartozo ajtot.

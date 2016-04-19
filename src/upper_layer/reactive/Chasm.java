@@ -10,7 +10,7 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * @brief Ez a szakadek. Ha utkozott egy IKillable-t megvalosito objektummal, akkor megoli.

@@ -2,7 +2,7 @@ package bottom_layer;
 
 import common.IWorldObject;
 import common.IWorldObjectFactory;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * O hozza letre a WorldObject-et.

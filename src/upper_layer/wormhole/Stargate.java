@@ -12,7 +12,7 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import skeleton.Depth;
+import proto.Depth;
 
 /**
  * O a csillagkapu. Ha egy jatekos utkozik vele, atteleportalja a masik csillagkapuhoz.

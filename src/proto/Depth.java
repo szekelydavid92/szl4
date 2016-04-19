@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 /**
  * @brief Ez a class felelos azert, hogy a

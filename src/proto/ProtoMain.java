@@ -1,4 +1,4 @@
-package skeleton;
+package proto;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
 
-public class SkeletonMain {	
+public class ProtoMain {	
 	public static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	public static String line = null;
 	public static String name = "SkeletonMain";

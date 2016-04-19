@@ -15,8 +15,8 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import skeleton.Depth;
-import skeleton.SkeletonMain;
+import proto.Depth;
+import proto.ProtoMain;
 
 /**
  * Lovedek. Amennyiben SpecWall-al utkozik, ott nyit egy WormHole-t.
@@ -35,7 +35,7 @@ public class Projectile implements ICollisionObserver, IVisitor {
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
-		BufferedReader in = SkeletonMain.in; //Shortcut
+		BufferedReader in = ProtoMain.in; //Shortcut
 		String line = null;
 
 		Depth.getInstance().printTabs();

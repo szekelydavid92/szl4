@@ -28,7 +28,7 @@ public class GameLoop {
 	 * erdekeben publikusak.
 	 * 
 	 */
-	public World world;
+	public World world = new World();
 	public List<IEntity> Entites = new LinkedList<IEntity>();
 	
 	/**

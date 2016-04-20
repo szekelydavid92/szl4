@@ -47,11 +47,12 @@ public class ProtoMain {
 	
 	public static class TestCommand implements IProtoCommand {
 		
-		public void Execute(Scanner in) {
+		public boolean Execute(Scanner in) {
 			
 			int Param = in.nextInt();
 			
 			System.out.println("Test command! Param = " + Param);
+			return true;
 		}
 	}
 	
@@ -85,6 +86,8 @@ public class ProtoMain {
 		//pwd = System.getProperty("user.dir");
 		
 		Commands.put("testCmd", new TestCommand());
+		Commands.put("loadLevel", new ProtoGodObject.ProtoLoadLevel());
+		Commands.put("run", new ProtoGodObject.ProtoRun());
 		
 		/*
 		Programs.put("reclist",new Reclist());
@@ -115,7 +118,6 @@ public class ProtoMain {
 		while(isRunning)
 		{
 			//Input
-			System.out.print(System.getProperty("user.dir") + ": ");
 			
 			String Szercsylavcsy = in.next();
 			//String Str[] = Szercsylavcsy.split("\\s+");

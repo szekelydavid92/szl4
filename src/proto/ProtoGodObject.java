@@ -17,17 +17,37 @@ class ProtoGodObject {
 		
 		return instance;
 	}
-	
-	public static class ProtoLoadLevel implements IProtoCommand {
 
+	public void run(int iterations) {
+		
+		for(int i=0;i < iterations;i++) {
+			gameLoop.run();
+		}
+	}
+	
+	public boolean loadMap(String map)
+	{
+		
+		
+		return true;
+	}
+	
+	public static class ProtoLoadMap implements IProtoCommand {
+		
+		/*
+		 * VIGYAZAT! A palyanevbe implementacios okokbol NE keruljon szokoz!
+		 */
 		@Override
 		public boolean Execute(Scanner in) {
-			ProtoGodObject.getInstance().gameLoop = new GameLoop();
+			String mapName = in.next();
+			ProtoGodObject.getInstance().loadMap(mapName);
 			return true;
 		}
 		
-		ProtoLoadLevel() {
-			
+		ProtoLoadMap() {
+			/*
+			 * Ures fuggvenytorzs
+			 */
 		}
 		
 	}
@@ -43,19 +63,27 @@ class ProtoGodObject {
 		}
 		
 		ProtoRun() {
-			
+			/*
+			 * Ures fuggvenytorzs
+			 */
 		}
 		
 	}
 	
-	public ProtoGodObject() {
-		gameLoop = new GameLoop();
-	}
+	public static class ProtoCommandInterpreter extends CommandInterpreter {
 
-	public void run(int iterations) {
-		
-		for(int i=0;i < iterations;i++) {
-			gameLoop.run();
+		ProtoCommandInterpreter(Scanner in) {
+			super(in);
+			
+			commands.put("loadMap", new ProtoGodObject.ProtoLoadMap());
+			commands.put("run", new ProtoGodObject.ProtoRun());
 		}
+	}
+	
+	public ProtoGodObject() {
+		/*
+		 * A biztonsag kedveert, hogy hulye bemenet eseten ne szalljon el a program.
+		 */
+		gameLoop = new GameLoop();
 	}
 }

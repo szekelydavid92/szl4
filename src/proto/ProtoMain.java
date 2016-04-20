@@ -30,6 +30,8 @@ import upper_layer.wormhole.WormHole;
  * a WormHole, konstruktorat.
  * 3 óra
  * 
+ * Aprilis 20 16:00 1 óra Seres belekezdett a ProtoGodObject osztályba.
+ * 
  */
 
 public class ProtoMain {
@@ -42,95 +44,8 @@ public class ProtoMain {
 	public static String line = null;
 	public static String name = "SkeletonMain";
 	
-	static boolean isRunning;
-	static Map<String,IProtoCommand> Commands = new TreeMap<String,IProtoCommand>();
+	static CommandInterpreter commandInterpreter = new ProtoGodObject.ProtoCommandInterpreter(in);
 	
-	public static class TestCommand implements IProtoCommand {
-		
-		public boolean Execute(Scanner in) {
-			
-			int Param = in.nextInt();
-			
-			System.out.println("Test command! Param = " + Param);
-			return true;
-		}
-	}
-	
-	/*
-	 * Át kell formázni a kódot a konvencióknak megfelelően.
-	 */
-	
-	static void Logic(String cmd)
-	{
-		if(cmd.equals("exit"))
-		{
-			isRunning = false;
-		}
-		else
-		{
-			IProtoCommand program = Commands.get(cmd);
-			
-			if(program == null)
-			{
-				System.out.print(cmd + ": command not found\n");
-			}
-			else
-			{
-				program.Execute(in);
-			}
-		}
-	}
-	
-	public static void Init()
-	{
-		//pwd = System.getProperty("user.dir");
-		
-		Commands.put("testCmd", new TestCommand());
-		Commands.put("loadLevel", new ProtoGodObject.ProtoLoadLevel());
-		Commands.put("run", new ProtoGodObject.ProtoRun());
-		
-		/*
-		Programs.put("reclist",new Reclist());
-		Programs.put("pwd",new Pwd());
-		Programs.put("cd",new Cd());
-		Programs.put("ls",new Ls());
-		Programs.put("rm",new Rm());
-		Programs.put("mkdir",new Mkdir());
-		Programs.put("cp",new Cp());
-		Programs.put("head",new Head());
-		Programs.put("mv",new Mv());
-		Programs.put("cat",new Cat());
-		Programs.put("wc",new Wc());
-		Programs.put("length",new Length());
-		Programs.put("tail",new Tail());
-		Programs.put("grep",new Grep());
-		*/
-	}
-	
-	public static void Menu()
-	{
-		Init();
-		
-		//Scanner In = new Scanner(System.in);
-		
-		isRunning = true;
-		
-		while(isRunning)
-		{
-			//Input
-			
-			String Szercsylavcsy = in.next();
-			//String Str[] = Szercsylavcsy.split("\\s+");
-			
-			//Logic
-			Logic(Szercsylavcsy);
-			
-		}
-		System.out.print("Exiting\n");
-		
-		in.close();
-		System.exit(0);
-	}
 	
 	public static void main(String[] args) {
 		
@@ -148,7 +63,7 @@ public class ProtoMain {
 				else if(line.equals("8")) 	{AjtoDobozTeszt.ajtoNyitasZaras();}
 				else if(line.equals("9")) 	{ONeillTeszt.oNeillMeghal();}
 				else if(line.equals("10")) 	{AjtoDobozTeszt.boxMeghal();}
-				else if(line.equals("11")) 	{Menu();}
+				else if(line.equals("11")) 	{commandInterpreter.Menu();}
 				else {break;}
 	    }
 	}

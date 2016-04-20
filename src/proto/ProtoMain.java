@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.Vector;
 
 import bottom_layer.World;
@@ -41,33 +42,92 @@ public class ProtoMain {
 	public static String line = null;
 	public static String name = "SkeletonMain";
 	
-	static boolean IsRunning;
-	static Map<String,IProtoCommand> Commands;
+	static boolean isRunning;
+	static Map<String,IProtoCommand> Commands = new TreeMap<String,IProtoCommand>();
 	
-	static void Logic(String cmd[])
-	{
-		if(cmd.length == 0)
-		{
-			return;
-		}
+	public static class TestCommand implements IProtoCommand {
 		
-		if(cmd[0].equals("exit"))
+		public void Execute(Scanner in) {
+			
+			int Param = in.nextInt();
+			
+			System.out.println("Test command! Param = " + Param);
+		}
+	}
+	
+	/*
+	 * Át kell formázni a kódot a konvencióknak megfelelően.
+	 */
+	
+	static void Logic(String cmd)
+	{
+		if(cmd.equals("exit"))
 		{
-			IsRunning = false;
+			isRunning = false;
 		}
 		else
 		{
-			IProtoCommand program = Commands.get(cmd[0]);
+			IProtoCommand program = Commands.get(cmd);
 			
 			if(program == null)
 			{
-				System.out.print(cmd[0] + ": command not found\n");
+				System.out.print(cmd + ": command not found\n");
 			}
 			else
 			{
 				program.Execute(in);
 			}
 		}
+	}
+	
+	public static void Init()
+	{
+		//pwd = System.getProperty("user.dir");
+		
+		Commands.put("testCmd", new TestCommand());
+		
+		/*
+		Programs.put("reclist",new Reclist());
+		Programs.put("pwd",new Pwd());
+		Programs.put("cd",new Cd());
+		Programs.put("ls",new Ls());
+		Programs.put("rm",new Rm());
+		Programs.put("mkdir",new Mkdir());
+		Programs.put("cp",new Cp());
+		Programs.put("head",new Head());
+		Programs.put("mv",new Mv());
+		Programs.put("cat",new Cat());
+		Programs.put("wc",new Wc());
+		Programs.put("length",new Length());
+		Programs.put("tail",new Tail());
+		Programs.put("grep",new Grep());
+		*/
+	}
+	
+	public static void Menu()
+	{
+		Init();
+		
+		//Scanner In = new Scanner(System.in);
+		
+		isRunning = true;
+		
+		while(isRunning)
+		{
+			//Input
+			System.out.print(System.getProperty("user.dir") + ": ");
+			
+			String Szercsylavcsy = in.next();
+			//String Str[] = Szercsylavcsy.split("\\s+");
+			
+			//Logic
+			Logic(Szercsylavcsy);
+			
+		}
+		System.out.print("Exiting\n");
+		
+		in.close();
+		System.exit(0);
 	}
 	
 	public static void main(String[] args) {
@@ -86,9 +146,11 @@ public class ProtoMain {
 				else if(line.equals("8")) 	{AjtoDobozTeszt.ajtoNyitasZaras();}
 				else if(line.equals("9")) 	{ONeillTeszt.oNeillMeghal();}
 				else if(line.equals("10")) 	{AjtoDobozTeszt.boxMeghal();}
+				else if(line.equals("11")) 	{Menu();}
 				else {break;}
 	    }
-	}/*
+	}
+	/*
 	//O Neill mozgatasa
 	static void case_1() {
 		/ *
@@ -497,6 +559,7 @@ public class ProtoMain {
 		System.out.println("Ajto nyitasa es zarasa[8]");
 		System.out.println("Player Objektum megsemmisulese[9]");
 		System.out.println("Box Objektum megsemmisulese[10]");
+		System.out.println("Command line interpreter kiprobalasa[11]");
 		System.out.println("Barmi mas: kilepes");
 	}
 }

@@ -7,5 +7,5 @@ import java.util.Scanner;
  * vegso programban, es ha igen, akkor is egy masik absztrakcios retegben van a helye, mint a modellnek.
  */
 public interface IProtoCommand {
-	public String Execute(Scanner in);
+	public void Execute(Scanner in);
 }

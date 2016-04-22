@@ -232,8 +232,8 @@ class LevelLoader {
 	/*
 	 * Itt elterunk a specifikaciotol, itt parameterkent kap egy gameLoopot
 	 */
-	public boolean load(String path,GameLoop gameLoop) {
-		gameFactory.setGameLoop(gameLoop);
+	public boolean load(String path,GameFactory gameFactory) {
+		this.gameFactory=gameFactory;
 		
 		FileInputStream fis = null;
 		

@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 import common.Colour;
 import common.ICarriable;
+import common.IChasm;
 import common.ICollisionObserver;
 import common.IKillable;
 import common.IProjectile;
@@ -144,6 +145,12 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".notify()\n");
+		
+	}
+
+	@Override
+	public void visit(IChasm chasm) {
+		// TODO Auto-generated method stub
 		
 	}
 	

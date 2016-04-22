@@ -8,6 +8,7 @@ import bottom_layer.GameLoop;
 import bottom_layer.World;
 import bottom_layer.WorldObject;
 import common.ICarriable;
+import common.IChasm;
 import common.IKillable;
 import common.IProjectile;
 import common.IScale;
@@ -63,6 +64,12 @@ class ProtoGodObject {
 			if (visiting==VisitableType.projectile) {
 				System.out.println("");
 			}
+			
+		}
+
+		@Override
+		public void visit(IChasm chasm) {
+			// TODO Auto-generated method stub
 			
 		}
 			

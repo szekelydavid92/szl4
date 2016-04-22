@@ -32,6 +32,9 @@ import upper_layer.wormhole.WormHole;
  * 
  * Aprilis 20 16:00 1 óra Seres belekezdett a ProtoGodObject osztályba.
  * 
+ * Aprilis 22 14:00 [] óra Seres belekezdett a GameFactory osztályba, es folytatta a ProtoGodObject
+ * boviteset.
+ * 
  */
 
 public class ProtoMain {

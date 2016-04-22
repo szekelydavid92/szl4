@@ -22,6 +22,18 @@ public class WorldObject implements IWorldObject {
 
 	public String name = "worldObj"; //O kell az objektum nevenek a kiprintelesehez!
 	
+	/*
+	 * Attributumok
+	 */
+	
+	double posX;
+	double posY;
+	double displacementX;
+	double displacementY;
+	double width;
+	double height;
+	CollisionResponse colResp;
+	
 	/* Ez az objektum felelos azert, hogy
 	 * a felso retegbeli reprezentacio
 	 * ertesuljon arrol, hogy az objektum
@@ -36,6 +48,11 @@ public class WorldObject implements IWorldObject {
 	 */
 	public IVisitable visitable = null;
 	
+	
+	/*
+	 * Metodusok
+	 */
+	
 	/**
 	 * @brief A pozicio X es Y koordinatajahoz hozzaadja az elmozdulas X es Y koordinatajat,
 	 * eloreleptetve az objektumot az ido fuggvenyeben.
@@ -46,15 +63,38 @@ public class WorldObject implements IWorldObject {
 		System.out.print(name + ".step()\n");
 		Depth.getInstance().enterFunction();
 		
-		double x = getDisplacementX();
-		double y = getDisplacementY();
-		displace(x, y);
+		double dx = getDisplacementX();
+		double dy = getDisplacementY();
+		displace(dx, dy);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".step()\n");
 	}
+
+	public void setWidth(double width) {
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".setWidth(" + ")\n");
+		Depth.getInstance().enterFunction();
+		
+		this.width = width;
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".setWidth()\n");
+	}
 	
+	public void setHeight(double height) {
+		Depth.getInstance().printTabs();
+		System.out.print(name + ".setHeight(" + ")\n");
+		Depth.getInstance().enterFunction();
+		
+		this.height = height;
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.print("ret " + name + ".setHeight()\n");
+	}
 	
 	/**
 	 * A vilagbeli objektum  szelesseget (width attributum) adja vissza.
@@ -69,7 +109,7 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getWidth()\n");
 		
-		return 0;
+		return width;
 	}
 	
 	/**
@@ -85,7 +125,7 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getHeight()\n");
 		
-		return 0;
+		return height;
 	}
 	
 		
@@ -101,13 +141,12 @@ public class WorldObject implements IWorldObject {
 		System.out.print(name + ".setCollisionResponse(" + colResp + ")\n");
 		Depth.getInstance().enterFunction();
 		
+		this.colResp = colResp;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".setCollisionResponse()\n");
 	}
-	
-	static String xName = "x";
-	static String yName = "y";
 	
 	/**
 	 * @brief A vilagbeli objektum  X koordinatajat allitja be a vilag koordinata rendszereben.
@@ -117,8 +156,10 @@ public class WorldObject implements IWorldObject {
 	 */
 	public void setPosX(double x) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setPosX(" + xName + ")\n");
+		System.out.print(name + ".setPosX(" + ")\n");
 		Depth.getInstance().enterFunction();
+		
+		posX = x;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -133,8 +174,10 @@ public class WorldObject implements IWorldObject {
 	 */
 	public void setPosY(double y) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setPosY(" + yName + ")\n");
+		System.out.print(name + ".setPosY(" + ")\n");
 		Depth.getInstance().enterFunction();
+		
+		posY = y;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -150,8 +193,11 @@ public class WorldObject implements IWorldObject {
 	 */
 	public void addDisplacement(double dx, double dy) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".addDisplacement(" + xName + "," + yName + ")\n");
+		System.out.print(name + ".addDisplacement(" + ")\n");
 		Depth.getInstance().enterFunction();
+		
+		displacementX += dx;
+		displacementY += dy;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -173,7 +219,7 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getPosX()\n");
 		
-		return 0;
+		return posX;
 	}
 	
 	
@@ -191,7 +237,7 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getPosY()\n");
 		
-		return 0;
+		return posY;
 	}
 	
 	
@@ -214,6 +260,9 @@ public class WorldObject implements IWorldObject {
 		
 		proto.ProtoMain.line = proto.ProtoMain.in.next();
 		
+		/*
+		 * TODO mostmár le kell implementálni az ütközésdetekciót.
+		 */
 		
 		if(proto.ProtoMain.line.equals("i")) {collides = true;}
 		else if(proto.ProtoMain.line.equals("n")) {collides = false;}
@@ -236,8 +285,11 @@ public class WorldObject implements IWorldObject {
 	 */
 	public void displace(double dx, double dy) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".displace(" + xName + "," + yName + ")\n");
+		System.out.print(name + ".displace(" + ")\n");
 		Depth.getInstance().enterFunction();
+		
+		posX += dx;
+		posY += dy;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -253,8 +305,10 @@ public class WorldObject implements IWorldObject {
 	 */
 	public void setDisplacementX(double x) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setDisplacementX(" + xName + ")\n");
+		System.out.print(name + ".setDisplacementX(" + ")\n");
 		Depth.getInstance().enterFunction();
+		
+		displacementX = x;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -270,8 +324,10 @@ public class WorldObject implements IWorldObject {
 	 */
 	public void setDisplacementY(double y) {
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".setDisplacementY(" + yName + ")\n");
+		System.out.print(name + ".setDisplacementY(" + ")\n");
 		Depth.getInstance().enterFunction();
+
+		displacementY = y;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -293,7 +349,7 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getDisplacementX()\n");
 		
-		return 0;
+		return displacementX;
 	}
 	
 	
@@ -311,10 +367,8 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getDisplacementY()\n");
 		
-		return 0;
+		return displacementY;
 	}
-	
-	static String observerName;
 	
 	/**
 	 * @brief Beallitja a megvalosito objektumra feliratkozo observert.
@@ -334,7 +388,7 @@ public class WorldObject implements IWorldObject {
 		
 		this.observer=observer;
 	}
-	//�j!!!!!!!!!!!!!!!!!!!!!!!!!
+	
 	public void setVisitable(IVisitable visitable) {
 
 		Depth.getInstance().printTabs();
@@ -347,7 +401,6 @@ public class WorldObject implements IWorldObject {
 
 		this.visitable=visitable;
 	}
-	
 	
 	/**
 	 * @brief Ez a fuggveny hivodik meg a World checkCollision() fuggvenyeben,
@@ -389,11 +442,7 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".getVisitable()\n");
 		
-
-		
 		return visitable;
-		//return iv;
-
 	}
 
 }

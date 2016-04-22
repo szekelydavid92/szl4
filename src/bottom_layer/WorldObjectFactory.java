@@ -34,6 +34,9 @@ public class WorldObjectFactory implements IWorldObjectFactory {
 		Depth.getInstance().enterFunction();
 		
 		WorldObject worldObject = new WorldObject();
+		worldObject.setWidth(width);
+		worldObject.setHeight(height);
+		
 		world.addWorldObject(worldObject);
 		
 		Depth.getInstance().returnFromFunction();

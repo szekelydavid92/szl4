@@ -44,14 +44,12 @@ class ProtoGodObject {
 		VisitableType visiting;
 		boolean justVisitedProjectile=false;
 		public void visit(IZPM zpm) {	
-			
 			IWorldObject zpmWorldObject=((ZPM)zpm).getWorldObject();
 			if (visiting==VisitableType.zpm) {
 				System.out.println("Pozicio: " + zpmWorldObject.getPosX() + " " + ((ZPM)zpm).getWorldObject().getPosY());
 				System.out.println("Zpm szelessege" + zpmWorldObject.getWidth() + ", Magassaga: " + zpmWorldObject.getHeight());
 				System.out.println("ZPM allapota: " + (zpm.isPicked()?"felveve":"nincs felveve"));
 			}
-			
 		}
 		
 		public void visit(ISpecWall specWall) {
@@ -74,21 +72,16 @@ class ProtoGodObject {
 			
 		}
 
-		
 		public void visit(IProjectile projectile) {	
 			if (visiting==VisitableType.projectile) {
 				System.out.println("Lovedek szine: " + projectile.getColour() );
 			}
 			justVisitedProjectile=true;
-			
 		}
-
 		@Override
 		public void visit(IChasm chasm) {
 			// TODO Auto-generated method stub
-			
 		}
-			
 	}
 	
 	
@@ -108,7 +101,6 @@ class ProtoGodObject {
 		if(instance == null) {
 			instance = new ProtoGodObject();
 		}
-		
 		return instance;
 	}
 
@@ -122,42 +114,29 @@ class ProtoGodObject {
 	{
 		world = new World();
 		gameLoop = new GameLoop(world);
-
 		walls.clear();
 		specWalls.clear();
-		
 		GameFactory gameFactory = new GameFactory(gameLoop);
-		
 		//gameFactory.createWall(0, 0, 10, 10);
 		//gameFactory.createWall(0, 10, 10, 20);
 		//gameFactory.createSpecWall(10, 10, 10, 20);
-		
 		LevelLoader levelLoader = new LevelLoader();
 		levelLoader.load(map, gameFactory);
-		
 		return true;
 	}
 	
 	private void listProjectiles() {
 		System.out.println("listProjectiles");
-		
 		VisitableWriter visitableWriter=new VisitableWriter();
 		visitableWriter.visiting=VisitableType.projectile;
-		
 		for (WorldObject o : world.objects) {
 			IVisitable projectiles=o.getVisitable();
 			if (projectiles != null) {
 				projectiles.accept(visitableWriter);
 			}
 			if (visitableWriter.justVisitedProjectile) {
-				System.out.println("Pozíció: " 
-									+ o.getPosX()
-									+ "  " 
-									+ o.getPosY());
-				System.out.println("Lövedék szélessége: " 
-									+ o.getWidth()
-									+ ", "
-									+ o.getHeight());
+				System.out.println("Pozíció: " + o.getPosX() + "  " + o.getPosY());
+				System.out.println("Lövedék szélessége: " + o.getWidth() + ", "	+ o.getHeight());
 				System.out.println("");
 			}
 			visitableWriter.justVisitedProjectile=false;
@@ -167,17 +146,14 @@ class ProtoGodObject {
 	
 	private void listZpms() {
 		System.out.println("listZpms");
-		
 		VisitableWriter visitableWriter= new VisitableWriter();
 		visitableWriter.visiting=VisitableType.zpm;
-		
 		for (WorldObject o : world.objects) {
 			IVisitable zpm= o.getVisitable();
 			if (zpm != null) {
 				zpm.accept(visitableWriter);
 			}
 		}
-		
 		System.out.println("");
 	}
 	
@@ -200,7 +176,6 @@ class ProtoGodObject {
 		}
 	}
 	
-	//listazasra kell: !scales, !stargates, !doors, players(map), zpm/projectile/chams(majd a world bejarasaval kell)
 	private void listStargates(String colour) {
 		//TODO (map mar letre van hozva
 //		SzÃ­n: [portal szÃ­ne]
@@ -286,106 +261,95 @@ class ProtoGodObject {
 			System.out.println("Halott-e: " + isDead);
 		}
 	}
-//		JÃ¡tÃ©kos neve: [jÃ¡tÃ©kos neve]
-//		PozÃ­ciÃ³: [x koordinÃ¡ta, y koordinÃ¡ta]
-//		IrÃ¡nyvektor: [x koordinÃ¡ta,y koordinÃ¡ta]
-//		JÃ¡tÃ©kos szÃ©lessÃ©ge: [szÃ©lessÃ©g] , MagassÃ¡ga: [magassÃ¡g]
-//		ZPMek: [felvett ZPMek szÃ¡ma]
-//		Cipelt doboz: [van-e/nincs-e]
-//		Halott: [igen/nem]
-//		MegjegyzÃ©s: Ha van Ã©rvÃ©nyes nÃ©v paramÃ©ter, akkor csak a megadott jÃ¡tÃ©kos tulajdonsÃ¡gait listÃ¡zza.
 	
 	public static class ProtoLoadMap implements IProtoCommand {
-		
 		/*
 		 * VIGYAZAT! A palyanevbe implementacios okokbol NE keruljon szokoz!
 		 */
 		@Override
 		public boolean Execute(Scanner in) {
 			String mapName = in.next();
-			
 			/*
 			 * TODO Ki kell üríteni a ProtoGodObject listáit.
 			 */
-			
 			System.out.println("loadMap");
 			ProtoGodObject.getInstance().loadMap(mapName);
 			return true;
-		}
-		
-		ProtoLoadMap() {
-			/*
-			 * Ures fuggvenytorzs
-			 */
-		}
-		
+		}	
+		ProtoLoadMap() {}
 	}
 	
 	public static class ProtoRun implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
 			int iterations = in.nextInt();
-			
 			System.out.println("run");
 			ProtoGodObject.getInstance().run(iterations);
 			return true;
 		}
-		
-		ProtoRun() {
-			/*
-			 * Ures fuggvenytorzs
-			 */
-		}
-		
+		ProtoRun() {}
 	}
-	
 
-	
 	public static class ProtoListWalls implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
-			
 			System.out.println("listWalls");
 			ProtoGodObject.getInstance().listWalls();
 			return true;
 		}
-		
-		ProtoListWalls() {
-			/*
-			 * Ures fuggvenytorzs
-			 */
-		}
-		
+		ProtoListWalls() {}
 	}
 	
 	public static class ProtoListProjectiles implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
-			
+			System.out.println("listProjectiles");
 			ProtoGodObject.getInstance().listProjectiles();
 			return false;
 		}
-		
-		ProtoListProjectiles() {
-			/*
-			 * Ures fuggvenytorzs
-			 */
+		ProtoListProjectiles() {}
+	}
+	
+	public static class ProtoListBoxes implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listBoxes");
+			ProtoGodObject.getInstance().listBoxes();
+			return false;
 		}
-		
+		ProtoListBoxes() {}
+	}
+	
+	public static class ProtoListScales implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listScales");
+			ProtoGodObject.getInstance().listScales();
+			return false;
+		}
+		ProtoListScales() {}
+	}
+	
+	public static class ProtoListDoors implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listDoors");
+			ProtoGodObject.getInstance().listDoors();
+			return false;
+		}
+		ProtoListDoors() {}
 	}
 	
 	public static class ProtoCommandInterpreter extends CommandInterpreter {
-
 		ProtoCommandInterpreter(Scanner in) {
 			super(in);
-			
 			commands.put("loadMap", new ProtoGodObject.ProtoLoadMap());
 			commands.put("run", new ProtoGodObject.ProtoRun());
 			commands.put("listWalls", new ProtoGodObject.ProtoListWalls());
 			commands.put("listProjectiles",new ProtoGodObject.ProtoListProjectiles());
+			commands.put("listBoxes", new ProtoGodObject.ProtoListBoxes());
+			commands.put("listScales", new ProtoGodObject.ProtoListScales());
+			commands.put("listDoors", new ProtoGodObject.ProtoListDoors());
 		}
 	}
 	

@@ -1,0 +1,20 @@
+Player
+begin
+type oneill
+pos 0 0
+dim 10 10
+mass 1
+end
+
+Box
+begin
+pos 0 0
+dim 10 10
+mass 1
+end
+
+Chasm
+begin
+pos 0 10
+dim 10 10
+end

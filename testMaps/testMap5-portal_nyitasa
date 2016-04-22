@@ -1,0 +1,39 @@
+SpecWall
+begin
+pos 0 20
+dim 10 10
+end
+
+SpecWall
+begin
+pos 10 20
+dim 10 10
+end
+
+SpecWall
+begin
+pos 20 20
+dim 10 10
+end
+
+SpecWall
+begin
+pos 30 20
+dim 10 10
+end
+
+Player
+begin
+type oneill
+pos 0 0
+dim 10 10
+mass 1
+end
+
+Player
+begin
+type jaffa
+pos 30 0
+dim 10 10
+mass 1
+end

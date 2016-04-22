@@ -1,0 +1,13 @@
+Wall
+begin
+pos 40 0
+dim 20 100
+end
+
+Player
+begin
+type replikator
+pos 50 150
+dim 10 10
+mass 1
+end

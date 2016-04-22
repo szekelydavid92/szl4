@@ -1,0 +1,37 @@
+Player
+begin
+type oneill
+pos 50 50
+dim 10 10
+mass 2
+end
+
+Player
+begin
+type jaffa
+pos 200 30
+dim 10 10
+mass 2
+end
+
+Box
+begin
+pos 200 30
+dim 10 10
+mass 1
+end
+
+Door
+begin
+id 1
+pos 70 50
+dim 10 10
+end
+
+Scale
+begin 
+id 1
+pos 200 10
+mass 2
+dim 10 10
+end

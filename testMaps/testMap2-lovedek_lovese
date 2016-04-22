@@ -1,0 +1,13 @@
+Player
+begin
+type oneill
+pos 50 50
+dim 20 20
+mass 1
+end
+
+Wall
+begin
+pos 50 0
+dim 20 20
+end

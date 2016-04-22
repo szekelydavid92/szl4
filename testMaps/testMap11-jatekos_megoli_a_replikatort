@@ -1,0 +1,15 @@
+Player
+begin
+type oneill
+pos 0 0
+dim 10 10
+mass 1
+end
+
+Player
+begin
+type replicator
+pos 20 0
+dim 10 10
+mass 1
+end

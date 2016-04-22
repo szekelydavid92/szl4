@@ -1,0 +1,13 @@
+Chasm
+begin
+pos 10 40
+dim 20 20
+end
+
+Player
+begin
+type replikator
+pos 40 40
+dim 10 10
+mass 1
+end

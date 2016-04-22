@@ -338,11 +338,10 @@ class ProtoGodObject {
 	}
 	
 	public static class ProtoListStargates implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
+			System.out.println("listStargates");
 			String col = in.next();
-			
 			ProtoGodObject.getInstance().listStargates(col);
 			return false;
 		}
@@ -350,44 +349,39 @@ class ProtoGodObject {
 	
 	
 	public static class ProtoListZPM implements IProtoCommand{
-		void ProtoLidtZPM(){
-		
-		}
-
+		void ProtoLidtZPM() {}
 		@Override
 		public boolean Execute(Scanner in) {
+			System.out.println("listZPM");
 			ProtoGodObject.getInstance().listZpms();
 			return false;
 		}
 	}
 	
 	public static class ProtoListWormHoles implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
+			System.out.println("listWormHoles");
 			String nev = in.next();
 			ProtoGodObject.getInstance().listWormhole(nev);
 			return false;
 		}
-		
 	}
 	
 	public static class ProtoListCollosions implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
+			System.out.println("listCollosions");
 			String state = in.next();
 			ProtoGodObject.getInstance().listCollosions(state);
 			return false;
 		}
-		
 	}
 	
 	public static class ProtoListChasms implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
-			
+			System.out.println("listChasms");
 			ProtoGodObject.getInstance().listChasms();
 			return false;
 		}

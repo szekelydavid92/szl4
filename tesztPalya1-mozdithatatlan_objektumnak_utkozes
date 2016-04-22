@@ -1,0 +1,21 @@
+Wall
+begin
+pos 0 0
+dim 100 10
+end
+
+Player
+begin
+type oneill
+pos 20 20
+dim 10 10
+mass 1
+end
+
+Player
+begin
+type jaffa
+pos 80 20
+dim 10 10
+mass 1
+end

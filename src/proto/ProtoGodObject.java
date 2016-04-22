@@ -360,6 +360,23 @@ class ProtoGodObject {
 		
 	}
 	
+	public static class ProtoListProjectiles implements IProtoCommand {
+
+		@Override
+		public boolean Execute(Scanner in) {
+			
+			ProtoGodObject.getInstance().listProjectiles();
+			return false;
+		}
+		
+		ProtoListProjectiles() {
+			/*
+			 * Ures fuggvenytorzs
+			 */
+		}
+		
+	}
+	
 	public static class ProtoCommandInterpreter extends CommandInterpreter {
 
 		ProtoCommandInterpreter(Scanner in) {
@@ -368,6 +385,7 @@ class ProtoGodObject {
 			commands.put("loadMap", new ProtoGodObject.ProtoLoadMap());
 			commands.put("run", new ProtoGodObject.ProtoRun());
 			commands.put("listWalls", new ProtoGodObject.ProtoListWalls());
+			commands.put("listProjectiles",new ProtoGodObject.ProtoListProjectiles());
 		}
 	}
 	

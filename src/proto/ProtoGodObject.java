@@ -44,14 +44,12 @@ class ProtoGodObject {
 		VisitableType visiting;
 		boolean justVisitedProjectile=false;
 		public void visit(IZPM zpm) {	
-			
 			IWorldObject zpmWorldObject=((ZPM)zpm).getWorldObject();
 			if (visiting==VisitableType.zpm) {
 				System.out.println("Pozicio: " + zpmWorldObject.getPosX() + " " + ((ZPM)zpm).getWorldObject().getPosY());
 				System.out.println("Zpm szelessege" + zpmWorldObject.getWidth() + ", Magassaga: " + zpmWorldObject.getHeight());
 				System.out.println("ZPM allapota: " + (zpm.isPicked()?"felveve":"nincs felveve"));
 			}
-			
 		}
 		
 		public void visit(ISpecWall specWall) {
@@ -74,21 +72,16 @@ class ProtoGodObject {
 			
 		}
 
-		
 		public void visit(IProjectile projectile) {	
 			if (visiting==VisitableType.projectile) {
 				System.out.println("Lovedek szine: " + projectile.getColour() );
 			}
 			justVisitedProjectile=true;
-			
 		}
-
 		@Override
 		public void visit(IChasm chasm) {
 			// TODO Auto-generated method stub
-			
 		}
-			
 	}
 	
 	
@@ -108,7 +101,6 @@ class ProtoGodObject {
 		if(instance == null) {
 			instance = new ProtoGodObject();
 		}
-		
 		return instance;
 	}
 
@@ -122,19 +114,14 @@ class ProtoGodObject {
 	{
 		world = new World();
 		gameLoop = new GameLoop(world);
-
 		walls.clear();
 		specWalls.clear();
-		
 		GameFactory gameFactory = new GameFactory(gameLoop);
-		
 		//gameFactory.createWall(0, 0, 10, 10);
 		//gameFactory.createWall(0, 10, 10, 20);
 		//gameFactory.createSpecWall(10, 10, 10, 20);
-		
 		LevelLoader levelLoader = new LevelLoader();
 		levelLoader.load(map, gameFactory);
-		
 		return true;
 	}
 	
@@ -145,24 +132,16 @@ class ProtoGodObject {
 	
 	private void listProjectiles() {
 		System.out.println("listProjectiles");
-		
 		VisitableWriter visitableWriter=new VisitableWriter();
 		visitableWriter.visiting=VisitableType.projectile;
-		
 		for (WorldObject o : world.objects) {
 			IVisitable projectiles=o.getVisitable();
 			if (projectiles != null) {
 				projectiles.accept(visitableWriter);
 			}
 			if (visitableWriter.justVisitedProjectile) {
-				System.out.println("Pozíció: " 
-									+ o.getPosX()
-									+ "  " 
-									+ o.getPosY());
-				System.out.println("Lövedék szélessége: " 
-									+ o.getWidth()
-									+ ", "
-									+ o.getHeight());
+				System.out.println("Pozíció: " + o.getPosX() + "  " + o.getPosY());
+				System.out.println("Lövedék szélessége: " + o.getWidth() + ", "	+ o.getHeight());
 				System.out.println("");
 			}
 			visitableWriter.justVisitedProjectile=false;
@@ -172,17 +151,14 @@ class ProtoGodObject {
 	
 	private void listZpms() {
 		System.out.println("listZpms");
-		
 		VisitableWriter visitableWriter= new VisitableWriter();
 		visitableWriter.visiting=VisitableType.zpm;
-		
 		for (WorldObject o : world.objects) {
 			IVisitable zpm= o.getVisitable();
 			if (zpm != null) {
 				zpm.accept(visitableWriter);
 			}
 		}
-		
 		System.out.println("");
 	}
 	
@@ -205,7 +181,6 @@ class ProtoGodObject {
 		}
 	}
 	
-	//listazasra kell: !scales, !stargates, !doors, players(map), zpm/projectile/chams(majd a world bejarasaval kell)
 	private void listStargates(String colour) {
 		//TODO (map mar letre van hozva
 //		SzÃ­n: [portal szÃ­ne]
@@ -226,6 +201,15 @@ class ProtoGodObject {
 		}
 	}
 	
+	private void listChasms(){
+		//TODO
+		System.out.println("Test Chams [1] ...");
+		System.out.println("Test Chams [2] ...");
+		System.out.println("Test Chams [3] ...");
+		System.out.println("");
+		return;
+	}
+	
 	private void listScales() {
 		for(Scale s : scales) {
 			IWorldObject o = s.getWorldObject();
@@ -241,6 +225,23 @@ class ProtoGodObject {
 			System.out.println("MÃ©rlegen lÃ©vÅ‘ aktuÃ¡lis sÃºlyok Ã¶sszege: " + s.getAccumulatedMass());
 			System.out.println("MÃ©rlegen lÃ©vÅ‘ dobozok szÃ¡ma: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
+	}
+	
+	public void listCollosions(String state) {
+		// TODO Auto-generated method stub
+		//TODO
+		System.out.println("Collosions listing...");
+		System.out.println("");
+		return;
+	}
+
+	public void listWormhole(String nev) {
+		// TODO Auto-generated method stub
+		//TODO
+		System.out.println("Wormholes listing...");
+		System.out.println("");
+		return;
+		
 	}
 	
 	private void listDoors() {
@@ -300,52 +301,39 @@ class ProtoGodObject {
 //		Halott: [igen/nem]
 //		MegjegyzÃ©s: Ha van Ã©rvÃ©nyes nÃ©v paramÃ©ter, akkor csak a megadott jÃ¡tÃ©kos tulajdonsÃ¡gait listÃ¡zza.
 	
+	
+	
+	
 	public static class ProtoLoadMap implements IProtoCommand {
-		
 		/*
 		 * VIGYAZAT! A palyanevbe implementacios okokbol NE keruljon szokoz!
 		 */
 		@Override
 		public boolean Execute(Scanner in) {
 			String mapName = in.next();
-			
 			/*
 			 * TODO Ki kell üríteni a ProtoGodObject listáit.
 			 */
-			
 			System.out.println("loadMap");
 			ProtoGodObject.getInstance().loadMap(mapName);
 			return true;
-		}
-		
-		ProtoLoadMap() {
-			/*
-			 * Ures fuggvenytorzs
-			 */
-		}
-		
+		}	
+		ProtoLoadMap() {}
 	}
 	
 	public static class ProtoRun implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
 			int iterations = in.nextInt();
-			
 			System.out.println("run");
 			ProtoGodObject.getInstance().run(iterations);
 			return true;
 		}
-		
-		ProtoRun() {
-			/*
-			 * Ures fuggvenytorzs
-			 */
-		}
-		
+		ProtoRun() {}
 	}
+
 	
-	public static class ProtoMovePlayer implements IProtoCommand {
+	public static class ProtoPlayerMove implements IProtoCommand {
 		
 		@Override
 		public boolean Execute(Scanner in) {
@@ -379,51 +367,127 @@ class ProtoGodObject {
 		}
 	}
 	
-	public static class ProtoListWalls implements IProtoCommand {
 
+	public static class ProtoListWalls implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			
 			System.out.println("listWalls");
 			ProtoGodObject.getInstance().listWalls();
 			return true;
 		}
-		
-		ProtoListWalls() {
-			/*
-			 * Ures fuggvenytorzs
-			 */
+		ProtoListWalls() {}
+	}
+	
+	public static class ProtoListStargates implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listStargates");
+			String col = in.next();
+			ProtoGodObject.getInstance().listStargates(col);
+			return false;
+		}
+	}
+	
+	
+	public static class ProtoListZPM implements IProtoCommand{
+		void ProtoLidtZPM() {}
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listZPM");
+			ProtoGodObject.getInstance().listZpms();
+			return false;
+		}
+	}
+	
+	public static class ProtoListWormHoles implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listWormHoles");
+			String nev = in.next();
+			ProtoGodObject.getInstance().listWormhole(nev);
+			return false;
+		}
+	}
+	
+	public static class ProtoListCollosions implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listCollosions");
+			String state = in.next();
+			ProtoGodObject.getInstance().listCollosions(state);
+			return false;
+		}
+	}
+	
+	public static class ProtoListChasms implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listChasms");
+			ProtoGodObject.getInstance().listChasms();
+			return false;
 		}
 		
 	}
 	
 	public static class ProtoListProjectiles implements IProtoCommand {
-
 		@Override
 		public boolean Execute(Scanner in) {
-			
+			System.out.println("listProjectiles");
 			ProtoGodObject.getInstance().listProjectiles();
 			return false;
 		}
-		
-		ProtoListProjectiles() {
-			/*
-			 * Ures fuggvenytorzs
-			 */
+		ProtoListProjectiles() {}
+	}
+	
+	public static class ProtoListBoxes implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listBoxes");
+			ProtoGodObject.getInstance().listBoxes();
+			return false;
 		}
-		
+		ProtoListBoxes() {}
+	}
+	
+	public static class ProtoListScales implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listScales");
+			ProtoGodObject.getInstance().listScales();
+			return false;
+		}
+		ProtoListScales() {}
+	}
+	
+	public static class ProtoListDoors implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("listDoors");
+			ProtoGodObject.getInstance().listDoors();
+			return false;
+		}
+		ProtoListDoors() {}
 	}
 	
 	public static class ProtoCommandInterpreter extends CommandInterpreter {
-
 		ProtoCommandInterpreter(Scanner in) {
 			super(in);
-			
 			commands.put("loadMap", new ProtoGodObject.ProtoLoadMap());
 			commands.put("run", new ProtoGodObject.ProtoRun());
 			commands.put("listWalls", new ProtoGodObject.ProtoListWalls());
 			commands.put("listProjectiles",new ProtoGodObject.ProtoListProjectiles());
-			
+			commands.put("listZPM",new ProtoGodObject.ProtoListZPM());
+			commands.put("listStargates",new ProtoGodObject.ProtoListStargates());
+			commands.put("listWormHoles",new ProtoGodObject.ProtoListWormHoles());
+			commands.put("listCollisions",new ProtoGodObject.ProtoListCollosions());
+			commands.put("listChasms",new ProtoGodObject.ProtoListChasms());
+			commands.put("listBoxes", new ProtoGodObject.ProtoListBoxes());
+			commands.put("listScales", new ProtoGodObject.ProtoListScales());
+			commands.put("listDoors", new ProtoGodObject.ProtoListDoors());
+			commands.put("move", new ProtoGodObject.ProtoPlayerMove());
+			//setCursor, shoot, listPlayers, 
+
+
 		}
 	}
 	
@@ -434,4 +498,6 @@ class ProtoGodObject {
 		world = new World();
 		gameLoop = new GameLoop(world);
 	}
+
+
 }

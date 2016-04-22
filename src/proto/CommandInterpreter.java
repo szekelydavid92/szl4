@@ -36,12 +36,13 @@ class CommandInterpreter {
 				Szercsylavcsy = in.next(); //miafasz?
 			} else {
 				isRunning = false;
+				break;
 			}
 			
 			//Logic
 			Logic(Szercsylavcsy);
 		}
-		System.out.print("Exiting\n");
+		//System.out.print("Exiting\n");
 		
 		in.close();
 	}

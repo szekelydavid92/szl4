@@ -128,9 +128,12 @@ class ProtoGodObject {
 		
 		GameFactory gameFactory = new GameFactory(gameLoop);
 		
-		gameFactory.createWall(0, 0, 10, 10);
-		gameFactory.createWall(0, 10, 10, 20);
-		gameFactory.createSpecWall(10, 10, 10, 20);
+		//gameFactory.createWall(0, 0, 10, 10);
+		//gameFactory.createWall(0, 10, 10, 20);
+		//gameFactory.createSpecWall(10, 10, 10, 20);
+		
+		LevelLoader levelLoader = new LevelLoader();
+		levelLoader.load(map, gameFactory);
 		
 		return true;
 	}
@@ -300,6 +303,10 @@ class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			String mapName = in.next();
+			
+			/*
+			 * TODO Ki kell üríteni a ProtoGodObject listáit.
+			 */
 			
 			System.out.println("loadMap");
 			ProtoGodObject.getInstance().loadMap(mapName);

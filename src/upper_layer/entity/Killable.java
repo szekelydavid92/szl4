@@ -7,15 +7,22 @@ import common.IScale;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
+import proto.Depth;
 
 /**
  * Azon osztolyok orokolnek ebbol az absztrakt osztalybol, akiknek a peldanyainak
  * van also retegbeli reprezentacioja, minden iteracioban elorelepteti az allapotat, es megolheto.
  */
 public abstract class Killable extends ColEntity implements IKillable, IVisitor, IVisitable, ICollisionObserver {
+
+	public String name = "Killable";
+	
+	/*
+	 * Attributumok
+	 */
 	
 	protected boolean isAlive = true; 	//Itt tárolódik az, hogy az adott objektum él-e.
-	protected double mass = 1;  		//Az objektum tömege, amivel lenyomja a mérleget.
+	protected double mass;  		//Az objektum tömege, amivel lenyomja a mérleget.
 	
 	/**
 	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
@@ -41,8 +48,18 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 * @param scale ????????
 	 * @return void
 	 */
-	public void visit(IScale scale) {
+	@Override
+	public void visit(IScale scale){
 		
+		Depth.getInstance().printTabs();
+		System.out.println(name + ".visit()");
+		Depth.getInstance().enterFunction();
+		
+		scale.push(this.mass);
+		
+		Depth.getInstance().returnFromFunction();
+		Depth.getInstance().printTabs();
+		System.out.println("ret " + name + ".visit()");
 	}
 	
 	public void visit(IProjectile projectile) {
@@ -56,11 +73,12 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 */
 	public abstract void notify(IWorldObject obj);
 	
-	protected Killable(IWorldObject worldObject) {
+	protected Killable(IWorldObject worldObject,double mass) {
 		super(worldObject);
 		
 		worldObject.setVisitable(this);
 		worldObject.setCollisionObserver(this);
-		// TODO Auto-generated constructor stub
+		
+		this.mass = mass;
 	}
 }

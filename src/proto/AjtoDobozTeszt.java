@@ -22,7 +22,7 @@ public class AjtoDobozTeszt {
 		System.out.print("Teszteset inicializalasa\n");
 		
 		WorldObject o1 = new WorldObject();
-		Box box = new Box(o1);
+		Box box = new Box(o1,1.0);
 		box.name="box";
 		
 		o1.setCollisionObserver(box);
@@ -78,13 +78,13 @@ public class AjtoDobozTeszt {
 		System.out.print("Teszteset inicializalasa\n");
 		WorldObject o1 = new WorldObject();
 		o1.name="boxObject";
-		Box b = new Box(o1);
+		Box b = new Box(o1,1.0);
 		//b.worldObject=o1;
 		b.name="box";
 		o1.setCollisionObserver(b);
 		o1.setVisitable(b);
 		WorldObject playerObject = new WorldObject();
-		b.regCarrier(new Player(playerObject));
+		b.regCarrier(new Player(playerObject,1.0));
 		
 		WorldObject o2 = new WorldObject();
 		o2.name="chasmObject";

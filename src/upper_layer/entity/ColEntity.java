@@ -17,6 +17,14 @@ public abstract class ColEntity implements IEntity {
 	 */
 	public abstract void step();
 	
+	/*
+	 * Itt elterunk a specifikaciotol, getWorldObject fuggvenyunk nem volt.
+	 */
+	
+	public IWorldObject getWorldObject() {
+		return worldObject;
+	}
+	
 	protected ColEntity(IWorldObject worldObject) {
 		this.worldObject = worldObject;
 	}

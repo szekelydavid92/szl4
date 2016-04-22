@@ -7,6 +7,7 @@ import java.util.Scanner;
 import bottom_layer.GameLoop;
 import bottom_layer.World;
 import bottom_layer.WorldObject;
+import common.IWorldObject;
 import upper_layer.wormhole.SpecWall;
 
 class ProtoGodObject {
@@ -63,7 +64,8 @@ class ProtoGodObject {
 			System.out.println("");
 		}
 		
-		for(SpecWall o : specWalls) {
+		for(SpecWall s : specWalls) {
+			IWorldObject o = s.getWorldObject();
 			System.out.println("Pozíció: [" + o.getPosX() + "," + o.getPosY() + "]");
 			System.out.println("Fal szélessége: [" + o.getWidth() + "],Magassága: [" + o.getHeight() + "]");
 			System.out.println("Fal típusa: speciális");

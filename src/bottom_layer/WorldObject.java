@@ -1,11 +1,8 @@
 package bottom_layer;
 
-import java.io.IOException;
-
 import common.CollisionResponse;
 import common.ICollisionObserver;
 import common.IVisitable;
-import common.IVisitor;
 import common.IWorldObject;
 import proto.Depth;
 
@@ -71,6 +68,10 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".step()\n");
 	}
+	
+	/*
+	 * Itt eltertunk a specifikaciotol, a setWidth es setHeight nem volt benne.
+	 */
 
 	public void setWidth(double width) {
 		Depth.getInstance().printTabs();

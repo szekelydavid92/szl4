@@ -60,7 +60,10 @@ public interface IWorldObject {
 	 * @return double
 	 */
 	public double getPosY();
-	
+
+	/*
+	 * Itt eltertunk a specifikaciotol, getWidth es getHeight nem volt benne.
+	 */
 
 	/**
 	 * A vilagbeli objektum  szelesseget (width attributum) adja vissza.

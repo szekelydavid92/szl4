@@ -17,7 +17,7 @@ class ONeillTeszt {
 			System.out.print("Teszteset inicializalasa\n");
 			//System.out.println("Creating objects");
 			WorldObject playerWorldObject = new WorldObject();
-			Player player = new Player(playerWorldObject);
+			Player player = new Player(playerWorldObject,1.0);
 			World w = new World();
 			
 			//player.worldObject = playerWorldObject;
@@ -71,7 +71,7 @@ class ONeillTeszt {
 		static void zpmFelvetel() {
 			System.out.print("Teszteset inicializalasa\n");
 			WorldObject o1 = new WorldObject();
-			Player p = new Player(o1);
+			Player p = new Player(o1,1.0);
 			o1.name="playerObject";
 			o1.setCollisionObserver(p);
 			
@@ -95,12 +95,12 @@ class ONeillTeszt {
 			System.out.print("Teszteset inicializalasa\n");
 			
 			WorldObject o1 = new WorldObject();
-			Player player = new Player(o1);
+			Player player = new Player(o1,1.0);
 			o1.setCollisionObserver(player);
 			o1.setVisitable(player);
 			o1.name="playerWorldOBject";
 			WorldObject boxObj = new WorldObject();
-			Box box=new Box(boxObj);
+			Box box=new Box(boxObj,1.0);
 			player.carriedObject=box;
 			
 			WorldObject o2 = new WorldObject();
@@ -124,8 +124,8 @@ class ONeillTeszt {
 			wo1.name="playerObject";
 			WorldObject wo2 = new WorldObject();
 			wo2.name="boxObject";
-			Player player = new Player(wo1);
-			Box box = new Box(wo2);
+			Player player = new Player(wo1,1.0);
+			Box box = new Box(wo2,1.0);
 
 			wo1.visitable = player;
 			//player.worldObject = wo1;
@@ -152,8 +152,8 @@ class ONeillTeszt {
 			WorldObject wo2 = new WorldObject();
 			wo2.name="playerObject";
 
-			Player player = new Player(wo2);
-			Box box = new Box(wo);
+			Player player = new Player(wo2,1.0);
+			Box box = new Box(wo,1.0);
 			
 			//box.worldObject = wo;
 			player.carriedObject = box;

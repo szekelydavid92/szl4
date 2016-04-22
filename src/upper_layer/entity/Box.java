@@ -19,8 +19,18 @@ import proto.Depth;
 public class Box extends Killable implements ICarriable {
 	
 	
-	ICarrier carrier; //referencia a hordozora
-	public String name = "Box";
+	/*
+	 * Attributumok
+	 */
+	ICarrier carrier = null; //referencia a hordozora
+	
+	/*
+	 * Metodusok
+	 */
+	
+	public Box(IWorldObject worldObject,double mass) {
+		super(worldObject,mass);
+	}
 	
 	/**
 	 * @brief A dobozt cipelo objektum ezen keresztul tudja beallitani a doboz objektum poziciojat.
@@ -76,7 +86,7 @@ public class Box extends Killable implements ICarriable {
 		System.out.println(name + ".release()");
 		Depth.getInstance().enterFunction();
 		
-		carrier=null;
+		carrier = null;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -127,7 +137,6 @@ public class Box extends Killable implements ICarriable {
 		System.out.println("ret " + name + ".accept()");
 		
 	}
-	
 	
 	/**
 	 * Ha utkozik merleggel, es epp nem cipeli senki, akkor lenyomja.
@@ -231,22 +240,5 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".visit()");
 	}
-	@Override
-	public void visit(IScale scale){
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".visit()");
-		Depth.getInstance().enterFunction();
-		
-		scale.push(this.mass);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".visit()");
-	}
 	
-	public Box(IWorldObject worldObject) {
-		super(worldObject);
-		// TODO Auto-generated constructor stub
-	}
 }

@@ -521,8 +521,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		
 	}
 	
-	public Player(IWorldObject worldObject) {
-		super(worldObject);
+	public Player(IWorldObject worldObject,double mass) {
+		super(worldObject,mass);
 		// TODO Auto-generated constructor stub
 	}
 }

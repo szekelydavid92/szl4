@@ -5,9 +5,6 @@ import java.util.List;
 
 import common.IWorldObjectFactory;
 import proto.Depth;
-import proto.ProtoMain;
-
-import java.io.IOException;
 
 /**
  * @brief Ez az az osztaly reprezentalja a virtualis vilagot. Tartalmaz egy WorldObject tombot.

@@ -102,19 +102,7 @@ public class SpecWall implements ISpecWall {
 	 * letrehoznunk:
 	 */
 	
-	public double getPosX() {
-		return worldObject.getPosX();
-	}
-	
-	public double getPosY() {
-		return worldObject.getPosY();
-	}
-	
-	public double getWidth() {
-		return worldObject.getWidth();
-	}
-	
-	public double getHeight() {
-		return worldObject.getHeight();
+	public IWorldObject getWorldObject() {
+		return worldObject;
 	}
 }

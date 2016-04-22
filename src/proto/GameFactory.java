@@ -8,6 +8,7 @@ import upper_layer.wormhole.SpecWall;
 import upper_layer.entity.*;
 import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
+import upper_layer.reactive.ZPM;
 
 class GameFactory {
 	
@@ -132,5 +133,14 @@ class GameFactory {
 		Door door = new Door(doorObject);
 		gameLoop.addEntity(door);
 		//ProtoGodObject.getInstance().specWalls.add(specWall);
+	}
+	 
+	public void createZpm(double x, double y,double width, double height){
+		IWorldObject zpmObj = worldObjectFactory.createObject(width, height); 
+		zpmObj.setPosX(x);
+		zpmObj.setPosY(y);
+		 
+		ZPM zpm = new ZPM(zpmObj);
+		//gameLoop.addEntity(zpm);
 	}
 }

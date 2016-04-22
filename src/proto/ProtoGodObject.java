@@ -221,6 +221,15 @@ class ProtoGodObject {
 		}
 	}
 	
+	private void listChasms(){
+		//TODO
+		System.out.println("Test Chams [1] ...");
+		System.out.println("Test Chams [2] ...");
+		System.out.println("Test Chams [3] ...");
+		System.out.println("");
+		return;
+	}
+	
 	private void listScales() {
 		for(Scale s : scales) {
 			IWorldObject o = s.getWorldObject();
@@ -236,6 +245,23 @@ class ProtoGodObject {
 			System.out.println("MÃ©rlegen lÃ©vÅ‘ aktuÃ¡lis sÃºlyok Ã¶sszege: " + s.getAccumulatedMass());
 			System.out.println("MÃ©rlegen lÃ©vÅ‘ dobozok szÃ¡ma: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
+	}
+	
+	public void listCollosions(String state) {
+		// TODO Auto-generated method stub
+		//TODO
+		System.out.println("Collosions listing...");
+		System.out.println("");
+		return;
+	}
+
+	public void listWormhole(String nev) {
+		// TODO Auto-generated method stub
+		//TODO
+		System.out.println("Wormholes listing...");
+		System.out.println("");
+		return;
+		
 	}
 	
 	private void listDoors() {
@@ -294,6 +320,9 @@ class ProtoGodObject {
 //		Cipelt doboz: [van-e/nincs-e]
 //		Halott: [igen/nem]
 //		MegjegyzÃ©s: Ha van Ã©rvÃ©nyes nÃ©v paramÃ©ter, akkor csak a megadott jÃ¡tÃ©kos tulajdonsÃ¡gait listÃ¡zza.
+	
+	
+	
 	
 	public static class ProtoLoadMap implements IProtoCommand {
 		
@@ -360,6 +389,63 @@ class ProtoGodObject {
 		
 	}
 	
+	public static class ProtoListStargates implements IProtoCommand {
+
+		@Override
+		public boolean Execute(Scanner in) {
+			String col = in.next();
+			
+			ProtoGodObject.getInstance().listStargates(col);
+			return false;
+		}
+	}
+	
+	
+	public static class ProtoListZPM implements IProtoCommand{
+		void ProtoLidtZPM(){
+		
+		}
+
+		@Override
+		public boolean Execute(Scanner in) {
+			ProtoGodObject.getInstance().listZpms();
+			return false;
+		}
+	}
+	
+	public static class ProtoListWormHoles implements IProtoCommand {
+
+		@Override
+		public boolean Execute(Scanner in) {
+			String nev = in.next();
+			ProtoGodObject.getInstance().listWormhole(nev);
+			return false;
+		}
+		
+	}
+	
+	public static class ProtoListCollosions implements IProtoCommand {
+
+		@Override
+		public boolean Execute(Scanner in) {
+			String state = in.next();
+			ProtoGodObject.getInstance().listCollosions(state);
+			return false;
+		}
+		
+	}
+	
+	public static class ProtoListChasms implements IProtoCommand {
+
+		@Override
+		public boolean Execute(Scanner in) {
+			
+			ProtoGodObject.getInstance().listChasms();
+			return false;
+		}
+		
+	}
+	
 	public static class ProtoListProjectiles implements IProtoCommand {
 
 		@Override
@@ -386,6 +472,13 @@ class ProtoGodObject {
 			commands.put("run", new ProtoGodObject.ProtoRun());
 			commands.put("listWalls", new ProtoGodObject.ProtoListWalls());
 			commands.put("listProjectiles",new ProtoGodObject.ProtoListProjectiles());
+			commands.put("listZPM",new ProtoGodObject.ProtoListZPM());
+			commands.put("listStargates",new ProtoGodObject.ProtoListStargates());
+			commands.put("listWormHoles",new ProtoGodObject.ProtoListWormHoles());
+			commands.put("listCollisions",new ProtoGodObject.ProtoListCollosions());
+			commands.put("listChasms",new ProtoGodObject.ProtoListChasms());
+			
+			
 		}
 	}
 	
@@ -396,4 +489,6 @@ class ProtoGodObject {
 		world = new World();
 		gameLoop = new GameLoop(world);
 	}
+
+
 }

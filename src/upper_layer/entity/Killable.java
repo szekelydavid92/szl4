@@ -54,6 +54,10 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 		return mass;
 	}
 	
+	public boolean isKilled() {
+		return !isAlive;
+	}
+	
 	/**
 	 * Ezzel nyomja le a merleget a jatekos ill. a doboz.
 	 * @param scale ????????

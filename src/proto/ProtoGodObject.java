@@ -27,7 +27,9 @@ import upper_layer.entity.Door;
 import upper_layer.entity.Player;
 import upper_layer.reactive.Scale;
 import common.IZPM;
+import proto.ProtoGodObject.VisitableWriter.VisitableType;
 import upper_layer.reactive.ZPM;
+import upper_layer.wormhole.Projectile;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
@@ -38,16 +40,18 @@ class ProtoGodObject {
 	private static ProtoGodObject instance = null;
 	
 	static class VisitableWriter implements IVisitor {
-		public static enum VisitableType { zpm,chasm,projectile}
+		public static enum VisitableType { zpm,chasm,projectile,neutral}
 		VisitableType visiting;
-		public void visit(IZPM zpm) {
+		boolean justVisitedProjectile=false;
+		public void visit(IZPM zpm) {	
+			
+			IWorldObject zpmWorldObject=((ZPM)zpm).getWorldObject();
 			if (visiting==VisitableType.zpm) {
-			System.out.println("Pozicio: " + ((ZPM)zpm).getWorldObject().getPosX() + ", " +
-					((ZPM)zpm).getWorldObject().getPosY()	);
-			System.out.println("Zpm szelessege" + ((ZPM)zpm).getWorldObject().getWidth() +
-					", Magassaga: " + ((ZPM)zpm).getWorldObject().getHeight());
-			System.out.println("ZPM allapota: " + (zpm.isPicked()?"felveve":"nincs felveve") );
+				System.out.println("Pozicio: " + zpmWorldObject.getPosX() + " " + ((ZPM)zpm).getWorldObject().getPosY());
+				System.out.println("Zpm szelessege" + zpmWorldObject.getWidth() + ", Magassaga: " + zpmWorldObject.getHeight());
+				System.out.println("ZPM allapota: " + (zpm.isPicked()?"felveve":"nincs felveve"));
 			}
+			
 		}
 		
 		public void visit(ISpecWall specWall) {
@@ -71,10 +75,11 @@ class ProtoGodObject {
 		}
 
 		
-		public void visit(IProjectile projectile) {
+		public void visit(IProjectile projectile) {	
 			if (visiting==VisitableType.projectile) {
-				System.out.println("");
+				System.out.println("Lovedek szine: " + projectile.getColour() );
 			}
+			justVisitedProjectile=true;
 			
 		}
 
@@ -130,10 +135,29 @@ class ProtoGodObject {
 		return true;
 	}
 	
+	private void listProjectiles() {
+		System.out.println("listProjectiles");
+		
+		VisitableWriter visitableWriter=new VisitableWriter();
+		visitableWriter.visiting=VisitableType.projectile;
+		
+		for (WorldObject o : world.objects) {
+			IVisitable projectiles=o.getVisitable();
+			if (projectiles != null) {
+				projectiles.accept(visitableWriter);
+			}
+			if (visitableWriter.justVisitedProjectile) {
+				
+			}
+		}
+	}
+	
 	private void listZpms() {
 		System.out.println("listZpms");
 		
 		VisitableWriter visitableWriter= new VisitableWriter();
+		visitableWriter.visiting=VisitableType.zpm;
+		
 		for (WorldObject o : world.objects) {
 			IVisitable zpm= o.getVisitable();
 			if (zpm != null) {
@@ -146,40 +170,40 @@ class ProtoGodObject {
 	
 	private void listWalls() {
 		for(WorldObject o : walls) {
-			System.out.println("Pozíció: " + o.getPosX() + " " + o.getPosY());
-			System.out.println("Fal szélessége: " + o.getWidth() + ", Magassága: " + o.getHeight());
-			System.out.println("Fal típusa: általános");
-			System.out.println("Falhoz tartozó csillagkapu:");
+			System.out.println("PozÃ­ciÃ³: " + o.getPosX() + " " + o.getPosY());
+			System.out.println("Fal szÃ©lessÃ©ge: " + o.getWidth() + ", MagassÃ¡ga: " + o.getHeight());
+			System.out.println("Fal tÃ­pusa: Ã¡ltalÃ¡nos");
+			System.out.println("Falhoz tartozÃ³ csillagkapu:");
 			System.out.println("");
 		}
 		
 		for(SpecWall s : specWalls) {
 			IWorldObject o = s.getWorldObject();
-			System.out.println("Pozíció: " + o.getPosX() + " " + o.getPosY());
-			System.out.println("Fal szélessége: " + o.getWidth() + ", Magassága: " + o.getHeight());
-			System.out.println("Fal típusa: speciális");
-			System.out.println("Falhoz tartozó csillagkapu:"); //TODO ezt meg kell csinalni
+			System.out.println("PozÃ­ciÃ³: " + o.getPosX() + " " + o.getPosY());
+			System.out.println("Fal szÃ©lessÃ©ge: " + o.getWidth() + ", MagassÃ¡ga: " + o.getHeight());
+			System.out.println("Fal tÃ­pusa: speciÃ¡lis");
+			System.out.println("Falhoz tartozÃ³ csillagkapu:"); //TODO ezt meg kell csinalni
 			System.out.println("");
 		}
 	}
 	
-	//chams(majd a world bejarasaval kell)
+	//listazasra kell: !scales, !stargates, !doors, players(map), zpm/projectile/chams(majd a world bejarasaval kell)
 	private void listStargates(String colour) {
 		//TODO (map mar letre van hozva
-//		Szín: [portal színe]
-//		WormHole: [amelyik féreglyukhoz tartozik (lehet üres is, az első lövés után)]
-//		Fal koordinátái: [portálhoz tartozó fal x koordinátája, portálhoz tartozó fal y koordinátája]
-//		Megjegyzés: Ha van érvényes szín paraméter, akkor csak a megadott színű csillagkapuk tulajdonságait listázza.
+//		SzÃ­n: [portal szÃ­ne]
+//		WormHole: [amelyik fÃ©reglyukhoz tartozik (lehet Ã¼res is, az elsÅ‘ lÃ¶vÃ©s utÃ¡n)]
+//		Fal koordinÃ¡tÃ¡i: [portÃ¡lhoz tartozÃ³ fal x koordinÃ¡tÃ¡ja, portÃ¡lhoz tartozÃ³ fal y koordinÃ¡tÃ¡ja]
+//		MegjegyzÃ©s: Ha van Ã©rvÃ©nyes szÃ­n paramÃ©ter, akkor csak a megadott szÃ­nÅ± csillagkapuk tulajdonsÃ¡gait listÃ¡zza.
 	}
 	
 	private void listBoxes() {
 		for(Box b : boxes) {
 			IWorldObject o = b.getWorldObject();
-			System.out.println("Pozíció: " + o.getPosX() + " " + o.getPosY());
-			System.out.println("Doboz szélessége: " + o.getWidth() + ", Magassága: " + o.getHeight());
-			System.out.println("Cipelő játékos neve: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!
-			System.out.println("Doboz súlya: " + b.getMass());
-			System.out.println("Megsemmisült-e: " + b.isKilled());
+			System.out.println("PozÃ­ciÃ³: " + o.getPosX() + " " + o.getPosY());
+			System.out.println("Doboz szÃ©lessÃ©ge: " + o.getWidth() + ", MagassÃ¡ga: " + o.getHeight());
+			System.out.println("CipelÅ‘ jÃ¡tÃ©kos neve: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!
+			System.out.println("Doboz sÃºlya: " + b.getMass());
+			System.out.println("MegsemmisÃ¼lt-e: " + b.isKilled());
 			System.out.println("");
 		}
 	}
@@ -187,30 +211,30 @@ class ProtoGodObject {
 	private void listScales() {
 		for(Scale s : scales) {
 			IWorldObject o = s.getWorldObject();
-			System.out.println("Pozíció: " + o.getPosX() + " " + o.getPosY());
-			System.out.println("Mérleg szélessége: " + o.getWidth() + ", Magassága: " + o.getHeight());
-			System.out.println("Hozzátartozó ajtó pozíciója: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			System.out.print("Mérleg ajtónyitó súlykorlát: " + s.getMassThreshold());
+			System.out.println("PozÃ­ciÃ³: " + o.getPosX() + " " + o.getPosY());
+			System.out.println("MÃ©rleg szÃ©lessÃ©ge: " + o.getWidth() + ", MagassÃ¡ga: " + o.getHeight());
+			System.out.println("HozzÃ¡tartozÃ³ ajtÃ³ pozÃ­ciÃ³ja: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			System.out.print("MÃ©rleg ajtÃ³nyitÃ³ sÃºlykorlÃ¡t: " + s.getMassThreshold());
 			String state="felengedve";
 			if(s.getMassThreshold() <= s.getAccumulatedMass()) {
 				state="lenyomva";
 			}
-			System.out.println("Mérleg állapota: " + state);
-			System.out.println("Mérlegen lévő aktuális súlyok összege: " + s.getAccumulatedMass());
-			System.out.println("Mérlegen lévő dobozok száma: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			System.out.println("MÃ©rleg Ã¡llapota: " + state);
+			System.out.println("MÃ©rlegen lÃ©vÅ‘ aktuÃ¡lis sÃºlyok Ã¶sszege: " + s.getAccumulatedMass());
+			System.out.println("MÃ©rlegen lÃ©vÅ‘ dobozok szÃ¡ma: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
 	}
 	
 	private void listDoors() {
 		for(Door d : doors) {
 			IWorldObject o = d.getWorldObject();
-			System.out.println("Pozíció: " + o.getPosX() + " " + o.getPosY());
-			System.out.println("Ajtó szélessége: " + o.getWidth() + ", Magassága: " + o.getHeight());
+			System.out.println("PozÃ­ciÃ³: " + o.getPosX() + " " + o.getPosY());
+			System.out.println("AjtÃ³ szÃ©lessÃ©ge: " + o.getWidth() + ", MagassÃ¡ga: " + o.getHeight());
 			if (d.isClosed()) {
-				System.out.println("Az ajtó állapota: zárt");
+				System.out.println("Az ajtÃ³ Ã¡llapota: zÃ¡rt");
 			}
 			else {
-				System.out.println("Az ajtó állapota: nyitott");
+				System.out.println("Az ajtÃ³ Ã¡llapota: nyitott");
 			}
 		}
 	}
@@ -221,11 +245,11 @@ class ProtoGodObject {
 			for(String s : keySet) {
 				Player p = players.get(s);
 				IWorldObject o = p.getWorldObject();
-				System.out.println("Játékos neve/típusa: " + s);
-				System.out.println("Pozíció: " + o.getPosX() + " " + o.getPosY());
-				System.out.println("Irányvektor: " + p.getDirX() + " " + p.getDirY());
-				System.out.println("Játékos szélessége: " + o.getWidth() + ", Magassága: " + o.getHeight());
-				System.out.println("Felvett ZPM-ek száma: " + p.getZpmNumber());
+				System.out.println("JÃ¡tÃ©kos neve/tÃ­pusa: " + s);
+				System.out.println("PozÃ­ciÃ³: " + o.getPosX() + " " + o.getPosY());
+				System.out.println("IrÃ¡nyvektor: " + p.getDirX() + " " + p.getDirY());
+				System.out.println("JÃ¡tÃ©kos szÃ©lessÃ©ge: " + o.getWidth() + ", MagassÃ¡ga: " + o.getHeight());
+				System.out.println("Felvett ZPM-ek szÃ¡ma: " + p.getZpmNumber());
 				System.out.println("Cipelt dobozok van-e: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				String isDead = "igen";
 				if (p.isKilled()) {
@@ -236,11 +260,11 @@ class ProtoGodObject {
 		} else {
 			Player p = players.get(player);
 			IWorldObject o = p.getWorldObject();
-			System.out.println("Játékos neve/típusa: " + player);
-			System.out.println("Pozíció: " + o.getPosX() + " " + o.getPosY());
-			System.out.println("Irányvektor: " + p.getDirX() + " " + p.getDirY());
-			System.out.println("Játékos szélessége: " + o.getWidth() + ", Magassága: " + o.getHeight());
-			System.out.println("Felvett ZPM-ek száma: " + p.getZpmNumber());
+			System.out.println("JÃ¡tÃ©kos neve/tÃ­pusa: " + player);
+			System.out.println("PozÃ­ciÃ³: " + o.getPosX() + " " + o.getPosY());
+			System.out.println("IrÃ¡nyvektor: " + p.getDirX() + " " + p.getDirY());
+			System.out.println("JÃ¡tÃ©kos szÃ©lessÃ©ge: " + o.getWidth() + ", MagassÃ¡ga: " + o.getHeight());
+			System.out.println("Felvett ZPM-ek szÃ¡ma: " + p.getZpmNumber());
 			System.out.println("Cipelt dobozok van-e: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			String isDead = "igen";
 			if (p.isKilled()) {
@@ -249,6 +273,14 @@ class ProtoGodObject {
 			System.out.println("Halott-e: " + isDead);
 		}
 	}
+//		JÃ¡tÃ©kos neve: [jÃ¡tÃ©kos neve]
+//		PozÃ­ciÃ³: [x koordinÃ¡ta, y koordinÃ¡ta]
+//		IrÃ¡nyvektor: [x koordinÃ¡ta,y koordinÃ¡ta]
+//		JÃ¡tÃ©kos szÃ©lessÃ©ge: [szÃ©lessÃ©g] , MagassÃ¡ga: [magassÃ¡g]
+//		ZPMek: [felvett ZPMek szÃ¡ma]
+//		Cipelt doboz: [van-e/nincs-e]
+//		Halott: [igen/nem]
+//		MegjegyzÃ©s: Ha van Ã©rvÃ©nyes nÃ©v paramÃ©ter, akkor csak a megadott jÃ¡tÃ©kos tulajdonsÃ¡gait listÃ¡zza.
 	
 	public static class ProtoLoadMap implements IProtoCommand {
 		

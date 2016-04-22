@@ -7,14 +7,67 @@ import java.util.Scanner;
 import bottom_layer.GameLoop;
 import bottom_layer.World;
 import bottom_layer.WorldObject;
+import common.ICarriable;
+import common.IKillable;
+import common.IProjectile;
+import common.IScale;
+import common.ISpecWall;
+import common.ITeleportable;
+import common.IVisitable;
+import common.IVisitor;
 import common.IWorldObject;
+import common.IZPM;
+import upper_layer.reactive.ZPM;
 import upper_layer.wormhole.SpecWall;
 
 class ProtoGodObject {
 	private World world;
 	private GameLoop gameLoop;
-	
 	private static ProtoGodObject instance = null;
+	
+	static class VisitableWriter implements IVisitor {
+		public static enum VisitableType { zpm,chasm,projectile}
+		VisitableType visiting;
+		public void visit(IZPM zpm) {
+			if (visiting==VisitableType.zpm) {
+			System.out.println("Pozicio: " + ((ZPM)zpm).getWorldObject().getPosX() + ", " +
+					((ZPM)zpm).getWorldObject().getPosY()	);
+			System.out.println("Zpm szelessege" + ((ZPM)zpm).getWorldObject().getWidth() +
+					", Magassaga: " + ((ZPM)zpm).getWorldObject().getHeight());
+			System.out.println("ZPM allapota: " + (zpm.isPicked()?"felveve":"nincs felveve") );
+			}
+		}
+		
+		public void visit(ISpecWall specWall) {
+			
+		}
+		
+		public void visit(ITeleportable teleportable) {
+			
+		}
+		
+		public void visit(IKillable killable) {
+			
+		}
+		
+		public void visit(IScale scale) {
+			
+		}
+		
+		public void visit(ICarriable carriable) {
+			
+		}
+
+		
+		public void visit(IProjectile projectile) {
+			if (visiting==VisitableType.projectile) {
+				System.out.println("");
+			}
+			
+		}
+			
+	}
+	
 	
 	/*
 	 * Ott elterunk a specifikaciotol, hogy ezek az attributumok publicok,
@@ -52,6 +105,20 @@ class ProtoGodObject {
 		gameFactory.createSpecWall(10, 10, 10, 20);
 		
 		return true;
+	}
+	
+	private void listZpms() {
+		System.out.println("listZpms");
+		
+		VisitableWriter visitableWriter= new VisitableWriter();
+		for (WorldObject o : world.objects) {
+			IVisitable zpm= o.getVisitable();
+			if (zpm != null) {
+				zpm.accept(visitableWriter);
+			}
+		}
+		
+		System.out.println("");
 	}
 	
 	private void listWalls() {

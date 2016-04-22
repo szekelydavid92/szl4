@@ -1,6 +1,7 @@
 package upper_layer.entity;
 
 import common.ICarriable;
+import common.IChasm;
 import common.ICollisionObserver;
 import common.IKillable;
 import common.IProjectile;
@@ -36,7 +37,11 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 		isAlive = false;
 	}
 	
-	
+	@Override
+	public void visit(IChasm chasm) {
+		// TODO Auto-generated method stub
+		
+	}
 	/**
 	 * Ebben a fuggvenyben kepes az objektum kozolni az IVisitor-ral, hogy milyen tipusa.
 	 * @param visitor ???????????

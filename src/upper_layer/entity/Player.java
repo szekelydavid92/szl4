@@ -2,6 +2,7 @@ package upper_layer.entity;
 
 import common.ICarriable;
 import common.ICarrier;
+import common.IChasm;
 import common.IKillable;
 import common.IProjectileFactory;
 import common.ISpecWall;
@@ -488,4 +489,6 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	public Player(IWorldObject worldObject,double mass) {
 		super(worldObject,mass);
 	}
+
+	
 }

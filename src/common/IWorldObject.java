@@ -142,6 +142,9 @@ public interface IWorldObject {
 	
 	//TODO: kommentelni kéne
 	public void setVisitable(IVisitable visitable);
+
+	//TODO kommentelni kéne
+	public void markRemovable();
 	
 	
 }

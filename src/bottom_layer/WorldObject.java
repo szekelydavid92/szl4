@@ -44,6 +44,8 @@ public class WorldObject implements IWorldObject {
 	 * reprezentaciojat. (Visitor tervezesi minta)
 	 */
 	public IVisitable visitable = null;
+
+	private boolean removable;
 	
 	
 	/*
@@ -444,6 +446,15 @@ public class WorldObject implements IWorldObject {
 		System.out.print("ret " + name + ".getVisitable()\n");
 		
 		return visitable;
+	}
+	
+	boolean isRemovable() {
+		return removable;
+	}
+	
+	@Override
+	public void markRemovable() {
+		removable = true;
 	}
 
 }

@@ -15,6 +15,10 @@ public class Door extends ColEntity implements IDoor {
 	
 	public String name; //O kell az objektum nevenek a kiprintelesehez!
 	
+	public boolean isClosed() {
+		return !isOpen;
+	}
+	
 	@Override
 	public void open() {
 		

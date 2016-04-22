@@ -44,6 +44,18 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * Metodusok
 	 */
 	
+	public double getDirX() {
+		return dirX;
+	}
+	
+	public double getDirY() {
+		return dirY;
+	}
+	
+	public int getZpmNumber() {
+		return zpmNumber;
+	}
+	
 	public void accept(IVisitor visitor){
 
 		Depth.getInstance().printTabs();

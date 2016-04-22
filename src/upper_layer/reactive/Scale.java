@@ -33,6 +33,14 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 	 * Metodusok
 	 */
 	
+	public double getMassThreshold() {
+		return massThreshold;
+	}
+	
+	public double getAccumulatedMass() {
+		return accumulatedMass;
+	}
+	
 	public Scale(IWorldObject worldObject,double massThreshold) {
 		super(worldObject);
 		

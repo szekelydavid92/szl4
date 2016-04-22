@@ -147,9 +147,19 @@ class ProtoGodObject {
 				projectiles.accept(visitableWriter);
 			}
 			if (visitableWriter.justVisitedProjectile) {
-				
+				System.out.println("Pozíció: " 
+									+ o.getPosX()
+									+ "  " 
+									+ o.getPosY());
+				System.out.println("Lövedék szélessége: " 
+									+ o.getWidth()
+									+ ", "
+									+ o.getHeight());
+				System.out.println("");
 			}
+			visitableWriter.justVisitedProjectile=false;
 		}
+		System.out.println("");
 	}
 	
 	private void listZpms() {

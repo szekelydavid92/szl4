@@ -131,7 +131,7 @@ class GameFactory {
 		 doorObject.setPosY(y);
 		 
 		 Door door = new Door(doorObject);
-		 gameLoop.addEntity(door); 
+		 gameLoop.addEntity(door);
 		//ProtoGodObject.getInstance().specWalls.add(specWall);
 	 }
 	 

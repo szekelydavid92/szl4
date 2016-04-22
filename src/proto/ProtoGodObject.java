@@ -3,9 +3,10 @@ package proto;
 import java.util.Scanner;
 
 import bottom_layer.GameLoop;
+import bottom_layer.World;
 
 class ProtoGodObject {
-	
+	private World world;
 	private GameLoop gameLoop;
 	
 	private static ProtoGodObject instance = null;
@@ -84,6 +85,7 @@ class ProtoGodObject {
 		/*
 		 * A biztonsag kedveert, hogy hulye bemenet eseten ne szalljon el a program.
 		 */
-		gameLoop = new GameLoop();
+		world = new World();
+		gameLoop = new GameLoop(world);
 	}
 }

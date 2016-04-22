@@ -49,10 +49,9 @@ public class AjtoDobozTeszt {
 		
 		//World probaWorld=new World(); 
 		
-		GameLoop gameLoop=new GameLoop();
-		gameLoop.world=probaWorld;
+		GameLoop gameLoop=new GameLoop(probaWorld);
 		gameLoop.name="gameLoop";
-		gameLoop.Entites.add(door);
+		gameLoop.addEntity(door);
 		
 		System.out.print("Initialization finished.\n");
 		System.out.print("Ajto nyitasanak es zarasanak tesztelese.\n");

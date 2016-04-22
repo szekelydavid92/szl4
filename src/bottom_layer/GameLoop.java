@@ -28,8 +28,20 @@ public class GameLoop {
 	 * erdekeben publikusak.
 	 * 
 	 */
-	public World world = new World();
-	public List<IEntity> Entites = new LinkedList<IEntity>();
+	private World world = new World();
+	private List<IEntity> Entities = new LinkedList<IEntity>();
+	
+	public GameLoop(World world) {
+		this.world = world;
+	}
+	
+	public World getWorld() {
+		return world;
+	}
+	
+	public void addEntity(IEntity entity) {
+		Entities.add(entity);
+	}
 	
 	/**
 	 * @brief Ez a fuggveny felel az objektumok lepteteseert.
@@ -44,7 +56,7 @@ public class GameLoop {
 		world.step();
 		
 		System.out.println("Entity lepteto ciklus belepes");
-		for(IEntity e : Entites)
+		for(IEntity e : Entities)
 		{
 			e.step();
 		}

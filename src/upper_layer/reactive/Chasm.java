@@ -169,9 +169,17 @@ public class Chasm implements ICollisionObserver, IVisitor, IVisitable,IChasm {
 
 	@Override
 	public void accept(IVisitor visitor) {
+		
 		visitor.visit(this);
 		//TODO 
 		
+		
+	}
+
+
+	@Override
+	public void visit(IChasm chasm) {
+		// TODO Auto-generated method stub
 		
 	}
 }

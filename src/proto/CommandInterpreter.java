@@ -13,8 +13,7 @@ class CommandInterpreter {
 	private void Logic(String cmd) {
 		if(cmd.equals("exit")) {
 			isRunning = false;
-		}
-		else {
+		} else {
 			IProtoCommand program = commands.get(cmd);
 			
 			if(program == null) {
@@ -34,7 +33,7 @@ class CommandInterpreter {
 			//Input
 			String Szercsylavcsy = null;
 			if(in.hasNext()) {
-				Szercsylavcsy = in.next();
+				Szercsylavcsy = in.next(); //miafasz?
 			} else {
 				isRunning = false;
 			}

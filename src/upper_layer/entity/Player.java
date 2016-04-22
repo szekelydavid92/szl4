@@ -21,7 +21,12 @@ import common.Colour;
  */
 public class Player extends Killable implements ITeleportable,ICarrier {
 
-	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
+	//[BACKUP]
+	//public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
+	//[Helyette: ]
+	public String name = new String("player");
+	
+	//////
 	
 	/*
 	 * Attributumok

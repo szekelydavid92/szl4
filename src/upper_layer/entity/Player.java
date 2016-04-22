@@ -2,6 +2,7 @@ package upper_layer.entity;
 
 import common.ICarriable;
 import common.ICarrier;
+import common.IChasm;
 import common.IKillable;
 import common.IProjectileFactory;
 import common.ISpecWall;
@@ -21,7 +22,12 @@ import common.Colour;
  */
 public class Player extends Killable implements ITeleportable,ICarrier {
 
-	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
+	//[BACKUP]
+	//public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
+	//[Helyette: ]
+	public String name = new String("player");
+	
+	//////
 	
 	/*
 	 * Attributumok
@@ -495,4 +501,6 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	public Player(IWorldObject worldObject,double mass) {
 		super(worldObject,mass);
 	}
+
+	
 }

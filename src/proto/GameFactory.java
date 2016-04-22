@@ -1,9 +1,12 @@
 package proto;
 
 import bottom_layer.*;
+
 import common.IWorldObject;
 import common.IWorldObjectFactory;
 import upper_layer.wormhole.SpecWall;
+import upper_layer.entity.*;
+import upper_layer.reactive.Chasm;
 
 class GameFactory {
 	
@@ -26,6 +29,21 @@ class GameFactory {
 	/*
 	 * Ott elterunk a specifikaciotol, hogy nem lesz se setWorld, se setWorldObjectFactory, hanem helyette setGameLoop.
 	 */
+	
+	/*public void setWorld(World world){
+		this.world = world;
+	}*/
+	
+	
+	
+	
+	
+	
+	
+	public void setWorldObjectFactory(IWorldObjectFactory factory){
+		this.worldObjectFactory = factory;
+	}
+	
 	void setGameLoop(GameLoop gameLoop) {
 		this.gameLoop	= gameLoop;
 		this.world		= gameLoop.getWorld();
@@ -55,5 +73,30 @@ class GameFactory {
 		 * Ez a resz kikerul a vegso programbol.
 		 */
 		ProtoGodObject.getInstance().specWalls.add(specWall);
+	}
+	
+	public void createPlayer(String name,double x,double y,double width,double height,double mass){
+		IWorldObject playerObject = worldObjectFactory.createObject(width, height); 
+		playerObject.setPosX(x);
+		playerObject.setPosY(y);
+		
+		Player player = new Player(playerObject,mass);
+		//player.name = new String(name);
+		gameLoop.addEntity(player);
+		/*
+		 * Ez a resz kikerul a vegso programbol.
+		 */
+		//ProtoGodObject.getInstance().specWalls.add(specWall);
+	}
+	
+	public void createChasm(double x, double y,double width,double height){
+		IWorldObject chasmObject = worldObjectFactory.createObject(width, height); 
+		chasmObject.setPosX(x);
+		chasmObject.setPosY(y);
+		
+		
+		chasmObject.setVisitable(Chasm.getInstance());
+		Chasm.getInstance().getChasms().add(chasmObject);
+		//ProtoGodObject.getInstance().specWalls.add(specWall);
 	}
 }

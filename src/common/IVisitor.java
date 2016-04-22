@@ -61,4 +61,7 @@ public interface IVisitor {
 
 
 	public void visit(IProjectile projectile);
+
+
+	public void visit(IChasm chasm);
 }

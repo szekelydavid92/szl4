@@ -9,7 +9,7 @@ import proto.Depth;
  */
 public class WorldObjectFactory implements IWorldObjectFactory {
 	
-	public String name = "worldObjectFactory";
+	public String name = new String( "worldObjectFactory");
 	
 	/*
 	 * Attributumok

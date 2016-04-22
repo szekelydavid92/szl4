@@ -2,6 +2,7 @@ package upper_layer.wormhole;
 
 import common.Colour;
 import common.ICarriable;
+import common.IChasm;
 import common.ICollisionObserver;
 import common.IKillable;
 import common.IProjectile;
@@ -145,6 +146,12 @@ public class Stargate implements IStargate{
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".notify()\n");
+	}
+
+	@Override
+	public void visit(IChasm chasm) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

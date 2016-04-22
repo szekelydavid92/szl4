@@ -3,6 +3,7 @@ package upper_layer.reactive;
 import java.util.List;
 
 import common.ICarriable;
+import common.IChasm;
 import common.ICollisionObserver;
 import common.IKillable;
 import common.IProjectile;
@@ -18,7 +19,7 @@ import proto.Depth;
 /**
  * @brief Ez a szakadek. Ha utkozott egy IKillable-t megvalosito objektummal, akkor megoli.
  */
-public class Chasm implements ICollisionObserver, IVisitor {	
+public class Chasm implements ICollisionObserver, IVisitor, IVisitable,IChasm {	
 	
 	public String name = "chasm";
 	
@@ -163,5 +164,22 @@ public class Chasm implements ICollisionObserver, IVisitor {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".notify()");
+	}
+
+
+	@Override
+	public void accept(IVisitor visitor) {
+		
+		visitor.visit(this);
+		//TODO 
+		
+		
+	}
+
+
+	@Override
+	public void visit(IChasm chasm) {
+		// TODO Auto-generated method stub
+		
 	}
 }

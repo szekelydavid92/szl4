@@ -1,12 +1,16 @@
 package upper_layer.entity;
 
+import common.ICarriable;
 import common.ICollisionObserver;
 import common.IKillable;
 import common.IProjectile;
 import common.IScale;
+import common.ISpecWall;
+import common.ITeleportable;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
+import common.IZPM;
 import proto.Depth;
 
 /**
@@ -63,6 +67,35 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	}
 	
 	public void visit(IProjectile projectile) {
+		
+	}
+
+	@Override
+	public void visit(ISpecWall wall) {
+		
+	}
+
+
+	@Override
+	public void visit(IKillable killable) {
+		
+	}
+
+
+	@Override
+	public void visit(ICarriable carriable) {
+		
+	}
+
+
+	@Override
+	public void visit(IZPM zpm) {
+		
+	}
+
+
+	@Override
+	public void visit(ITeleportable teleportable) {
 		
 	}
 	

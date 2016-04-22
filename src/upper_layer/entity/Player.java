@@ -21,6 +21,11 @@ import common.Colour;
  */
 public class Player extends Killable implements ITeleportable,ICarrier {
 
+	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
+	
+	/*
+	 * Attributumok
+	 */
 	int zpmNumber = 0; 						//Itt tárolódik a felvett ZPM-ek száma.
 	public ICarriable carriedObject = null; 		// Referencia a cipelt objektumra.
 	boolean up = true;						//ha a játékos fölfelé megy, false egyébként.
@@ -35,9 +40,9 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	protected double displacement = 1;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
 	public IProjectileFactory projFactory;
 	
-	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
-	private boolean TMPShootYellow = false; //teszteles miatt
-	private boolean TMPShootBlue = false; 	//teszteles miatt
+	/*
+	 * Metodusok
+	 */
 	
 	public void accept(IVisitor visitor){
 
@@ -245,7 +250,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".shootYellow(true)\n");
 		Depth.getInstance().enterFunction();
 		
-		TMPShootYellow = shootingYellow;
+		this.shootingYellow = shootingYellow;
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -265,7 +270,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".shootBlue(true)\n");
 		Depth.getInstance().enterFunction();
 				
-		TMPShootBlue = shootingBlue;
+		this.shootingBlue = shootingBlue;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -403,51 +408,18 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		double x = worldObject.getPosX();
 		double y = worldObject.getPosY();
 		
-		if(TMPShootYellow)
+		if(shootingYellow) {
 			projFactory.createProjectile(Colour.YELLOW, x, y, 1.0, 1.0);
-		if(TMPShootBlue)
+		}
+		if(shootingBlue) {
 			projFactory.createProjectile(Colour.BLUE, x, y, 1.0, 1.0);
+		}
 			
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".shoot()\n");
 		
 	}
-	
-	
-	@Override
-	public void visit(ISpecWall wall) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()\n");
-		Depth.getInstance().enterFunction();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()\n");
-		//TODO Lorant
-	}
-
-	
-	@Override
-	public void visit(IKillable killable) {
-		/*
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()\n");
-		Depth.getInstance().enterFunction();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()\n");
-		*/
-		
-		/*
-		 * Ez a függvény nem csinál semmit
-		 * Lóránt
-		 */
-		//TODO Lorant
-	}
-
 	
 	@Override
 	public void visit(ICarriable carriable) {
@@ -462,8 +434,6 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".visit()\n");
-		
-		//TODO Lorant
 	}
 
 	/**
@@ -478,29 +448,17 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
-		if (zpm != null)
-		zpm.pickUp();
-				
+		if (zpm != null) {
+			zpm.pickUp();
+		}
+		
+		/*
+		 * ZPM-ek novelese kell ide.
+		 */
+			
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".visit()\n");
-		
-		//TODO Lorant
-	}
-
-	
-	@Override
-	public void visit(ITeleportable teleportable) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()\n");
-		Depth.getInstance().enterFunction();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()\n");
-		
-		//TODO Lorant
 	}
 
 	
@@ -511,8 +469,9 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		Depth.getInstance().enterFunction();	
 		
 		IVisitable visitable=obj.getVisitable();
-		if (visitable != null)
+		if (visitable != null) {
 			visitable.accept(this);
+		}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -523,6 +482,5 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	
 	public Player(IWorldObject worldObject,double mass) {
 		super(worldObject,mass);
-		// TODO Auto-generated constructor stub
 	}
 }

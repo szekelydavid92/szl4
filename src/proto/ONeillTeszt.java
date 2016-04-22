@@ -76,9 +76,10 @@ class ONeillTeszt {
 			o1.setCollisionObserver(p);
 			
 			WorldObject o2 = new WorldObject();
-			ZPM	z = new ZPM();
 			//o2.setCollisionObserver(z);
-			o2.setVisitable(z);
+			//o2.setVisitable(z);
+
+			ZPM	z = new ZPM(o2);
 			o2.name="zpmObject";
 			
 			World w	= new World();

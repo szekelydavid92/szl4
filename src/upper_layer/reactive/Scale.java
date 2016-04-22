@@ -10,26 +10,45 @@ import common.IWorldObject;
 import proto.Depth;
 import upper_layer.entity.Killable;
 
+/*
+ * Elteres a specifikaciotol: nem implementalja az ICollisionObservert.
+ */
+
 /**
  * @brief O a merleg. Ha valaki lenyomja, akkor kinyitja a hozza tartozo ajtot.
  */
-public class Scale  implements IScale, IVisitable, ICollisionObserver, IEntity{
+public class Scale extends ReactiveObject implements IScale, IVisitable, /*ICollisionObserver,*/ IEntity{
 	
 	public String name = "scale";
-
+	
+	/*
+	 * Attributumok
+	 */
+	
 	public IDoor door; 				//Ez az ajtó, akit ő kinyit, ha lenyomják.
 	double accumulatedMass = 0; 	//Ez a rá nehezedő összes súly.
-	double massThreshold = 1; 		//ha a rá nehezedő súly nagyobb ennél, akkor a mérleg kinyitja az ajtót.
-
+	double massThreshold; 			//ha a rá nehezedő súly nagyobb ennél, akkor a mérleg kinyitja az ajtót.
 	
+	/*
+	 * Metodusok
+	 */
+	
+	public Scale(IWorldObject worldObject,double massThreshold) {
+		super(worldObject);
+		
+		//worldObject.setCollisionObserver(this);
+		worldObject.setVisitable(this);
+		this.massThreshold = massThreshold;
+	}
+	/*
 	@Override
 	public void notify(IWorldObject obj) {
 		
 		/*
 		 * Nem lesz lehivva, ertelmetlen a letezese. A merleg nem csinal semmit a vele utkozokkel.
-		 */
+		 * /
 	}
-	
+	*/
 	/**
 	 * @brief az IVisitable interface fuggvenye, ebben kozli a parameterben
 	 * kapott visitorrel a tipusat.

@@ -28,11 +28,11 @@ public class AjtoDobozTeszt {
 		o1.setCollisionObserver(box);
 		o1.name="boxObject";
 		
-		Scale scale = new Scale();
-		scale.name="scale";
 		WorldObject o2 = new WorldObject();
-		o2.setCollisionObserver(scale);
-		o2.setVisitable(scale);
+		
+
+		Scale scale = new Scale(o2,1.0);
+		scale.name="scale";
 		o2.name="scaleObject";
 		
 		World probaWorld = new World();

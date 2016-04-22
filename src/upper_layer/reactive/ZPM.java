@@ -9,8 +9,8 @@ import proto.Depth;
 /**
  * @brief ZPM. Ket allapota van, felvett es nem felvett. 
  */
-public class ZPM implements IZPM/*, ICollisionObserver*/ {
-	
+public class ZPM extends ReactiveObject implements IZPM/*, ICollisionObserver*/ {
+
 	public String name = "zpm";
 	
 	/*
@@ -21,6 +21,12 @@ public class ZPM implements IZPM/*, ICollisionObserver*/ {
 	/*
 	 * Metodusok
 	 */
+	
+	public ZPM(IWorldObject worldObject) {
+		super(worldObject);
+		
+		worldObject.setVisitable(this);
+	}
 	
 	/**
 	 * @brief az IVisitable interface fuggvenye, ebben kozli a parameterben

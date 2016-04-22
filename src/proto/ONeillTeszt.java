@@ -101,7 +101,7 @@ class ONeillTeszt {
 			o1.name="playerWorldOBject";
 			WorldObject boxObj = new WorldObject();
 			Box box=new Box(boxObj);
-			player.box=box;
+			player.carriedObject=box;
 			
 			WorldObject o2 = new WorldObject();
 			Chasm chasm = new Chasm();
@@ -156,7 +156,7 @@ class ONeillTeszt {
 			Box box = new Box(wo);
 			
 			//box.worldObject = wo;
-			player.box = box;
+			player.carriedObject = box;
 
 			System.out.print("Initialization finished.\n");
 			player.carryBox();

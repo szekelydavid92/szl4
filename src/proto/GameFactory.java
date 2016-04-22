@@ -7,6 +7,7 @@ import common.IWorldObjectFactory;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.entity.*;
 import upper_layer.reactive.Chasm;
+import upper_layer.reactive.Scale;
 
 class GameFactory {
 	
@@ -99,4 +100,37 @@ class GameFactory {
 		Chasm.getInstance().getChasms().add(chasmObject);
 		//ProtoGodObject.getInstance().specWalls.add(specWall);
 	}
+	
+	public void createBox(double x, double y, double width, double height,double mass){
+		IWorldObject boxObj = worldObjectFactory.createObject(width, height); 
+		boxObj.setPosX(x);
+		boxObj.setPosY(y);
+		
+		Box box = new Box(boxObj, mass);
+		gameLoop.addEntity(box);
+		//ProtoGodObject.getInstance().specWalls.add(specWall);
+	}
+	
+	public void createScale(double x, double y, double width, double height, double mass, int id){
+		IWorldObject scaleObject = worldObjectFactory.createObject(width, height); 
+		scaleObject.setPosX(x);
+		scaleObject.setPosY(y);
+		
+
+		Scale scl = new Scale(scaleObject, mass);
+		Chasm.getInstance().getChasms().add(scaleObject);
+		gameLoop.addEntity(scl);
+		
+		//ProtoGodObject.getInstance().specWalls.add(specWall);
+	}
+	
+	 public void createDoor(double x, double y, double width, double height, int id){
+		 IWorldObject doorObject = worldObjectFactory.createObject(width, height); 
+		 doorObject.setPosX(x);
+		 doorObject.setPosY(y);
+		 
+		 Door door = new Door(doorObject);
+		 gameLoop.addEntity(door);
+		//ProtoGodObject.getInstance().specWalls.add(specWall);
+	 }
 }

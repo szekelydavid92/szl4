@@ -1,5 +1,7 @@
 package upper_layer.reactive;
 
+import java.util.List;
+
 import common.ICarriable;
 import common.ICollisionObserver;
 import common.IKillable;
@@ -19,6 +21,26 @@ import proto.Depth;
 public class Chasm implements ICollisionObserver, IVisitor {	
 	
 	public String name = "chasm";
+	
+	List<IWorldObject> chasms; 			//Azon WorldObjectek listája, akik szakadékok.	
+	private static Chasm chasm = null;
+	
+	public static Chasm getInstance(){
+		if(chasm == null){
+			chasm = new Chasm();
+		}
+		return chasm;
+	}
+	
+	
+	/**
+	 * Ezen keresztül lehet elkérni azon WorldObjectek kollekcióját, akikhez be 
+	 * van regisztrálva a Chasm. Elsősorban a pálya kiírásánál kell.
+	 * @return List<IWorldObject>
+	 */
+	public List<IWorldObject> getChasms(){
+		return chasms;
+	}
 	
 	/**
 	 * @brief Itt valosul meg az ISpecWall-al valo utkozes soran tanusutott viselkedes.

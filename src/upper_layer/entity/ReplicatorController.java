@@ -1,4 +1,4 @@
-package proto;
+package upper_layer.entity;
 
 import common.IEntity;
 

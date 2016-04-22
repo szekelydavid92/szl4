@@ -10,7 +10,15 @@ import proto.Depth;
 public class WorldObjectFactory implements IWorldObjectFactory {
 	
 	public String name = "worldObjectFactory";
+	
+	/*
+	 * Attributumok
+	 */
 	public World world;
+	
+	/*
+	 * Metodusok
+	 */
 	
 	/**
 	 * @brief IWorldObject interfeszt megvalosito osztaly peldanyt hoz letre.
@@ -26,7 +34,7 @@ public class WorldObjectFactory implements IWorldObjectFactory {
 		Depth.getInstance().enterFunction();
 		
 		WorldObject worldObject = new WorldObject();
-		//world.objects.add(worldObject);
+		world.addWorldObject(worldObject);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

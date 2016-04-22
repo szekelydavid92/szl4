@@ -1,5 +1,7 @@
 package common;
 
+import proto.Depth;
+
 /**
  * Ezt az interface-t implementalja minden olyan objektum, akinek van pozicioja,
  * van elmozdulas vektora, amivel elorelep minden iteracioban,
@@ -59,6 +61,18 @@ public interface IWorldObject {
 	 */
 	public double getPosY();
 	
+
+	/**
+	 * A vilagbeli objektum  szelesseget (width attributum) adja vissza.
+	 * @return double
+	 */
+	public double getWidth();
+	
+	/**
+	 * A vilagbeli objektum  magassagat (height attributum) adja vissza.
+	 * @return double
+	 */
+	public double getHeight();
 	
 	/**
 	 * @brief Az elmozdulas vektor X komponensenek beallitasa.

@@ -3,6 +3,7 @@ package bottom_layer;
 import java.util.ArrayList;
 import java.util.List;
 
+import common.IWorldObjectFactory;
 import proto.Depth;
 import proto.ProtoMain;
 
@@ -14,11 +15,18 @@ import java.io.IOException;
  * 
  */
 public class World {
-	
-	public List<WorldObject> objects = new ArrayList<WorldObject>();
 	public String name = "world";
 	
-	public World() {}
+	public List<WorldObject> objects = new ArrayList<WorldObject>();
+	private WorldObjectFactory worldObjectFactory;
+	
+	public World() {
+		worldObjectFactory = new WorldObjectFactory(this);
+	}
+	
+	public IWorldObjectFactory getWorldObjectFactory() {
+		return worldObjectFactory;
+	}
 	
 	/**
 	 * @brief Utkozes ellenorzes.

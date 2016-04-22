@@ -1,15 +1,26 @@
 package proto;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 import bottom_layer.GameLoop;
 import bottom_layer.World;
+import bottom_layer.WorldObject;
+import upper_layer.wormhole.SpecWall;
 
 class ProtoGodObject {
 	private World world;
 	private GameLoop gameLoop;
 	
 	private static ProtoGodObject instance = null;
+	
+	/*
+	 * Ott elterunk a specifikaciotol, hogy ezek az attributumok publicok,
+	 * mivel ez ugyis kikerul a vegso programbol, ez nem tragedia.
+	 */
+	public List<WorldObject> walls = new LinkedList<WorldObject>();
+	public List<SpecWall> specWalls = new LinkedList<SpecWall>();
 	
 	public static ProtoGodObject getInstance() {
 		if(instance == null) {
@@ -19,18 +30,45 @@ class ProtoGodObject {
 		return instance;
 	}
 
-	public void run(int iterations) {
-		
+	private void run(int iterations) {
 		for(int i=0;i < iterations;i++) {
 			gameLoop.run();
 		}
 	}
 	
-	public boolean loadMap(String map)
+	private boolean loadMap(String map)
 	{
+		world = new World();
+		gameLoop = new GameLoop(world);
+
+		walls.clear();
+		specWalls.clear();
 		
+		GameFactory gameFactory = new GameFactory(gameLoop);
+		
+		gameFactory.createWall(0, 0, 10, 10);
+		gameFactory.createWall(0, 10, 10, 20);
+		gameFactory.createSpecWall(10, 10, 10, 20);
 		
 		return true;
+	}
+	
+	private void listWalls(){
+		for(WorldObject o : walls) {
+			System.out.println("Pozíció: [" + o.getPosX() + "," + o.getPosY() + "]");
+			System.out.println("Fal szélessége: [" + o.getWidth() + "],Magassága: [" + o.getHeight() + "]");
+			System.out.println("Fal típusa: általános");
+			System.out.println("Falhoz tartozó csillagkapu:");
+			System.out.println("");
+		}
+		
+		for(SpecWall o : specWalls) {
+			System.out.println("Pozíció: [" + o.getPosX() + "," + o.getPosY() + "]");
+			System.out.println("Fal szélessége: [" + o.getWidth() + "],Magassága: [" + o.getHeight() + "]");
+			System.out.println("Fal típusa: speciális");
+			System.out.println("Falhoz tartozó csillagkapu:");
+			System.out.println("");
+		}
 	}
 	
 	public static class ProtoLoadMap implements IProtoCommand {

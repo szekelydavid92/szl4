@@ -124,13 +124,13 @@ class GameFactory {
 		//ProtoGodObject.getInstance().specWalls.add(specWall);
 	}
 	
-	 public void createDoor(double x, double y, double width, double height, int id){
-		 IWorldObject doorObject = worldObjectFactory.createObject(width, height); 
-		 doorObject.setPosX(x);
-		 doorObject.setPosY(y);
+	public void createDoor(double x, double y, double width, double height, int id){
+		IWorldObject doorObject = worldObjectFactory.createObject(width, height); 
+		doorObject.setPosX(x);
+		doorObject.setPosY(y);
 		 
-		 Door door = new Door(doorObject);
-		 gameLoop.addEntity(door);
+		Door door = new Door(doorObject);
+		gameLoop.addEntity(door);
 		//ProtoGodObject.getInstance().specWalls.add(specWall);
-	 }
+	}
 }

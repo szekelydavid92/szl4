@@ -46,6 +46,13 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 		visitor.visit((IKillable) this);
 	}
 	
+	/**
+	 * @brief Itt kérdezzük le az objektumunk tömegét.
+	 * @return double
+	 */
+	public double getMass() {
+		return mass;
+	}
 	
 	/**
 	 * Ezzel nyomja le a merleget a jatekos ill. a doboz.

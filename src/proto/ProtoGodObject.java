@@ -138,6 +138,11 @@ class ProtoGodObject {
 		return true;
 	}
 	
+	private void movePlayer(String Player, boolean up, boolean down,
+							boolean left, boolean right) {
+		
+	}
+	
 	private void listProjectiles() {
 		System.out.println("listProjectiles");
 		
@@ -340,7 +345,39 @@ class ProtoGodObject {
 		
 	}
 	
-
+	public static class ProtoMovePlayer implements IProtoCommand {
+		
+		@Override
+		public boolean Execute(Scanner in) {
+			in.useDelimiter("\\s*");
+			String cmd = in.next();
+			String player=in.next();
+			Boolean[] directions=new Boolean[4];
+			for (int i=0;in.hasNextInt();i++) {
+				if (in.nextInt() == 1)
+					directions[i]=true;
+				else
+					directions[i]=false;		
+			}
+			boolean up=directions[0],down=directions[1],left=directions[2],
+					right=directions[3];
+			ProtoGodObject.getInstance().movePlayer(player,up,down,left,right);
+			
+			
+			
+			if (player.equals("oneill")) {
+				
+			}
+			else if (player.equals("jaffa")) {
+				
+			}
+			else if (player.equals("replikator")) {
+				
+			}
+			
+			return true;
+		}
+	}
 	
 	public static class ProtoListWalls implements IProtoCommand {
 
@@ -386,6 +423,7 @@ class ProtoGodObject {
 			commands.put("run", new ProtoGodObject.ProtoRun());
 			commands.put("listWalls", new ProtoGodObject.ProtoListWalls());
 			commands.put("listProjectiles",new ProtoGodObject.ProtoListProjectiles());
+			
 		}
 	}
 	

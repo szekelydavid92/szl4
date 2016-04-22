@@ -14,11 +14,11 @@ import proto.Depth;
 public class Scale implements IScale, IVisitable, ICollisionObserver{
 	
 	public String name = "scale";
-	
-	/*
-	 * Attributumok
-	 */
-	public IDoor door;
+
+	public IDoor door; 				//Ez az ajtó, akit ő kinyit, ha lenyomják.
+	double accumulatedMass = 0; 	//Ez a rá nehezedő összes súly.
+	double massThreshold = 1; 		//ha a rá nehezedő súly nagyobb ennél, akkor a mérleg kinyitja az ajtót.
+
 	
 	@Override
 	public void notify(IWorldObject obj) {
@@ -58,13 +58,17 @@ public class Scale implements IScale, IVisitable, ICollisionObserver{
 	 * @return void
 	 */
 	@Override
-	public void push() {
+	public void push(double mass) {
 		
 		Depth.getInstance().printTabs();
 		System.out.println(name + ".push()");
 		Depth.getInstance().enterFunction();
 		
-		door.open();
+		this.accumulatedMass++;
+		
+		if(this.massThreshold <= this.accumulatedMass){
+			door.open();
+		}
 				
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

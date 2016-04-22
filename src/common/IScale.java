@@ -10,5 +10,5 @@ public interface IScale {
 	 * 
 	 * @return void
 	 */
-	public void push();
+	public void push(double mass);
 }

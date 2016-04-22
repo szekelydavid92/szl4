@@ -2,16 +2,18 @@ package upper_layer.reactive;
 
 import common.ICollisionObserver;
 import common.IDoor;
+import common.IEntity;
 import common.IScale;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import proto.Depth;
+import upper_layer.entity.Killable;
 
 /**
  * @brief O a merleg. Ha valaki lenyomja, akkor kinyitja a hozza tartozo ajtot.
  */
-public class Scale implements IScale, IVisitable, ICollisionObserver{
+public class Scale  implements IScale, IVisitable, ICollisionObserver, IEntity{
 	
 	public String name = "scale";
 
@@ -64,7 +66,7 @@ public class Scale implements IScale, IVisitable, ICollisionObserver{
 		System.out.println(name + ".push()");
 		Depth.getInstance().enterFunction();
 		
-		this.accumulatedMass++;
+		this.accumulatedMass += mass;
 		
 		if(this.massThreshold <= this.accumulatedMass){
 			door.open();
@@ -73,6 +75,12 @@ public class Scale implements IScale, IVisitable, ICollisionObserver{
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".push()");
+	}
+
+	@Override
+	public void step() {
+		this.accumulatedMass = 0.0;
+		
 	}
 
 }

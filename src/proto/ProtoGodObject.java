@@ -350,6 +350,7 @@ class ProtoGodObject {
 			commands.put("listBoxes", new ProtoGodObject.ProtoListBoxes());
 			commands.put("listScales", new ProtoGodObject.ProtoListScales());
 			commands.put("listDoors", new ProtoGodObject.ProtoListDoors());
+			//setCursor, shoot, listPlayers, 
 		}
 	}
 	

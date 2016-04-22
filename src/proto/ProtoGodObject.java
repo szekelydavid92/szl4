@@ -163,7 +163,7 @@ class ProtoGodObject {
 		}
 	}
 	
-	//listazasra kell: !scales, !stargates, !doors, players(map), zpm/projectile/chams(majd a world bejarasaval kell)
+	//chams(majd a world bejarasaval kell)
 	private void listStargates(String colour) {
 		//TODO (map mar letre van hozva
 //		Szín: [portal színe]
@@ -249,14 +249,6 @@ class ProtoGodObject {
 			System.out.println("Halott-e: " + isDead);
 		}
 	}
-//		Játékos neve: [játékos neve]
-//		Pozíció: [x koordináta, y koordináta]
-//		Irányvektor: [x koordináta,y koordináta]
-//		Játékos szélessége: [szélesség] , Magassága: [magasság]
-//		ZPMek: [felvett ZPMek száma]
-//		Cipelt doboz: [van-e/nincs-e]
-//		Halott: [igen/nem]
-//		Megjegyzés: Ha van érvényes név paraméter, akkor csak a megadott játékos tulajdonságait listázza.
 	
 	public static class ProtoLoadMap implements IProtoCommand {
 		

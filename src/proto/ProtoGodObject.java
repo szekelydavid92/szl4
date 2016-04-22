@@ -53,7 +53,8 @@ class ProtoGodObject {
 		return true;
 	}
 	
-	private void listWalls(){
+	private void listWalls() {
+		
 		for(WorldObject o : walls) {
 			System.out.println("Pozíció: [" + o.getPosX() + "," + o.getPosY() + "]");
 			System.out.println("Fal szélessége: [" + o.getWidth() + "],Magassága: [" + o.getHeight() + "]");
@@ -66,7 +67,7 @@ class ProtoGodObject {
 			System.out.println("Pozíció: [" + o.getPosX() + "," + o.getPosY() + "]");
 			System.out.println("Fal szélessége: [" + o.getWidth() + "],Magassága: [" + o.getHeight() + "]");
 			System.out.println("Fal típusa: speciális");
-			System.out.println("Falhoz tartozó csillagkapu:");
+			System.out.println("Falhoz tartozó csillagkapu:"); //TODO ezt meg kell csinalni
 			System.out.println("");
 		}
 	}
@@ -79,6 +80,8 @@ class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			String mapName = in.next();
+			
+			System.out.println("loadMap");
 			ProtoGodObject.getInstance().loadMap(mapName);
 			return true;
 		}
@@ -97,11 +100,32 @@ class ProtoGodObject {
 		public boolean Execute(Scanner in) {
 			int iterations = in.nextInt();
 			
+			System.out.println("run");
 			ProtoGodObject.getInstance().run(iterations);
 			return true;
 		}
 		
 		ProtoRun() {
+			/*
+			 * Ures fuggvenytorzs
+			 */
+		}
+		
+	}
+	
+
+	
+	public static class ProtoListWalls implements IProtoCommand {
+
+		@Override
+		public boolean Execute(Scanner in) {
+			
+			System.out.println("listWalls");
+			ProtoGodObject.getInstance().listWalls();
+			return true;
+		}
+		
+		ProtoListWalls() {
 			/*
 			 * Ures fuggvenytorzs
 			 */
@@ -116,6 +140,7 @@ class ProtoGodObject {
 			
 			commands.put("loadMap", new ProtoGodObject.ProtoLoadMap());
 			commands.put("run", new ProtoGodObject.ProtoRun());
+			commands.put("listWalls", new ProtoGodObject.ProtoListWalls());
 		}
 	}
 	

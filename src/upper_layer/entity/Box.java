@@ -18,6 +18,7 @@ import proto.Depth;
  */
 public class Box extends Killable implements ICarriable {
 	
+	
 	ICarrier carrier; //referencia a hordozora
 	public String name = "Box";
 	
@@ -160,7 +161,7 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().printTabs();
 		System.out.println(name + ".step()");
 		Depth.getInstance().enterFunction();
-						
+		//Nem fut le mert a Player lepteti
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".step()");
@@ -237,7 +238,7 @@ public class Box extends Killable implements ICarriable {
 		System.out.println(name + ".visit()");
 		Depth.getInstance().enterFunction();
 		
-		scale.push();
+		scale.push(this.mass);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

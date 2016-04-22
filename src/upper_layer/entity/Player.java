@@ -21,11 +21,21 @@ import common.Colour;
  */
 public class Player extends Killable implements ITeleportable,ICarrier {
 
-
-	private double posX, posY;
-	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
+	int zpmNumber = 0; 						//Itt tárolódik a felvett ZPM-ek száma.
+	public ICarriable carriedObject = null; 		// Referencia a cipelt objektumra.
+	boolean up = true;						//ha a játékos fölfelé megy, false egyébként.
+	boolean down = true;					//ha a játékos lefelé megy, false egyébként.
+	boolean left = true;  					//ha a játékos balra megy, false egyébként.
+	boolean right = true; 					//ha a játékos jobbra megy, false egyébként.
+	boolean pick = false; 					//ha a játékos fölveszi az előtte lévő dobozt, false egyébként.
+	double dirX = 0.0; 						//a kilövendő lövedék irányának X komponense
+	double dirY = 0.0;  					//a kilövendő lövedék irányának Y komponense
+	boolean shootingYellow = true; 			//ha a játékos sárga lövedéket lő, false egyébként.
+	boolean shootingBlue = true;  			//ha a játékos kék lövedéket lő, false egyébként.
+	protected double displacement = 1;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
 	public IProjectileFactory projFactory;
-	public ICarriable box = null;
+	
+	public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	private boolean TMPShootYellow = false; //teszteles miatt
 	private boolean TMPShootBlue = false; 	//teszteles miatt
 	
@@ -53,7 +63,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".forcedRelelease()\n");		
 		Depth.getInstance().enterFunction();
 		
-		box=null;
+		carriedObject = null;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -114,6 +124,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".moveUp()\n");
 		Depth.getInstance().enterFunction();
 				
+		this.up = up;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".moveUp()\n");
@@ -130,7 +142,9 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".moveDown()\n");
 		Depth.getInstance().enterFunction();
-				
+		
+		this.down = down;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".moveDown()\n");
@@ -148,7 +162,9 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".moveLeft()\n");
 		Depth.getInstance().enterFunction();
-				
+		
+		this.left = left;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".moveLeft()\n");
@@ -167,6 +183,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".moveRight()\n");
 		Depth.getInstance().enterFunction();
 				
+		this.right = right;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".moveRight()\n");
@@ -185,7 +203,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".pickUp(" + pick + ")\n");
 		Depth.getInstance().enterFunction();
 		
-		
+		this.pick = pick;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -205,7 +223,10 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".lookAt()\n");
 		Depth.getInstance().enterFunction();
-				
+		
+		this.dirX = x;
+		this.dirY = y;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".lookAt()\n");
@@ -263,10 +284,10 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".kill()\n");
 		Depth.getInstance().enterFunction();
 		
-		if (box!=null)
-			box.release();
+		if (carriedObject!=null)
+			carriedObject.release();
 		
-		box=null;
+		carriedObject=null;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -306,8 +327,19 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".move()\n");
 		Depth.getInstance().enterFunction();
 		
-		double normalizedDirectionX = 0;
-		double normalizedDirectionY = 0;
+		double normalizedDirectionX = 0.0;
+		double normalizedDirectionY = 0.0;
+		
+		if(up) 		{normalizedDirectionY += -1.0;}
+		if(down)	{normalizedDirectionY +=  1.0;}
+		if(left) 	{normalizedDirectionX += -1.0;}
+		if(right)	{normalizedDirectionX +=  1.0;}
+		
+		double abs = Math.sqrt(normalizedDirectionY*normalizedDirectionY + normalizedDirectionX*normalizedDirectionX);
+		
+		normalizedDirectionX /= abs;
+		normalizedDirectionY /= abs;
+		
 		worldObject.setDisplacementX(normalizedDirectionX);
 		worldObject.setDisplacementY(normalizedDirectionY);
 		
@@ -328,7 +360,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		System.out.print(name + ".carryBox()\n");
 		Depth.getInstance().enterFunction();
 		
-		if(box != null) {
+		if(carriedObject != null) {
 			Depth.getInstance().printTabs();
 			System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
 			
@@ -342,11 +374,11 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 				proto.ProtoMain.line = proto.ProtoMain.in.next();
 				
 				if (proto.ProtoMain.line.equals("i"))
-					box.release();
+					carriedObject.release();
 			}
 			
 			if(proto.ProtoMain.line.equals("n")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
-				box.setPos(12, 12);
+				carriedObject.setPos(12, 12);
 			}
 			
 		}
@@ -423,8 +455,10 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
+		
 		carriable.regCarrier(this);
-		box=carriable;
+		carriedObject=carriable;
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".visit()\n");

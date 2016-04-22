@@ -11,7 +11,7 @@ import proto.Depth;
  */
 public class Door extends ColEntity implements IDoor {
 	
-	private boolean opened = false;
+	private boolean isOpen = false;
 	
 	public String name; //O kell az objektum nevenek a kiprintelesehez!
 	
@@ -22,7 +22,7 @@ public class Door extends ColEntity implements IDoor {
 		System.out.println(name + ".open()");
 		Depth.getInstance().enterFunction();
 		
-		opened = true;
+		isOpen = true;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -36,7 +36,7 @@ public class Door extends ColEntity implements IDoor {
 		System.out.println(name + ".close()");
 		Depth.getInstance().enterFunction();
 		
-		opened = false;
+		isOpen = false;
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -52,7 +52,7 @@ public class Door extends ColEntity implements IDoor {
 		Depth.getInstance().enterFunction();
 		
 		
-		if (opened ==true) {
+		if (isOpen ==true) {
 			worldObject.setCollisionResponse(CollisionResponse.PASS);
 		}
 		else { 

@@ -14,12 +14,15 @@ import common.IWorldObject;
  */
 public abstract class Killable extends ColEntity implements IKillable, IVisitor, IVisitable, ICollisionObserver {
 	
+	protected boolean isAlive = true; 	//Itt tárolódik az, hogy az adott objektum él-e.
+	protected double mass = 1;  		//Az objektum tömege, amivel lenyomja a mérleget.
+	
 	/**
 	 * Ezzel a fuggvennyel lehet az osztaly peldanyat megsemmisiteni.
 	 * @return void
 	 */
 	public void kill() {
-		
+		isAlive = false;
 	}
 	
 	

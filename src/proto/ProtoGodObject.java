@@ -259,9 +259,8 @@ class ProtoGodObject {
 	}
 	
 	public void setCursor(String ply, double x, double y) {
-		//TODO
-		System.out.println("Cursot setting...");
-		System.out.println("");
+		
+		
 		return;
 	}
 
@@ -566,6 +565,7 @@ class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			System.out.println(in);
+			in.next();
 			String ply = in.next();
 			double x = in.nextDouble();
 			double y = in.nextDouble();

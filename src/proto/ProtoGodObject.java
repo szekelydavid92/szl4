@@ -102,7 +102,7 @@ class ProtoGodObject {
 	public Replicator replicator;
 	public PlayerController oneillController=new PlayerController() ;
 	public PlayerController jaffaController=new PlayerController() ;
-	public ReplicatorController replicatorController = new ReplicatorController(null);
+	public ReplicatorController replicatorController ;
 	
 	
 	public static ProtoGodObject getInstance() {
@@ -273,9 +273,13 @@ class ProtoGodObject {
 		return;	
 	}
 	
-	public void shoot(String ply, String col1, String col2) {
-		System.out.println("Shootin ____________ [ BUMM ]"); // :DDDD
-		System.out.println("");
+	public void shoot(String player, boolean proj1, boolean proj2) {
+		if (player.equals("oneill")) {
+			
+		}
+		else if (player.equals("jaffa")) {
+			
+		}
 		return;	
 	}
 	
@@ -372,6 +376,7 @@ class ProtoGodObject {
 		
 		@Override
 		public boolean Execute(Scanner in) {
+			System.out.println("move");
 			in.useDelimiter("\\s*");
 			String cmd = in.next();
 			String player=in.next();
@@ -475,12 +480,41 @@ class ProtoGodObject {
 	public static class ProtoShoot implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("Shoot");
+			System.out.println(in);
 			in.next(); // Az elso sztring maga a parancs lesz 
 			String ply = in.next();
-			String color1 = in.next();
-			String color2 = in.next(); 
-			ProtoGodObject.getInstance().shoot(ply, color1, color2);
+			int color1 = in.nextInt();
+			int color2 = in.nextInt();
+			boolean color1Bool = false, color2Bool=false;
+			boolean wrongInput=false;;
+			
+			if (color1==1) {
+				color1Bool=true;
+			}
+			else if (color1==0) {
+				color1Bool=false;
+			}
+			else {
+				wrongInput=true;
+			}
+			
+			if (color2==1) {
+				color2Bool=true;
+			}
+			else if (color2==0) {
+				color2Bool=false;
+			}
+			else {
+				wrongInput=true;
+			}
+			
+			if (wrongInput) {
+				System.out.println("Hibas bemenet a shoot parancsnal! " +
+					     "Kérlek az 1/0 paramétereket használd!");
+				return true;
+			}
+			
+			ProtoGodObject.getInstance().shoot(ply, color1Bool, color2Bool);
 			return false;
 		}
 		ProtoShoot() {}

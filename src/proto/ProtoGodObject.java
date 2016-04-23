@@ -38,7 +38,7 @@ import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
 
-class ProtoGodObject {
+public class ProtoGodObject {
 	private World world;
 	private GameLoop gameLoop;
 	private static ProtoGodObject instance = null;

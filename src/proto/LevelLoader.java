@@ -89,6 +89,19 @@ class LevelLoader {
 			
 		};
 		
+		class DoorParser extends PosDimParser{
+			
+			DoorParser(LevelParser levelParser) {
+				super(levelParser);
+			}
+
+			@Override
+			protected boolean Construct() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		}
+		
 		class BoxParser extends PosDimParser {
 			
 			boolean massLoaded = false;
@@ -180,7 +193,6 @@ class LevelLoader {
 			}
 			
 		};
-
 		
 		static class SpecWallParser extends PosDimParser {
 

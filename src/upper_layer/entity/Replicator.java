@@ -5,6 +5,7 @@ import common.IReplicator;
 import common.IVisitable;
 import common.IWorldObject;
 import proto.Depth;
+import upper_layer.reactive.Chasm;
 
 public class Replicator extends Player implements IReplicator {
 	
@@ -27,6 +28,7 @@ public class Replicator extends Player implements IReplicator {
 		super.notify(obj);
 		
 		if(CollidedWithChasm) {
+			Chasm.getInstance().remove(obj);
 			obj.markRemovable();
 			CollidedWithChasm = false;
 		}

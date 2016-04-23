@@ -3,6 +3,7 @@ package bottom_layer;
 import java.util.ArrayList;
 import java.util.List;
 
+import common.Direction;
 import common.IWorldObjectFactory;
 
 /**
@@ -39,6 +40,51 @@ public class World {
 				temp2 = objects.get(j);
 			
 				if(temp1.checkCollision(temp2)){
+					
+					Direction direction = Direction.UP;
+					
+					int distUp = 0;
+					int distDown = 1;
+					int distLeft = 2;
+					int distRight = 3;
+					
+					double [] dist = new double[4];
+					dist[distUp]	= Math.abs(temp1.getPosY() - (temp2.getPosY() + temp2.getHeight()));
+					dist[distDown]	= Math.abs(temp2.getPosY() - (temp1.getPosY() + temp1.getHeight()));
+					dist[distRight]	= Math.abs(temp1.getPosX() - (temp2.getPosX() + temp2.getWidth()));
+					dist[distLeft]	= Math.abs(temp2.getPosX() - (temp1.getPosX() + temp1.getWidth()));
+					
+					int min = 0;
+					for(int k=0;k < 4;i++) {
+						if(dist[min] > dist[k]) {
+							min = k;
+						}
+					}
+					
+					if(min == distUp) {direction = Direction.UP;}
+					if(min == distDown) {direction = Direction.DOWN;}
+					if(min == distLeft) {direction = Direction.LEFT;}
+					if(min == distRight) {direction = Direction.RIGHT;}
+					
+					switch(direction) {
+					case UP:
+						temp1.addDisplacement(0.0, 1.0);
+						temp2.addDisplacement(0.0,-1.0);
+						break;
+					case DOWN:
+						temp1.addDisplacement(0.0,-1.0);
+						temp2.addDisplacement(0.0, 1.0);
+						break;
+					case LEFT:
+						temp1.addDisplacement( 1.0, 0.0);
+						temp2.addDisplacement(-1.0, 0.0);
+						break;
+					case RIGHT:
+						temp1.addDisplacement(-1.0, 0.0);
+						temp2.addDisplacement( 1.0, 0.0);
+						break;
+					}
+					
 					temp1.notify(temp2);
 					temp2.notify(temp1);
 				}

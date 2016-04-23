@@ -51,42 +51,7 @@ public class ProtoMain {
 	
 	
 	public static void main(String[] args) {
-		
-		while (true) {
-	        	writeCases();
-				line = in.next();
-				if(line.equals("0")) 		{ONeillTeszt.ONeillMozgatas();}
-				else if(line.equals("1")) 	{ONeillTeszt.zpmFelvetel();}
-				else if(line.equals("2")) 	{WormholeTest.KekLovedekLovese();}
-				else if(line.equals("3")) 	{WormholeTest.SargaLovedekLovese();}
-				else if(line.equals("4")) 	{WormholeTest.CsillagkapuNyitas();}
-				else if(line.equals("5")) 	{WormholeTest.CsillagkapuAtjaras();}
-				else if(line.equals("6")) 	{ONeillTeszt.dobozFelvetel();}
-				else if(line.equals("7")) 	{ONeillTeszt.dobozLerakas();}
-				else if(line.equals("8")) 	{AjtoDobozTeszt.ajtoNyitasZaras();}
-				else if(line.equals("9")) 	{ONeillTeszt.oNeillMeghal();}
-				else if(line.equals("10")) 	{AjtoDobozTeszt.boxMeghal();}
-				else if(line.equals("11")) 	{
-					commandInterpreter = new ProtoGodObject.ProtoCommandInterpreter(in);
-					commandInterpreter.Menu();
-				}
-				else {break;}
-	    }
-	}
-	
-	static void writeCases(){
-		System.out.println("\nO Neill mozgatasa[0]");
-		System.out.println("ZPM felvetele[1]");
-		System.out.println("Kek lovedek lovese[2]");
-		System.out.println("Sarga lovedek lovese[3]");
-		System.out.println("Csillagkapu nyitasa[4]");
-		System.out.println("Csillagkapu atjarasa[5]");
-		System.out.println("Doboz felvetele[6]");
-		System.out.println("Doboz lerakasa[7]");
-		System.out.println("Ajto nyitasa es zarasa[8]");
-		System.out.println("Player Objektum megsemmisulese[9]");
-		System.out.println("Box Objektum megsemmisulese[10]");
-		System.out.println("Command line interpreter kiprobalasa[11]");
-		System.out.println("Barmi mas: kilepes");
+		commandInterpreter = new ProtoGodObject.ProtoCommandInterpreter(in);
+		commandInterpreter.Menu();
 	}
 }

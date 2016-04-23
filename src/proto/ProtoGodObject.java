@@ -129,9 +129,6 @@ public class ProtoGodObject {
 		Chasm.getInstance().getChasms().clear();
 		
 		GameFactory gameFactory = new GameFactory(gameLoop);
-		//gameFactory.createWall(0, 0, 10, 10);
-		//gameFactory.createWall(0, 10, 10, 20);
-		//gameFactory.createSpecWall(10, 10, 10, 20);
 		
 		LevelLoader levelLoader = new LevelLoader();
 		levelLoader.load(map, gameFactory);

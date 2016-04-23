@@ -1,5 +1,6 @@
 package upper_layer.reactive;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import common.ICarriable;
@@ -19,28 +20,37 @@ import proto.Depth;
 /**
  * @brief Ez a szakadek. Ha utkozott egy IKillable-t megvalosito objektummal, akkor megoli.
  */
-public class Chasm implements ICollisionObserver, IVisitor, IVisitable,IChasm {	
+public class Chasm implements ICollisionObserver, IVisitor, IVisitable, IChasm {	
 	
 	public String name = "chasm";
 	
-	List<IWorldObject> chasms; 			//Azon WorldObjectek listája, akik szakadékok.	
+	/*
+	 * Attributumok
+	 */
+	List<IWorldObject> chasms = new LinkedList<IWorldObject>(); 			//Azon WorldObjectek listája, akik szakadékok.	
 	private static Chasm chasm = null;
 	
-	public static Chasm getInstance(){
+	/*
+	 * Metodusok
+	 */
+	public static Chasm getInstance() {
 		if(chasm == null){
 			chasm = new Chasm();
 		}
 		return chasm;
 	}
 	
-	
 	/**
 	 * Ezen keresztül lehet elkérni azon WorldObjectek kollekcióját, akikhez be 
 	 * van regisztrálva a Chasm. Elsősorban a pálya kiírásánál kell.
 	 * @return List<IWorldObject>
 	 */
-	public List<IWorldObject> getChasms(){
+	public List<IWorldObject> getChasms() {
 		return chasms;
+	}
+	
+	public void remove(IWorldObject obj) {
+		chasms.remove(obj);
 	}
 	
 	/**
@@ -169,17 +179,14 @@ public class Chasm implements ICollisionObserver, IVisitor, IVisitable,IChasm {
 
 	@Override
 	public void accept(IVisitor visitor) {
-		
 		visitor.visit(this);
-		//TODO 
-		
-		
 	}
 
 
 	@Override
 	public void visit(IChasm chasm) {
-		// TODO Auto-generated method stub
-		
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 }

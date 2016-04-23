@@ -1,0 +1,9 @@
+loadMap testMaps/testMap10-replikator_a_szakadekban
+listPlayers
+listChasms
+setPlayerSpeed replikator 20
+randomReplikator off
+move replikator 0 0 1 0
+run 2
+listPlayers
+listChasms

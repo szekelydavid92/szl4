@@ -1,0 +1,8 @@
+loadMap testMaps/testMap8-szakadek_mukodese
+listPlayers
+setPlayerSpeed oneill 1
+listChasms
+move oneill 0 1 0 0
+run 10
+listPlayers
+listBoxes

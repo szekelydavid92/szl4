@@ -1,0 +1,8 @@
+loadMap testMaps/testMap11-jatekos_megoli_a_replikatort
+listPlayers
+setPlayerSpeed oneill 1
+setProjectileSpeed 1
+setCursor oneill 20 0
+shoot oneill 0 1
+run 25
+listPlayers

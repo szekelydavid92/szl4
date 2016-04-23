@@ -1,0 +1,12 @@
+loadMap testMaps/testMap6-ZPM_felvetel
+listWalls
+listPlayers
+setPlayerSpeed oneill 1
+listZpms
+move oneill 0 1 0 0
+run 10
+move oneill 0 0 0 1
+run 10
+listZpms
+listPlayers
+

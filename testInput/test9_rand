@@ -1,0 +1,13 @@
+loadMap testMaps/testMap9-replikator_mozgasa
+listWalls
+listPlayers
+
+setPlayerSpeed replikator 30
+randomReplikator on
+
+run 1
+listPlayers
+run 1
+listPlayers
+run 1
+listPlayer

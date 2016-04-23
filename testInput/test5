@@ -1,0 +1,20 @@
+loadMap testMaps/testMap5-portal_nyitasa
+listPlayers
+listWalls
+setPlayerSpeed oneill 1
+setPlayerSpeed jaffa 1
+setProjectileSpeed 1
+setCursor oneill 20 0
+shoot oneill 0 1
+run 30
+setCursor oneill 20 10
+shoot oneill 1 0
+run 45
+listWalls
+setCursor jaffa 20 20
+shoot jaffa 0 1
+run 30
+setCursor jaffa 20 30
+shoot jaffa 1 0
+run 45
+listWalls

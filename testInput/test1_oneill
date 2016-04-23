@@ -1,0 +1,15 @@
+ 
+loadMap testMaps/testMap1-mozdithatatlan_objektumnak_utkozes
+
+listPlayers
+listWalls
+
+move oneill 1 0 0 0
+
+run 6
+
+move oneill 0 0 0 0
+
+run 2
+
+listPlayers

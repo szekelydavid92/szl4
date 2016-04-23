@@ -1,0 +1,21 @@
+loadMap testMaps/testMap3-doboz_felvetele_es_lerakasa
+listPlayers
+listBoxes
+setPlayerSpeed oneill 20
+move oneill 0 0 0 1
+run 1
+pickUp oneill 1
+run 1
+pickUp oneill 0
+move oneill 1 0 0 0
+run 1
+listPlayers
+listBoxes
+pickUp oneill 1
+run 1
+pickUp oneill 0
+move oneill 1 0 0 0
+run 1
+listPlayers
+listBoxes
+ 

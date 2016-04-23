@@ -1,0 +1,18 @@
+loadMap testMaps/testMap2-lovedek_lovese
+listPlayers
+
+setProjectileSpeed 10
+setCursor oneill 60 0
+
+shoot oneill 0 1
+
+run 1
+listProjectiles
+run 1
+listProjectiles
+run 1
+listProjectiles
+run 5
+
+listProjectiles
+ 

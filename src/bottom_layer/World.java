@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.IWorldObjectFactory;
-import proto.Depth;
 
 /**
  * @brief Ez az az osztaly reprezentalja a virtualis vilagot. Tartalmaz egy WorldObject tombot.
@@ -32,15 +31,6 @@ public class World {
 	 */
 	public void checkCollision() {
 		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".checkCollision()\n");
-		Depth.getInstance().enterFunction();
-		
-		Depth.getInstance().printTabs();
-		System.out.println("Belepes a collision detekcios ciklusba. ");
-		Depth.getInstance().enterFunction();
-
-		
 		WorldObject temp1,temp2;
 		
 		for(int i=0; i<objects.size(); i++){
@@ -54,16 +44,6 @@ public class World {
 				}
 			}
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("Kilepes a collision detekcios ciklusbol");
-		
-
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".checkCollision()\n");
-		
 	};
 	
 	/**
@@ -72,19 +52,9 @@ public class World {
 	 * @return void
 	 */
 	public void step() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".step()\n");
-		Depth.getInstance().enterFunction();
-		
 		for(int i=0; i<objects.size(); i++) {
 			objects.get(i).step();
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".step()\n");
-		
 	}	
 	
 	/*
@@ -93,41 +63,14 @@ public class World {
 	 *  
 	 */
 	public void addWorldObject(WorldObject obj) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".addWorldObject()\n");
-		Depth.getInstance().enterFunction();
-		
 		objects.add(obj);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".addWorldObject()\n");
 	}
 	
 	public WorldObject getWorldObject(int n) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".getWorldObject()\n");
-		Depth.getInstance().enterFunction();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".getWorldObject()\n");
-		
 		return objects.get(n);
 	}
 	
 	public List<WorldObject> getAllWorldObject() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".getAllWorldObject()\n");
-		Depth.getInstance().enterFunction();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".getAllWorldObject()\n");
-		
 		return objects;
 	}
 	 

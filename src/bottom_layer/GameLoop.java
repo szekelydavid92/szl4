@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import common.IEntity;
-import proto.Depth;
 
 /* 
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -18,8 +17,6 @@ import proto.Depth;
  * idoben eloreleptesse az allapotat.
  */
 public class GameLoop {
-	
-	public String name = "gameLoop"; //O kell az objektum nevenek a kiprintelesehez!
 	
 	/*
 	 * Ok az asszociaciakat ill. kompoziciokat
@@ -48,9 +45,6 @@ public class GameLoop {
 	 * @return void
 	 */
 	public void run() {
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".run()\n");
-		Depth.getInstance().enterFunction();
 		
 		world.checkCollision();
 		world.step();
@@ -61,8 +55,5 @@ public class GameLoop {
 			e.step();
 		}
 		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".run()\n");
 	}
 }

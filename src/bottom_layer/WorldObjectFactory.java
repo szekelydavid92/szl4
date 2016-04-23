@@ -2,7 +2,6 @@ package bottom_layer;
 
 import common.IWorldObject;
 import common.IWorldObjectFactory;
-import proto.Depth;
 
 /**
  * @brief O hozza letre a WorldObject-et.
@@ -29,19 +28,11 @@ public class WorldObjectFactory implements IWorldObjectFactory {
 	 */
 	@Override
 	public IWorldObject createObject(double width, double height) {
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".createObject()\n");
-		Depth.getInstance().enterFunction();
-		
 		WorldObject worldObject = new WorldObject();
 		worldObject.setWidth(width);
 		worldObject.setHeight(height);
 		
 		world.addWorldObject(worldObject);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".createObject()\n");
 		
 		return worldObject;
 	}

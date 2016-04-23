@@ -35,15 +35,15 @@ public class Player extends Killable implements ITeleportable,ICarrier, IControl
 	 */
 	int zpmNumber = 0; 						//Itt tárolódik a felvett ZPM-ek száma.
 	public ICarriable carriedObject = null; 		// Referencia a cipelt objektumra.
-	boolean up = true;						//ha a játékos fölfelé megy, false egyébként.
-	boolean down = true;					//ha a játékos lefelé megy, false egyébként.
-	boolean left = true;  					//ha a játékos balra megy, false egyébként.
-	boolean right = true; 					//ha a játékos jobbra megy, false egyébként.
+	boolean up = false;						//ha a játékos fölfelé megy, false egyébként.
+	boolean down = false;					//ha a játékos lefelé megy, false egyébként.
+	boolean left = false;  					//ha a játékos balra megy, false egyébként.
+	boolean right = false; 					//ha a játékos jobbra megy, false egyébként.
 	boolean pick = false; 					//ha a játékos fölveszi az előtte lévő dobozt, false egyébként.
 	double dirX = 0.0; 						//a kilövendő lövedék irányának X komponense
 	double dirY = 0.0;  					//a kilövendő lövedék irányának Y komponense
-	boolean shootingYellow = true; 			//ha a játékos sárga lövedéket lő, false egyébként.
-	boolean shootingBlue = true;  			//ha a játékos kék lövedéket lő, false egyébként.
+	boolean shootingYellow = false; 			//ha a játékos sárga lövedéket lő, false egyébként.
+	boolean shootingBlue = false;  			//ha a játékos kék lövedéket lő, false egyébként.
 	protected double displacement = 1;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
 	public IProjectileFactory projFactory;
 	

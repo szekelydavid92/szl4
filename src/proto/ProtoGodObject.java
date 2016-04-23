@@ -99,10 +99,10 @@ class ProtoGodObject {
 	public List<Scale> scales = new LinkedList<Scale>();
 	public List<Door> doors = new LinkedList<Door>();
 	public Map<String, Player> players = new TreeMap<String, Player>();
-	public Replicator replicator;
+	public Replicator replicator=null;
 	public PlayerController oneillController=new PlayerController() ;
 	public PlayerController jaffaController=new PlayerController() ;
-	public ReplicatorController replicatorController ;
+	public ReplicatorController replicatorController=null ;
 	
 	
 	public static ProtoGodObject getInstance() {
@@ -151,10 +151,10 @@ class ProtoGodObject {
 			System.out.println(" Rossz player név! Kérjük jaffa, oneill és replikator" +
 							   "közül válassz! ");
 		}
+		System.out.println("");
 	}
 	
 	private void listProjectiles() {
-		System.out.println("listProjectiles");
 		VisitableWriter visitableWriter=new VisitableWriter();
 		visitableWriter.visiting=VisitableType.projectile;
 		for (WorldObject o : world.objects) {
@@ -173,7 +173,6 @@ class ProtoGodObject {
 	}
 	
 	private void listZpms() {
-		System.out.println("listZpms");
 		VisitableWriter visitableWriter= new VisitableWriter();
 		visitableWriter.visiting=VisitableType.zpm;
 		for (WorldObject o : world.objects) {
@@ -248,6 +247,7 @@ class ProtoGodObject {
 			System.out.println("Merlegen levo aktualis siulyok osszege: " + s.getAccumulatedMass());
 			System.out.println("Merlegen levo dobozok szama: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
+		System.out.println("");
 	}
 	
 	public void listCollosions(String state) {
@@ -329,6 +329,7 @@ class ProtoGodObject {
 				isDead = "nem";
 			}
 			System.out.println("Halott-e: " + isDead);
+			System.out.println("");
 		}
 	}
 //		Jatekos neve: [jatekos neve]
@@ -353,7 +354,7 @@ class ProtoGodObject {
 			/*
 			 * TODO Ki kell uriteni a ProtoGodObject listait.
 			 */
-			System.out.println("loadMap");
+			System.out.println(in);
 			ProtoGodObject.getInstance().loadMap(mapName);
 			return true;
 		}	
@@ -364,7 +365,7 @@ class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			int iterations = in.nextInt();
-			System.out.println("run");
+			System.out.println(in);
 			ProtoGodObject.getInstance().run(iterations);
 			return true;
 		}
@@ -376,7 +377,7 @@ class ProtoGodObject {
 		
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("move");
+			System.out.println(in);
 			in.useDelimiter("\\s*");
 			String cmd = in.next();
 			String player=in.next();
@@ -408,7 +409,7 @@ class ProtoGodObject {
 	public static class ProtoListWalls implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listWalls");
+			System.out.println(in);
 			ProtoGodObject.getInstance().listWalls();
 			return true;
 		}
@@ -418,10 +419,10 @@ class ProtoGodObject {
 	public static class ProtoListStargates implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listStargates");
+			System.out.println(in);
 			String col = in.next();
 			ProtoGodObject.getInstance().listStargates(col);
-			return false;
+			return true;
 		}
 		ProtoListStargates() {}
 	}
@@ -431,38 +432,38 @@ class ProtoGodObject {
 		void ProtoLidtZPM() {}
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listZPM");
+			System.out.println(in);
 			ProtoGodObject.getInstance().listZpms();
-			return false;
+			return true;
 		}
 	}
 	
 	public static class ProtoListWormHoles implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listWormHoles");
+			System.out.println(in);
 			String nev = in.next();
 			ProtoGodObject.getInstance().listWormhole(nev);
-			return false;
+			return true;
 		}
 	}
 	
 	public static class ProtoListCollosions implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listCollosions");
+			System.out.println(in);
 			String state = in.next();
 			ProtoGodObject.getInstance().listCollosions(state);
-			return false;
+			return true;
 		}
 	}
 	
 	public static class ProtoListChasms implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listChasms");
+			System.out.println(in);
 			ProtoGodObject.getInstance().listChasms();
-			return false;
+			return true;
 		}
 		
 	}
@@ -470,9 +471,9 @@ class ProtoGodObject {
 	public static class ProtoListProjectiles implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listProjectiles");
+			System.out.println(in);
 			ProtoGodObject.getInstance().listProjectiles();
-			return false;
+			return true;
 		}
 		ProtoListProjectiles() {}
 	}
@@ -511,7 +512,7 @@ class ProtoGodObject {
 			if (wrongInput) {
 				System.out.println("Hibas bemenet a shoot parancsnal! " +
 					     "Kérlek az 1/0 paramétereket használd!");
-				return true;
+				return false;
 			}
 			
 			ProtoGodObject.getInstance().shoot(ply, color1Bool, color2Bool);
@@ -523,9 +524,9 @@ class ProtoGodObject {
 	public static class ProtoListBoxes implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listBoxes");
+			System.out.println(in);
 			ProtoGodObject.getInstance().listBoxes();
-			return false;
+			return true;
 		}
 		ProtoListBoxes() {}
 	}
@@ -533,9 +534,9 @@ class ProtoGodObject {
 	public static class ProtoListScales implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listScales");
+			System.out.println(in);
 			ProtoGodObject.getInstance().listScales();
-			return false;
+			return true;
 		}
 		ProtoListScales() {}
 	}
@@ -543,9 +544,10 @@ class ProtoGodObject {
 	public static class ProtoListPlayers implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
+			System.out.println(in);
 			String nev = in.next();
 			ProtoGodObject.getInstance().listPlayers(nev);
-			return false;
+			return true;
 		}
 		ProtoListPlayers() {}
 	}
@@ -553,9 +555,9 @@ class ProtoGodObject {
 	public static class ProtoListDoors implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listDoors");
+			System.out.println(in);
 			ProtoGodObject.getInstance().listDoors();
-			return false;
+			return true;
 		}
 		ProtoListDoors() {}
 	}
@@ -563,12 +565,12 @@ class ProtoGodObject {
 	public static class ProtoSetCursor implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("SetCursor");
+			System.out.println(in);
 			String ply = in.next();
 			double x = in.nextDouble();
 			double y = in.nextDouble();
 			ProtoGodObject.getInstance().setCursor(ply, x, y);
-			return false;
+			return true;
 		}
 		ProtoSetCursor() {}
 	}

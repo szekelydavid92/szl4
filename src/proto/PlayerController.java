@@ -21,5 +21,20 @@ public class PlayerController {
 		player.pickUp(up);
 	}
 	
+	public void lootAt(double x, double y) {
+		player.lookAt(x, y);
+	}
+	
+	public void shootYellow(boolean shootingYellow) {
+		player.shootYellow(shootingYellow);
+	}
+	
+	public void shootBlue(boolean shootingBlue) {
+		player.shootBlue(shootingBlue);
+	}
+	
+	
+	
+	
 
 }

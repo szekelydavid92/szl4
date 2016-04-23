@@ -8,7 +8,7 @@ end
 
 Player
 begin
-type replicator
+type replikator
 pos 20 0
 dim 10 10
 mass 1

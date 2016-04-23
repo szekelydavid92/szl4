@@ -234,14 +234,26 @@ class ProtoGodObject {
 		System.out.println("");
 		return;
 	}
+	
+	public void setCursor(String ply, double x, double y) {
+		//TODO
+		System.out.println("Cursot setting...");
+		System.out.println("");
+		return;
+	}
 
 	public void listWormhole(String nev) {
 		// TODO Auto-generated method stub
 		//TODO
 		System.out.println("Wormholes listing...");
 		System.out.println("");
-		return;
-		
+		return;	
+	}
+	
+	public void shoot(String ply, String col1, String col2) {
+		System.out.println("Shootin ____________ [ BUMM ]");
+		System.out.println("");
+		return;	
 	}
 	
 	private void listDoors() {
@@ -439,6 +451,19 @@ class ProtoGodObject {
 		ProtoListProjectiles() {}
 	}
 	
+	public static class ProtoShoot implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("Shoot");
+			String ply = in.next();
+			String color1 = in.next();
+			String color2 = in.next(); 
+			ProtoGodObject.getInstance().shoot(ply, color1, color2);
+			return false;
+		}
+		ProtoShoot() {}
+	}
+	
 	public static class ProtoListBoxes implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
@@ -459,6 +484,16 @@ class ProtoGodObject {
 		ProtoListScales() {}
 	}
 	
+	public static class ProtoListPlayers implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			String nev = in.next();
+			ProtoGodObject.getInstance().listPlayers(nev);
+			return false;
+		}
+		ProtoListPlayers() {}
+	}
+	
 	public static class ProtoListDoors implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
@@ -467,6 +502,19 @@ class ProtoGodObject {
 			return false;
 		}
 		ProtoListDoors() {}
+	}
+	
+	public static class ProtoSetCursor implements IProtoCommand {
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("SetCursor");
+			String ply = in.next();
+			double x = in.nextDouble();
+			double y = in.nextDouble();
+			ProtoGodObject.getInstance().setCursor(ply, x, y);
+			return false;
+		}
+		ProtoSetCursor() {}
 	}
 	
 	public static class ProtoCommandInterpreter extends CommandInterpreter {
@@ -485,7 +533,11 @@ class ProtoGodObject {
 			commands.put("listScales", new ProtoGodObject.ProtoListScales());
 			commands.put("listDoors", new ProtoGodObject.ProtoListDoors());
 			commands.put("move", new ProtoGodObject.ProtoPlayerMove());
-			//setCursor, shoot, listPlayers, 
+			commands.put("listPlayers", new ProtoGodObject.ProtoListPlayers());
+			commands.put("shoot", new ProtoGodObject.ProtoShoot()); //TODO
+			commands.put("setCursor", new ProtoGodObject.ProtoSetCursor()); //TODO
+			
+			//setCursor, shoot,
 
 
 		}

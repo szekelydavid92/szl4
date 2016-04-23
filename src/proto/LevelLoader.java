@@ -7,7 +7,8 @@ import java.util.Scanner;
 import bottom_layer.GameLoop;
 
 /*
- * 
+ * TODO Meg kell csinálni a door és a scale betöltőjét!
+ * TODO Meg kell csinálni a ZPM_RandPos betöltőjét!
  */
 
 class LevelLoader {

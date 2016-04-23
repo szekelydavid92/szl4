@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.regex.Pattern;
 
 import bottom_layer.GameLoop;
 import bottom_layer.World;
@@ -197,7 +198,7 @@ class ProtoGodObject {
 			IWorldObject o = s.getWorldObject();
 			System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
 			System.out.println("Fal szelessege: " + o.getWidth() + ", magassaga: " + o.getHeight());
-			System.out.println("Fal tipusa: altalanos");
+			System.out.println("Fal tipusa: specialis");
 			System.out.println("Falhoz tartozo csillagkapu:");
 			System.out.println("");
 		}
@@ -316,6 +317,9 @@ class ProtoGodObject {
 			}
 		} else {
 			Player p = players.get(player);
+			if(p == null) {
+				return;
+			}
 			IWorldObject o = p.getWorldObject();
 			System.out.println("Jatekos neve/ti­pusa: " + player);
 			System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
@@ -323,9 +327,9 @@ class ProtoGodObject {
 			System.out.println("Jatekos szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
 			System.out.println("Felvett ZPM-ek szama: " + p.getZpmNumber());
 			System.out.println("Cipelt dobozok van-e: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			String isDead = "igen";
+			String isDead = "nem";
 			if (p.isKilled()) {
-				isDead = "nem";
+				isDead = "igen";
 			}
 			System.out.println("Halott-e: " + isDead);
 			System.out.println("");
@@ -540,7 +544,8 @@ class ProtoGodObject {
 	public static class ProtoListPlayers implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			String nev = in.next();
+			System.out.println("listPlayers");
+			String nev = in.findInLine(Pattern.compile("(\\w)+"));
 			ProtoGodObject.getInstance().listPlayers(nev);
 			return true;
 		}

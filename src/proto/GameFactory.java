@@ -124,6 +124,7 @@ class GameFactory {
 			 */
 			ProtoGodObject.getInstance().replicator=replikator;
 			ProtoGodObject.getInstance().replicatorController=replicatorController;
+			ProtoGodObject.getInstance().players.put(name,replikator);
 		}
 		/*
 		 * Ez a resz kikerul a vegso programbol.

@@ -13,6 +13,7 @@ import common.IVisitable;
 import common.IWorldObject;
 import common.IZPM;
 import proto.Depth;
+import upper_layer.ZPMObserver;
 
 import java.io.IOException;
 
@@ -46,6 +47,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	boolean shootingBlue = false;  			//ha a játékos kék lövedéket lő, false egyébként.
 	protected double displacement = 1;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
 	public IProjectileFactory projFactory;
+	ZPMObserver zpmObserver = null;
 	
 	/*
 	 * Metodusok
@@ -479,8 +481,10 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
-		if (zpm != null) {
+		if (!zpm.isPicked()) {
 			zpm.pickUp();
+			zpmNumber++;
+			zpmObserver.notifyPickUp();
 		}
 		
 		/*

@@ -23,6 +23,7 @@ import common.ITeleportable;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
+import upper_layer.GameFactory;
 import upper_layer.entity.Box;
 import upper_layer.entity.Door;
 import upper_layer.entity.Player;
@@ -38,7 +39,7 @@ import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
 
-class ProtoGodObject {
+public class ProtoGodObject {
 	private World world;
 	private GameLoop gameLoop;
 	private static ProtoGodObject instance = null;

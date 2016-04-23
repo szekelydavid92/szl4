@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import bottom_layer.GameLoop;
+import upper_layer.GameFactory;
 
 /*
  * TODO Meg kell csinálni a door és a scale betöltőjét!

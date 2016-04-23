@@ -1,4 +1,4 @@
-package proto;
+package upper_layer;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -7,6 +7,7 @@ import bottom_layer.*;
 import common.IProjectileFactory;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
+import proto.ProtoGodObject;
 import upper_layer.wormhole.ProjectileFactory;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.WormHole;
@@ -15,13 +16,14 @@ import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
 import upper_layer.reactive.ZPM;
 
-class GameFactory {
+public class GameFactory {
 	
 	/*
 	 * Attributumok
 	 */
 	private World world;
 	private IWorldObjectFactory worldObjectFactory;
+	private ZPMObserver zpmObserver;
 	//Itt elterunk a specifikaciotol, de ez kell ide.
 	private GameLoop gameLoop;
 	
@@ -35,8 +37,9 @@ class GameFactory {
 	 * Metodusok
 	 */
 	
-	GameFactory(GameLoop gameLoop) {
+	public GameFactory(GameLoop gameLoop) {
 		setGameLoop(gameLoop);
+		zpmObserver = new ZPMObserver(this);
 	}
 	
 	/*
@@ -64,7 +67,7 @@ class GameFactory {
 		this.worldObjectFactory = this.world.getWorldObjectFactory();
 	}
 	
-	void createWall(double posX,double posY,double width,double height) {
+	public void createWall(double posX,double posY,double width,double height) {
 		IWorldObject wallObject = worldObjectFactory.createObject(width, height); 
 		wallObject.setPosX(posX);
 		wallObject.setPosY(posY);
@@ -75,7 +78,7 @@ class GameFactory {
 		ProtoGodObject.getInstance().walls.add((WorldObject)wallObject);
 	}
 	
-	void createSpecWall(double posX,double posY,double width,double height) {
+	public void createSpecWall(double posX,double posY,double width,double height) {
 		IWorldObject wallObject = worldObjectFactory.createObject(width, height); 
 		wallObject.setPosX(posX);
 		wallObject.setPosY(posY);
@@ -197,5 +200,13 @@ class GameFactory {
 		zpmObj.setPosY(y);
 		
 		ZPM zpm = new ZPM(zpmObj);
+	}
+	
+	/*
+	 * Itt elterunk a specifikaciotol, ez a fuggveny kifelejtodott
+	 */
+	
+	public void createZpmRandPos(double x, double y,double width, double height) {
+		zpmObserver.add(x, y, width, height);
 	}
 }

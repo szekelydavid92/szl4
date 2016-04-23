@@ -257,25 +257,44 @@ public class WorldObject implements IWorldObject {
 		System.out.print(name + ".checkCollision(" + o.name + ")\n");
 		Depth.getInstance().enterFunction();
 		
-		Depth.getInstance().printTabs();
-		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
-		
-		
-		proto.ProtoMain.line = proto.ProtoMain.in.next();
-		
-		/*
-		 * TODO mostmár le kell implementálni az ütközésdetekciót.
-		 */
-		
-		if(proto.ProtoMain.line.equals("i")) {collides = true;}
-		else if(proto.ProtoMain.line.equals("n")) {collides = false;}
-		else {System.out.println("ERROR: Ervenytelen bemenet");}
-		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".checkCollision()\n");
 		
-		return collides;
+		/*Depth.getInstance().printTabs();
+		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
+		
+		
+		proto.ProtoMain.line = proto.ProtoMain.in.next();*/
+		
+		/*
+		 * TODO mostmár le kell implementálni az ütközésdetekciót.
+		 */
+		double oX = o.getPosX();
+		double oY = o.getPosY();
+		double oWidth = o.getWidth();
+		double oHeight = o.getHeight();
+
+		if((posX+width) < oX){
+			return false;
+		}
+		else if(posX > (oX + oWidth)){
+			return false;
+		}
+		else if((posY + height) < oY){
+			return false;
+		}
+		else if(posY > (oY + oHeight)){
+			return false;
+		}
+		else {
+			return true;
+		}
+		
+		
+		/*if(proto.ProtoMain.line.equals("i")) {collides = true;}
+		else if(proto.ProtoMain.line.equals("n")) {collides = false;}
+		else {System.out.println("ERROR: Ervenytelen bemenet");}*/
 	}
 	
 	

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.regex.Pattern;
 
 import bottom_layer.GameLoop;
 import bottom_layer.World;
@@ -544,7 +545,8 @@ class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			System.out.println(in);
-			String nev = in.next();
+			Pattern pattern = Pattern.compile("(\\w)?");
+			String nev = in.findInLine(pattern);
 			ProtoGodObject.getInstance().listPlayers(nev);
 			return true;
 		}

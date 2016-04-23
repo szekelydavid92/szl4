@@ -128,7 +128,7 @@ class LevelLoader {
 			protected void parseAttrib(String name, Scanner in) {
 				super.parseAttrib(name, in);
 				if(name.equals("type")) {
-					name = in.next();
+					this.name = in.next();
 					nameLoaded = true;
 				}
 			}

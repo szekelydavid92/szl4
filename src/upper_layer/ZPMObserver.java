@@ -51,6 +51,7 @@ public class ZPMObserver {
 	/*
 	 * Itt eltérünk a specifikációtól, a notify nevet nem engedte, mert
 	 * az a java egy beépített függvénye.
+	 * 
 	 */
 	
 	public void notifyPickUp() {

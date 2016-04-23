@@ -21,7 +21,7 @@ public class PlayerController {
 		player.pickUp(up);
 	}
 	
-	public void lootAt(double x, double y) {
+	public void lookAt(double x, double y) {
 		player.lookAt(x, y);
 	}
 	

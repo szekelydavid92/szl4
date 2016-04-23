@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.regex.Pattern;
 
 import bottom_layer.GameLoop;
 import bottom_layer.World;
@@ -128,9 +129,6 @@ public class ProtoGodObject {
 		Chasm.getInstance().getChasms().clear();
 		
 		GameFactory gameFactory = new GameFactory(gameLoop);
-		//gameFactory.createWall(0, 0, 10, 10);
-		//gameFactory.createWall(0, 10, 10, 20);
-		//gameFactory.createSpecWall(10, 10, 10, 20);
 		
 		LevelLoader levelLoader = new LevelLoader();
 		levelLoader.load(map, gameFactory);
@@ -198,7 +196,7 @@ public class ProtoGodObject {
 			IWorldObject o = s.getWorldObject();
 			System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
 			System.out.println("Fal szelessege: " + o.getWidth() + ", magassaga: " + o.getHeight());
-			System.out.println("Fal tipusa: altalanos");
+			System.out.println("Fal tipusa: specialis");
 			System.out.println("Falhoz tartozo csillagkapu:");
 			System.out.println("");
 		}
@@ -260,37 +258,25 @@ public class ProtoGodObject {
 	}
 	
 	public void setCursor(String ply, double x, double y) {
-		if (ply.equals("oneill")) {
-			oneillController.lookAt(x, y);
-		}
-		else if (ply.equals("jaffa")) {
-			jaffaController.lookAt(x,y);
-		}
-		else {
-			System.out.println("Hibás input! Kérjük a player neve legyen oneill " +
-							   "vagy jaffa!");
-		}
+		
+		
 		return;
 	}
 
 	public void listWormhole(String nev) {
 		// TODO Auto-generated method stub
 		//TODO
-		
+		System.out.println("Wormholes listing...");
+		System.out.println("");
 		return;	
 	}
 	
 	public void shoot(String player, boolean proj1, boolean proj2) {
 		if (player.equals("oneill")) {
-			oneillController.shootYellow(proj1);
-			oneillController.shootBlue(proj2);
+			
 		}
 		else if (player.equals("jaffa")) {
-			jaffaController.shootYellow(proj1);
-			jaffaController.shootBlue(proj2);
-		}
-		else {
-			System.out.println("Hibás input a shoot parancsnál, a player neve legyen jaffa vagy oneill!");
+			
 		}
 		return;	
 	}
@@ -329,6 +315,9 @@ public class ProtoGodObject {
 			}
 		} else {
 			Player p = players.get(player);
+			if(p == null) {
+				return;
+			}
 			IWorldObject o = p.getWorldObject();
 			System.out.println("Jatekos neve/ti­pusa: " + player);
 			System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
@@ -336,9 +325,9 @@ public class ProtoGodObject {
 			System.out.println("Jatekos szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
 			System.out.println("Felvett ZPM-ek szama: " + p.getZpmNumber());
 			System.out.println("Cipelt dobozok van-e: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			String isDead = "igen";
+			String isDead = "nem";
 			if (p.isKilled()) {
-				isDead = "nem";
+				isDead = "igen";
 			}
 			System.out.println("Halott-e: " + isDead);
 			System.out.println("");
@@ -381,7 +370,10 @@ public class ProtoGodObject {
 			ProtoGodObject.getInstance().run(iterations);
 			return true;
 		}
-		ProtoRun() {}
+		
+		ProtoRun() {
+			
+		}
 	}
 
 	
@@ -389,22 +381,23 @@ public class ProtoGodObject {
 		
 		@Override
 		public boolean Execute(Scanner in) {
-			in.useDelimiter("\\s*");
+			//in.useDelimiter("\\s*"); Ez egy hulye otlet volt.
 			String player=in.next();
 			Boolean[] directions=new Boolean[4];
 			int nextInt;
-			for (int i=0;in.hasNextInt();i++) {
+			for (int i=0;i < directions.length;i++) {
 				nextInt=in.nextInt();
 				if (nextInt == 1)
 					directions[i]=true;
 				else if (nextInt == 0)		
 					directions[i]=false;
 				else {
-					System.out.println("Hibás paraméter a move parancsnál" +
-									   "Az irány paraméterek értéke 1 vagy 0 legyen");
+					System.out.println("move\nHibás bemenet\n");
+					return false;
 				}
-					
+				
 			}
+			
 			boolean up=directions[0],down=directions[1],left=directions[2],
 					right=directions[3];
 			ProtoGodObject.getInstance().movePlayer(player,up,down,left,right);
@@ -413,7 +406,9 @@ public class ProtoGodObject {
 			return true;
 		}
 		
-		ProtoPlayerMove() {}
+		ProtoPlayerMove() {
+			
+		}
 	}
 	
 
@@ -553,7 +548,8 @@ public class ProtoGodObject {
 	public static class ProtoListPlayers implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			String nev = in.next();
+			System.out.println("listPlayers");
+			String nev = in.findInLine(Pattern.compile("(\\w)+"));
 			ProtoGodObject.getInstance().listPlayers(nev);
 			return true;
 		}

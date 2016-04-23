@@ -100,8 +100,8 @@ class ProtoGodObject {
 	public List<Door> doors = new LinkedList<Door>();
 	public Map<String, Player> players = new TreeMap<String, Player>();
 	public Replicator replicator;
-	public PlayerController oneillController ;
-	public PlayerController jaffaController ;
+	public PlayerController oneillController=new PlayerController() ;
+	public PlayerController jaffaController=new PlayerController() ;
 	public ReplicatorController replicatorController ;
 	
 	

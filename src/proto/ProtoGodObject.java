@@ -170,6 +170,15 @@ public class ProtoGodObject {
 		}
 		System.out.println("");
 	}
+	private void pickUp(String player, boolean pick){
+		if (player.equals("oneill")) {
+			oneillController.pickUp(pick);
+		}
+		else if (player.equals("jaffa")) {
+			jaffaController.pickUp(pick);
+		}
+		return;	
+	}
 	
 	private void listZpms() {
 		VisitableWriter visitableWriter= new VisitableWriter();
@@ -273,10 +282,12 @@ public class ProtoGodObject {
 	
 	public void shoot(String player, boolean proj1, boolean proj2) {
 		if (player.equals("oneill")) {
-			
+			if(proj1 && !proj2){this.oneillController.shootBlue(proj1);}
+			else if(!proj1 && proj2){this.oneillController.shootYellow(proj2);}
 		}
 		else if (player.equals("jaffa")) {
-			
+			if(proj1 && !proj2){this.jaffaController.shootBlue(proj1);}
+			else if(!proj1 && proj2){this.jaffaController.shootYellow(proj2);}
 		}
 		return;	
 	}
@@ -343,7 +354,29 @@ public class ProtoGodObject {
 //		Megjegyzes: Ha van ervenyes nev parameter, akkor csak a megadott jatekos tulajdonsagait listazza.
 	
 	
-	
+	public static class ProtoPickUp implements IProtoCommand {
+		
+		@Override
+		public boolean Execute(Scanner in) {
+			System.out.println("pickUp");
+			String ply = in.next();
+			int param2 = in.nextInt();
+			boolean pick;
+				
+			if(param2 == 1){
+				pick = true;
+			}
+			else {
+				pick = false;
+			}
+			ProtoGodObject.getInstance().pickUp(ply, pick);
+			return true;
+		}
+		
+		ProtoPickUp() {
+			
+		}
+	}
 	
 	public static class ProtoLoadMap implements IProtoCommand {
 		/*
@@ -584,6 +617,7 @@ public class ProtoGodObject {
 			super(in);
 			commands.put("loadMap", new ProtoGodObject.ProtoLoadMap());
 			commands.put("run", new ProtoGodObject.ProtoRun());
+			commands.put("pickUp", new ProtoGodObject.ProtoPickUp());
 			commands.put("listWalls", new ProtoGodObject.ProtoListWalls());
 			commands.put("listProjectiles",new ProtoGodObject.ProtoListProjectiles());
 			commands.put("listZPM",new ProtoGodObject.ProtoListZPM());

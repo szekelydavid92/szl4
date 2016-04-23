@@ -113,7 +113,7 @@ public class GameFactory {
 				/*
 				 * Ez a resz kikerul a vegso programbol.
 				 */
-				ProtoGodObject.getInstance().stargates.put(name,wormHole);
+				ProtoGodObject.getInstance().wormholes.put(name,wormHole);
 				ProtoGodObject.getInstance().players.put(name,player);
 			}
 		}

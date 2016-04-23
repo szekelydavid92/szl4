@@ -38,7 +38,7 @@ import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
 
-class ProtoGodObject {
+public class ProtoGodObject {
 	private World world;
 	private GameLoop gameLoop;
 	private static ProtoGodObject instance = null;
@@ -95,7 +95,7 @@ class ProtoGodObject {
 	 */
 	public List<WorldObject> walls = new LinkedList<WorldObject>();
 	public List<SpecWall> specWalls = new LinkedList<SpecWall>();
-	public Map<String, WormHole> stargates = new TreeMap<String, WormHole>();
+	public Map<String, WormHole> wormholes = new TreeMap<String, WormHole>();
 	public List<Box> boxes = new LinkedList<Box>();
 	public List<Scale> scales = new LinkedList<Scale>();
 	public List<Door> doors = new LinkedList<Door>();
@@ -273,9 +273,8 @@ class ProtoGodObject {
 		return;
 	}
 
-	public void listWormhole(String nev) {
-		// TODO Auto-generated method stub
-		//TODO
+	public void listWormholes(String player) {
+		
 		
 		return;	
 	}
@@ -452,11 +451,13 @@ class ProtoGodObject {
 	public static class ProtoListWormHoles implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
+			
+			String player = in.next();
+			
+			ProtoGodObject.getInstance().listWormholes(player);
 			System.out.println("listWormholes");
-			String nev = in.next();
-			ProtoGodObject.getInstance().listWormhole(nev);
 			return true;
-		}
+			}
 	}
 	
 	public static class ProtoListCollosions implements IProtoCommand {

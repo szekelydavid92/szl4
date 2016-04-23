@@ -545,6 +545,7 @@ class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			System.out.println(in);
+			//Ezt mintaillesztéssel kell megoldani.
 			Pattern pattern = Pattern.compile("(\\w)?");
 			String nev = in.findInLine(pattern);
 			ProtoGodObject.getInstance().listPlayers(nev);

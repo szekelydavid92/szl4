@@ -308,9 +308,9 @@ class ProtoGodObject {
 				System.out.println("Jatekos szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
 				System.out.println("Felvett ZPM-ek szama: " + p.getZpmNumber());
 				System.out.println("Cipelt dobozok van-e: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				String isDead = "igen";
+				String isDead = "nem";
 				if (p.isKilled()) {
-					isDead = "nem";
+					isDead = "igen";
 				}
 				System.out.println("Halott-e: " + isDead);
 			}
@@ -353,8 +353,8 @@ class ProtoGodObject {
 			/*
 			 * TODO Ki kell uriteni a ProtoGodObject listait.
 			 */
-			System.out.println(in);
 			ProtoGodObject.getInstance().loadMap(mapName);
+			System.out.println("loadMap");
 			return true;
 		}	
 		ProtoLoadMap() {}

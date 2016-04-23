@@ -1,5 +1,7 @@
 package upper_layer.entity;
 
+import java.util.Random;
+
 import common.IEntity;
 
 public class ReplicatorController implements IEntity {
@@ -11,8 +13,13 @@ public class ReplicatorController implements IEntity {
 		replicator = r;
 	}
 	
+	public int randomize() {
+		
+	}
+	
 	@Override
 	public void step() {
+		
 		if (active) {
 			switch (direction) {
 				case 0:
@@ -45,12 +52,16 @@ public class ReplicatorController implements IEntity {
 					break;
 			}
 		}
-		else {
-			replicator.moveLeft(false);
-			replicator.moveUp(false);
-			replicator.moveDown(false);
-			replicator.moveRight(false);
-		}	
+		
+	}
+	
+	public void move(boolean up, boolean down, boolean left, boolean right) {
+		if (!active) {
+			replicator.moveUp(up);
+			replicator.moveDown(down);
+			replicator.moveLeft(left);
+			replicator.moveRight(right);
+		}
 	}
 	
 	public void setActive(boolean active) {

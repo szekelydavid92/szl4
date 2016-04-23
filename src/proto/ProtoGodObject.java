@@ -100,9 +100,9 @@ class ProtoGodObject {
 	public List<Door> doors = new LinkedList<Door>();
 	public Map<String, Player> players = new TreeMap<String, Player>();
 	public Replicator replicator;
-	public PlayerController oneillController = new PlayerController();
-	public PlayerController jaffaController = new PlayerController();
-	public ReplicatorController replicatorController= new ReplicatorController();
+	public PlayerController oneillController ;
+	public PlayerController jaffaController ;
+	public ReplicatorController replicatorController ;
 	
 	
 	public static ProtoGodObject getInstance() {
@@ -139,13 +139,13 @@ class ProtoGodObject {
 	private void movePlayer(String player, boolean up, boolean down,
 							boolean left, boolean right) {
 		if (player.equals("oneill")) {
-			
+			oneillController.move(up, down, left, right);
 		}
 		else if (player.equals("jaffa")) {
-		
+			jaffaController.move(up, down, left, right);
 		}
 		else if (player.equals("replikator")) {
-			
+			replicatorController.move(up, down, left, right);
 		}
 		else {
 			System.out.println(" Rossz player név! Kérjük jaffa, oneill és replikator" +

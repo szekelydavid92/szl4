@@ -320,8 +320,9 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		System.out.print(name + ".kill()\n");
 		Depth.getInstance().enterFunction();
 		
-		if (carriedObject!=null)
+		if (carriedObject!=null) {
 			carriedObject.release();
+		}
 		
 		carriedObject=null;
 		
@@ -337,18 +338,9 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	public void step() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".step()\n");
-		Depth.getInstance().enterFunction();
-		
 		move(); 
 		carryBox(); 
 		shoot(); 
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".step()\n");
 		
 	}
 	
@@ -358,11 +350,6 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	public void move() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".move()\n");
-		Depth.getInstance().enterFunction();
-		
 		double normalizedDirectionX = 0.0;
 		double normalizedDirectionY = 0.0;
 		
@@ -379,11 +366,6 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		}
 		worldObject.setDisplacementX(displacement*normalizedDirectionX);
 		worldObject.setDisplacementY(displacement*normalizedDirectionY);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".move()\n");
-		
 	}
 	
 	
@@ -392,11 +374,6 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	public void carryBox() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".carryBox()\n");
-		Depth.getInstance().enterFunction();
-		
 		if(carriedObject != null) {
 			Depth.getInstance().printTabs();
 			System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
@@ -419,11 +396,6 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 			}
 			
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".carryBox()\n");
-		
 	}
 	
 	
@@ -431,12 +403,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * Ez a fuggveny valositja meg a lovest.
 	 * @return void
 	 */
-	public void shoot() { 
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".shoot()\n");
-		Depth.getInstance().enterFunction();
-		
+	public void shoot() {
 		if(projFactory != null) {
 			double x = worldObject.getPosX();
 			double y = worldObject.getPosY();
@@ -448,11 +415,6 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 				projFactory.createProjectile(Colour.BLUE, x, y, dirX, dirY);
 			}
 		}
-			
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".shoot()\n");
-		
 	}
 	
 	@Override

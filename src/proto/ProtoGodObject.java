@@ -273,12 +273,10 @@ public class ProtoGodObject {
 	
 	public void shoot(String player, boolean proj1, boolean proj2) {
 		if (player.equals("oneill")) {
-			if(proj1 && !proj2){this.oneillController.shootBlue(proj1);}
-			else if(!proj1 && proj2){this.oneillController.shootYellow(proj2);}
+			
 		}
 		else if (player.equals("jaffa")) {
-			if(proj1 && !proj2){this.jaffaController.shootBlue(proj1);}
-			else if(!proj1 && proj2){this.jaffaController.shootYellow(proj2);}
+			
 		}
 		return;	
 	}

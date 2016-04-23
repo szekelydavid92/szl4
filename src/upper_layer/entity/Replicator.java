@@ -12,7 +12,7 @@ public class Replicator extends Player implements IReplicator {
 	boolean CollidedWithChasm = false;
 	
 	public Replicator(IWorldObject worldObject, double mass) {
-		super(worldObject, mass);
+		super(worldObject, null, mass);
 	}
 	
 	public void projectileKill() {

@@ -12,6 +12,7 @@ import upper_layer.entity.Door;
 import upper_layer.entity.Player;
 import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
+import upper_layer.wormhole.ProjectileFactory;
 
 public class AjtoDobozTeszt {
 	public static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -84,7 +85,7 @@ public class AjtoDobozTeszt {
 		o1.setCollisionObserver(b);
 		o1.setVisitable(b);
 		WorldObject playerObject = new WorldObject();
-		b.regCarrier(new Player(playerObject,1.0));
+		b.regCarrier(new Player(playerObject,null,1.0));
 		
 		WorldObject o2 = new WorldObject();
 		o2.name="chasmObject";

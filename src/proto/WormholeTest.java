@@ -22,9 +22,9 @@ class WormholeTest {
 		
 		//System.out.println("Creating objects");
 		WorldObject pwo = new WorldObject();
-		Player p = new Player(pwo,1.0);
 		WorldObjectFactory wof = new WorldObjectFactory(w);
 		ProjectileFactory pf = new ProjectileFactory(wof,wormHole);
+		Player p = new Player(pwo,pf,1.0);
 		
 		
 		p.projFactory = pf;
@@ -44,14 +44,14 @@ class WormholeTest {
 		System.out.print("Teszteset inicializalasa\n");
 
 		World w = new World();
-		
-		WorldObject pwo = new WorldObject();
-		Player p = new Player(pwo,1.0);
-		
+
 		WormHole wormHole = new WormHole();
 		
 		WorldObjectFactory wof = new WorldObjectFactory(w);
 		ProjectileFactory pf = new ProjectileFactory(wof,wormHole);
+		
+		WorldObject pwo = new WorldObject();
+		Player p = new Player(pwo,pf,1.0);
 		
 		p.projFactory = pf;
 
@@ -110,7 +110,7 @@ class WormholeTest {
 	static void CsillagkapuAtjaras(){
 		System.out.print("Teszteset inicializalasa\n");
 		WorldObject obj = new WorldObject();
-		Player player = new Player(obj,1.0);
+		Player player = new Player(obj,null,1.0);
 		obj.visitable = player;
 		obj.setCollisionObserver(player);
 		

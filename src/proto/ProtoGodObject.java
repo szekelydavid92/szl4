@@ -102,7 +102,7 @@ class ProtoGodObject {
 	public Replicator replicator;
 	public PlayerController oneillController ;
 	public PlayerController jaffaController ;
-	public ReplicatorController replicatorController ;
+	public ReplicatorController replicatorController = new ReplicatorController(null);
 	
 	
 	public static ProtoGodObject getInstance() {

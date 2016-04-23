@@ -1,10 +1,15 @@
 package proto;
 
-import bottom_layer.*;
+import java.util.Map;
+import java.util.TreeMap;
 
+import bottom_layer.*;
+import common.IProjectileFactory;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
+import upper_layer.wormhole.ProjectileFactory;
 import upper_layer.wormhole.SpecWall;
+import upper_layer.wormhole.WormHole;
 import upper_layer.entity.*;
 import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
@@ -19,6 +24,12 @@ class GameFactory {
 	private IWorldObjectFactory worldObjectFactory;
 	//Itt elterunk a specifikaciotol, de ez kell ide.
 	private GameLoop gameLoop;
+	
+	/*
+	 * Itt is, es ez nem a legszebb megoldas
+	 */
+	Map<Integer,Scale> scales = new TreeMap<Integer,Scale>();
+	Map<Integer,Door> doors = new TreeMap<Integer,Door>();
 	
 	/*
 	 * Metodusok
@@ -83,20 +94,37 @@ class GameFactory {
 		playerObject.setPosY(y);
 		
 		if (name.equals("oneill") || name.equals("jaffa")) {
-			Player player = new Player(playerObject,mass);
-			playerObject.setVisitable(player);
-			playerObject.setCollisionObserver(player);
-			gameLoop.addEntity(player);
-			ProtoGodObject.getInstance().players.put(name,player);
+			if(ProtoGodObject.getInstance().players.get(name) == null) {
+				
+				WormHole wormHole = new WormHole();
+				IProjectileFactory projFactory = new ProjectileFactory(worldObjectFactory,wormHole);
+				Player player = new Player(playerObject,projFactory,mass);
+				gameLoop.addEntity(player);
+				
+				if(name.equals("oneill")) {
+					ProtoGodObject.getInstance().oneillController.setPlayer(player);
+				}
+				if(name.equals("jaffa")) {
+					ProtoGodObject.getInstance().jaffaController.setPlayer(player);
+				}
+				/*
+				 * Ez a resz kikerul a vegso programbol.
+				 */
+				ProtoGodObject.getInstance().stargates.put(name,wormHole);
+				ProtoGodObject.getInstance().players.put(name,player);
+			}
 		}
 		else if (name.equals("replikator")) {
 			Replicator replikator = new Replicator(playerObject,mass);
-			playerObject.setVisitable(replikator);
-			playerObject.setCollisionObserver(replikator);
+			ReplicatorController replicatorController = new ReplicatorController(replikator);
+			gameLoop.addEntity(replicatorController);
 			gameLoop.addEntity(replikator);
+			/*
+			 * Ez a resz kikerul a vegso programbol.
+			 */
 			ProtoGodObject.getInstance().replicator=replikator;
+			ProtoGodObject.getInstance().replicatorController=replicatorController;
 		}
-		
 		/*
 		 * Ez a resz kikerul a vegso programbol.
 		 */
@@ -108,10 +136,8 @@ class GameFactory {
 		chasmObject.setPosX(x);
 		chasmObject.setPosY(y);
 		
-		
 		chasmObject.setVisitable(Chasm.getInstance());
 		Chasm.getInstance().getChasms().add(chasmObject);
-		//ProtoGodObject.getInstance().specWalls.add(specWall);
 	}
 	
 	public void createBox(double x, double y, double width, double height,double mass){
@@ -121,7 +147,7 @@ class GameFactory {
 		
 		Box box = new Box(boxObj, mass);
 		gameLoop.addEntity(box);
-		//ProtoGodObject.getInstance().specWalls.add(specWall);
+		ProtoGodObject.getInstance().boxes.add(box);
 	}
 	
 	public void createScale(double x, double y, double width, double height, double mass, int id){
@@ -134,7 +160,15 @@ class GameFactory {
 		Chasm.getInstance().getChasms().add(scaleObject);
 		gameLoop.addEntity(scl);
 		
-		//ProtoGodObject.getInstance().specWalls.add(specWall);
+		Door door = doors.get(id);
+		if(door != null) {
+			doors.remove(id);
+			scl.setDoor(door);
+		}
+		/*
+		 * Ez a resz kikerul a vegso programbol.
+		 */
+		ProtoGodObject.getInstance().scales.add(scl);
 	}
 	
 	public void createDoor(double x, double y, double width, double height, int id){
@@ -144,15 +178,23 @@ class GameFactory {
 		 
 		Door door = new Door(doorObject);
 		gameLoop.addEntity(door);
-		//ProtoGodObject.getInstance().specWalls.add(specWall);
+		
+		Scale scale = scales.get(id);
+		if(scale != null) {
+			scales.remove(id);
+			scale.setDoor(door);
+		}
+		/*
+		 * Ez a resz kikerul a vegso programbol.
+		 */
+		ProtoGodObject.getInstance().doors.add(door);
 	}
 	 
 	public void createZpm(double x, double y,double width, double height){
 		IWorldObject zpmObj = worldObjectFactory.createObject(width, height); 
 		zpmObj.setPosX(x);
 		zpmObj.setPosY(y);
-		 
+		
 		ZPM zpm = new ZPM(zpmObj);
-		//gameLoop.addEntity(zpm);
 	}
 }

@@ -8,6 +8,7 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import proto.Depth;
+import upper_layer.entity.Door;
 import upper_layer.entity.Killable;
 
 /*
@@ -25,7 +26,7 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 	 * Attributumok
 	 */
 	
-	public IDoor door; 				//Ez az ajtó, akit ő kinyit, ha lenyomják.
+	public IDoor door = null; 		//Ez az ajtó, akit ő kinyit, ha lenyomják.
 	double accumulatedMass = 0; 	//Ez a rá nehezedő összes súly.
 	double massThreshold; 			//ha a rá nehezedő súly nagyobb ennél, akkor a mérleg kinyitja az ajtót.
 	
@@ -96,7 +97,9 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 		this.accumulatedMass += mass;
 		
 		if(this.massThreshold <= this.accumulatedMass){
-			door.open();
+			if(door != null) {
+				door.open();
+			}
 		}
 				
 		Depth.getInstance().returnFromFunction();
@@ -107,7 +110,10 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 	@Override
 	public void step() {
 		this.accumulatedMass = 0.0;
-		
+	}
+
+	public void setDoor(Door door) {
+		this.door = door;
 	}
 
 }

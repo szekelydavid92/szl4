@@ -21,7 +21,7 @@ import common.Colour;
 /**
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
  */
-public class Player extends Killable implements ITeleportable,ICarrier, IControllable {
+public class Player extends Killable implements ITeleportable, ICarrier, IControllable {
 
 	//[BACKUP]
 	//public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
@@ -434,14 +434,16 @@ public class Player extends Killable implements ITeleportable,ICarrier, IControl
 		System.out.print(name + ".shoot()\n");
 		Depth.getInstance().enterFunction();
 		
-		double x = worldObject.getPosX();
-		double y = worldObject.getPosY();
-		
-		if(shootingYellow) {
-			projFactory.createProjectile(Colour.YELLOW, x, y, 1.0, 1.0);
-		}
-		if(shootingBlue) {
-			projFactory.createProjectile(Colour.BLUE, x, y, 1.0, 1.0);
+		if(projFactory != null) {
+			double x = worldObject.getPosX();
+			double y = worldObject.getPosY();
+			
+			if(shootingYellow) {
+				projFactory.createProjectile(Colour.YELLOW, x, y, dirX, dirY);
+			}
+			if(shootingBlue) {
+				projFactory.createProjectile(Colour.BLUE, x, y, dirX, dirY);
+			}
 		}
 			
 		Depth.getInstance().returnFromFunction();
@@ -509,8 +511,9 @@ public class Player extends Killable implements ITeleportable,ICarrier, IControl
 		
 	}
 	
-	public Player(IWorldObject worldObject,double mass) {
+	public Player(IWorldObject worldObject,IProjectileFactory projFactory,double mass) {
 		super(worldObject,mass);
+		this.projFactory = projFactory;
 	}
 
 	

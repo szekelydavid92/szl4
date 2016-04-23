@@ -82,13 +82,25 @@ class GameFactory {
 		playerObject.setPosX(x);
 		playerObject.setPosY(y);
 		
-		Player player = new Player(playerObject,mass);
-		//player.name = new String(name);
-		gameLoop.addEntity(player);
+		if (name.equals("oneill") || name.equals("jaffa")) {
+			Player player = new Player(playerObject,mass);
+			playerObject.setVisitable(player);
+			playerObject.setCollisionObserver(player);
+			gameLoop.addEntity(player);
+			ProtoGodObject.getInstance().players.put(name,player);
+		}
+		else if (name.equals("replikator")) {
+			Replicator replikator = new Replicator(playerObject,mass);
+			playerObject.setVisitable(replikator);
+			playerObject.setCollisionObserver(replikator);
+			gameLoop.addEntity(replikator);
+			ProtoGodObject.getInstance().replicator=replikator;
+		}
+		
 		/*
 		 * Ez a resz kikerul a vegso programbol.
 		 */
-		//ProtoGodObject.getInstance().specWalls.add(specWall);
+		//ProtoGodObject.getInstance().players.put(name,player);
 	}
 	
 	public void createChasm(double x, double y,double width,double height){

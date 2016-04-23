@@ -3,6 +3,7 @@ package upper_layer.entity;
 import common.ICarriable;
 import common.ICarrier;
 import common.IChasm;
+import common.IControllable;
 import common.IKillable;
 import common.IProjectileFactory;
 import common.ISpecWall;
@@ -20,7 +21,7 @@ import common.Colour;
 /**
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
  */
-public class Player extends Killable implements ITeleportable,ICarrier {
+public class Player extends Killable implements ITeleportable,ICarrier, IControllable {
 
 	//[BACKUP]
 	//public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
@@ -49,6 +50,9 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	/*
 	 * Metodusok
 	 */
+	public Player(double mass, IWorldObject playerObject) {
+		super(playerObject,mass);
+	}
 	
 	public double getDirX() {
 		return dirX;
@@ -142,6 +146,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * @param up: menjen-e a jatekos felfele (true vagy false)
 	 * @return void
 	 */
+	@Override
 	public void moveUp(boolean up) {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".moveUp()\n");
@@ -160,6 +165,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * @param down: menjen-e a jatekos lefele (true vagy false) 
 	 * @return void
 	 */
+	@Override
 	public void moveDown(boolean down) {
 		
 		Depth.getInstance().printTabs();
@@ -180,6 +186,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * @param left: menjen-e a jatekos balra (true vagy false) 
 	 * @return void
 	 */
+	@Override
 	public void moveLeft(boolean left) {
 		
 		Depth.getInstance().printTabs();
@@ -200,6 +207,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * @param right: menjen-e a jatekos jobbra (true vagy false) 
 	 * @return void
 	 */
+	@Override
 	public void moveRight(boolean right) {
 		
 		Depth.getInstance().printTabs();
@@ -220,8 +228,8 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * @param pick: vegye-e fel a jatekos a dobozt(true vagy false) 
 	 * @return void
 	 */
+	@Override
 	public void pickUp(boolean pick) {
-		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".pickUp(" + pick + ")\n");
 		Depth.getInstance().enterFunction();
@@ -241,6 +249,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * @param y Az y koordinata.
 	 * @return void
 	 */
+	@Override
 	public void lookAt(double x,double y) {
 		
 		Depth.getInstance().printTabs();
@@ -262,6 +271,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * @param shootingYellow: Lojon-e a jatekos sarga lovedeket (true vagy false).
 	 * @return void
 	 */
+	@Override
 	public void shootYellow(boolean shootingYellow) {
 		
 		Depth.getInstance().printTabs();
@@ -282,6 +292,7 @@ public class Player extends Killable implements ITeleportable,ICarrier {
 	 * @param shootingBlue: Lojon-e a jatekos kek lovedeket (true vagy false).
 	 * @return void
 	 */
+	@Override
 	public void shootBlue(boolean shootingBlue) {
 		
 		Depth.getInstance().printTabs();

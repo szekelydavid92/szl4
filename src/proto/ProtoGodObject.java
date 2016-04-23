@@ -25,6 +25,9 @@ import common.IWorldObject;
 import upper_layer.entity.Box;
 import upper_layer.entity.Door;
 import upper_layer.entity.Player;
+import upper_layer.entity.Replicator;
+import upper_layer.entity.ReplicatorController;
+import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
 import common.IZPM;
 import proto.ProtoGodObject.VisitableWriter.VisitableType;
@@ -96,6 +99,11 @@ class ProtoGodObject {
 	public List<Scale> scales = new LinkedList<Scale>();
 	public List<Door> doors = new LinkedList<Door>();
 	public Map<String, Player> players = new TreeMap<String, Player>();
+	public Replicator replicator;
+	public PlayerController oneillController = new PlayerController();
+	public PlayerController jaffaController = new PlayerController();
+	public ReplicatorController replicatorController= new ReplicatorController();
+	
 	
 	public static ProtoGodObject getInstance() {
 		if(instance == null) {
@@ -116,18 +124,33 @@ class ProtoGodObject {
 		gameLoop = new GameLoop(world);
 		walls.clear();
 		specWalls.clear();
+		Chasm.getInstance().getChasms().clear();
+		
 		GameFactory gameFactory = new GameFactory(gameLoop);
 		//gameFactory.createWall(0, 0, 10, 10);
 		//gameFactory.createWall(0, 10, 10, 20);
 		//gameFactory.createSpecWall(10, 10, 10, 20);
+		
 		LevelLoader levelLoader = new LevelLoader();
 		levelLoader.load(map, gameFactory);
 		return true;
 	}
 	
-	private void movePlayer(String Player, boolean up, boolean down,
+	private void movePlayer(String player, boolean up, boolean down,
 							boolean left, boolean right) {
+		if (player.equals("oneill")) {
+			
+		}
+		else if (player.equals("jaffa")) {
 		
+		}
+		else if (player.equals("replikator")) {
+			
+		}
+		else {
+			System.out.println(" Rossz player név! Kérjük jaffa, oneill és replikator" +
+							   "közül válassz! ");
+		}
 	}
 	
 	private void listProjectiles() {
@@ -251,7 +274,7 @@ class ProtoGodObject {
 	}
 	
 	public void shoot(String ply, String col1, String col2) {
-		System.out.println("Shootin ____________ [ BUMM ]");
+		System.out.println("Shootin ____________ [ BUMM ]"); // :DDDD
 		System.out.println("");
 		return;	
 	}
@@ -353,30 +376,27 @@ class ProtoGodObject {
 			String cmd = in.next();
 			String player=in.next();
 			Boolean[] directions=new Boolean[4];
+			int nextInt;
 			for (int i=0;in.hasNextInt();i++) {
-				if (in.nextInt() == 1)
+				nextInt=in.nextInt();
+				if (nextInt == 1)
 					directions[i]=true;
-				else
-					directions[i]=false;		
+				else if (nextInt == 0)		
+					directions[i]=false;
+				else {
+					System.out.println("Hibás paraméter a move parancsnál" +
+									   "Az irány paraméterek értéke 1 vagy 0 legyen");
+				}
+					
 			}
 			boolean up=directions[0],down=directions[1],left=directions[2],
 					right=directions[3];
 			ProtoGodObject.getInstance().movePlayer(player,up,down,left,right);
 			
-			
-			
-			if (player.equals("oneill")) {
-				
-			}
-			else if (player.equals("jaffa")) {
-				
-			}
-			else if (player.equals("replikator")) {
-				
-			}
-			
 			return true;
 		}
+		
+		ProtoPlayerMove() {}
 	}
 	
 
@@ -398,6 +418,7 @@ class ProtoGodObject {
 			ProtoGodObject.getInstance().listStargates(col);
 			return false;
 		}
+		ProtoListStargates() {}
 	}
 	
 	
@@ -455,6 +476,7 @@ class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			System.out.println("Shoot");
+			in.next(); // Az elso sztring maga a parancs lesz 
 			String ply = in.next();
 			String color1 = in.next();
 			String color2 = in.next(); 

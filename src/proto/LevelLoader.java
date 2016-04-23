@@ -8,8 +8,8 @@ import bottom_layer.GameLoop;
 import upper_layer.GameFactory;
 
 /*
- * TODO Meg kell csinálni a door és a scale betöltőjét!
- * TODO Meg kell csinálni a ZPM_RandPos betöltőjét!
+ * TODO Meg kell csinálni a door és a scale betöltőjét! MEG VAN
+ * TODO Meg kell csinálni a ZPM_RandPos betöltőjét! MEG VAN
  */
 
 class LevelLoader {
@@ -61,7 +61,6 @@ class LevelLoader {
 				return Construct();
 			}
 		}
-
 		
 		static abstract class PosDimParser extends ObjectParser {
 
@@ -91,15 +90,60 @@ class LevelLoader {
 		
 		class DoorParser extends PosDimParser{
 			
+			int id;
+			boolean idLoaded = false;
+			
 			DoorParser(LevelParser levelParser) {
 				super(levelParser);
+			}
+			
+			@Override
+			protected void parseAttrib(String name, Scanner in) {
+				super.parseAttrib(name, in);
+				if(name.equals("id")) {
+					id = (int)in.nextDouble();
+					idLoaded = true;
+				}
 			}
 
 			@Override
 			protected boolean Construct() {
-				// TODO Auto-generated method stub
+				if(posLoaded && dimLoaded && idLoaded) {
+					levelParser.gameFactory.createDoor(posX,posY,width,height,id);
+					return true;
+				}
+				
 				return false;
 			}
+		}
+
+		class ScaleParser extends DoorParser{
+			
+			boolean massLoaded = false;
+			double mass;
+			
+			ScaleParser(LevelParser levelParser) {
+				super(levelParser);
+			}	
+			@Override
+			protected void parseAttrib(String name, Scanner in) {
+				super.parseAttrib(name, in);
+				if(name.equals("mass")) {
+					mass = in.nextDouble();
+					massLoaded = true;
+				}
+			}
+			
+			@Override
+			protected boolean Construct() {
+				if(posLoaded && dimLoaded && massLoaded && idLoaded) {
+					levelParser.gameFactory.createScale(posX,posY,width,height,mass, id);
+					return true;
+				}
+				
+				return false;
+			}
+			
 		}
 		
 		class BoxParser extends PosDimParser {
@@ -130,7 +174,7 @@ class LevelLoader {
 				return false;
 			}
 		}
-		
+			
 		class PlayerParser extends BoxParser {
 			boolean nameLoaded = false;
 			String name;
@@ -228,16 +272,37 @@ class LevelLoader {
 			}
 		}
 		
+		class ZPM_RandPosParser extends PosDimParser{
+
+			ZPM_RandPosParser(LevelParser levelParser) {
+				super(levelParser);
+			}
+
+			@Override
+			protected boolean Construct() {
+				if(posLoaded && dimLoaded) {
+					levelParser.gameFactory.createZpmRandPos(posX,posY,width,height);
+					return true;
+				}
+				
+				return false;
+			}
+			
+		}
+		
 		LevelParser(Scanner in,GameFactory gameFactory) {
 			super(in);
 			this.gameFactory = gameFactory;
 			
+			commands.put("Scale",(new ScaleParser(this)));
+			commands.put("Door",(new DoorParser(this)));
 			commands.put("Box",(new BoxParser(this)));
 			commands.put("Player",(new PlayerParser(this)));
 			commands.put("Wall",(new WallParser(this)));
 			commands.put("SpecWall",(new SpecWallParser(this)));
 			commands.put("Chasm",(new ChasmParser(this)));
 			commands.put("ZPM",(new ZPMParser(this)));
+			commands.put("ZPM_RandPos",(new ZPM_RandPosParser(this)));
 		}
 	}
 	

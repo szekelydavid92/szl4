@@ -370,7 +370,10 @@ public class ProtoGodObject {
 			ProtoGodObject.getInstance().run(iterations);
 			return true;
 		}
-		ProtoRun() {}
+		
+		ProtoRun() {
+			
+		}
 	}
 
 	
@@ -378,22 +381,23 @@ public class ProtoGodObject {
 		
 		@Override
 		public boolean Execute(Scanner in) {
-			in.useDelimiter("\\s*");
+			//in.useDelimiter("\\s*"); Ez egy hulye otlet volt.
 			String player=in.next();
 			Boolean[] directions=new Boolean[4];
 			int nextInt;
-			for (int i=0;in.hasNextInt();i++) {
+			for (int i=0;i < directions.length;i++) {
 				nextInt=in.nextInt();
 				if (nextInt == 1)
 					directions[i]=true;
 				else if (nextInt == 0)		
 					directions[i]=false;
 				else {
-					System.out.println("Hibás paraméter a move parancsnál" +
-									   "Az irány paraméterek értéke 1 vagy 0 legyen");
+					System.out.println("move\nHibás bemenet\n");
+					return false;
 				}
-					
+				
 			}
+			
 			boolean up=directions[0],down=directions[1],left=directions[2],
 					right=directions[3];
 			ProtoGodObject.getInstance().movePlayer(player,up,down,left,right);
@@ -402,7 +406,9 @@ public class ProtoGodObject {
 			return true;
 		}
 		
-		ProtoPlayerMove() {}
+		ProtoPlayerMove() {
+			
+		}
 	}
 	
 

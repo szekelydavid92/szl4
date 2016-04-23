@@ -258,18 +258,18 @@ public class WorldObject implements IWorldObject {
 		Depth.getInstance().enterFunction();
 		
 		Depth.getInstance().printTabs();
-		System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
+		//System.out.println("Kerem, adja meg, hogy " + name + " es " + o.name + " utkoztek-e! [i/n]");
 		
 		
-		proto.ProtoMain.line = proto.ProtoMain.in.next();
+		//proto.ProtoMain.line = proto.ProtoMain.in.next();
 		
 		/*
 		 * TODO mostmár le kell implementálni az ütközésdetekciót.
 		 */
 		
-		if(proto.ProtoMain.line.equals("i")) {collides = true;}
-		else if(proto.ProtoMain.line.equals("n")) {collides = false;}
-		else {System.out.println("ERROR: Ervenytelen bemenet");}
+		//if(proto.ProtoMain.line.equals("i")) {collides = true;}
+		//else if(proto.ProtoMain.line.equals("n")) {collides = false;}
+		//else {System.out.println("ERROR: Ervenytelen bemenet");}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

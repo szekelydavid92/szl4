@@ -373,11 +373,12 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		
 		double abs = Math.sqrt(normalizedDirectionY*normalizedDirectionY + normalizedDirectionX*normalizedDirectionX);
 		
-		normalizedDirectionX /= abs;
-		normalizedDirectionY /= abs;
-		
-		worldObject.setDisplacementX(normalizedDirectionX);
-		worldObject.setDisplacementY(normalizedDirectionY);
+		if(abs > 1e-4) {
+			normalizedDirectionX /= abs;
+			normalizedDirectionY /= abs;
+		}
+		worldObject.setDisplacementX(displacement*normalizedDirectionX);
+		worldObject.setDisplacementY(displacement*normalizedDirectionY);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

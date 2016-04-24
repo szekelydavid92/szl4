@@ -91,6 +91,8 @@ public class World {
 					temp1.push(temp2, tmp1_dx, tmp1_dy);
 					temp2.push(temp1, tmp2_dx, tmp2_dy);
 					
+					
+					
 					temp1.notify(temp2);
 					temp2.notify(temp1);
 				}

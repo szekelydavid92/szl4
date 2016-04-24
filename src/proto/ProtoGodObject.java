@@ -298,6 +298,11 @@ public class ProtoGodObject {
 				}
 		return;
 	}
+	
+	public void randomReplikator(boolean isOn){
+		replicatorController.setActive(isOn);
+	}
+	
 	// seglfuggveny a list wormholes-hoz 
 	public void printWormhole(String player) {
 		if (player.equals("oneill") || player.equals("jaffa")) {
@@ -711,6 +716,30 @@ public class ProtoGodObject {
 		}
 		
 		
+	}
+	
+	public static class ProtoRandomReplikator implements IProtoCommand {
+		
+		@Override
+		public boolean Execute(Scanner in) {
+			String player = in.next();
+			boolean isOn ;
+			if (player.equals("on")) {
+				isOn=true;
+				System.out.println("randomReplikator on");
+			}
+			else if (player.equals("off")) {
+				isOn=false;
+				System.out.println("randomReplikator off");
+			}
+			else {
+				System.out.println("Hibas parameter a randomReplikator parancsnal!" +
+								   "Kerjuk on/off parametert használj! ");
+				return false;
+			}
+			ProtoGodObject.getInstance().randomReplikator(isOn);
+			return true;
+		}
 	}
 	
 	public static class ProtoCommandInterpreter extends CommandInterpreter {

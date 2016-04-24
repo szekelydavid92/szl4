@@ -64,6 +64,25 @@ public class WormHole {
 		blueGate.mask(wall);
 		blueGate.setTeleportDirection(direction);
 		
+		switch(direction) {
+		case UP:
+			blueX = wall.getWorldObject().getPosX();
+			blueY = wall.getWorldObject().getPosY() - wall.getWorldObject().getHeight();
+			break;
+		case DOWN:
+			blueX = wall.getWorldObject().getPosX();
+			blueY = wall.getWorldObject().getPosY() + wall.getWorldObject().getHeight();
+			break;
+		case LEFT:
+			blueX = wall.getWorldObject().getPosX() - wall.getWorldObject().getWidth();
+			blueY = wall.getWorldObject().getPosY();
+			break;
+		case RIGHT:
+			blueX = wall.getWorldObject().getPosX() + wall.getWorldObject().getWidth();
+			blueY = wall.getWorldObject().getPosY();
+			break;
+		}
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".setBlue()\n");
@@ -91,6 +110,25 @@ public class WormHole {
 		
 		yellowGate.mask(wall);
 		yellowGate.setTeleportDirection(direction);
+		
+		switch(direction) {
+		case UP:
+			yellowX = wall.getWorldObject().getPosX();
+			yellowY = wall.getWorldObject().getPosY() - wall.getWorldObject().getHeight();
+			break;
+		case DOWN:
+			yellowX = wall.getWorldObject().getPosX();
+			yellowY = wall.getWorldObject().getPosY() + wall.getWorldObject().getHeight();
+			break;
+		case LEFT:
+			yellowX = wall.getWorldObject().getPosX() - wall.getWorldObject().getWidth();
+			yellowY = wall.getWorldObject().getPosY();
+			break;
+		case RIGHT:
+			yellowX = wall.getWorldObject().getPosX() + wall.getWorldObject().getWidth();
+			yellowY = wall.getWorldObject().getPosY();
+			break;
+		}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

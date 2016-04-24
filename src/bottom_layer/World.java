@@ -133,6 +133,8 @@ public class World {
 			
 			if (objects.get(i).isRemovable()) {
 				objects.remove(i);
+			} else {
+				objects.get(i).step();
 			}
 		}
 	}	

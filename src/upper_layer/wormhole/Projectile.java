@@ -159,7 +159,7 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 			visitable.accept(this);
 		}
 		
-		if(obj.getCollisionResponse() != CollisionResponse.PASS) {
+		if(obj.getCollisionResponse() == CollisionResponse.IMMOVABLE) {
 			worldObject.markRemovable();
 		}
 		

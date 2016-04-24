@@ -18,6 +18,7 @@ import upper_layer.ZPMObserver;
 import java.io.IOException;
 
 import common.Colour;
+import common.Direction;
 
 /**
  * Ez a jatekos. Kepes hordozni az ICarriable-t megvalosoto objektumot es megolheto.
@@ -47,6 +48,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	boolean shootingBlue = false;  			//ha a játékos kék lövedéket lő, false egyébként.
 	public static double displacement = 1;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
 	public IProjectileFactory projFactory;
+	private Direction direction;
 	ZPMObserver zpmObserver = null;
 	
 	/*
@@ -415,6 +417,19 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 				projFactory.createProjectile(Colour.BLUE, x, y, dirX, dirY);
 			}
 		}
+	}
+	
+	@Override
+	public void setDirection(Direction dir) {
+		direction=dir;
+	}
+	
+	// Csunya, es majd at kell gondolni: 
+	//A setDirection az ICollisionObservertol,
+	//a getDirection pedig az ITeleportable interfacetol szarmazik...
+	@Override
+	public Direction getDirection() {
+		return direction;
 	}
 	
 	@Override

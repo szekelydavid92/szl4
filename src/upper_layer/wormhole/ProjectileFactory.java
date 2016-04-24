@@ -62,7 +62,8 @@ public class ProjectileFactory implements IProjectileFactory {
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".createProjectile()\n");
+		System.out.print("ret " + name + ".createProjectile()\n"); 
+		
 		
 	}
 	

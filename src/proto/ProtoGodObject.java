@@ -35,6 +35,7 @@ import common.IZPM;
 import proto.ProtoGodObject.VisitableWriter.VisitableType;
 import upper_layer.reactive.ZPM;
 import upper_layer.wormhole.Projectile;
+import upper_layer.wormhole.ProjectileFactory;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
@@ -322,6 +323,14 @@ public class ProtoGodObject {
 							   "Kerjuk adj meg oneill/jaffa player parametert!");
 		}
 		return;	
+	}
+	
+	private void setProjectileDisplacement(double displacement) {
+		ProjectileFactory.PROJECTILE_SPEED=displacement;
+	}
+	
+	private void setPlayerDisplacement(double displacement) {
+		Player.displacement=displacement;
 	}
 	
 	private void listDoors() {
@@ -646,6 +655,31 @@ public class ProtoGodObject {
 			return true;
 		}
 		ProtoSetCursor() {}
+	}
+	
+	public static class ProtoSetProjectileSpeed implements IProtoCommand {
+
+		@Override
+		public boolean Execute(Scanner in) {
+			double displacement = in.nextDouble();
+			System.out.println("setProjectileDisplacement " + displacement);
+			ProtoGodObject.getInstance().setProjectileDisplacement(displacement);
+			return false;
+		}
+		
+	}
+	
+	public static class ProtoSetPlayerDisplacement implements IProtoCommand {
+
+		@Override
+		public boolean Execute(Scanner in) {
+			double displacement = in.nextDouble();
+			System.out.println("setPlayerDisplacement " + displacement);
+			ProtoGodObject.getInstance().setPlayerDisplacement(displacement);
+			return false;
+		}
+		
+		
 	}
 	
 	public static class ProtoCommandInterpreter extends CommandInterpreter {

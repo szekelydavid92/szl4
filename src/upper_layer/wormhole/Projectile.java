@@ -33,6 +33,7 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 	 */
 	private Colour colour;
 	private WormHole wormHole;
+	private Direction direction;
 	
 	/*
 	 * Metodusok
@@ -69,9 +70,11 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		
 		if(colour == Colour.YELLOW) {
 			wormHole.setYellow(wall);
+			wormHole.setYellowGateDirection(direction);
 		}
 		if(colour == Colour.BLUE) {
 			wormHole.setBlue(wall);
+			wormHole.setBlueGateDirection(direction);
 		}
 		
 		Depth.getInstance().returnFromFunction();
@@ -151,14 +154,13 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 
 	@Override
 	public void visit(IChasm chasm) {
-		// TODO Auto-generated method stub
+		// Ures marad, nem tortenik semmi.
 		
 	}
 
 	@Override
 	public void setDirection(Direction direction) {
-		// TODO Auto-generated method stub
-		
+		direction=direction;
 	}
 	
 }

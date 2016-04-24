@@ -31,6 +31,7 @@ public class Stargate implements IStargate{
 	WormHole wormHole;
 	
 	private ISpecWall masked = null;
+	private Direction direction;
 	
 	/*
 	 * Metodusok
@@ -161,8 +162,8 @@ public class Stargate implements IStargate{
 	}
 
 	@Override
-	public void setDirection(Direction direction) {
-		// TODO Auto-generated method stub
+	public void setDirection(Direction dir) {
+		direction=dir;
 		
 	}
 	

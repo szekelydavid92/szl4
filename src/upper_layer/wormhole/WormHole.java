@@ -1,6 +1,7 @@
 package upper_layer.wormhole;
 
 import common.Colour;
+import common.Direction;
 import common.ISpecWall;
 import common.ITeleportable;
 import common.IZPM;
@@ -17,7 +18,8 @@ public class WormHole {
 	 */
 	public Stargate blueGate = new Stargate(Colour.BLUE,this);
 	public Stargate yellowGate = new Stargate(Colour.YELLOW,this);
-	
+	private Direction blueGateDirection;
+	private Direction yellowGateDirection;
 	/*
 	 * Metodusok
 	 */
@@ -53,6 +55,7 @@ public class WormHole {
 		Depth.getInstance().enterFunction();
 		
 		blueGate.mask(wall);
+		blueGate.setDirection(blueGateDirection);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -60,7 +63,13 @@ public class WormHole {
 		
 	}
 	
+	public void setBlueGateDirection(Direction dir) {
+		blueGateDirection=dir;
+	}
 	
+	public void setYellowGateDirection(Direction dir) {
+		yellowGateDirection=dir;
+	}
 	/**
 	 * @brief Kinyitja a sarga kaput egy specialis falon.
 	 * 
@@ -74,6 +83,7 @@ public class WormHole {
 		Depth.getInstance().enterFunction();
 		
 		yellowGate.mask(wall);
+		yellowGate.setDirection(yellowGateDirection);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

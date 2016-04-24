@@ -303,8 +303,7 @@ public class WorldObject implements IWorldObject {
 	
 	@Override
 	public void setDirection(Direction direction) {
-		if(this.observer != null)
-		{
+		if(this.observer != null) {
 			this.observer.setDirection(direction);
 		}
 	}

@@ -16,6 +16,8 @@ import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
 import proto.Depth;
+import upper_layer.Utility;
+
 
 /**
  * O a csillagkapu. Ha egy jatekos utkozik vele, atteleportalja a masik csillagkapuhoz.
@@ -105,10 +107,14 @@ public class Stargate implements IStargate{
 		Depth.getInstance().enterFunction();
 		
 		if(colour == Colour.BLUE) {
-			wormHole.teleportToYellow(teleportable);
+			if (teleportable.getDirection() == Utility.getPair(this.direction)) {
+				wormHole.teleportToYellow(teleportable);
+			}	
 		}
 		if(colour == Colour.YELLOW) {
-			wormHole.teleportToBlue(teleportable);
+			if (teleportable.getDirection() == Utility.getPair(this.direction)) {
+				wormHole.teleportToBlue(teleportable);
+			}
 		}
 		
 		Depth.getInstance().returnFromFunction();

@@ -29,7 +29,7 @@ public class GameFactory {
 	private GameLoop gameLoop;
 	
 	/*
-	 * Itt is, es ez nem a legszebb megoldas
+	 * Itt is, es ez nem biztos, hogy a legszebb megoldas
 	 */
 	Map<Integer,Scale> scales = new TreeMap<Integer,Scale>();
 	Map<Integer,Door> doors = new TreeMap<Integer,Door>();
@@ -47,27 +47,24 @@ public class GameFactory {
 	 * Ott elterunk a specifikaciotol, hogy nem lesz se setWorld, se setWorldObjectFactory, hanem helyette setGameLoop.
 	 */
 	
-	/*public void setWorld(World world){
-		this.world = world;
-	}*/
-	
-	
-	
-	
-	
-	
-	
-	public void setWorldObjectFactory(IWorldObjectFactory factory){
-		this.worldObjectFactory = factory;
-	}
-	
 	void setGameLoop(GameLoop gameLoop) {
 		this.gameLoop	= gameLoop;
 		this.world		= gameLoop.getWorld();
 		
 		this.worldObjectFactory = this.world.getWorldObjectFactory();
+		this.zpmObserver = new ZPMObserver(this);
 	}
 	
+	/**
+	 * @brief Uj fal letrehozasaert felelos fuggveny
+	 * 
+	 * @param posX a fal X koordinataja
+	 * @param posY a fal Y koordinataja
+	 * @param width a fal szelessege
+	 * @param height a fal magassaga
+	 * 
+	 * @return void
+	 */
 	public void createWall(double posX,double posY,double width,double height) {
 		IWorldObject wallObject = worldObjectFactory.createObject(width, height); 
 		wallObject.setPosX(posX);
@@ -80,6 +77,16 @@ public class GameFactory {
 		ProtoGodObject.getInstance().walls.add((WorldObject)wallObject);
 	}
 	
+	/**
+	 * @brief Uj specialis fal letrehozasaert felelos fuggveny
+	 * 
+	 * @param posX a fal X koordinataja
+	 * @param posY a fal Y koordinataja
+	 * @param width a fal szelessege
+	 * @param height a fal magassaga
+	 * 
+	 * @return void
+	 */
 	public void createSpecWall(double posX,double posY,double width,double height) {
 		IWorldObject wallObject = worldObjectFactory.createObject(width, height); 
 		wallObject.setPosX(posX);
@@ -94,27 +101,68 @@ public class GameFactory {
 		ProtoGodObject.getInstance().specWalls.add(specWall);
 	}
 	
+	/**
+	 * @brief Uj jatekos letrehozasaert felelos fuggveny
+	 * 
+	 * @param name a jatekos neve
+	 * @param posX a jatekos X koordinataja
+	 * @param posY a jatekos Y koordinataja
+	 * @param width a jatekos szelessege
+	 * @param height a jatekos magassaga
+	 * @param mass a jatekos tomege
+	 * 
+	 * @return void
+	 */
 	public void createPlayer(String name,double x,double y,double width,double height,double mass){
 		IWorldObject playerObject = worldObjectFactory.createObject(width, height); 
 		playerObject.setPosX(x);
 		playerObject.setPosY(y);
 		
+		/*
+		 * Itt esetszetvalasztas jon, ha valamelyik jatekost hoztuk letre, akkor
+		 * Playert peldanyositunk, ha nem, akkor replikatort.
+		 */
 		if (name.equals("oneill") || name.equals("jaffa")) {
 			if(ProtoGodObject.getInstance().players.get(name) == null) {
-				
+				/*
+				 * Minden uj jatekosnak letrehozunk egy uj WormHole-t.
+				 */
 				WormHole wormHole = new WormHole();
+				
+				/*
+				 * Minden uj wormholenak letrehozunk egy uj ProjectileFactoryt.
+				 */
 				IProjectileFactory projFactory = new ProjectileFactory(worldObjectFactory,wormHole);
+				
+				/*
+				 * A jatekost tarsitjuk a neki megfelelo ProjectileFactoryvel.
+				 */
 				Player player = new Player(playerObject,projFactory,mass);
+				
+				/*
+				 * Majd hozzaadjuk a vilaghoz, hogy elorelephessen az idoben.
+				 */
 				gameLoop.addEntity(player);
 				
 				if(name.equals("oneill")) {
+					/*
+					 * A modositas csak az ezredes altal felszedett 2 ZPM utan
+					 * keri az uj ZPM lepakolasat.
+					 */
 					player.registerZPMObserver(zpmObserver);
 					
+					/*
+					 * Ez a resz kikerul a vegso programbol.
+					 */
 					ProtoGodObject.getInstance().oneillController.setPlayer(player);
 				}
 				if(name.equals("jaffa")) {
+					/*
+					 * Ez a resz kikerul a vegso programbol.
+					 */
 					ProtoGodObject.getInstance().jaffaController.setPlayer(player);
 				}
+				
 				/*
 				 * Ez a resz kikerul a vegso programbol.
 				 */
@@ -123,10 +171,28 @@ public class GameFactory {
 			}
 		}
 		else if (name.equals("replikator")) {
+			/*
+			 * Letrehozzuk az uj replikatort.
+			 */
 			Replicator replikator = new Replicator(playerObject,mass);
+			
+			/*
+			 * A replikatorhoz a neki megfelelo controllert.
+			 */
 			ReplicatorController replicatorController = new ReplicatorController(replikator);
+			
+			/*
+			 * A replicator controller elobb kerul a vilagba, mert igy a replikator mar
+			 * ugyanabban a ciklusban megkapja a vezerlest.
+			 * (forditott esetben csak egy frame-et kesne, ami nem jelentos)
+			 */
 			gameLoop.addEntity(replicatorController);
+			
+			/*
+			 * Majd a replikatort is, hasonloan a jatekoshoz.
+			 */
 			gameLoop.addEntity(replikator);
+			
 			/*
 			 * Ez a resz kikerul a vegso programbol.
 			 */
@@ -134,12 +200,18 @@ public class GameFactory {
 			ProtoGodObject.getInstance().replicatorController=replicatorController;
 			ProtoGodObject.getInstance().players.put(name,replikator);
 		}
-		/*
-		 * Ez a resz kikerul a vegso programbol.
-		 */
-		//ProtoGodObject.getInstance().players.put(name,player);
 	}
 	
+	/**
+	 * @brief Uj szakadek letrehozasaert felelos fuggveny
+	 * 
+	 * @param posX a szakadek X koordinataja
+	 * @param posY a szakadek Y koordinataja
+	 * @param width a szakadek szelessege
+	 * @param height a szakadek magassaga
+	 * 
+	 * @return void
+	 */
 	public void createChasm(double x, double y,double width,double height){
 		IWorldObject chasmObject = worldObjectFactory.createObject(width, height); 
 		chasmObject.setPosX(x);
@@ -149,6 +221,17 @@ public class GameFactory {
 		Chasm.getInstance().getChasms().add(chasmObject);
 	}
 	
+	/**
+	 * @brief Uj doboz letrehozasaert felelos fuggveny
+	 * 
+	 * @param posX a doboz X koordinataja
+	 * @param posY a doboz Y koordinataja
+	 * @param width a doboz szelessege
+	 * @param height a doboz magassaga
+	 * @param mass a doboz tomege
+	 * 
+	 * @return void
+	 */
 	public void createBox(double x, double y, double width, double height,double mass){
 		IWorldObject boxObj = worldObjectFactory.createObject(width, height); 
 		boxObj.setPosX(x);
@@ -157,32 +240,61 @@ public class GameFactory {
 		
 		Box box = new Box(boxObj, mass);
 		gameLoop.addEntity(box);
+		
+		/*
+		 * Ez a resz kikerul a vegso programbol.
+		 */
 		ProtoGodObject.getInstance().boxes.add(box);
 	}
-	
+
+
+	/**
+	 * @brief Uj merleg letrehozasaert felelos fuggveny
+	 * 
+	 * @param posX a merleg X koordinataja
+	 * @param posY a merleg Y koordinataja
+	 * @param width a merleg szelessege
+	 * @param height a merleg magassaga
+	 * @param mass a merleg tomeghatara
+	 * @param id a merleg id-ja
+	 * 
+	 * @return void
+	 */
 	public void createScale(double x, double y, double width, double height, double mass, int id){
 		IWorldObject scaleObject = worldObjectFactory.createObject(width, height); 
 		scaleObject.setPosX(x);
 		scaleObject.setPosY(y);
 		scaleObject.setCollisionResponse(CollisionResponse.PASS);
 		
-
-		Scale scl = new Scale(scaleObject, mass);
-		Chasm.getInstance().getChasms().add(scaleObject);
-		gameLoop.addEntity(scl);
+		Scale scale = new Scale(scaleObject, mass);
+		gameLoop.addEntity(scale);
 		
 		Door door = doors.get(id);
 		if(door != null) {
 			doors.remove(id);
-			scl.setDoor(door);
+			scale.setDoor(door);
+		} else {
+			scales.put(id, scale);
 		}
+		
 		/*
 		 * Ez a resz kikerul a vegso programbol.
 		 */
-		ProtoGodObject.getInstance().scales.add(scl);
+		ProtoGodObject.getInstance().scales.add(scale);
 	}
-	
-	public void createDoor(double x, double y, double width, double height, int id){
+
+	/**
+	 * @brief Uj ajto letrehozasaert felelos fuggveny
+	 * 
+	 * @param posX az ajto X koordinataja
+	 * @param posY az ajto Y koordinataja
+	 * @param width az ajto szelessege
+	 * @param height az ajto magassaga
+	 * @param id az ajto id-ja
+	 * 
+	 * @return void
+	 */
+	public void createDoor(double x, double y, double width, double height, int id) {
 		IWorldObject doorObject = worldObjectFactory.createObject(width, height); 
 		doorObject.setPosX(x);
 		doorObject.setPosY(y);
@@ -194,13 +306,26 @@ public class GameFactory {
 		if(scale != null) {
 			scales.remove(id);
 			scale.setDoor(door);
+		} else {
+			doors.put(id, door);
 		}
+		
 		/*
 		 * Ez a resz kikerul a vegso programbol.
 		 */
 		ProtoGodObject.getInstance().doors.add(door);
 	}
-	 
+	
+	/**
+	 * @brief Uj zpm letrehozasaert felelos fuggveny
+	 * 
+	 * @param posX a zpm X koordinataja
+	 * @param posY a zpm Y koordinataja
+	 * @param width a zpm szelessege
+	 * @param height a zpm magassaga
+	 * 
+	 * @return void
+	 */
 	public void createZpm(double x, double y,double width, double height){
 		IWorldObject zpmObj = worldObjectFactory.createObject(width, height); 
 		zpmObj.setPosX(x);
@@ -213,7 +338,17 @@ public class GameFactory {
 	/*
 	 * Itt elterunk a specifikaciotol, ez a fuggveny kifelejtodott
 	 */
-	
+
+	/**
+	 * @brief Uj zpm random pozicio letrehozasaert felelos fuggveny
+	 * 
+	 * @param posX a zpm X koordinataja
+	 * @param posY a zpm Y koordinataja
+	 * @param width a zpm szelessege
+	 * @param height a zpm magassaga
+	 * 
+	 * @return void
+	 */
 	public void createZpmRandPos(double x, double y,double width, double height) {
 		zpmObserver.add(x, y, width, height);
 	}

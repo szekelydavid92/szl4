@@ -32,10 +32,23 @@ public class GameLoop {
 		this.world = world;
 	}
 	
+	/**
+	 * @brief Ezzel a fuggvennyel lehet lekerdezni a vilaghoz tartozo World
+	 * peldanyt.
+	 * 
+	 * @return World - a GameLoophoz tartozo world
+	 */
 	public World getWorld() {
 		return world;
 	}
 	
+	/**
+	 * @brief Ez a fuggveny felelos azert, hogy a vilaghoz uj entitasokat
+	 * adhassunk hozza, amely elore lepteti az allapotat.
+	 * 
+	 * @param entity az ujonnan a vilaghoz adando entitas.
+	 * @return void
+	 */
 	public void addEntity(IEntity entity) {
 		Entities.add(entity);
 	}
@@ -49,6 +62,7 @@ public class GameLoop {
 		world.checkCollision();
 		world.step();
 		
+		//TODO Ezt a printet ki kell gyalulni!
 		System.out.println("Entity lepteto ciklus belepes");
 		for(IEntity e : Entities)
 		{

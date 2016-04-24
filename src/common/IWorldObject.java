@@ -139,8 +139,9 @@ public interface IWorldObject {
 	 * @return IVisitable
 	 */
 	public IVisitable getVisitable();
-	
-	public void setDirection(Direction direction) ;
+
+	//TODO: kommentelni kén
+	//public void setDirection(Direction direction) ;
 	
 	//TODO: kommentelni kéne
 	public void setVisitable(IVisitable visitable);
@@ -149,7 +150,7 @@ public interface IWorldObject {
 	public void markRemovable();
 
 
-	public Object getCollisionResponse();
+	public CollisionResponse getCollisionResponse();
 	
 	
 }

@@ -4,7 +4,7 @@ import common.IWorldObject;
 import common.IWorldObjectFactory;
 
 /**
- * @brief O hozza letre a WorldObject-et.
+ * @brief O hozza letre a WorldObject-eket.
  */
 public class WorldObjectFactory implements IWorldObjectFactory {
 	

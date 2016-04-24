@@ -218,6 +218,7 @@ public class GameFactory {
 		chasmObject.setPosY(y);
 		
 		chasmObject.setVisitable(Chasm.getInstance());
+		chasmObject.setCollisionObserver(Chasm.getInstance());
 		Chasm.getInstance().getChasms().add(chasmObject);
 	}
 	

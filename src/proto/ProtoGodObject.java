@@ -325,11 +325,11 @@ public class ProtoGodObject {
 		return;	
 	}
 	
-	private void setProjectileDisplacement(double displacement) {
+	private void setProjectileSpeed(double displacement) {
 		ProjectileFactory.PROJECTILE_SPEED=displacement;
 	}
 	
-	private void setPlayerDisplacement(double displacement) {
+	private void setPlayerSpeed(double displacement) {
 		Player.displacement=displacement;
 	}
 	
@@ -662,20 +662,20 @@ public class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			double displacement = in.nextDouble();
-			System.out.println("setProjectileDisplacement " + displacement);
-			ProtoGodObject.getInstance().setProjectileDisplacement(displacement);
+			System.out.println("setProjectileSpeed" + displacement);
+			ProtoGodObject.getInstance().setProjectileSpeed(displacement);
 			return false;
 		}
 		
 	}
 	
-	public static class ProtoSetPlayerDisplacement implements IProtoCommand {
+	public static class ProtoSetPlayerSpeed implements IProtoCommand {
 
 		@Override
 		public boolean Execute(Scanner in) {
 			double displacement = in.nextDouble();
-			System.out.println("setPlayerDisplacement " + displacement);
-			ProtoGodObject.getInstance().setPlayerDisplacement(displacement);
+			System.out.println("setPlayerSpeed " + displacement);
+			ProtoGodObject.getInstance().setPlayerSpeed(displacement);
 			return false;
 		}
 		
@@ -702,6 +702,8 @@ public class ProtoGodObject {
 			commands.put("listPlayers", new ProtoGodObject.ProtoListPlayers());
 			commands.put("shoot", new ProtoGodObject.ProtoShoot()); //TODO
 			commands.put("setCursor", new ProtoGodObject.ProtoSetCursor()); //TODO
+			commands.put("setProjectileSpeed",new ProtoSetProjectileSpeed());
+			commands.put("setPlayerSpeed",new ProtoSetPlayerSpeed());
 			
 			//setCursor, shoot,
 

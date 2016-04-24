@@ -737,18 +737,4 @@ public class ProtoGodObject {
 		gameLoop = new GameLoop(world);
 	}
 
-	loadMap testMaps/testMap6-ZPM_felvetel
-	listWalls
-	listPlayers
-	setPlayerSpeed oneill 10
-	listZpms
-	move oneill 0 1 0 0
-	run 1
-	move oneill 0 0 0 1
-	run 1
-	listZpms
-	listPlayers
-	
-
-
 }

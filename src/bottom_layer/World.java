@@ -128,12 +128,13 @@ public class World {
 	 */
 	public void step() {
 		
-		for(int i=0; i<objects.size(); i++) {
-			if (objects.get(i).isRemovable()) {
+		for  (int i=0;i<objects.size();i++) {
+			if (objects.get(i).isRemovable())
 				objects.remove(i);
-			} else {
+		}
+		
+		for(int i=0; i<objects.size(); i++) {
 				objects.get(i).step();
-			}
 		}
 	}	
 	

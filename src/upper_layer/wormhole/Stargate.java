@@ -43,6 +43,11 @@ public class Stargate implements IStargate{
 		this.wormHole = wormHole;
 	}
 	
+	@Override 
+	public ISpecWall getMasked() {
+		return masked;
+	}
+	
 	@Override
 	public void visit(ISpecWall wall) {
 		/*

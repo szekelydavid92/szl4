@@ -10,4 +10,11 @@ public interface IStargate extends IVisitor, ICollisionObserver {
 	 * @return void
 	 */
 	public void mask(ISpecWall wall);
+	
+	/**
+	 * Ez a fuggveny azt a specialis falat, amelyre az IStargate ki van love.
+	 * @param 
+	 * @return ISpecWall
+	 */
+	public ISpecWall getMasked();
 }

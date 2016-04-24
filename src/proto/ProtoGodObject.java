@@ -267,29 +267,59 @@ public class ProtoGodObject {
 	}
 	
 	public void setCursor(String ply, double x, double y) {
-		
-		
+		if (ply.equals("oneill")) {
+				oneillController.lookAt(x, y);
+				}
+		else if (ply.equals("jaffa")) {
+					jaffaController.lookAt(x,y);
+				}
+		else {
+				System.out.println("Hibás input! Kérjük a player neve legyen oneill " +
+									 "vagy jaffa!");
+				}
 		return;
 	}
-
-
-	public void listWormhole(String nev) {
-		// TODO Auto-generated method stub
-		//TODO
-		System.out.println("Wormholes listing...");
-		System.out.println("");
-
-		return;	
+	// seglfuggveny a list wormholes-hoz 
+	public void printWormhole(String player) {
+		if (player.equals("oneill") || player.equals("jaffa")) {
+			Stargate yellowGate=wormholes.get(player).yellowGate;
+			Stargate blueGate=wormholes.get(player).blueGate;
+			IWorldObject yellowGateWorldObject= ((SpecWall)(yellowGate.getMasked())).getWorldObject();
+			IWorldObject blueGateWorldObject = ((SpecWall)(blueGate.getMasked())).getWorldObject();	
+		
+			System.out.println("Beregisztrált " + wormholes.get("oneill").yellowGate.colour + 
+							   "  csillagkapu pozíciója: [ " +
+							      "," +  yellowGateWorldObject.getPosX() +
+							      "," +  yellowGateWorldObject.getPosY() + "]" );
+			System.out.println("Beregisztrált " + wormholes.get("oneill").blueGate.colour + 
+					   "  csillagkapu pozíciója: [ " +
+					      "," +  blueGateWorldObject.getPosX() +
+					      "," +  blueGateWorldObject.getPosY() + "]" );
+		}
+	
+	}
+	public void listWormholes(String player) {
+		if (player.equals("oneill") || player.equals("jaffa")) {
+			printWormhole(player);
+		}
+		else  {
+			printWormhole("oneill");
+			printWormhole("jaffa");
+		}
 	}
 	
 	public void shoot(String player, boolean proj1, boolean proj2) {
 		if (player.equals("oneill")) {
-			if(proj1 && !proj2){this.oneillController.shootBlue(proj1);}
-			else if(!proj1 && proj2){this.oneillController.shootYellow(proj2);}
+			this.oneillController.shootYellow(proj1);
+			this.oneillController.shootBlue(proj2);
 		}
 		else if (player.equals("jaffa")) {
-			if(proj1 && !proj2){this.jaffaController.shootBlue(proj1);}
-			else if(!proj1 && proj2){this.jaffaController.shootYellow(proj2);}
+			this.oneillController.shootYellow(proj1);
+			this.oneillController.shootBlue(proj2);	
+		}
+		else {
+			System.out.println("Hibas bemenet a shoot parancsnal! " +
+							   "Kerjuk adj meg oneill/jaffa player parametert!");
 		}
 		return;	
 	}
@@ -325,6 +355,7 @@ public class ProtoGodObject {
 					isDead = "igen";
 				}
 				System.out.println("Halott-e: " + isDead);
+				System.out.println("");
 			}
 		} else {
 			Player p = players.get(player);
@@ -473,7 +504,7 @@ public class ProtoGodObject {
 		ProtoListZPM() {}
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listStargates");
+			System.out.println("listZPMs");
 			ProtoGodObject.getInstance().listZpms();
 			return true;
 		}
@@ -482,10 +513,11 @@ public class ProtoGodObject {
 	public static class ProtoListWormHoles implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			
-			String player = in.next();
-			
-			ProtoGodObject.getInstance().listWormhole(player);
+			String player = null;
+			if (in.hasNext()) {
+				player=in.next();
+			}
+			ProtoGodObject.getInstance().listWormholes(player);
 			System.out.println("listWormholes");
 			return true;
 			}

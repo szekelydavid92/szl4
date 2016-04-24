@@ -17,4 +17,6 @@ public interface ISpecWall extends /*ICollisionObserver,*/ IVisitable {
 	 * @return void
 	 */
 	public void restore();
+	
+	
 }

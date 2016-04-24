@@ -31,16 +31,22 @@ class CommandInterpreter {
 		
 		while(isRunning) {
 			//Input
-			String Szercsylavcsy = null;
+			String command = null;
 			if(in.hasNext()) {
-				Szercsylavcsy = in.next(); //miafasz?
+				command = in.next(); //miafasz?
 			} else {
 				isRunning = false;
 				break;
 			}
 			
+			try {
 			//Logic
-			Logic(Szercsylavcsy);
+				Logic(command);
+			
+			} catch (Exception e) {
+				System.out.println("Hiba történt !");
+				System.out.println("Hibakód: " + e.getMessage());
+			}
 		}
 		//System.out.print("Exiting\n");
 		

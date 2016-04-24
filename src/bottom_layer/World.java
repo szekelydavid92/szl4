@@ -130,8 +130,9 @@ public class World {
 		for(int i=0; i<objects.size(); i++) {
 			if (objects.get(i).isRemovable()) {
 				objects.remove(i);
+			} else {
+				objects.get(i).step();
 			}
-			objects.get(i).step();		
 		}
 	}	
 	

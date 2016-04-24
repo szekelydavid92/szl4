@@ -36,6 +36,7 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 */
 	public void kill() {
 		isAlive = false;
+		worldObject.markRemovable();
 	}
 	
 	@Override

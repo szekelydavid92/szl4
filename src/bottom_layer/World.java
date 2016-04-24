@@ -127,11 +127,13 @@ public class World {
 	 * @return void
 	 */
 	public void step() {
+		
 		for(int i=0; i<objects.size(); i++) {
+			objects.get(i).step();	
+			
 			if (objects.get(i).isRemovable()) {
 				objects.remove(i);
 			}
-			objects.get(i).step();		
 		}
 	}	
 	

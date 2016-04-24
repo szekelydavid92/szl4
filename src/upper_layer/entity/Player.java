@@ -316,6 +316,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * Ezzel lehet megolni a jatekost.
 	 * @return void
 	 */
+	@Override
 	public void kill() {
 		
 		Depth.getInstance().printTabs();
@@ -327,6 +328,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		}
 		
 		carriedObject=null;
+		super.kill();
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

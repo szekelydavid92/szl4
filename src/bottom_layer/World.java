@@ -5,6 +5,7 @@ import java.util.List;
 
 import common.Direction;
 import common.IWorldObjectFactory;
+import upper_layer.Utility;
 
 /**
  * @brief Ez az az osztaly reprezentalja a virtualis vilagot. Tartalmaz egy WorldObject tombot.
@@ -111,7 +112,7 @@ public class World {
 					temp2.push(temp1, tmp2_dx, tmp2_dy);
 					
 					temp1.setDirection(direction);
-					temp2.setDirection(getPair(direction));
+					temp2.setDirection(Utility.getPair(direction));
 					
 					temp1.notify(temp2);
 					temp2.notify(temp1);

@@ -267,11 +267,11 @@ public class ProtoGodObject {
 			System.out.println("Hozzatartozo ajto pozi­cioja: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			System.out.print("Merleg ajtonyito siulykorlat: " + s.getMassThreshold());
 			String state="felengedve";
-			if(s.getMassThreshold() <= s.getAccumulatedMass()) {
+			if(s.isPushed) {
 				state="lenyomva";
 			}
 			System.out.println("Merleg allapota: " + state);
-			System.out.println("Merlegen levo aktualis siulyok osszege: " + s.getAccumulatedMass());
+			System.out.println("Merlegen levo aktualis siulyok osszege: " + s.massToPrint);
 			System.out.println("Merlegen levo dobozok szama: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		}
 		System.out.println("");
@@ -368,7 +368,7 @@ public class ProtoGodObject {
 			IWorldObject o = d.getWorldObject();
 			System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
 			System.out.println("Ajto szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
-			if (d.isClosed()) {
+			if (!(d.isOpenToPrint)) {
 				System.out.println("Az ajto allapota: zart");
 			}
 			else {

@@ -12,6 +12,7 @@ import proto.Depth;
 public class Door extends ColEntity implements IDoor {
 	
 	private boolean isOpen = false;
+	public boolean isOpenToPrint = false; // csak kiirashoz 
 	
 	public String name; //O kell az objektum nevenek a kiprintelesehez!
 	
@@ -55,7 +56,7 @@ public class Door extends ColEntity implements IDoor {
 		System.out.println(name + ".step()");
 		Depth.getInstance().enterFunction();
 		
-		
+		this.isOpenToPrint=this.isOpen;
 		if (isOpen ==true) {
 			worldObject.setCollisionResponse(CollisionResponse.PASS);
 		}

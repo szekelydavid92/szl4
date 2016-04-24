@@ -29,7 +29,8 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 	public IDoor door = null; 		//Ez az ajtó, akit ő kinyit, ha lenyomják.
 	double accumulatedMass = 0; 	//Ez a rá nehezedő összes súly.
 	double massThreshold; 			//ha a rá nehezedő súly nagyobb ennél, akkor a mérleg kinyitja az ajtót.
-	
+	public boolean isPushed;
+	public double massToPrint; // majd toroljuk , kiirashoz kell
 	/*
 	 * Metodusok
 	 */
@@ -109,6 +110,13 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 
 	@Override
 	public void step() {
+		this.massToPrint=this.accumulatedMass;
+		if (this.accumulatedMass >= this.massThreshold) {
+			isPushed=true;
+		}
+		else {
+			isPushed=false;
+		}
 		this.accumulatedMass = 0.0;
 	}
 

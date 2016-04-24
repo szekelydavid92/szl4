@@ -20,8 +20,8 @@ public class ProjectileFactory implements IProjectileFactory {
 	private IWorldObjectFactory worldObjectFactory;
 	private WormHole wormHole;
 	
-	private static final double PROJECTILE_SIZE = 12.0;
-	private static final double PROJECTILE_SPEED = 10.0;
+	private static final double PROJECTILE_SIZE = 10.0;
+	public static double PROJECTILE_SPEED = 10.0;
 	
 	/*
 	 * Metodusok

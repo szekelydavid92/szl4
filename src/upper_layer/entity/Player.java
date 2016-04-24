@@ -45,7 +45,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	double dirY = 0.0;  					//a kilövendő lövedék irányának Y komponense
 	boolean shootingYellow = false; 			//ha a játékos sárga lövedéket lő, false egyébként.
 	boolean shootingBlue = false;  			//ha a játékos kék lövedéket lő, false egyébként.
-	protected double displacement = 1;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
+	public static double displacement = 1;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
 	public IProjectileFactory projFactory;
 	ZPMObserver zpmObserver = null;
 	

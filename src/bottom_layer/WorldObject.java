@@ -139,6 +139,7 @@ public class WorldObject implements IWorldObject {
 	 * Itt eltertunk a specifikaciotol, ez a fuggveny nincs benne eredetileg.
 	 */
 	
+	//TODO kommentelni kéne
 	public void push(WorldObject other,double dx, double dy) {
 		if(colResp == CollisionResponse.IMMOVABLE) {
 			return;
@@ -184,7 +185,14 @@ public class WorldObject implements IWorldObject {
 		double oY = o.getPosY();
 		double oWidth = o.getWidth();
 		double oHeight = o.getHeight();
-
+		
+		/*
+		 * Leellenorizzuk, hogy az egyik test a masik test alatt van-e,
+		 * felette van-e, tole jobbra van-e vagy tole balra van-e.
+		 * 
+		 * Ha valamelyik teljesul, akkor nem utkoznek, egyebkent igen.
+		 */
+		
 		if((posX+width) < oX){
 			return false;
 		}
@@ -267,6 +275,7 @@ public class WorldObject implements IWorldObject {
 		this.observer=observer;
 	}
 	
+	//TODO kommentelni kene
 	public void setVisitable(IVisitable visitable) {
 		this.visitable=visitable;
 	}
@@ -297,11 +306,12 @@ public class WorldObject implements IWorldObject {
 		return visitable;
 	}
 	
+	//TODO kommentelni kene
 	boolean isRemovable() {
 		return removable;
 	}
 	
-	@Override
+	//@Override
 	public void setDirection(Direction direction) {
 		if(this.observer != null) {
 			this.observer.setDirection(direction);
@@ -314,7 +324,7 @@ public class WorldObject implements IWorldObject {
 	}
 
 	@Override
-	public Object getCollisionResponse() {
+	public CollisionResponse getCollisionResponse() {
 		return colResp;
 	}
 

@@ -147,6 +147,9 @@ public interface IWorldObject {
 
 	//TODO kommentelni kéne
 	public void markRemovable();
+
+
+	public Object getCollisionResponse();
 	
 	
 }

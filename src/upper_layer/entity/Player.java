@@ -279,7 +279,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	public void shootYellow(boolean shootingYellow) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".shootYellow(true)\n");
+		System.out.print(name + ".shootYellow()\n");
 		Depth.getInstance().enterFunction();
 		
 		this.shootingYellow = shootingYellow;
@@ -300,7 +300,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	public void shootBlue(boolean shootingBlue) {
 		
 		Depth.getInstance().printTabs();
-		System.out.print(name + ".shootBlue(true)\n");
+		System.out.print(name + ".shootBlue()\n");
 		Depth.getInstance().enterFunction();
 				
 		this.shootingBlue = shootingBlue;
@@ -427,10 +427,10 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	// Csunya, es majd at kell gondolni: 
 	//A setDirection az ICollisionObservertol,
 	//a getDirection pedig az ITeleportable interfacetol szarmazik...
-	@Override
+	/*@Override
 	public Direction getDirection() {
 		return direction;
-	}
+	}*/
 	
 	@Override
 	public void visit(ICarriable carriable) {

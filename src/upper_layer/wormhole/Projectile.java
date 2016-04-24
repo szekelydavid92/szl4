@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import common.CollisionResponse;
 import common.Colour;
 import common.Direction;
 import common.ICarriable;
@@ -20,6 +21,7 @@ import common.IWorldObject;
 import common.IZPM;
 import proto.Depth;
 import proto.ProtoMain;
+import upper_layer.Utility;
 
 /**
  * Lovedek. Amennyiben SpecWall-al utkozik, ott nyit egy WormHole-t.
@@ -35,6 +37,9 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 	private WormHole wormHole;
 	private Direction direction;
 	
+	boolean active = true;
+	IWorldObject worldObject;
+	
 	/*
 	 * Metodusok
 	 */
@@ -42,8 +47,9 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 	/**
 	 * @brief Konstruktor
 	 */
-	public Projectile(Colour colour,WormHole wormHole)
+	public Projectile(IWorldObject worldObject,Colour colour,WormHole wormHole)
 	{
+		this.worldObject = worldObject;
 		this.colour = colour;
 		this.wormHole = wormHole;
 	}
@@ -68,13 +74,16 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		
 		//line = ProtoMain.in.next();
 		
-		if(colour == Colour.YELLOW) {
-			wormHole.setYellow(wall);
-			wormHole.setYellowGateDirection(direction);
-		}
-		if(colour == Colour.BLUE) {
-			wormHole.setBlue(wall);
-			wormHole.setBlueGateDirection(direction);
+		if(active) {
+			if(colour == Colour.YELLOW) {
+				wormHole.setYellow(wall,Utility.getPair(direction));
+				//wormHole.setYellowGateDirection(direction);
+			}
+			if(colour == Colour.BLUE) {
+				wormHole.setBlue(wall,Utility.getPair(direction));
+				//wormHole.setBlueGateDirection(direction);
+			}
+			active = false;
 		}
 		
 		Depth.getInstance().returnFromFunction();
@@ -144,6 +153,10 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		IVisitable visitable = obj.getVisitable();
 		if(visitable != null) {
 			visitable.accept(this);
+		}
+		
+		if(obj.getCollisionResponse() != CollisionResponse.PASS) {
+			worldObject.markRemovable();
 		}
 		
 		Depth.getInstance().returnFromFunction();

@@ -18,8 +18,15 @@ public class WormHole {
 	 */
 	public Stargate blueGate = new Stargate(Colour.BLUE,this);
 	public Stargate yellowGate = new Stargate(Colour.YELLOW,this);
-	private Direction blueGateDirection;
-	private Direction yellowGateDirection;
+	//private Direction blueGateDirection;
+	//private Direction yellowGateDirection;
+	
+	private double yellowX = 0.0;
+	private double yellowY = 0.0;
+
+	private double blueX = 0.0;
+	private double blueY = 0.0;
+	
 	/*
 	 * Metodusok
 	 */
@@ -48,14 +55,14 @@ public class WormHole {
 	 * @param wall a specialis fal, amin kaput nyitunk.
 	 * @return void
 	 */
-	public void setBlue(ISpecWall wall) {
+	public void setBlue(ISpecWall wall,Direction direction) {
 		
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".setBlue()\n");
 		Depth.getInstance().enterFunction();
 		
 		blueGate.mask(wall);
-		blueGate.setDirection(blueGateDirection);
+		blueGate.setTeleportDirection(direction);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -63,27 +70,27 @@ public class WormHole {
 		
 	}
 	
-	public void setBlueGateDirection(Direction dir) {
+	/*public void setBlueGateDirection(Direction dir) {
 		blueGateDirection=dir;
 	}
 	
 	public void setYellowGateDirection(Direction dir) {
 		yellowGateDirection=dir;
-	}
+	}*/
 	/**
 	 * @brief Kinyitja a sarga kaput egy specialis falon.
 	 * 
 	 * @param wall a specialis fal, amin kaput nyitunk.
 	 * @return void
 	 */
-	public void setYellow(ISpecWall wall) {
+	public void setYellow(ISpecWall wall,Direction direction) {
 
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".setYellow()\n");
 		Depth.getInstance().enterFunction();
 		
 		yellowGate.mask(wall);
-		yellowGate.setDirection(yellowGateDirection);
+		yellowGate.setTeleportDirection(direction);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -103,7 +110,7 @@ public class WormHole {
 		System.out.print(name + ".teleportToYellow()\n");
 		Depth.getInstance().enterFunction();
 		
-		double yellowX=0.0,yellowY=0.0;
+		//double yellowX=0.0,yellowY=0.0;
 		teleportable.teleport(yellowX,yellowY);
 				
 		Depth.getInstance().returnFromFunction();
@@ -124,7 +131,7 @@ public class WormHole {
 		System.out.print(name + ".teleportToBlue()\n");
 		Depth.getInstance().enterFunction();
 
-		double blueX=0.0,blueY=0.0;
+		//double blueX=0.0,blueY=0.0;
 		teleportable.teleport(blueX,blueY);
 		
 		Depth.getInstance().returnFromFunction();

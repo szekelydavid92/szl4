@@ -313,4 +313,9 @@ public class WorldObject implements IWorldObject {
 		removable = true;
 	}
 
+	@Override
+	public Object getCollisionResponse() {
+		return colResp;
+	}
+
 }

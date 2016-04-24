@@ -13,5 +13,5 @@ public interface ITeleportable extends IVisitable {
 	public void teleport(double x, double y);
 	
 	//atgondolando a kessobbiekben
-	public Direction getDirection();
+	//public Direction getDirection();
 }

@@ -34,6 +34,7 @@ public class Stargate implements IStargate{
 	
 	private ISpecWall masked = null;
 	private Direction direction;
+	private Direction teleportDirection;
 	
 	/*
 	 * Metodusok
@@ -107,12 +108,14 @@ public class Stargate implements IStargate{
 		Depth.getInstance().enterFunction();
 		
 		if(colour == Colour.BLUE) {
-			if (teleportable.getDirection() == Utility.getPair(this.direction)) {
+			//if (teleportable.getDirection() == Utility.getPair(this.teleportDirection)) {
+			if (direction == this.teleportDirection) {
 				wormHole.teleportToYellow(teleportable);
 			}	
 		}
 		if(colour == Colour.YELLOW) {
-			if (teleportable.getDirection() == Utility.getPair(this.direction)) {
+			//if (teleportable.getDirection() == Utility.getPair(this.teleportDirection)) {
+			if (direction == this.teleportDirection) {
 				wormHole.teleportToBlue(teleportable);
 			}
 		}
@@ -131,8 +134,9 @@ public class Stargate implements IStargate{
 		Depth.getInstance().enterFunction();
 		
 		//!!!!!!!!!!!!!!!!!!!!!!lorant
-		if(masked != null)
+		if(masked != null) {
 			masked.restore();
+		}
 		
 		masked = wall;
 		wall.replace(this);
@@ -153,7 +157,7 @@ public class Stargate implements IStargate{
 		IVisitable visitable = obj.getVisitable();
 		
 		if(visitable != null) {
-			visitable.accept((IVisitor)this);
+			visitable.accept(this);
 		}
 		
 		Depth.getInstance().returnFromFunction();
@@ -172,5 +176,8 @@ public class Stargate implements IStargate{
 		direction=dir;
 		
 	}
-	
+
+	public void setTeleportDirection(Direction teleportDirection) {
+		this.teleportDirection=teleportDirection;
+	}
 }

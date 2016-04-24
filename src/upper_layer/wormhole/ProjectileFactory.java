@@ -56,7 +56,7 @@ public class ProjectileFactory implements IProjectileFactory {
 		worldObject.setDisplacementX(PROJECTILE_SPEED*normalizedProjectileDirX);
 		worldObject.setDisplacementY(PROJECTILE_SPEED*normalizedProjectileDirY);
 		
-		Projectile projectile = new Projectile(colour,wormHole);
+		Projectile projectile = new Projectile(worldObject,colour,wormHole);
 		worldObject.setCollisionObserver(projectile);
 		worldObject.setVisitable(projectile);
 		

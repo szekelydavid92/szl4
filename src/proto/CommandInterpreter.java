@@ -45,7 +45,8 @@ class CommandInterpreter {
 			
 			} catch (Exception e) {
 				System.out.println("Hiba történt !");
-				System.out.println("Hibakód: " + e.getMessage());
+				System.out.println("Hibakód:" + e.getStackTrace());
+				e.printStackTrace();
 			}
 		}
 		//System.out.print("Exiting\n");

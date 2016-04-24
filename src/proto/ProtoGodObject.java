@@ -156,7 +156,7 @@ public class ProtoGodObject {
 	private void listProjectiles() {
 		VisitableWriter visitableWriter=new VisitableWriter();
 		visitableWriter.visiting=VisitableType.projectile;
-		for (WorldObject o : world.objects) {
+		for (WorldObject o : world.getAllWorldObject()) {
 			IVisitable projectiles=o.getVisitable();
 			if (projectiles != null) {
 				projectiles.accept(visitableWriter);
@@ -183,7 +183,7 @@ public class ProtoGodObject {
 	private void listZpms() {
 		VisitableWriter visitableWriter= new VisitableWriter();
 		visitableWriter.visiting=VisitableType.zpm;
-		for (WorldObject o : world.objects) {
+		for (WorldObject o : world.getAllWorldObject()) {
 			IVisitable zpm= o.getVisitable();
 			if (zpm != null) {
 				zpm.accept(visitableWriter);

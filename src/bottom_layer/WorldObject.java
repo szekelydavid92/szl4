@@ -1,6 +1,7 @@
 package bottom_layer;
 
 import common.CollisionResponse;
+import common.Direction;
 import common.ICollisionObserver;
 import common.IVisitable;
 import common.IWorldObject;
@@ -298,6 +299,11 @@ public class WorldObject implements IWorldObject {
 	
 	boolean isRemovable() {
 		return removable;
+	}
+	
+	@Override
+	public void setDirection(Direction direction) {
+		
 	}
 	
 	@Override

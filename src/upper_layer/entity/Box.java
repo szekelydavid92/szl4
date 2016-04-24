@@ -1,6 +1,7 @@
 package upper_layer.entity;
 
 import common.CollisionResponse;
+import common.Direction;
 import common.ICarriable;
 import common.ICarrier;
 import common.IKillable;
@@ -174,6 +175,12 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".step()");
+		
+	}
+
+	@Override
+	public void setDirection(Direction direction) {
+		// TODO Auto-generated method stub
 		
 	}
 	

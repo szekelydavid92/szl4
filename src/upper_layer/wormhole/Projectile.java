@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import common.Colour;
+import common.Direction;
 import common.ICarriable;
 import common.IChasm;
 import common.ICollisionObserver;
@@ -150,6 +151,12 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 
 	@Override
 	public void visit(IChasm chasm) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setDirection(Direction direction) {
 		// TODO Auto-generated method stub
 		
 	}

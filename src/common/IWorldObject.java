@@ -140,6 +140,8 @@ public interface IWorldObject {
 	 */
 	public IVisitable getVisitable();
 	
+	public void setDirection(Direction direction) ;
+	
 	//TODO: kommentelni kéne
 	public void setVisitable(IVisitable visitable);
 

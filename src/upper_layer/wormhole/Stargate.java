@@ -1,6 +1,7 @@
 package upper_layer.wormhole;
 
 import common.Colour;
+import common.Direction;
 import common.ICarriable;
 import common.IChasm;
 import common.ICollisionObserver;
@@ -155,6 +156,12 @@ public class Stargate implements IStargate{
 
 	@Override
 	public void visit(IChasm chasm) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setDirection(Direction direction) {
 		// TODO Auto-generated method stub
 		
 	}

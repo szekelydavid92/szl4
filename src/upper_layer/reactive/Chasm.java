@@ -3,6 +3,7 @@ package upper_layer.reactive;
 import java.util.LinkedList;
 import java.util.List;
 
+import common.Direction;
 import common.ICarriable;
 import common.IChasm;
 import common.ICollisionObserver;
@@ -188,5 +189,11 @@ public class Chasm implements ICollisionObserver, IVisitor, IVisitable, IChasm {
 		/*
 		 * Nem torodunk az esettel.
 		 */
+	}
+
+	@Override
+	public void setDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		
 	}
 }

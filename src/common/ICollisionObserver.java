@@ -11,4 +11,6 @@ public interface ICollisionObserver {
 	 * @return void
 	 */
 	public void notify(IWorldObject obj);
+	
+	public void setDirection(Direction direction);
 }

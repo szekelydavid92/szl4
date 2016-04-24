@@ -1,5 +1,6 @@
 package upper_layer.entity;
 
+import common.Direction;
 import common.ICarriable;
 import common.IChasm;
 import common.ICollisionObserver;
@@ -35,6 +36,11 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 */
 	public void kill() {
 		isAlive = false;
+	}
+	
+	@Override
+	public void setDirection(Direction direction) {
+		
 	}
 	
 	@Override

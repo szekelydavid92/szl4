@@ -17,6 +17,7 @@ import common.ICarriable;
 import common.IChasm;
 import common.IKillable;
 import common.IProjectile;
+import common.IReplicator;
 import common.IScale;
 import common.ISpecWall;
 import common.ITeleportable;
@@ -75,6 +76,10 @@ public class ProtoGodObject {
 		}
 		
 		public void visit(ICarriable carriable) {
+			
+		}
+		
+		public void visit(IReplicator replikator) {
 			
 		}
 

@@ -239,10 +239,20 @@ public class ProtoGodObject {
 	
 	private void listChasms(){
 		//TODO
+		VisitableWriter visitableWriter= new VisitableWriter();
+		visitableWriter.visiting=VisitableType.chasm;
+		for (WorldObject o : world.getAllWorldObject()) {
+			IVisitable chasm= o.getVisitable();
+			if (chasm != null) {
+				chasm.accept(visitableWriter);
+			}
+		}
+		System.out.println(" ");
+		/*System.out.println("");
 		System.out.println("Test Chams [1] ...");
 		System.out.println("Test Chams [2] ...");
 		System.out.println("Test Chams [3] ...");
-		System.out.println("");
+		System.out.println("");*/
 		return;
 	}
 	

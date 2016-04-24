@@ -28,7 +28,7 @@ public class Replicator extends Player implements IReplicator {
 	
 	@Override
 	public void accept(IVisitor visitor) {
-		
+		visitor.visit((IReplicator) this);
 	}
 
 	@Override

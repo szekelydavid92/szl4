@@ -116,7 +116,7 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 	
 	@Override
 	public void visit(IReplicator replikator) {
-		replikator.projectileKill();
+		replikator.projectileKill(); 
 	}
 	
 	@Override

@@ -59,6 +59,16 @@ public class ProtoGodObject {
 			}
 		}
 		
+		public void visit(IChasm chasm) {
+			List<IWorldObject> chasms =((Chasm)chasm).getChasms();
+			for ( IWorldObject o : chasms) {
+				System.out.println("");
+				System.out.println("Szakadék pozíciója:" + o.getPosX() + " " + o.getPosY());
+				System.out.println("Szakadék szélessége:" + o.getWidth() + ", Magassaga: " + o.getHeight());
+			}
+			
+		}
+		
 		public void visit(ISpecWall specWall) {
 			
 		}
@@ -88,10 +98,6 @@ public class ProtoGodObject {
 				System.out.println("Lovedek szine: " + projectile.getColour() );
 			}
 			justVisitedProjectile=true;
-		}
-		@Override
-		public void visit(IChasm chasm) {
-			// TODO Auto-generated method stub
 		}
 	}
 	
@@ -241,18 +247,15 @@ public class ProtoGodObject {
 		//TODO
 		VisitableWriter visitableWriter= new VisitableWriter();
 		visitableWriter.visiting=VisitableType.chasm;
+		boolean foundChasmWorldObject = false;
 		for (WorldObject o : world.getAllWorldObject()) {
 			IVisitable chasm= o.getVisitable();
-			if (chasm != null) {
+			if (chasm != null && foundChasmWorldObject == false) {
 				chasm.accept(visitableWriter);
+				foundChasmWorldObject = true;
 			}
 		}
 		System.out.println(" ");
-		/*System.out.println("");
-		System.out.println("Test Chams [1] ...");
-		System.out.println("Test Chams [2] ...");
-		System.out.println("Test Chams [3] ...");
-		System.out.println("");*/
 		return;
 	}
 	

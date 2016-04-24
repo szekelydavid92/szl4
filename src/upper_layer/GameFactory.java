@@ -108,6 +108,8 @@ public class GameFactory {
 				gameLoop.addEntity(player);
 				
 				if(name.equals("oneill")) {
+					player.registerZPMObserver(zpmObserver);
+					
 					ProtoGodObject.getInstance().oneillController.setPlayer(player);
 				}
 				if(name.equals("jaffa")) {

@@ -68,7 +68,6 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().enterFunction();
 		
 		carrier=c;
-		worldObject.setCollisionResponse(CollisionResponse.PASS);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -106,8 +105,9 @@ public class Box extends Killable implements ICarriable {
 		System.out.println(name + ".kill()");
 		Depth.getInstance().enterFunction();
 		
-		if (carrier != null)
+		if (carrier != null) {
 			carrier.forcedRelease();
+		}
 		
 		carrier=null;
 		

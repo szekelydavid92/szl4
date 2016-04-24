@@ -52,10 +52,20 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	ZPMObserver zpmObserver = null;
 	
 	/*
+	 * Itt eltértünk a specifikációtól.
+	 */
+	
+	boolean justPicked = false;
+	
+	/*
 	 * Metodusok
 	 */
 	public Player(double mass, IWorldObject playerObject) {
 		super(playerObject,mass);
+	}
+	
+	public void registerZPMObserver(ZPMObserver zpmObserver) {
+		this.zpmObserver = zpmObserver;
 	}
 	
 	public double getDirX() {
@@ -376,28 +386,26 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	public void carryBox() {
+		Depth.getInstance().enterFunction();
+		Depth.getInstance().printTabs();
+		System.out.println(name + ".carryBox()");
+		
 		if(carriedObject != null) {
-			Depth.getInstance().printTabs();
-			System.out.println("Kerem, adja meg, hogy el kivanja-e dobni a dobozt vagy sem. [i/n]");
-			
-			proto.ProtoMain.line = proto.ProtoMain.in.next();
-			
-			
-			if(proto.ProtoMain.line.equals("i")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
-				Depth.getInstance().printTabs();
-				System.out.println("Kerem, adja meg, hogy van-e hely a doboznak! [i/n]");	
-				
-				proto.ProtoMain.line = proto.ProtoMain.in.next();
-				
-				if (proto.ProtoMain.line.equals("i"))
+			if(justPicked) {
+				justPicked = false;
+			} else {
+				if(pick) {
 					carriedObject.release();
+					carriedObject = null;
+				} else {
+					carriedObject.setPos(worldObject.getPosX(),worldObject.getPosY());
+				}
 			}
-			
-			if(proto.ProtoMain.line.equals("n")) { /*Sztringeket a .equals()-szal komparalunk. :P*/
-				carriedObject.setPos(12, 12);
-			}
-			
 		}
+
+		Depth.getInstance().printTabs();
+		System.out.println("ret " + name + ".carryBox()");
+		Depth.getInstance().returnFromFunction();
 	}
 	
 	
@@ -439,8 +447,11 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
-		carriable.regCarrier(this);
-		carriedObject=carriable;
+		if(pick && (carriedObject == null)) {
+			carriable.regCarrier(this);
+			carriedObject=carriable;
+			justPicked = true;
+		}
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -462,7 +473,9 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		if (!zpm.isPicked()) {
 			zpm.pickUp();
 			zpmNumber++;
-			zpmObserver.notifyPickUp();
+			if(zpmObserver != null) {
+				zpmObserver.notifyPickUp();
+			}
 		}
 		
 		/*

@@ -16,7 +16,8 @@ public class Replicator extends Player implements IReplicator {
 	}
 	
 	public void projectileKill() {
-		isAlive = false;
+		kill();
+		
 	}
 	
 	public void visit(IChasm chasm) {

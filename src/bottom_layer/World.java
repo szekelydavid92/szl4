@@ -25,6 +25,25 @@ public class World {
 		return worldObjectFactory;
 	}
 	
+	/*
+	 * Ez randa, ez a fuggveny nem ide tartozik, de csak itt hasznaljuk
+	 * Lehet, hogy ki kene vagni valami utility classba.
+	 */
+	public static Direction getPair(Direction direction) {
+		switch(direction) {
+		case UP:
+			return Direction.DOWN;
+		case DOWN:
+			return Direction.UP;
+		case LEFT:
+			return Direction.RIGHT;
+		case RIGHT:
+			return Direction.LEFT;
+		}
+		
+		return Direction.UP;
+	}
+	
 	/**
 	 * @brief Utkozes ellenorzes.
 	 * 
@@ -90,6 +109,9 @@ public class World {
 					
 					temp1.push(temp2, tmp1_dx, tmp1_dy);
 					temp2.push(temp1, tmp2_dx, tmp2_dy);
+					
+					temp1.setDirection(direction);
+					temp2.setDirection(getPair(direction));
 					
 					temp1.notify(temp2);
 					temp2.notify(temp1);

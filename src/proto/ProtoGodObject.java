@@ -708,7 +708,7 @@ public class ProtoGodObject {
 			commands.put("pickUp", new ProtoGodObject.ProtoPickUp());
 			commands.put("listWalls", new ProtoGodObject.ProtoListWalls());
 			commands.put("listProjectiles",new ProtoGodObject.ProtoListProjectiles());
-			commands.put("listZPM",new ProtoGodObject.ProtoListZPM());
+			commands.put("listZpms",new ProtoGodObject.ProtoListZPM());
 			commands.put("listStargates",new ProtoGodObject.ProtoListStargates());
 			commands.put("listWormHoles",new ProtoGodObject.ProtoListWormHoles());
 			commands.put("listCollisions",new ProtoGodObject.ProtoListCollosions());
@@ -736,6 +736,19 @@ public class ProtoGodObject {
 		world = new World();
 		gameLoop = new GameLoop(world);
 	}
+
+	loadMap testMaps/testMap6-ZPM_felvetel
+	listWalls
+	listPlayers
+	setPlayerSpeed oneill 10
+	listZpms
+	move oneill 0 1 0 0
+	run 1
+	move oneill 0 0 0 1
+	run 1
+	listZpms
+	listPlayers
+	
 
 
 }

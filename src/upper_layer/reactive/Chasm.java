@@ -9,6 +9,7 @@ import common.IChasm;
 import common.ICollisionObserver;
 import common.IKillable;
 import common.IProjectile;
+import common.IReplicator;
 import common.IScale;
 import common.ISpecWall;
 import common.ITeleportable;
@@ -194,6 +195,11 @@ public class Chasm implements ICollisionObserver, IVisitor, IVisitable, IChasm {
 	@Override
 	public void setDirection(Direction direction) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override 
+	public void visit(IReplicator replikator) {
 		
 	}
 }

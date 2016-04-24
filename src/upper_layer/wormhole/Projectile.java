@@ -12,6 +12,7 @@ import common.IChasm;
 import common.ICollisionObserver;
 import common.IKillable;
 import common.IProjectile;
+import common.IReplicator;
 import common.IScale;
 import common.ISpecWall;
 import common.ITeleportable;
@@ -113,8 +114,9 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		 */
 	}
 	
-	public void visit(Replicator replikator) {
-		replikator.kill();
+	@Override
+	public void visit(IReplicator replikator) {
+		replikator.projectileKill();
 	}
 	
 	@Override

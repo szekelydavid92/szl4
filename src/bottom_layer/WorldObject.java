@@ -134,6 +134,21 @@ public class WorldObject implements IWorldObject {
 		displacementY += dy;
 	}
 	
+	/*
+	 * Itt eltertunk a specifikaciotol, ez a fuggveny nincs benne eredetileg.
+	 */
+	
+	public void push(WorldObject other,double dx, double dy) {
+		if(colResp == CollisionResponse.IMMOVABLE) {
+			return;
+		}
+		else if(other.colResp == CollisionResponse.PASS || colResp == CollisionResponse.PASS) {
+			return;
+		}
+		
+		displacementX += dx;
+		displacementY += dy;
+	}
 	
 	/**
 	 * @brief A vilagbeli objektum X tengely menti poziciojat adja vissza eredmenyul.

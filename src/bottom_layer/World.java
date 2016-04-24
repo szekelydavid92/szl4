@@ -50,12 +50,12 @@ public class World {
 					
 					double [] dist = new double[4];
 					dist[distUp]	= Math.abs(temp1.getPosY() - (temp2.getPosY() + temp2.getHeight()));
-					dist[distDown]	= Math.abs(temp2.getPosY() - (temp1.getPosY() + temp1.getHeight()));
-					dist[distRight]	= Math.abs(temp1.getPosX() - (temp2.getPosX() + temp2.getWidth()));
-					dist[distLeft]	= Math.abs(temp2.getPosX() - (temp1.getPosX() + temp1.getWidth()));
+					dist[distDown]	= Math.abs((temp1.getPosY() + temp1.getHeight()) - temp2.getPosY());
+					dist[distLeft]	= Math.abs(temp1.getPosX() - (temp2.getPosX() + temp2.getWidth()));
+					dist[distRight]	= Math.abs((temp1.getPosX() + temp1.getWidth()) - temp2.getPosX());
 					
 					int min = 0;
-					for(int k=0;k < 4;i++) {
+					for(int k=0;k < 4;k++) {
 						if(dist[min] > dist[k]) {
 							min = k;
 						}
@@ -66,24 +66,30 @@ public class World {
 					if(min == distLeft) {direction = Direction.LEFT;}
 					if(min == distRight) {direction = Direction.RIGHT;}
 					
+					double tmp1_dx = 0.0,tmp1_dy=0.0;
+					double tmp2_dx = 0.0,tmp2_dy=0.0;
+					
 					switch(direction) {
 					case UP:
-						temp1.addDisplacement(0.0, 1.0);
-						temp2.addDisplacement(0.0,-1.0);
+						tmp1_dy = dist[min];
+						tmp2_dy =-dist[min];
 						break;
 					case DOWN:
-						temp1.addDisplacement(0.0,-1.0);
-						temp2.addDisplacement(0.0, 1.0);
+						tmp1_dy =-dist[min];
+						tmp2_dy = dist[min];
 						break;
 					case LEFT:
-						temp1.addDisplacement( 1.0, 0.0);
-						temp2.addDisplacement(-1.0, 0.0);
+						tmp1_dx = dist[min];
+						tmp2_dx =-dist[min];
 						break;
 					case RIGHT:
-						temp1.addDisplacement(-1.0, 0.0);
-						temp2.addDisplacement( 1.0, 0.0);
+						tmp1_dx =-dist[min];
+						tmp2_dx = dist[min];
 						break;
 					}
+					
+					temp1.push(temp2, tmp1_dx, tmp1_dy);
+					temp2.push(temp1, tmp2_dx, tmp2_dy);
 					
 					temp1.notify(temp2);
 					temp2.notify(temp1);

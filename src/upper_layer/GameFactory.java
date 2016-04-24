@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import bottom_layer.*;
+import common.CollisionResponse;
 import common.IProjectileFactory;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
@@ -71,6 +72,7 @@ public class GameFactory {
 		IWorldObject wallObject = worldObjectFactory.createObject(width, height); 
 		wallObject.setPosX(posX);
 		wallObject.setPosY(posY);
+		wallObject.setCollisionResponse(CollisionResponse.IMMOVABLE);
 		
 		/*
 		 * Mivel ez a resz kikerul a vegso programbol, ezert itt nyugodtan castolhatunk.
@@ -82,6 +84,7 @@ public class GameFactory {
 		IWorldObject wallObject = worldObjectFactory.createObject(width, height); 
 		wallObject.setPosX(posX);
 		wallObject.setPosY(posY);
+		wallObject.setCollisionResponse(CollisionResponse.IMMOVABLE);
 		
 		SpecWall specWall = new SpecWall(wallObject);
 		
@@ -148,6 +151,7 @@ public class GameFactory {
 		IWorldObject boxObj = worldObjectFactory.createObject(width, height); 
 		boxObj.setPosX(x);
 		boxObj.setPosY(y);
+		boxObj.setCollisionResponse(CollisionResponse.PASS);
 		
 		Box box = new Box(boxObj, mass);
 		gameLoop.addEntity(box);
@@ -158,6 +162,7 @@ public class GameFactory {
 		IWorldObject scaleObject = worldObjectFactory.createObject(width, height); 
 		scaleObject.setPosX(x);
 		scaleObject.setPosY(y);
+		scaleObject.setCollisionResponse(CollisionResponse.PASS);
 		
 
 		Scale scl = new Scale(scaleObject, mass);
@@ -198,6 +203,7 @@ public class GameFactory {
 		IWorldObject zpmObj = worldObjectFactory.createObject(width, height); 
 		zpmObj.setPosX(x);
 		zpmObj.setPosY(y);
+		zpmObj.setCollisionResponse(CollisionResponse.PASS);
 		
 		ZPM zpm = new ZPM(zpmObj);
 	}

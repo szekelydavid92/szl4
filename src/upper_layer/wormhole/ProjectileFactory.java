@@ -1,5 +1,6 @@
 package upper_layer.wormhole;
 
+import common.CollisionResponse;
 import common.Colour;
 import common.IProjectileFactory;
 import common.IWorldObject;
@@ -20,6 +21,7 @@ public class ProjectileFactory implements IProjectileFactory {
 	private WormHole wormHole;
 	
 	private static final double PROJECTILE_SIZE = 12.0;
+	private static final double PROJECTILE_SPEED = 10.0;
 	
 	/*
 	 * Metodusok
@@ -45,11 +47,18 @@ public class ProjectileFactory implements IProjectileFactory {
 		
 		worldObject.setPosX(posX);
 		worldObject.setPosY(posY);
-		worldObject.setDisplacementX(dirX);
-		worldObject.setDisplacementY(dirY);
+		worldObject.setCollisionResponse(CollisionResponse.PASS);
+		
+		double abs=Math.sqrt((dirX-posX)*(dirX-posX)+(dirY-posY)*(dirY-posY));
+		double normalizedProjectileDirX=(dirX-posX)/abs;
+		double normalizedProjectileDirY=(dirY-posY)/abs;
+		
+		worldObject.setDisplacementX(PROJECTILE_SPEED*normalizedProjectileDirX);
+		worldObject.setDisplacementY(PROJECTILE_SPEED*normalizedProjectileDirY);
 		
 		Projectile projectile = new Projectile(colour,wormHole);
 		worldObject.setCollisionObserver(projectile);
+		worldObject.setVisitable(projectile);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();

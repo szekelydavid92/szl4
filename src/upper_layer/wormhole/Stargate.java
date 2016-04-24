@@ -16,6 +16,7 @@ import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
 import proto.Depth;
+import upper_layer.Utility;
 
 
 /**
@@ -108,11 +109,12 @@ public class Stargate implements IStargate{
 		if(colour == Colour.BLUE) {
 			if (teleportable.getDirection() == Utility.getPair(this.direction)) {
 				wormHole.teleportToYellow(teleportable);
-			}
-			
+			}	
 		}
 		if(colour == Colour.YELLOW) {
-			wormHole.teleportToBlue(teleportable);
+			if (teleportable.getDirection() == Utility.getPair(this.direction)) {
+				wormHole.teleportToBlue(teleportable);
+			}
 		}
 		
 		Depth.getInstance().returnFromFunction();

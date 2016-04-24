@@ -11,6 +11,7 @@ public interface ISpecWall extends /*ICollisionObserver,*/ IVisitable {
 	 */
 	public void replace(IStargate o);
 	
+	public IWorldObject getWorldObject();
 	
 	/**
 	 * Ezzel a fuggvennyel tudja visszaallitani magat a fal, ha a csillagkapu athelyezodik.

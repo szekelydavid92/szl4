@@ -310,12 +310,12 @@ public class ProtoGodObject {
 	
 	public void shoot(String player, boolean proj1, boolean proj2) {
 		if (player.equals("oneill")) {
-			this.oneillController.shootYellow(proj1);
-			this.oneillController.shootBlue(proj2);
+			this.oneillController.shootYellow(proj2);
+			this.oneillController.shootBlue(proj1);
 		}
 		else if (player.equals("jaffa")) {
-			this.oneillController.shootYellow(proj1);
-			this.oneillController.shootBlue(proj2);	
+			this.oneillController.shootYellow(proj2);
+			this.oneillController.shootBlue(proj1);	
 		}
 		else {
 			System.out.println("Hibas bemenet a shoot parancsnal! " +

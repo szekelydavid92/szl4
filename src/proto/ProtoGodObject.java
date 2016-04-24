@@ -50,6 +50,7 @@ public class ProtoGodObject {
 		public static enum VisitableType { zpm,chasm,projectile,neutral}
 		VisitableType visiting;
 		boolean justVisitedProjectile=false;
+		boolean foundChasm = false;
 		public void visit(IZPM zpm) {	
 			IWorldObject zpmWorldObject=((ZPM)zpm).getWorldObject();
 			if (visiting==VisitableType.zpm) {
@@ -66,6 +67,7 @@ public class ProtoGodObject {
 				System.out.println("Szakadék pozíciója:" + o.getPosX() + " " + o.getPosY());
 				System.out.println("Szakadék szélessége:" + o.getWidth() + ", Magassaga: " + o.getHeight());
 			}
+			this.foundChasm=true;
 			
 		}
 		
@@ -247,12 +249,10 @@ public class ProtoGodObject {
 		//TODO
 		VisitableWriter visitableWriter= new VisitableWriter();
 		visitableWriter.visiting=VisitableType.chasm;
-		boolean foundChasmWorldObject = false;
 		for (WorldObject o : world.getAllWorldObject()) {
 			IVisitable chasm= o.getVisitable();
-			if (chasm != null && foundChasmWorldObject == false) {
+			if (chasm != null && visitableWriter.foundChasm == false) {
 				chasm.accept(visitableWriter);
-				foundChasmWorldObject = true;
 			}
 		}
 		System.out.println(" ");
@@ -575,7 +575,7 @@ public class ProtoGodObject {
 	public static class ProtoListChasms implements IProtoCommand {
 		@Override
 		public boolean Execute(Scanner in) {
-			System.out.println("listCollisions");
+			System.out.println("listChasms");
 			ProtoGodObject.getInstance().listChasms();
 			return true;
 		}
@@ -692,7 +692,7 @@ public class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			double displacement = in.nextDouble();
-			System.out.println("setProjectileSpeed" + displacement);
+			System.out.println("setProjectileSpeed " + displacement);
 			ProtoGodObject.getInstance().setProjectileSpeed(displacement);
 			return true;
 		}

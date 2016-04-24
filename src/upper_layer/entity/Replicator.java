@@ -3,9 +3,11 @@ package upper_layer.entity;
 import common.IChasm;
 import common.IReplicator;
 import common.IVisitable;
+import common.IVisitor;
 import common.IWorldObject;
 import proto.Depth;
 import upper_layer.reactive.Chasm;
+import upper_layer.wormhole.Projectile;
 
 public class Replicator extends Player implements IReplicator {
 	
@@ -16,12 +18,17 @@ public class Replicator extends Player implements IReplicator {
 	}
 	
 	public void projectileKill() {
-		kill();
+		this.kill();
 		
 	}
 	
 	public void visit(IChasm chasm) {
 		CollidedWithChasm = true;
+	}
+	
+	@Override
+	public void accept(IVisitor visitor) {
+		
 	}
 
 	@Override

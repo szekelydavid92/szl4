@@ -64,4 +64,6 @@ public interface IVisitor {
 
 
 	public void visit(IChasm chasm);
+	
+	public void visit(IReplicator replikator);
 }

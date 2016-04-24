@@ -7,6 +7,7 @@ import common.IChasm;
 import common.ICollisionObserver;
 import common.IKillable;
 import common.IProjectile;
+import common.IReplicator;
 import common.IScale;
 import common.ISpecWall;
 import common.IStargate;
@@ -168,6 +169,11 @@ public class Stargate implements IStargate{
 	@Override
 	public void visit(IChasm chasm) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void visit(IReplicator replikator) {
 		
 	}
 

@@ -200,6 +200,6 @@ public class Chasm implements ICollisionObserver, IVisitor, IVisitable, IChasm {
 	
 	@Override 
 	public void visit(IReplicator replikator) {
-		
+		// Nem torodunk az esettel
 	}
 }

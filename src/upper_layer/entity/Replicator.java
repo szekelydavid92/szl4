@@ -1,6 +1,7 @@
 package upper_layer.entity;
 
 import common.IChasm;
+import common.IKillable;
 import common.IReplicator;
 import common.IVisitable;
 import common.IVisitor;
@@ -28,8 +29,9 @@ public class Replicator extends Player implements IReplicator {
 	
 	@Override
 	public void accept(IVisitor visitor) {
+		super.accept(visitor);
 		visitor.visit((IReplicator) this);
-	}
+	} 
 
 	@Override
 	public void notify(IWorldObject obj) {

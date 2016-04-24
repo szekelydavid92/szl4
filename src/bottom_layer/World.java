@@ -14,7 +14,7 @@ import common.IWorldObjectFactory;
 public class World {
 	public String name = "world";
 	
-	public List<WorldObject> objects = new ArrayList<WorldObject>();
+	private List<WorldObject> objects = new ArrayList<WorldObject>();
 	private WorldObjectFactory worldObjectFactory;
 	
 	public World() {

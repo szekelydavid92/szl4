@@ -22,6 +22,7 @@ import common.IZPM;
 import proto.Depth;
 import proto.ProtoMain;
 import upper_layer.Utility;
+import upper_layer.entity.Replicator;
 
 /**
  * Lovedek. Amennyiben SpecWall-al utkozik, ott nyit egy WormHole-t.
@@ -112,7 +113,10 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		 */
 	}
 	
-
+	public void visit(Replicator replikator) {
+		replikator.kill();
+	}
+	
 	@Override
 	public void visit(IZPM zpm) {
 		/*

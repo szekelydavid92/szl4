@@ -329,8 +329,20 @@ public class ProtoGodObject {
 		ProjectileFactory.PROJECTILE_SPEED=displacement;
 	}
 	
-	private void setPlayerSpeed(double displacement) {
-		Player.displacement=displacement;
+	private void setPlayerSpeed(String player,double displacement) {
+		Player oneill=players.get("oneill");
+		Player jaffa=players.get("jaffa");
+		Replicator replikator=replicator;
+		
+		if (player.equals("oneill") && (oneill != null )) {
+			oneill.setDisplacement(displacement);
+		}
+		else if (player.equals("jaffa") && (jaffa != null)) {
+			jaffa.setDisplacement(displacement);
+		}
+		else if (player.equals("replikator") && (replikator!=null)) {
+			replikator.setDisplacement(displacement);
+		}
 	}
 	
 	private void listDoors() {
@@ -664,7 +676,7 @@ public class ProtoGodObject {
 			double displacement = in.nextDouble();
 			System.out.println("setProjectileSpeed" + displacement);
 			ProtoGodObject.getInstance().setProjectileSpeed(displacement);
-			return false;
+			return true;
 		}
 		
 	}
@@ -673,10 +685,11 @@ public class ProtoGodObject {
 
 		@Override
 		public boolean Execute(Scanner in) {
+			String player = in.next();
 			double displacement = in.nextDouble();
-			System.out.println("setPlayerSpeed " + displacement);
-			ProtoGodObject.getInstance().setPlayerSpeed(displacement);
-			return false;
+			System.out.println("setPlayerSpeed " + player + " " + displacement);
+			ProtoGodObject.getInstance().setPlayerSpeed(player,displacement);
+			return true;
 		}
 		
 		

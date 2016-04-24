@@ -14,7 +14,7 @@ end
 
 ZPM
 begin
-pos 0 10
+pos 10 10
 dim 10 10
 end
 

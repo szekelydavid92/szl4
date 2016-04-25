@@ -215,7 +215,6 @@ public class ProtoGodObject {
 				System.out.println("");
 			}
 					
-		System.out.println(specWalls.size());
 			for(SpecWall s : specWalls) {
 				IWorldObject o = s.getWorldObject();
 				System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
@@ -223,29 +222,32 @@ public class ProtoGodObject {
 				System.out.println("Fal tipusa: specialis");
 				
 				boolean match = false;
-				
-				if(	!match && wormholes.get("oneill").blueGate.getMasked() != null){
-					if(wormholes.get("oneill").blueGate.getMasked() == s){
-						System.out.println("Falhoz tartozo csillagkapu: kek");
-						match = true;
+				if(wormholes.get("oneill") != null){
+					if(	!match && wormholes.get("oneill").blueGate.getMasked() != null){
+						if(wormholes.get("oneill").blueGate.getMasked() == s){
+							System.out.println("Falhoz tartozo csillagkapu: kek");
+							match = true;
+						}
+					}
+					if(!match && wormholes.get("oneill").yellowGate.getMasked() != null){
+						if(wormholes.get("oneill").yellowGate.getMasked() == s){
+							System.out.println("Falhoz tartozo csillagkapu: sarga");
+							match = true;
+						}
 					}
 				}
-				if(!match && wormholes.get("oneill").yellowGate.getMasked() != null){
-					if(wormholes.get("oneill").yellowGate.getMasked() == s){
-						System.out.println("Falhoz tartozo csillagkapu: sarga");
-						match = true;
+				if(wormholes.get("jaffa") != null){
+					if(!match && wormholes.get("jaffa").blueGate.getMasked() != null){
+						if(wormholes.get("jaffa").blueGate.getMasked() == s){
+							System.out.println("Falhoz tartozo csillagkapu: kek");
+							match = true;
+						}
 					}
-				}
-				if(!match && wormholes.get("jaffa").blueGate.getMasked() != null){
-					if(wormholes.get("jaffa").blueGate.getMasked() == s){
-						System.out.println("Falhoz tartozo csillagkapu: kek");
-						match = true;
-					}
-				}
-				if(!match && wormholes.get("jaffa").yellowGate.getMasked() != null){
-					if(wormholes.get("jaffa").yellowGate.getMasked() == s){
-						System.out.println("Falhoz tartozo csillagkapu: sarga");
-						match = true;
+					if(!match && wormholes.get("jaffa").yellowGate.getMasked() != null){
+						if(wormholes.get("jaffa").yellowGate.getMasked() == s){
+							System.out.println("Falhoz tartozo csillagkapu: sarga");
+							match = true;
+						}
 					}
 				}
 				if(!match){

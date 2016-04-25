@@ -1,20 +1,25 @@
 loadMap testMaps/testMap7-fereglyuk_mukodese 
 listPlayers
 listWalls
-setPlayerSpeed oneill 1
-setProjectileSpeed 1
-setCursor oneill 5 35
+setPlayerSpeed oneill 5
+setProjectileSpeed 5
+run 1
+pickUp oneill 1
+run 1
+pickUp oneill 0
+setCursor oneill 0 20
 shoot oneill 0 1
-run 2
+run 1
 shoot oneill 0 0
-setCursor oneill 35 5
+runt 5
+setCursor oneill 10 20
 shoot oneill 1 0
-run 2
-listWalls
+run 1
 shoot oneill 0 0
+run 7
+listWalls
 move oneill 0 1 0 0
 run 3
 move oneill 0 0 0 0
-run 4
 listPlayers
 listBoxes

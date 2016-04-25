@@ -75,7 +75,7 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		//System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
 		
 		//line = ProtoMain.in.next();
-		System.out.println(direction);
+		System.out.println(direction+";"+Utility.getPair(direction));
 		
 		if(active) {
 			if(colour == Colour.YELLOW) {

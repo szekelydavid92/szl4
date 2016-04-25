@@ -13,8 +13,21 @@ public class Utility {
 		else if (direction== Direction.LEFT) {
 			return Direction.RIGHT;
 		}
-		else { // Direction.RIGHT
+		else {
 			return Direction.LEFT;
 		}
+		/*
+		switch(direction) {
+		case UP:
+			return Direction.DOWN;
+		case DOWN:
+			return Direction.UP;
+		case LEFT:
+			return Direction.RIGHT;
+		case RIGHT:
+			return Direction.LEFT;
+		default:
+			return Direction.UP;
+		}*/
 	}
 }

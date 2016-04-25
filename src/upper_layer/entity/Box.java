@@ -120,6 +120,7 @@ public class Box extends Killable implements ICarriable {
 	
 	/**
 	 * @brief Ezen keresztul kozli a doboz, hogy o killable es carriable.
+	 * 
 	 * @param visitor IVisitor interfeszt megvalasito objektum.
 	 * @return void
 	 */
@@ -139,7 +140,8 @@ public class Box extends Killable implements ICarriable {
 	}
 	
 	/**
-	 * Ha utkozik merleggel, es epp nem cipeli senki, akkor lenyomja.
+	 * @brief Ha utkozik merleggel, es epp nem cipeli senki, akkor lenyomja.
+	 * 
 	 * @param o IWorldObject interfeszt megvalosito objektum.
 	 * @return void
 	 */
@@ -183,7 +185,6 @@ public class Box extends Killable implements ICarriable {
 
 	@Override
 	public void setDirection(Direction direction) {
-		// TODO Auto-generated method stub
 		
 	}
 	

@@ -52,7 +52,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	ZPMObserver zpmObserver = null;
 	
 	/*
-	 * Itt eltértünk a specifikációtól.
+	 * Itt eltertunk a specifikációtól.
 	 */
 	
 	boolean justPicked = false;
@@ -80,6 +80,12 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		return zpmNumber;
 	}
 	
+	/**
+	 * @brief Ezzel a fuggvennyel tudja kozolni egy visitorrel a tipusat.
+	 * 
+	 * @param visitor a visitor, aki meglatogatja ot.
+	 * @return void
+	 */
 	public void accept(IVisitor visitor){
 
 		Depth.getInstance().printTabs();
@@ -95,7 +101,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	}
 	
 	/**
-	 * Ezzel a fuggvennyel lehet rakenyszeriteni a jatekost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisul.
+	 * @brief Ezzel a fuggvennyel lehet rakenyszeriteni a jatekost, hogy elengedje a cipelt dobozt, pl. ha az megsemmisul.
+	 * 
 	 * @return void
 	 */
 	public void forcedRelease() {
@@ -130,7 +137,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	}
 	
 	/**
-	 * Ezzel a fuggvennyel lehet a jatekost elteleportalni az (x,y) pozicioba.
+	 * @brief Ezzel a fuggvennyel lehet a jatekost elteleportalni az (x,y) pozicioba.
+	 * 
 	 * @param x Az x koordinata.
 	 * @param y Az y koordinata.
 	 * @return void
@@ -156,7 +164,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti, hogy menjen-e a jatekos felfele.
+	 * @brief Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti, hogy menjen-e a jatekos felfele.
+	 * 
 	 * @param up: menjen-e a jatekos felfele (true vagy false)
 	 * @return void
 	 */
@@ -175,7 +184,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e lefele.
+	 * @brief Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e lefele.
+	 * 
 	 * @param down: menjen-e a jatekos lefele (true vagy false) 
 	 * @return void
 	 */
@@ -196,7 +206,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e balra.
+	 * @brief Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e balra.
+	 * 
 	 * @param left: menjen-e a jatekos balra (true vagy false) 
 	 * @return void
 	 */
@@ -217,7 +228,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e jobbra.
+	 * @brief Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos mozogjon-e jobbra.
+	 * 
 	 * @param right: menjen-e a jatekos jobbra (true vagy false) 
 	 * @return void
 	 */
@@ -238,7 +250,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos vegye-e fel az elotte levo dobozt.
+	 * @brief Ha valaki lehivja ezt a fuggvenyt, azzal eldontheti ,hogy a jatekos vegye-e fel az elotte levo dobozt.
+	 * 
 	 * @param pick: vegye-e fel a jatekos a dobozt(true vagy false) 
 	 * @return void
 	 */
@@ -258,7 +271,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Itt lehet megadni, hogy a jatekos mely iranyba lojon.
+	 * @brief Itt lehet megadni, hogy a jatekos mely iranyba lojon.
+	 * 
 	 * @param x Az x koordinata.
 	 * @param y Az y koordinata.
 	 * @return void
@@ -281,7 +295,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ha valaki lehivja, azzal eldontheti, hogy lojon-e ki a jatekos egy sarga lovedeket.
+	 * @brief Ha valaki lehivja, azzal eldontheti, hogy lojon-e ki a jatekos egy sarga lovedeket.
+	 * 
 	 * @param shootingYellow: Lojon-e a jatekos sarga lovedeket (true vagy false).
 	 * @return void
 	 */
@@ -302,7 +317,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ha valaki lehivja, azzal eldontheti, hogy lojon-e ki a jatekos egy kek lovedeket.
+	 * @brief Ha valaki lehivja, azzal eldontheti, hogy lojon-e ki a jatekos egy kek lovedeket.
+	 * 
 	 * @param shootingBlue: Lojon-e a jatekos kek lovedeket (true vagy false).
 	 * @return void
 	 */
@@ -323,7 +339,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ezzel lehet megolni a jatekost.
+	 * @brief Ezzel lehet megolni a jatekost.
+	 * 
 	 * @return void
 	 */
 	@Override
@@ -348,7 +365,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ez a fuggveny lepteti elore az allapotat az idoben.
+	 * @brief Ez a fuggveny lepteti elore az allapotat az idoben.
+	 * 
 	 * @return void
 	 */
 	public void step() {
@@ -360,10 +378,11 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ez a fuggveny valositja meg a jatekos mozgasat.
+	 * @brief Ez a fuggveny valositja meg a jatekos mozgasat.
+	 * 
 	 * @return void
 	 */
-	public void move() {
+	protected void move() {
 		double normalizedDirectionX = 0.0;
 		double normalizedDirectionY = 0.0;
 		
@@ -385,10 +404,11 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ez a fuggveny valositja meg a doboz cipeleset.
+	 * @brief Ez a fuggveny valositja meg a doboz cipeleset.
+	 * 
 	 * @return void
 	 */
-	public void carryBox() {
+	protected void carryBox() {
 		Depth.getInstance().enterFunction();
 		Depth.getInstance().printTabs();
 		System.out.println(name + ".carryBox()");
@@ -413,10 +433,11 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	
 	/**
-	 * Ez a fuggveny valositja meg a lovest.
+	 * @brief Ez a fuggveny valositja meg a lovest.
+	 * 
 	 * @return void
 	 */
-	public void shoot() {
+	protected void shoot() {
 		if(projFactory != null) {
 			double x = worldObject.getPosX();
 			double y = worldObject.getPosY();
@@ -442,7 +463,14 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	public Direction getDirection() {
 		return direction;
 	}*/
-	
+
+	/**
+	 * @brief Meglatogatunk egy carriable objektumot es ha a bemenet
+	 * azt mondja, cipeljuk.
+	 * 
+	 * @param carriable: a cipelheto objektum.
+	 * @return void
+	 */
 	@Override
 	public void visit(ICarriable carriable) {
 		
@@ -462,7 +490,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	}
 
 	/**
-	 * Meglatogatunk egy ZPM objektumot es felvesszuk.
+	 * @brief Meglatogatunk egy ZPM objektumot es felvesszuk.
+	 * 
 	 * @param zpm: mutato a ZPM objektumra.
 	 * @return void
 	 */
@@ -490,7 +519,11 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		System.out.print("ret " + name + ".visit()\n");
 	}
 
-	
+	/**
+	 * @brief Ez a fuggveny ertesiti a replikatort arrol, hogy utkozott valakivel.
+	 * 
+	 * @param obj a world object, akivel utkozott.
+	 */
 	@Override
 	public void notify(IWorldObject obj) {
 		Depth.getInstance().printTabs();
@@ -505,14 +538,23 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".notify() \n");
-		
-		
 	}
 	
+	/**
+	 * @brief Bealitja a jatekos sebesseget
+	 * 
+	 * @param displacement a jatekos uj sebessege
+	 * @return void
+	 */
 	public void setDisplacement(double displacement) {
 		this.displacement=displacement;
 	}
 	
+	/**
+	 * @brief Ezzel tudjuk elkerni a jatekos altal cipelt dobozt
+	 * 
+	 * @return a cipelt doboz.
+	 */
 	public ICarriable getBox() {
 		return carriedObject;
 	}

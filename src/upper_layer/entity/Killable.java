@@ -47,7 +47,9 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	
 	@Override
 	public void visit(IChasm chasm) {
-		// TODO Auto-generated method stub
+		/*
+		 * Nem torodunk az esettel.
+		 */
 		
 	}
 	/**
@@ -91,47 +93,61 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	}
 	
 	public void visit(IProjectile projectile) {
-		
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 	@Override
 	public void visit(ISpecWall wall) {
-		
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 
 	@Override
 	public void visit(IKillable killable) {
-		
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 
 	@Override
 	public void visit(ICarriable carriable) {
-		
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 
 	@Override
 	public void visit(IZPM zpm) {
-		
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 
 
 	@Override
 	public void visit(ITeleportable teleportable) {
-		
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 	
 	@Override
 	public void visit(IReplicator replikator) {
-		
+		/*
+		 * Nem torodunk az esettel.
+		 */
 	}
 	
 	/**
-	 * Ezen keresztol ertesul az utkozes bekovetkezterol.
-	 * @param obj ?????????
-	 * @return void
+	 * @brief Ez a fuggveny ertesiti a replikatort arrol, hogy utkozott valakivel.
+	 * 
+	 * @param obj a world object, akivel utkozott.
 	 */
 	public abstract void notify(IWorldObject obj);
 	

@@ -29,6 +29,7 @@ public class ProjectileFactory implements IProjectileFactory {
 	
 	/**
 	 * @brief Konstruktor
+	 * 
 	 */
 	public ProjectileFactory(IWorldObjectFactory worldObjectFactory,WormHole wormHole)
 	{

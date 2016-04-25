@@ -222,31 +222,38 @@ public class ProtoGodObject {
 				System.out.println("Fal tipusa: specialis");
 				
 				boolean match = false;
-							
-				if(	!match && wormholes.get("oneill").blueGate.getMasked() != null){
-					if(wormholes.get("oneill").blueGate.getMasked().getWorldObject() == s.getWorldObject()){
-						System.out.println("Falhoz tartozo csillagkapu: kek");
-						match = true;
+				
+				if (wormholes.get("oneill") != null && wormholes.get("oneill").blueGate != null) {
+					if(	!match && wormholes.get("oneill").blueGate.getMasked() != null){
+						if(wormholes.get("oneill").blueGate.getMasked().getWorldObject() == s.getWorldObject()){
+							System.out.println("Falhoz tartozo csillagkapu: kek");
+							match = true;
+						}
 					}
 				}
-				if(!match && wormholes.get("oneill").yellowGate.getMasked() != null){
-					if(wormholes.get("oneill").yellowGate.getMasked().getWorldObject() == s.getWorldObject()){
-						System.out.println("Falhoz tartozo csillagkapu: sarga");
-						match = true;
+				
+				if (wormholes.get("oneill") != null && wormholes.get("oneill").yellowGate != null) {
+					if(!match && wormholes.get("oneill").yellowGate.getMasked() != null){
+						if(wormholes.get("oneill").yellowGate.getMasked().getWorldObject() == s.getWorldObject()){
+							System.out.println("Falhoz tartozo csillagkapu: sarga");
+							match = true;
+						}
 					}
 				}
-				if(!match && wormholes.get("jaffa").blueGate.getMasked() != null){
-					if(wormholes.get("jaffa").blueGate.getMasked().getWorldObject() == s.getWorldObject()){
-						System.out.println("Falhoz tartozo csillagkapu: kek");
-						match = true;
+				if ((wormholes.get("jaffa") != null) && wormholes.get("jaffa").blueGate != null)
+					if(!match && wormholes.get("jaffa").blueGate.getMasked() != null){
+						if(wormholes.get("jaffa").blueGate.getMasked().getWorldObject() == s.getWorldObject()){
+							System.out.println("Falhoz tartozo csillagkapu: kek");
+							match = true;
+						}
 					}
-				}
-				if(!match && wormholes.get("jaffa").yellowGate.getMasked() != null){
-					if(wormholes.get("jaffa").yellowGate.getMasked().getWorldObject() == s.getWorldObject()){
-						System.out.println("Falhoz tartozo csillagkapu: sarga");
-						match = true;
+				if ((wormholes.get("jaffa") != null) && wormholes.get("jaffa").yellowGate != null)
+					if(!match && wormholes.get("jaffa").yellowGate.getMasked() != null){
+						if(wormholes.get("jaffa").yellowGate.getMasked().getWorldObject() == s.getWorldObject()){
+							System.out.println("Falhoz tartozo csillagkapu: sarga");
+							match = true;
+						}
 					}
-				}
 				if(!match){
 					System.out.println("Falhoz tartozo csillagkapu: nincs");
 					
@@ -255,15 +262,13 @@ public class ProtoGodObject {
 			}
 	}
 	
-	private void printStargate(String colour) {
-		
-	}
 	private void listStargates(String colour) {
 		//TODO (map mar letre van hozva
 //		Szi­n: [portal szi­ne]
 //		WormHole: [amelyik fereglyukhoz tartozik (lehet ures is, az elso lovess utan)]
 //		Fal koordinatai: [portalhoz tartozo fal x koordinataja, portalhoz tartozo fal y koordinataja]
 //		Megjegyzes: Ha van ervenyes szi­n parameter, akkor csak a megadott szi­nÅ± csillagkapuk tulajdonsagait listazza.
+		
 		if (colour != null ) {
 		if (!(colour.equals("red")) && !(colour.equals("green")) &&
 			!(colour.equals("blue")) && !(colour.equals("yellow"))	) {
@@ -275,40 +280,79 @@ public class ProtoGodObject {
 		
 		if (colour == null || colour.equals("red")) {
 			WormHole wormHole = wormholes.get("jaffa");
-			if (wormHole == null) {
-				System.out.println("Hiba a listStargates parancsnal! " +
-								   "Jaffa nincs a pályán! ");
-				return;
+			if (wormHole != null) {
+				
+			Stargate  yellowGate = wormHole.yellowGate; 
+			ISpecWall yellowGateWall = null;
+			if (yellowGate != null) {
+				yellowGateWall = yellowGate.getMasked();
 			}
-			Stargate  starGate = wormHole.blueGate;
-			System.out.println("Portal szine: KEK (GREEN)" );
-			System.out.println("WormHole: " + ((starGate == null)?" ":"jaffa Wormhole-ja"));
-			System.out.println("Fal koordinatai: " );
-			
-		}
-		if (colour == null || colour.equals("green")) {
-			WormHole wormHole = wormholes.get("jaffa");
-			if (wormHole == null) {
-				System.out.println("Hiba a listStargates parancsnal! " +
-								   "Jaffa nincs a pályán! ");
-			}
-			
-		}
-		if (colour == null || colour.equals("blue")) {
-			WormHole wormHole = wormholes.get("oneill");
-			if (wormHole == null) {
-				System.out.println("Hiba a listStargates parancsnal! " +
-								   "Jaffa nincs a pályán! ");
-			}
-		}
-		if (colour == null || colour.equals("yellow")) {
-			WormHole wormHole = wormholes.get("oneill");
-			if (wormHole == null) {
-				System.out.println("Hiba a listStargates parancsnal! " +
-								   "Jaffa nincs a pályán! ");
-			}
+			System.out.println("Portal szine: PIROS (SARGA) " );
+			System.out.println("WormHole: " + ((yellowGate == null)?" ":"jaffa Wormhole-ja"));
+			System.out.println("Fal koordinatai: " + 
+					((yellowGateWall == null)?"nincs":yellowGateWall.getWorldObject().getPosX() ) 
+					+ "  " +
+					((yellowGateWall == null)?"nincs":yellowGateWall.getWorldObject().getPosY() ));
+				}
+			System.out.println("");
 		}
 		
+		if (colour == null || colour.equals("green")) {
+			WormHole wormHole = wormholes.get("jaffa");
+			if (wormHole != null) {
+				
+			Stargate  blueGate = wormHole.blueGate; 
+			ISpecWall blueGateWall = null;
+			if (blueGate != null) {
+				blueGateWall = blueGate.getMasked();
+			}
+			System.out.println("Portal szine: ZOLD (KEK) " );
+			System.out.println("WormHole: " + ((blueGate == null)?" ":"jaffa Wormhole-ja"));
+			System.out.println("Fal koordinatai: " + 
+					((blueGateWall == null)?"nincs":blueGateWall.getWorldObject().getPosX() ) 
+					+ "  " +
+					((blueGateWall == null)?"nincs":blueGateWall.getWorldObject().getPosY() ));
+				}
+			System.out.println("");
+		}
+		
+		if (colour == null || colour.equals("blue")) {
+			WormHole wormHole = wormholes.get("oneill");
+			if (wormHole != null) {
+				
+			Stargate  blueGate = wormHole.blueGate; 
+			ISpecWall blueGateWall = null;
+			if (blueGate != null) {
+				blueGateWall = blueGate.getMasked();
+			}
+			System.out.println("Portal szine: KEK " );
+			System.out.println("WormHole: " + ((blueGate == null)?" ":"oneill Wormhole-ja"));
+			System.out.println("Fal koordinatai: " + 
+					((blueGateWall == null)?"nincs":blueGateWall.getWorldObject().getPosX() ) 
+					+ "  " +
+					((blueGateWall == null)?"nincs":blueGateWall.getWorldObject().getPosY() ));
+				}
+			System.out.println("");
+		}
+		
+	if (colour == null || colour.equals("yellow")) {
+		WormHole wormHole = wormholes.get("oneill");
+		if (wormHole != null) {
+			
+		Stargate  yellowGate = wormHole.yellowGate; 
+		ISpecWall yellowGateWall = null;
+		if (yellowGate != null) {
+			yellowGateWall = yellowGate.getMasked();
+		}
+		System.out.println("Portal szine: SARGA " );
+		System.out.println("WormHole: " + ((yellowGate == null)?" ":"oneill Wormhole-ja"));
+		System.out.println("Fal koordinatai: " + 
+				((yellowGateWall == null)?"nincs":yellowGateWall.getWorldObject().getPosX() ) 
+				+ "  " +
+				((yellowGateWall == null)?"nincs":yellowGateWall.getWorldObject().getPosY() ));
+			}
+		System.out.println("");
+		}	
 	}
 	
 	private void listBoxes() {
@@ -418,26 +462,26 @@ public class ProtoGodObject {
 			
 			if (yellowGateWall != null) {
 				IWorldObject yellowGateWorldObject = yellowGateWall.getWorldObject();
-				System.out.println("Beregisztrált " + wormholes.get(player).yellowGate.colour + 
+				System.out.println("Beregisztrált " + (player.equals("oneill")?"SARGA":"PIROS (SARGA)") + 
 						   "  csillagkapu pozíciója: [ " +
 						     yellowGateWorldObject.getPosX() +
 				       "," + yellowGateWorldObject.getPosY() + "]" );
 			} 
 			else {
-				System.out.println("Beregisztrált " + wormholes.get(player).yellowGate.colour + 
+				System.out.println("Beregisztrált " + (player.equals("oneill")?"SARGA":"PIROS (SARGA)") + 
 						   "  csillagkapu pozíciója: [ " +
 						     "nincs " +
 				      ", " + "nincs" + "]" );
 			}
 			if (blueGateWall != null) {
 				IWorldObject blueGateWorldObject = blueGateWall.getWorldObject();
-				System.out.println("Beregisztrált " + wormholes.get(player).blueGate.colour + 
+				System.out.println("Beregisztrált " + (player.equals("oneill")?"KEK":"ZOLD (KEK)") + 
 						   "  csillagkapu pozíciója: [ " +
 						     blueGateWorldObject.getPosX() +
 				       "," + blueGateWorldObject.getPosY() + "]" );
 			}
 			else {
-				System.out.println("Beregisztrált " + wormholes.get(player).blueGate.colour + 
+				System.out.println("Beregisztrált " + (player.equals("oneill")?"KEK":"ZOLD (KEK)") + 
 						   "  csillagkapu pozíciója: [ " +
 						     "nincs " +
 				      ", " + "nincs" + "]" );
@@ -456,13 +500,13 @@ public class ProtoGodObject {
 	}
 	
 	public void shoot(String player, boolean proj1, boolean proj2) {
-		if (player.equals("oneill")) {
+		if (player.equals("oneill") && (oneillController != null)) {
 			this.oneillController.shootYellow(proj2);
 			this.oneillController.shootBlue(proj1);
 		}
-		else if (player.equals("jaffa")) {
-			this.oneillController.shootYellow(proj2);
-			this.oneillController.shootBlue(proj1);	
+		else if (player.equals("jaffa") && (jaffaController != null )) {
+				this.jaffaController.shootYellow(proj2);
+				this.jaffaController.shootBlue(proj1);	
 		}
 		else {
 			System.out.println("Hibas bemenet a shoot parancsnal! " +

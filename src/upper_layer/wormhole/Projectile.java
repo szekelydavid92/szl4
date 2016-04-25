@@ -75,6 +75,7 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		//System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
 		
 		//line = ProtoMain.in.next();
+		System.out.println(direction);
 		
 		if(active) {
 			if(colour == Colour.YELLOW) {
@@ -179,7 +180,7 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 
 	@Override
 	public void setDirection(Direction direction) {
-		direction=direction;
+		this.direction=direction;
 	}
 	
 }

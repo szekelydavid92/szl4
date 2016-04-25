@@ -108,6 +108,8 @@ public class Stargate implements IStargate{
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
+		System.out.println(direction + ";" + this.teleportDirection);
+		
 		if(colour == Colour.BLUE) {
 			//if (teleportable.getDirection() == Utility.getPair(this.teleportDirection)) {
 			if (direction == this.teleportDirection) {

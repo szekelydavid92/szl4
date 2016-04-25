@@ -20,6 +20,7 @@ echo cd ..\src >> Windows\Compiler.bat
 echo javac -d ..\bin bottom_layer\*.java common\*.java proto\*.java upper_layer\entity\*.java upper_layer\reactive\*.java upper_layer\wormhole\*.java upper_layer\*.java >> Windows\Compiler.bat
 echo echo The compiled files are in the %~dp0bin folder >> Windows\Compiler.bat
 echo popd >> Windows\Compiler.bat
+echo pause >> Windows\Compiler.bat
 echo Created the %~dp0Compiler.bat file
 
 

@@ -3,17 +3,17 @@ listPlayers
 listWalls
 setPlayerSpeed oneill 5
 setProjectileSpeed 10
-setCursor oneill 0 20
+setCursor oneill 5 35
 shoot oneill 0 1
 run 2
 shoot oneill 0 0
-setCursor oneill 10 20
+setCursor oneill 35 5
 shoot oneill 1 0
 run 2
 listWalls
 shoot oneill 0 0
 move oneill 0 1 0 0
-run 5
+run 3
 move oneill 0 0 0 0
 run 4
 listPlayers

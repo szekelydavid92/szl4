@@ -147,7 +147,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		} else {	
 		}
 		*/
-		
+		System.out.println(" Teleportalok ide: " + x + "  " + y );
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".teleport()\n");

@@ -234,23 +234,48 @@ public class ProtoGodObject {
 //		WormHole: [amelyik fereglyukhoz tartozik (lehet ures is, az elso lovess utan)]
 //		Fal koordinatai: [portalhoz tartozo fal x koordinataja, portalhoz tartozo fal y koordinataja]
 //		Megjegyzes: Ha van ervenyes szi­n parameter, akkor csak a megadott szi­nÅ± csillagkapuk tulajdonsagait listazza.
+		if (colour != null ) {
 		if (!(colour.equals("red")) && !(colour.equals("green")) &&
 			!(colour.equals("blue")) && !(colour.equals("yellow"))	) {
 			System.out.println("Hibas bemeneti parameter a listStargates parancsnal!" +
 								"Kerjuk adj meg red/blue/green/blue-t vagy semmit!");
+			
+		}
 		}
 		
 		if (colour == null || colour.equals("red")) {
+			WormHole wormHole = wormholes.get("jaffa");
+			if (wormHole == null) {
+				System.out.println("Hiba a listStargates parancsnal! " +
+								   "Jaffa nincs a pályán! ");
+			}
+			Stargate  starGate = wormHole.blueGate;
+			System.out.println("Portal szine: KEK (GREEN)" );
+			System.out.println("WormHole: " + ((starGate == null)?" ":"jaffa Wormhole-ja"));
+			System.out.println("Fal koordinatai: " );
 			
 		}
 		if (colour == null || colour.equals("green")) {
+			WormHole wormHole = wormholes.get("jaffa");
+			if (wormHole == null) {
+				System.out.println("Hiba a listStargates parancsnal! " +
+								   "Jaffa nincs a pályán! ");
+			}
 			
 		}
 		if (colour == null || colour.equals("blue")) {
-			
+			WormHole wormHole = wormholes.get("oneill");
+			if (wormHole == null) {
+				System.out.println("Hiba a listStargates parancsnal! " +
+								   "Jaffa nincs a pályán! ");
+			}
 		}
 		if (colour == null || colour.equals("yellow")) {
-			
+			WormHole wormHole = wormholes.get("oneill");
+			if (wormHole == null) {
+				System.out.println("Hiba a listStargates parancsnal! " +
+								   "Jaffa nincs a pályán! ");
+			}
 		}
 		
 	}
@@ -349,19 +374,43 @@ public class ProtoGodObject {
 	// seglfuggveny a list wormholes-hoz 
 	public void printWormhole(String player) {
 		if (player.equals("oneill") || player.equals("jaffa")) {
-			Stargate yellowGate=wormholes.get(player).yellowGate;
-			Stargate blueGate=wormholes.get(player).blueGate;
-			IWorldObject yellowGateWorldObject= ((SpecWall)(yellowGate.getMasked())).getWorldObject();
-			IWorldObject blueGateWorldObject = ((SpecWall)(blueGate.getMasked())).getWorldObject();	
-		
-			System.out.println("Beregisztrált " + wormholes.get("oneill").yellowGate.colour + 
-							   "  csillagkapu pozíciója: [ " +
-							      "," +  yellowGateWorldObject.getPosX() +
-							      "," +  yellowGateWorldObject.getPosY() + "]" );
-			System.out.println("Beregisztrált " + wormholes.get("oneill").blueGate.colour + 
-					   "  csillagkapu pozíciója: [ " +
-					      "," +  blueGateWorldObject.getPosX() +
-					      "," +  blueGateWorldObject.getPosY() + "]" );
+			WormHole wormHole = wormholes.get(player);
+			if (wormHole == null) {
+				System.out.println("Hiba a listWormHoles parancsnal! Nincs ilyen player a palyan! ");
+				return;
+			}
+			Stargate yellowGate=wormHole.yellowGate;
+			Stargate blueGate=wormHole.blueGate;
+			
+			ISpecWall yellowGateWall= ((yellowGate.getMasked()));
+			ISpecWall blueGateWall = ((blueGate.getMasked()));
+			
+			if (yellowGateWall != null) {
+				IWorldObject yellowGateWorldObject = yellowGateWall.getWorldObject();
+				System.out.println("Beregisztrált " + wormholes.get(player).yellowGate.colour + 
+						   "  csillagkapu pozíciója: [ " +
+						     yellowGateWorldObject.getPosX() +
+				       "," + yellowGateWorldObject.getPosY() + "]" );
+			} 
+			else {
+				System.out.println("Beregisztrált " + wormholes.get(player).yellowGate.colour + 
+						   "  csillagkapu pozíciója: [ " +
+						     "nincs " +
+				      ", " + "nincs" + "]" );
+			}
+			if (blueGateWall != null) {
+				IWorldObject blueGateWorldObject = blueGateWall.getWorldObject();
+				System.out.println("Beregisztrált " + wormholes.get(player).blueGate.colour + 
+						   "  csillagkapu pozíciója: [ " +
+						     blueGateWorldObject.getPosX() +
+				       "," + blueGateWorldObject.getPosY() + "]" );
+			}
+			else {
+				System.out.println("Beregisztrált " + wormholes.get(player).blueGate.colour + 
+						   "  csillagkapu pozíciója: [ " +
+						     "nincs " +
+				      ", " + "nincs" + "]" );
+			}
 		}
 	
 	}
@@ -370,9 +419,9 @@ public class ProtoGodObject {
 			printWormhole(player);
 		}
 		else  {
-			printWormhole("oneill");
-			printWormhole("jaffa");
-		}
+			System.out.println("Hibas parameter a listWormHoles parancsnal! Kerjuk jaffa/oneill" +
+								"parametert adj meg! ");		
+		}	
 	}
 	
 	public void shoot(String player, boolean proj1, boolean proj2) {
@@ -623,8 +672,8 @@ public class ProtoGodObject {
 			if (in.hasNext()) {
 				player=in.next();
 			}
-			ProtoGodObject.getInstance().listWormholes(player);
 			System.out.println("listWormholes");
+			ProtoGodObject.getInstance().listWormholes(player);
 			return true;
 			}
 	}

@@ -50,8 +50,17 @@ public class ProjectileFactory implements IProjectileFactory {
 		worldObject.setCollisionResponse(CollisionResponse.PASS);
 		
 		double abs=Math.sqrt((dirX-posX)*(dirX-posX)+(dirY-posY)*(dirY-posY));
-		double normalizedProjectileDirX=(dirX-posX)/abs;
-		double normalizedProjectileDirY=(dirY-posY)/abs;
+		
+		double normalizedProjectileDirX;
+		double normalizedProjectileDirY;
+		if (abs > 1e-4) {
+			normalizedProjectileDirX=(dirX-posX)/abs;
+			normalizedProjectileDirY=(dirY-posY)/abs;
+		}
+		else {
+			normalizedProjectileDirX=1;
+			normalizedProjectileDirY=0;
+		}
 		
 		worldObject.setDisplacementX(PROJECTILE_SPEED*normalizedProjectileDirX);
 		worldObject.setDisplacementY(PROJECTILE_SPEED*normalizedProjectileDirY);

@@ -16,4 +16,5 @@ public interface IDoor {
 	 * @return void
 	 */
 	public void close();
+	
 }

@@ -130,7 +130,6 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().enterFunction();
 		
 		visitor.visit((IKillable)this);
-		//visitor.visit((ICarriable)this);
 		visitor.visit((ICarriable)this);
 				
 		Depth.getInstance().returnFromFunction();
@@ -176,6 +175,10 @@ public class Box extends Killable implements ICarriable {
 		Depth.getInstance().printTabs();
 		System.out.println("ret " + name + ".step()");
 		
+	}
+	
+	public ICarrier getCarrier() {
+		return carrier;
 	}
 
 	@Override

@@ -64,8 +64,8 @@ public class ProtoGodObject {
 			List<IWorldObject> chasms =((Chasm)chasm).getChasms();
 			for ( IWorldObject o : chasms) {
 				System.out.println("");
-				System.out.println("Szakadék pozíciója:" + o.getPosX() + " " + o.getPosY());
-				System.out.println("Szakadék szélessége:" + o.getWidth() + ", Magassaga: " + o.getHeight());
+				System.out.println("Szakadek pozicioja:" + o.getPosX() + " " + o.getPosY());
+				System.out.println("Szakadek szelessege:" + o.getWidth() + ", Magassaga: " + o.getHeight());
 			}
 			this.foundChasm=true;
 			
@@ -161,8 +161,8 @@ public class ProtoGodObject {
 			replicatorController.move(up, down, left, right);
 		}
 		else {
-			System.out.println(" Rossz player név! Kérjük jaffa, oneill és replikator" +
-							   "közül válassz! ");
+			System.out.println(" Rossz player nev! Kerjuk jaffa, oneill és replikator" +
+							   "kozul valassz! ");
 		}
 		System.out.println("");
 	}
@@ -177,7 +177,7 @@ public class ProtoGodObject {
 			}
 			if (visitableWriter.justVisitedProjectile) {
 				System.out.println("Pozicio: " + o.getPosX() + "  " + o.getPosY());
-				System.out.println("Lövedék szélessége: " + o.getWidth() + ", "	+ o.getHeight());
+				System.out.println("Lovedek szelessege: " + o.getWidth() + ", "	+ o.getHeight());
 				System.out.println("");
 			}
 			visitableWriter.justVisitedProjectile=false;
@@ -225,12 +225,34 @@ public class ProtoGodObject {
 		}
 	}
 	
+	private void printStargate(String colour) {
+		
+	}
 	private void listStargates(String colour) {
 		//TODO (map mar letre van hozva
 //		Szi­n: [portal szi­ne]
 //		WormHole: [amelyik fereglyukhoz tartozik (lehet ures is, az elso lovess utan)]
 //		Fal koordinatai: [portalhoz tartozo fal x koordinataja, portalhoz tartozo fal y koordinataja]
 //		Megjegyzes: Ha van ervenyes szi­n parameter, akkor csak a megadott szi­nÅ± csillagkapuk tulajdonsagait listazza.
+		if (!(colour.equals("red")) && !(colour.equals("green")) &&
+			!(colour.equals("blue")) && !(colour.equals("yellow"))	) {
+			System.out.println("Hibas bemeneti parameter a listStargates parancsnal!" +
+								"Kerjuk adj meg red/blue/green/blue-t vagy semmit!");
+		}
+		
+		if (colour == null || colour.equals("red")) {
+			
+		}
+		if (colour == null || colour.equals("green")) {
+			
+		}
+		if (colour == null || colour.equals("blue")) {
+			
+		}
+		if (colour == null || colour.equals("yellow")) {
+			
+		}
+		
 	}
 	
 	private void listBoxes() {
@@ -238,7 +260,18 @@ public class ProtoGodObject {
 			IWorldObject o = b.getWorldObject();
 			System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
 			System.out.println("Doboz szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
-			System.out.println("Cipelo jatekos neve: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!
+			
+			Player player=(Player) b.getCarrier();
+			if (player == null) {
+				System.out.println("Cipelo jatekos neve: ");
+			}
+			else if (player == players.get("oneill")){
+				System.out.println("Cipelo jatekos neve: Oneill" );
+			}
+			else if (player == players.get("jaffa")) {
+				System.out.println("Cipelo jatekos neve: Jaffa");
+			} 
+			
 			System.out.println("Doboz siulya: " + b.getMass());
 			System.out.println("Megsemmisult-e: " + b.isKilled());
 			System.out.println("");
@@ -246,7 +279,7 @@ public class ProtoGodObject {
 	}
 	
 	private void listChasms(){
-		//TODO
+		
 		VisitableWriter visitableWriter= new VisitableWriter();
 		visitableWriter.visiting=VisitableType.chasm;
 		for (WorldObject o : world.getAllWorldObject()) {
@@ -264,15 +297,25 @@ public class ProtoGodObject {
 			IWorldObject o = s.getWorldObject();
 			System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
 			System.out.println("Merleg szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
-			System.out.println("Hozzatartozo ajto pozi­cioja: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			System.out.print("Merleg ajtonyito siulykorlat: " + s.getMassThreshold());
+			
+			if (s.door != null) {
+			IWorldObject doorWorldObject=((Door)s.door).getWorldObject();
+			
+			System.out.println("Hozzatartozo ajto pozicioja: " + 
+								doorWorldObject.getPosX() + " " +
+								doorWorldObject.getPosY()); 
+			}
+			else {
+				System.out.println("Hibas palyabetoltes! Az egyik merleghez nem tartozik ajto!");
+			}
+			System.out.println("Merleg ajtonyito sulykorlat: " + s.getMassThreshold());
 			String state="felengedve";
 			if(s.isPushed) {
 				state="lenyomva";
 			}
 			System.out.println("Merleg allapota: " + state);
-			System.out.println("Merlegen levo aktualis siulyok osszege: " + s.massToPrint);
-			System.out.println("Merlegen levo dobozok szama: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			System.out.println("Merlegen levo aktualis sulyok osszege: " + s.massToPrint);
+		//	System.out.println("Merlegen levo dobozok szama: "); 
 		}
 		System.out.println("");
 	}
@@ -293,7 +336,7 @@ public class ProtoGodObject {
 					jaffaController.lookAt(x,y);
 				}
 		else {
-				System.out.println("Hibás input! Kérjük a player neve legyen oneill " +
+				System.out.println("Hibas input! Kerjuk a player neve legyen oneill " +
 									 "vagy jaffa!");
 				}
 		return;
@@ -412,7 +455,16 @@ public class ProtoGodObject {
 			System.out.println("Iranyvektor: " + p.getDirX() + " " + p.getDirY());
 			System.out.println("Jatekos szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
 			System.out.println("Felvett ZPM-ek szama: " + p.getZpmNumber());
-			System.out.println("Cipelt dobozok van-e: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			
+			String isThereBox;
+			if (p.getBox() == null) {
+				isThereBox = "nincs";
+			}
+			else {
+				isThereBox = "van";
+			}
+			System.out.println("Cipelt dobozok van-e: " + isThereBox ); 
+			
 			String isDead = "nem";
 			if (p.isKilled()) {
 				isDead = "igen";
@@ -443,8 +495,13 @@ public class ProtoGodObject {
 			if(param2 == 1){
 				pick = true;
 			}
-			else {
+			else if (param2 == 0) {
 				pick = false;
+			}
+			else {
+				System.out.println("Hibas parameter a pick parancsnal!" + 
+									"Kerjuk 1/0 parametert adj meg!");
+				return false;
 			}
 			ProtoGodObject.getInstance().pickUp(ply, pick);
 			return true;
@@ -476,6 +533,11 @@ public class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			int iterations = in.nextInt();
+			if (iterations <= 0) {
+				System.out.println("Hibas parameter a run parancsnal! " +
+									"Kerjuk 0-nal nagyobb erteket adj meg!");
+				return false;
+			}
 			System.out.println("run " + iterations);
 			ProtoGodObject.getInstance().run(iterations);
 			return true;
@@ -536,7 +598,7 @@ public class ProtoGodObject {
 		@Override
 		public boolean Execute(Scanner in) {
 			System.out.println("listStargates");
-			String col = in.next();
+			String col = in.findInLine(Pattern.compile("(\\w)+"));
 			ProtoGodObject.getInstance().listStargates(col);
 			return true;
 		}
@@ -713,10 +775,9 @@ public class ProtoGodObject {
 			System.out.println("setPlayerSpeed " + player + " " + displacement);
 			ProtoGodObject.getInstance().setPlayerSpeed(player,displacement);
 			return true;
-		}
-		
-		
+		}	
 	}
+	
 	
 	public static class ProtoRandomReplikator implements IProtoCommand {
 		
@@ -764,6 +825,7 @@ public class ProtoGodObject {
 			commands.put("setCursor", new ProtoGodObject.ProtoSetCursor()); //TODO
 			commands.put("setProjectileSpeed",new ProtoSetProjectileSpeed());
 			commands.put("setPlayerSpeed",new ProtoSetPlayerSpeed());
+			commands.put("randomReplikator", new ProtoRandomReplikator());
 			
 			//setCursor, shoot,
 

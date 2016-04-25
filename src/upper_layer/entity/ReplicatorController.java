@@ -15,8 +15,10 @@ public class ReplicatorController implements IEntity {
 	}
 	
 	private int randomize() {
-		return 0;
-	}
+		Random random = new Random();
+		
+		return random.nextInt(7);
+		}
 	
 	@Override
 	public void step() {

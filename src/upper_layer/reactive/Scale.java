@@ -31,6 +31,7 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 	double massThreshold; 			//ha a rá nehezedő súly nagyobb ennél, akkor a mérleg kinyitja az ajtót.
 	public boolean isPushed;
 	public double massToPrint; // majd toroljuk , kiirashoz kell
+	public int dobozok_szama = 0; // majd toroljuk , kiirashoz kell
 	/*
 	 * Metodusok
 	 */

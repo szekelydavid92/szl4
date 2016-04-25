@@ -378,6 +378,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 			normalizedDirectionX /= abs;
 			normalizedDirectionY /= abs;
 		}
+		
 		worldObject.setDisplacementX(displacement*normalizedDirectionX);
 		worldObject.setDisplacementY(displacement*normalizedDirectionY);
 	}
@@ -510,6 +511,10 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	
 	public void setDisplacement(double displacement) {
 		this.displacement=displacement;
+	}
+	
+	public ICarriable getBox() {
+		return carriedObject;
 	}
 	
 	public Player(IWorldObject worldObject,IProjectileFactory projFactory,double mass) {

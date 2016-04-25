@@ -48,7 +48,8 @@ public class Door extends ColEntity implements IDoor {
 		System.out.println("ret " + name + ".close()");
 		
 	}
-
+	
+	
 	@Override
 	public void step() {
 		

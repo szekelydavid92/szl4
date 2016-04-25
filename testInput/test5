@@ -3,26 +3,26 @@ listPlayers
 listWalls
 setPlayerSpeed oneill 1
 setPlayerSpeed jaffa 1
-setProjectileSpeed 10
-setCursor oneill 20 0
+setProjectileSpeed 1
+setCursor oneill 0 20
 shoot oneill 0 1
 run 1
 shoot oneill 0 0
-run 2
+run 20
 setCursor oneill 10 20
 shoot oneill 1 0
 run 1
 shoot oneill 0 0
-run 4
+run 20
 listWalls
 setCursor jaffa 20 20
 shoot jaffa 0 1
 run 1
 shoot jaffa 0 0
-run 2
-setCursor jaffa 20 30
+run 40
+setCursor jaffa 30 20
 shoot jaffa 1 0
 run 1
 shoot jaffa 0 0
-run 4
+run 50
 listWalls

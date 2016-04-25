@@ -1,0 +1,99 @@
+wormHole.WormHole()
+ret wormHole.WormHole()
+wormHole.WormHole()
+ret wormHole.WormHole()
+loadMap
+listPlayers
+Jatekos neve/ti­pusa: jaffa
+Pozi­cio: 80.0 20.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt dobozok van-e: 
+Halott-e: nem
+
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 20.0 20.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt dobozok van-e: 
+Halott-e: nem
+
+listWalls
+Pozicio: 0.0 0.0
+Fal szelessege: 100.0, magassaga: 10.0
+Fal tipusa: altalanos
+Falhoz tartozo csillagkapu: nincs
+
+setPlayerSpeed jaffa 4.0
+player.moveUp()
+ret player.moveUp()
+player.moveDown()
+ret player.moveDown()
+player.moveLeft()
+ret player.moveLeft()
+player.moveRight()
+ret player.moveRight()
+
+move jaffa true false false false
+run 6
+Entity lepteto ciklus belepes
+	player.carryBox()
+	ret player.carryBox()
+	player.carryBox()
+	ret player.carryBox()
+Entity lepteto ciklus belepes
+	player.carryBox()
+	ret player.carryBox()
+	player.carryBox()
+	ret player.carryBox()
+Entity lepteto ciklus belepes
+	player.carryBox()
+	ret player.carryBox()
+	player.carryBox()
+	ret player.carryBox()
+Entity lepteto ciklus belepes
+	player.carryBox()
+	ret player.carryBox()
+	player.carryBox()
+	ret player.carryBox()
+player.notify()
+ret player.notify() 
+Entity lepteto ciklus belepes
+	player.carryBox()
+	ret player.carryBox()
+	player.carryBox()
+	ret player.carryBox()
+player.notify()
+ret player.notify() 
+Entity lepteto ciklus belepes
+	player.carryBox()
+	ret player.carryBox()
+	player.carryBox()
+	ret player.carryBox()
+player.moveUp()
+ret player.moveUp()
+player.moveDown()
+ret player.moveDown()
+player.moveLeft()
+ret player.moveLeft()
+player.moveRight()
+ret player.moveRight()
+
+move jaffa false false false false
+run 2
+player.notify()
+ret player.notify() 
+Entity lepteto ciklus belepes
+	player.carryBox()
+	ret player.carryBox()
+	player.carryBox()
+	ret player.carryBox()
+player.notify()
+ret player.notify() 
+Entity lepteto ciklus belepes
+	player.carryBox()
+	ret player.carryBox()
+	player.carryBox()
+	ret player.carryBox()

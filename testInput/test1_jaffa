@@ -4,6 +4,7 @@ loadMap testMaps/testMap1-mozdithatatlan_objektumnak_utkozes
 listPlayers
 listWalls
 
+setPlayerSpeed jaffa 4
 move jaffa 1 0 0 0
 
 run 6

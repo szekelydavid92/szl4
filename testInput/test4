@@ -3,28 +3,33 @@ listPlayers
 listScales
 listDoors
 listBoxes
-setPlayer speed oneill 20
-setPlayer speed jaffa 20
+setPlayerSpeed oneill 5
+setPlayerSpeed jaffa 5
 pickUp jaffa 1
 run 1
 pickUp jaffa 0
-move jaffa 0 1 0 0 
+move jaffa 1 0 0 0 
+run 3
+move jaffa 0 0 0 0 
 run 1
 move oneill 0 0 0 1
-run 1
-move oneill 0 0 0 1
+run 8
+move oneill 0 0 0 0
 run 1
 listPlayers
 listScales
+listDoors
 
 pickUp jaffa 1 
 run 1
-move jaffa 1 0 0 0
-run 1
+pickUp jaffa 0 
+move jaffa 0 1 0 0
+run 4
 move oneill 0 0 1 0
-run 1
-move oneill 0 0 1 0
-run 1
+run 8
+move oneill 0 0 0 0
+run 2
 listPlayers
 listScales
+listDoors
  

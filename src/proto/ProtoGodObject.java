@@ -207,59 +207,57 @@ public class ProtoGodObject {
 	}
 	
 	private void listWalls() {
+		
 		for(WorldObject o : walls) {
-				System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
-				System.out.println("Fal szelessege: " + o.getWidth() + ", magassaga: " + o.getHeight());
-				System.out.println("Fal tipusa: altalanos");
+			System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
+			System.out.println("Fal szelessege: " + o.getWidth() + ", magassaga: " + o.getHeight());
+			System.out.println("Fal tipusa: altalanos");
+			System.out.println("Falhoz tartozo csillagkapu: nincs");
+			System.out.println("");
+		}
+				
+		for(SpecWall s : specWalls) {
+			IWorldObject o = s.getWorldObject();
+			System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
+			System.out.println("Fal szelessege: " + o.getWidth() + ", magassaga: " + o.getHeight());
+			System.out.println("Fal tipusa: specialis");
+			
+			boolean match = false;
+			if(wormholes.get("oneill") != null){
+				if(	!match && wormholes.get("oneill").blueGate.getMasked() != null){
+					if(wormholes.get("oneill").blueGate.getMasked() == s){
+						System.out.println("Falhoz tartozo csillagkapu: kek");
+						match = true;
+					}
+				}
+				if(!match && wormholes.get("oneill").yellowGate.getMasked() != null){
+					if(wormholes.get("oneill").yellowGate.getMasked() == s){
+						System.out.println("Falhoz tartozo csillagkapu: sarga");
+						match = true;
+					}
+				}
+			}
+			if(wormholes.get("jaffa") != null){
+				if(!match && wormholes.get("jaffa").blueGate.getMasked() != null){
+					if(wormholes.get("jaffa").blueGate.getMasked() == s){
+						System.out.println("Falhoz tartozo csillagkapu: kek");
+						match = true;
+					}
+				}
+				if(!match && wormholes.get("jaffa").yellowGate.getMasked() != null){
+					if(wormholes.get("jaffa").yellowGate.getMasked() == s){
+						System.out.println("Falhoz tartozo csillagkapu: sarga");
+						match = true;
+					}
+				}
+			}
+			if(!match){
 				System.out.println("Falhoz tartozo csillagkapu: nincs");
-				System.out.println("");
+				
 			}
-					
-			for(SpecWall s : specWalls) {
-				IWorldObject o = s.getWorldObject();
-				System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
-				System.out.println("Fal szelessege: " + o.getWidth() + ", magassaga: " + o.getHeight());
-				System.out.println("Fal tipusa: specialis");
-				
-				boolean match = false;
-				
-				if (wormholes.get("oneill") != null && wormholes.get("oneill").blueGate != null) {
-					if(	!match && wormholes.get("oneill").blueGate.getMasked() != null){
-						if(wormholes.get("oneill").blueGate.getMasked().getWorldObject() == s.getWorldObject()){
-							System.out.println("Falhoz tartozo csillagkapu: kek");
-							match = true;
-						}
-					}
-				}
-				
-				if (wormholes.get("oneill") != null && wormholes.get("oneill").yellowGate != null) {
-					if(!match && wormholes.get("oneill").yellowGate.getMasked() != null){
-						if(wormholes.get("oneill").yellowGate.getMasked().getWorldObject() == s.getWorldObject()){
-							System.out.println("Falhoz tartozo csillagkapu: sarga");
-							match = true;
-						}
-					}
-				}
-				if ((wormholes.get("jaffa") != null) && wormholes.get("jaffa").blueGate != null)
-					if(!match && wormholes.get("jaffa").blueGate.getMasked() != null){
-						if(wormholes.get("jaffa").blueGate.getMasked().getWorldObject() == s.getWorldObject()){
-							System.out.println("Falhoz tartozo csillagkapu: kek");
-							match = true;
-						}
-					}
-				if ((wormholes.get("jaffa") != null) && wormholes.get("jaffa").yellowGate != null)
-					if(!match && wormholes.get("jaffa").yellowGate.getMasked() != null){
-						if(wormholes.get("jaffa").yellowGate.getMasked().getWorldObject() == s.getWorldObject()){
-							System.out.println("Falhoz tartozo csillagkapu: sarga");
-							match = true;
-						}
-					}
-				if(!match){
-					System.out.println("Falhoz tartozo csillagkapu: nincs");
-					
-				}
-				System.out.println("");
-			}
+			System.out.println("");
+		}
+			
 	}
 	
 	private void listStargates(String colour) {

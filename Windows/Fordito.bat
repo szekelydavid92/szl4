@@ -3,6 +3,7 @@ echo Give me the location of java jdk! (Usually: "C:\Program Files\Java\<jdkX.X.
 set /p Location=
 set JAVA_HOME=%Location%
 set PATH=%PATH%;%Location%\bin\
+cd ..
 
 
 
@@ -17,18 +18,18 @@ echo The compiled files are in the root\bin folder
 
 
 
-echo @echo off > Futtato.bat
-echo set JAVA_HOME=%Location% >> Futtato.bat
-echo set PATH=%PATH%;%Location%\bin >> Futtato.bat
-echo java -cp bin proto.ProtoMain >> Futtato.bat
-echo Created the root\Futtato.bat file
+echo @echo off > Windows\Futtato.bat
+echo set JAVA_HOME=%Location% >> Windows\Futtato.bat
+echo set PATH=%PATH%;%Location%\bin >> Windows\Futtato.bat
+echo java -cp bin proto.ProtoMain >> Windows\Futtato.bat
+echo Created the root\Windows\Futtato.bat file
 
 
 
 
-echo @echo off > FuttatoOsszes.bat
-echo set JAVA_HOME=%Location% >> FuttatoOsszes.bat
-echo set PATH=%PATH%;%Location%\bin >> FuttatoOsszes.bat
+echo @echo off > Windows\FuttatoOsszes.bat
+echo set JAVA_HOME=%Location% >> Windows\FuttatoOsszes.bat
+echo set PATH=%PATH%;%Location%\bin >> Windows\FuttatoOsszes.bat
 
 for %%a in (testInput\*) do (
 	(
@@ -39,7 +40,7 @@ for %%a in (testInput\*) do (
 		echo echo %%a
 		echo echo ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		echo java -cp bin proto.ProtoMain ^< %%a
-	) >> FuttatoOsszes.bat
+	) >> Windows\FuttatoOsszes.bat
 )
-echo Created the root\FuttatoOsszes.bat file
+echo Created the root\Windows\FuttatoOsszes.bat file
 pause

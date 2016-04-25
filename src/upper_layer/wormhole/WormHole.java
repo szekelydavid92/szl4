@@ -83,6 +83,8 @@ public class WormHole {
 			break;
 		}
 		
+		//System.out.println(direction+" "+blueX+";"+blueY);
+		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".setBlue()\n");
@@ -129,6 +131,8 @@ public class WormHole {
 			yellowY = wall.getWorldObject().getPosY();
 			break;
 		}
+
+		//System.out.println(direction+" "+yellowX+";"+yellowY);
 		
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
@@ -147,8 +151,8 @@ public class WormHole {
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".teleportToYellow()\n");
 		Depth.getInstance().enterFunction();
-		
-		//double yellowX=0.0,yellowY=0.0;
+
+		//System.out.print("SÁRGÁHOZ");
 		teleportable.teleport(yellowX,yellowY);
 				
 		Depth.getInstance().returnFromFunction();
@@ -169,7 +173,7 @@ public class WormHole {
 		System.out.print(name + ".teleportToBlue()\n");
 		Depth.getInstance().enterFunction();
 
-		//double blueX=0.0,blueY=0.0;
+		//System.out.print("KÉKHEZ");
 		teleportable.teleport(blueX,blueY);
 		
 		Depth.getInstance().returnFromFunction();

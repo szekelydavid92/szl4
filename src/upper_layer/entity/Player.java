@@ -148,14 +148,15 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		Depth.getInstance().printTabs();
 		System.out.print(name + ".teleport()\n");
 		Depth.getInstance().enterFunction();
-		/*	
-		if(validPos(x, y)){
-			posX = x;
-			posY = y;
-		} else {	
-		}
-		*/
-		System.out.println(" Teleportalok ide: " + x + "  " + y );
+		
+		//if(validPos(x, y)){
+			worldObject.setPosX(x);
+			worldObject.setPosY(y);
+		//} else {	
+		//}
+		
+		//System.out.println(" Teleportalok ide: " + x + "  " + y );
+		//System.out.print(" Új érték" + getWorldObject().getPosX() ";"+ getWorldObject().getPosY());
 		Depth.getInstance().returnFromFunction();
 		Depth.getInstance().printTabs();
 		System.out.print("ret " + name + ".teleport()\n");

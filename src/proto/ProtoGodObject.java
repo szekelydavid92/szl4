@@ -248,6 +248,7 @@ public class ProtoGodObject {
 			if (wormHole == null) {
 				System.out.println("Hiba a listStargates parancsnal! " +
 								   "Jaffa nincs a pályán! ");
+				return;
 			}
 			Stargate  starGate = wormHole.blueGate;
 			System.out.println("Portal szine: KEK (GREEN)" );

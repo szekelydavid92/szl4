@@ -215,7 +215,7 @@ public class ProtoGodObject {
 				System.out.println("");
 			}
 					
-		
+		System.out.println(specWalls.size());
 			for(SpecWall s : specWalls) {
 				IWorldObject o = s.getWorldObject();
 				System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
@@ -223,30 +223,27 @@ public class ProtoGodObject {
 				System.out.println("Fal tipusa: specialis");
 				
 				boolean match = false;
+				
 				if(	!match && wormholes.get("oneill").blueGate.getMasked() != null){
-					if(wormholes.get("oneill").blueGate.getMasked().getWorldObject().getPosX() == s.getWorldObject().getPosX() &&
-						wormholes.get("oneill").blueGate.getMasked().getWorldObject().getPosY() == s.getWorldObject().getPosY()){
+					if(wormholes.get("oneill").blueGate.getMasked() == s){
 						System.out.println("Falhoz tartozo csillagkapu: kek");
 						match = true;
 					}
 				}
 				if(!match && wormholes.get("oneill").yellowGate.getMasked() != null){
-					if(wormholes.get("oneill").yellowGate.getMasked().getWorldObject().getPosX() == s.getWorldObject().getPosX() &&
-							wormholes.get("oneill").yellowGate.getMasked().getWorldObject().getPosY() == s.getWorldObject().getPosY()	){
+					if(wormholes.get("oneill").yellowGate.getMasked() == s){
 						System.out.println("Falhoz tartozo csillagkapu: sarga");
 						match = true;
 					}
 				}
 				if(!match && wormholes.get("jaffa").blueGate.getMasked() != null){
-					if(wormholes.get("jaffa").blueGate.getMasked().getWorldObject().getPosX() == s.getWorldObject().getPosX() &&
-						wormholes.get("jaffa").blueGate.getMasked().getWorldObject().getPosY() == s.getWorldObject().getPosY()){
+					if(wormholes.get("jaffa").blueGate.getMasked() == s){
 						System.out.println("Falhoz tartozo csillagkapu: kek");
 						match = true;
 					}
 				}
 				if(!match && wormholes.get("jaffa").yellowGate.getMasked() != null){
-					if(wormholes.get("jaffa").yellowGate.getMasked().getWorldObject().getPosX() == s.getWorldObject().getPosX() &&
-							wormholes.get("jaffa").yellowGate.getMasked().getWorldObject().getPosY() == s.getWorldObject().getPosY()){
+					if(wormholes.get("jaffa").yellowGate.getMasked() == s){
 						System.out.println("Falhoz tartozo csillagkapu: sarga");
 						match = true;
 					}

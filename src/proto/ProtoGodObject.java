@@ -220,28 +220,34 @@ public class ProtoGodObject {
 				System.out.println("Pozicio: " + o.getPosX() + " " + o.getPosY());
 				System.out.println("Fal szelessege: " + o.getWidth() + ", magassaga: " + o.getHeight());
 				System.out.println("Fal tipusa: specialis");
+				
+				boolean match = false;
 							
-				if(	wormholes.get("oneill").blueGate.getMasked() != null){
+				if(	!match && wormholes.get("oneill").blueGate.getMasked() != null){
 					if(wormholes.get("oneill").blueGate.getMasked().getWorldObject() == s.getWorldObject()){
 						System.out.println("Falhoz tartozo csillagkapu: kek");
+						match = true;
 					}
 				}
-				else if(wormholes.get("oneill").yellowGate.getMasked() != null){
+				if(!match && wormholes.get("oneill").yellowGate.getMasked() != null){
 					if(wormholes.get("oneill").yellowGate.getMasked().getWorldObject() == s.getWorldObject()){
 						System.out.println("Falhoz tartozo csillagkapu: sarga");
+						match = true;
 					}
 				}
-				else if(wormholes.get("jaffa").blueGate.getMasked() != null){
+				if(!match && wormholes.get("jaffa").blueGate.getMasked() != null){
 					if(wormholes.get("jaffa").blueGate.getMasked().getWorldObject() == s.getWorldObject()){
 						System.out.println("Falhoz tartozo csillagkapu: kek");
+						match = true;
 					}
 				}
-				else if(wormholes.get("jaffa").yellowGate.getMasked() != null){
+				if(!match && wormholes.get("jaffa").yellowGate.getMasked() != null){
 					if(wormholes.get("jaffa").yellowGate.getMasked().getWorldObject() == s.getWorldObject()){
 						System.out.println("Falhoz tartozo csillagkapu: sarga");
+						match = true;
 					}
 				}
-				else {
+				if(!match){
 					System.out.println("Falhoz tartozo csillagkapu: nincs");
 					
 				}

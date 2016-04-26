@@ -5,7 +5,6 @@ import common.Direction;
 import common.ISpecWall;
 import common.ITeleportable;
 import common.IZPM;
-import proto.Depth;
 
 /**
  * @brief O felelos azert, hogy a ket csillagkapu kozott teleportalni lehessen.
@@ -35,18 +34,8 @@ public class WormHole {
 	 * @brief Konstruktor
 	 */
 	public WormHole() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".WormHole()\n");
-		Depth.getInstance().enterFunction();
-		
 		blueGate.name = "blue";
-		yellowGate.name = "yellow";
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".WormHole()\n");
-		
+		yellowGate.name = "yellow";		
 	}
 	
 	/**
@@ -55,12 +44,7 @@ public class WormHole {
 	 * @param wall a specialis fal, amin kaput nyitunk.
 	 * @return void
 	 */
-	public void setBlue(ISpecWall wall,Direction direction) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".setBlue()\n");
-		Depth.getInstance().enterFunction();
-		
+	public void setBlue(ISpecWall wall,Direction direction) {		
 		blueGate.mask(wall);
 		blueGate.setTeleportDirection(direction);
 		
@@ -81,14 +65,7 @@ public class WormHole {
 			blueX = wall.getWorldObject().getPosX() + wall.getWorldObject().getWidth();
 			blueY = wall.getWorldObject().getPosY();
 			break;
-		}
-		
-		//System.out.println(direction+" "+blueX+";"+blueY);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".setBlue()\n");
-		
+		}		
 	}
 	
 	/*public void setBlueGateDirection(Direction dir) {
@@ -104,12 +81,7 @@ public class WormHole {
 	 * @param wall a specialis fal, amin kaput nyitunk.
 	 * @return void
 	 */
-	public void setYellow(ISpecWall wall,Direction direction) {
-
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".setYellow()\n");
-		Depth.getInstance().enterFunction();
-		
+	public void setYellow(ISpecWall wall,Direction direction) {		
 		yellowGate.mask(wall);
 		yellowGate.setTeleportDirection(direction);
 		
@@ -131,12 +103,6 @@ public class WormHole {
 			yellowY = wall.getWorldObject().getPosY();
 			break;
 		}
-
-		//System.out.println(direction+" "+yellowX+";"+yellowY);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".setYellow()\n");
 	}
 	
 	
@@ -146,19 +112,8 @@ public class WormHole {
 	 * @param teleportable a teleportalhato objektum
 	 * @return void
 	 */
-	public void teleportToYellow(ITeleportable teleportable) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".teleportToYellow()\n");
-		Depth.getInstance().enterFunction();
-
-		//System.out.print("SÁRGÁHOZ");
-		
+	public void teleportToYellow(ITeleportable teleportable) {		
 		teleportable.teleport(yellowX,yellowY);
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".teleportToYellow()\n");
 	}
 	
 	
@@ -169,16 +124,6 @@ public class WormHole {
 	 * @return void
 	 */
 	public void teleportToBlue(ITeleportable teleportable) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".teleportToBlue()\n");
-		Depth.getInstance().enterFunction();
-
-		//System.out.print("KÉKHEZ");
 		teleportable.teleport(blueX,blueY);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".teleportToBlue()\n");
 	}
 }

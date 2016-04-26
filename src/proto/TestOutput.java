@@ -46,6 +46,8 @@ public class TestOutput {
 					br.readLine();
 				}
 				catch (IOException e) {
+					System.out.println(testFile);
+					e.printStackTrace();
 					System.out.println("Hibas bemeneti fajl.");
 				}			
 			}

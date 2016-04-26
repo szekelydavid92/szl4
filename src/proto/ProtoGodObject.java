@@ -629,7 +629,7 @@ public class ProtoGodObject {
 				return;
 			}
 			IWorldObject o = p.getWorldObject();
-			System.out.println("Jatekos neve/ti­pusa: " + player);
+			System.out.println("Jatekos neve//tipusa: " + player);
 			System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
 			System.out.println("Iranyvektor: " + p.getDirX() + " " + p.getDirY());
 			System.out.println("Jatekos szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());

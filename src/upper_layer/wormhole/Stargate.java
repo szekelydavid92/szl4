@@ -48,6 +48,12 @@ public class Stargate implements IStargate{
 		this.wormHole = wormHole;
 	}
 	
+	/**
+	 * @brief Visszaadja a falat, amin a csillagkapu van.
+	 * 
+	 * @param 
+	 * @return ISpecWall: a speciális fal, amin van a csillagkapu.
+	 */
 	@Override 
 	public ISpecWall getMasked() {
 		return masked;
@@ -99,7 +105,13 @@ public class Stargate implements IStargate{
 		 */
 	}
 
-	
+	/**
+	 * @brief Ha meglatogat egy teleportalhato objektumot,
+	 * szol a WormHole-nak, hogy teleportalja el.
+	 * 
+	 * @param teleportable:a teleportalando objektum
+	 * @return void
+	 */
 	@Override
 	public void visit(ITeleportable teleportable) {
 		//System.out.println(direction + ";" + this.teleportDirection);
@@ -118,7 +130,13 @@ public class Stargate implements IStargate{
 		}
 	}
 
-	
+	/**
+	 * @brief Beallitja a csillagkapuhoz tartozo specialis falat,
+	 * azaz amin o eppen van.
+	 * 
+	 * @param wall: a specialis fal, amit beallitunk.
+	 * @return void
+	 */
 	@Override
 	public void mask(ISpecWall wall) {
 	
@@ -151,13 +169,25 @@ public class Stargate implements IStargate{
 	public void visit(IReplicator replikator) {
 		
 	}
-
+	
+	/**
+	 * @brief Beallitja az iranyt, hogy a fal melyik oldalan van o.
+	 * 
+	 * @param dir: az irany.
+	 * @return void
+	 */
 	@Override
 	public void setDirection(Direction dir) {
 		direction=dir;
 		
 	}
-
+	
+	/**
+	 * @brief Beallitja, melyik irany fele teleportalon.
+	 * 
+	 * @param teleportDirection: az irany amely fele teleportal
+	 * @return void
+	 */
 	public void setTeleportDirection(Direction teleportDirection) {
 		this.teleportDirection=teleportDirection;
 	}

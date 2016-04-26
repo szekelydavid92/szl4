@@ -8,7 +8,7 @@ setPlayerSpeed replikator 1
 move replikator 1 0 0 0 
 run 60
 move replikator 0 1 0 0
-run 10
+run 1
 
 listWalls
 listPlayers

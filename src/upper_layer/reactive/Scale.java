@@ -7,7 +7,6 @@ import common.IScale;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
-import proto.Depth;
 import upper_layer.entity.Door;
 import upper_layer.entity.Killable;
 
@@ -72,17 +71,8 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 	 * @return void
 	 */
 	@Override
-	public void accept(IVisitor visitor) {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".accept()");
-		Depth.getInstance().enterFunction();
-		
+	public void accept(IVisitor visitor) {		
 		visitor.visit(this);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".accept()");
 	}
 	
 	/**
@@ -92,12 +82,7 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 	 * @return void
 	 */
 	@Override
-	public void push(double mass) {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".push()");
-		Depth.getInstance().enterFunction();
-		
+	public void push(double mass) {		
 		this.accumulatedMass += mass;
 		
 		if(this.massThreshold <= this.accumulatedMass){
@@ -105,10 +90,6 @@ public class Scale extends ReactiveObject implements IScale, IVisitable, /*IColl
 				door.open();
 			}
 		}
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".push()");
 	}
 
 	@Override

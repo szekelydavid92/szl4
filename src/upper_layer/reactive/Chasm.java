@@ -17,7 +17,6 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import proto.Depth;
 
 /**
  * @brief Ez a szakadek. Ha utkozott egy IKillable-t megvalosito objektummal, akkor megoli.
@@ -84,17 +83,8 @@ public class Chasm implements ICollisionObserver, IVisitor, IVisitable, IChasm {
 	 * @return void
 	 */
 	@Override
-	public void visit(IKillable killable) {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".visit()");
-		Depth.getInstance().enterFunction();
-		
+	public void visit(IKillable killable) {		
 		killable.kill();
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".visit()");
 	}
 
 	/**
@@ -161,21 +151,13 @@ public class Chasm implements ICollisionObserver, IVisitor, IVisitable, IChasm {
 	 * @return void
 	 */
 	@Override
-	public void notify(IWorldObject obj) {
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".notify()");
-		Depth.getInstance().enterFunction();
-		
+	public void notify(IWorldObject obj) {		
 		IVisitable visitable = obj.getVisitable();
 		
 		if(visitable != null)
 		{
 			visitable.accept(this);
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".notify()");
 	}
 
 

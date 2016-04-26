@@ -115,7 +115,7 @@ public class WormHole {
 	 * @return void
 	 */
 	public void teleportToYellow(ITeleportable teleportable) {
-		//System.out.print("SÁRGÁHOZ");
+		//System.out.print("SaGaHOZ");
 		
 		teleportable.teleport(yellowX,yellowY);
 	}

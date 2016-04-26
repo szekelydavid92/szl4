@@ -125,10 +125,20 @@ public class ProtoGodObject {
 			
 		}
 		
+		//nem csinal semmit
 		public void visit(IReplicator replikator) {
 			
 		}
-
+		
+		/**
+		 * @brief Kiirja a lovedek szinet, a std kimenetre,
+		 * es szol szol a listProjectiles-nak, hogy pont lovedeket
+		 * talalt.
+		 * 
+		 * @param projectiles: a projectile, amely szinet kirja
+		 *
+		 * @return void
+		 */
 		public void visit(IProjectile projectile) {	
 			if (visiting==VisitableType.projectile) {
 				System.out.println("Lovedek szine: " + projectile.getColour() );
@@ -139,7 +149,7 @@ public class ProtoGodObject {
 	
 	
 	/*
-	 * Ott elterunk a specifikaciotol, hogy ezek az attributumok publicok,
+	 * Ott elterunk a specifikaciotol, hogy ezek az attributumok publikusak,
 	 * mivel ez ugyis kikerul a vegso programbol, ez nem tragedia.
 	 */
 	public List<WorldObject> walls = new LinkedList<WorldObject>();
@@ -154,14 +164,27 @@ public class ProtoGodObject {
 	public PlayerController jaffaController=new PlayerController() ;
 	public ReplicatorController replicatorController=null ;
 	
-	
+	/**
+	 * @brief Visszaad egy referenciat a singleton ProtoGodObjectre.
+	 * 
+	 * @param 
+	 *
+	 * @return ProtoGodObject: referencia a singleton ProtoGodObjectre
+	 */
 	public static ProtoGodObject getInstance() {
 		if(instance == null) {
 			instance = new ProtoGodObject();
 		}
 		return instance;
 	}
-
+	
+	/**
+	 * @brief Futtatja a Game Loop-ot n iterarciot
+	 * 
+	 * @param iterations: n = iterations 
+	 *
+	 * @return void
+	 */
 	private void run(int iterations) {
 		for(int i=0;i < iterations;i++) {
 			gameLoop.run();

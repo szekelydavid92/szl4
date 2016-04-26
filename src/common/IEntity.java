@@ -6,7 +6,7 @@ package common;
  */
 public interface IEntity {
 	/**
-	 * Ez az a fuggveny, amelyet a GameLoop minden ciklusban lehiv.
+	 * @brief Ez az a fuggveny, amelyet a GameLoop minden ciklusban lehiv.
 	 * Ebben a metodusban leptetik elore az objektumok az allapotukat az ido fuggvenyeben.
 	 * @return void
 	 */

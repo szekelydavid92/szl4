@@ -4,7 +4,6 @@ import common.ICollisionObserver;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import proto.Depth;
 
 /**
  * @brief ZPM. Ket allapota van, felvett es nem felvett. 
@@ -36,18 +35,8 @@ public class ZPM extends ReactiveObject implements IZPM/*, ICollisionObserver*/ 
 	 * @return void
 	 */
 	@Override
-	public void accept(IVisitor visitor) {
-		//TODO Lorant
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".accept()");
-		Depth.getInstance().enterFunction();
-		
-		visitor.visit(this);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".accept()");
-		
+	public void accept(IVisitor visitor) {		
+		visitor.visit(this);		
 	}
 
 	/**
@@ -56,16 +45,7 @@ public class ZPM extends ReactiveObject implements IZPM/*, ICollisionObserver*/ 
 	 * @return bool
 	 */
 	@Override
-	public boolean isPicked() {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".isPicked()");
-		Depth.getInstance().enterFunction();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".isPicked()");
-		
+	public boolean isPicked() {				
 		return picked;
 	}
 
@@ -75,18 +55,8 @@ public class ZPM extends ReactiveObject implements IZPM/*, ICollisionObserver*/ 
 	 * @return void
 	 */
 	@Override
-	public void pickUp() {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".pickUp()");
-		Depth.getInstance().enterFunction();
-		
-		picked = true;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".pickUp()");
-		
+	public void pickUp() {		
+		picked = true;		
 	}
 
 	/*

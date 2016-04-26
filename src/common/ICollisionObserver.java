@@ -12,5 +12,9 @@ public interface ICollisionObserver {
 	 */
 	public void notify(IWorldObject obj);
 	
+	/**
+	 * Ebben a fuggvenyben lehet beallitani az iranyokat.
+	 * @return void
+	 */
 	public void setDirection(Direction direction);
 }

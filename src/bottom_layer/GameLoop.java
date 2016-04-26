@@ -62,12 +62,13 @@ public class GameLoop {
 		world.checkCollision();
 		world.step();
 		
+		/*
 		//TODO Ezt a printet ki kell gyalulni!
 		System.out.println("Entity lepteto ciklus belepes");
 		for(IEntity e : Entities)
 		{
 			e.step();
-		}
+		}*/
 		
 	}
 }

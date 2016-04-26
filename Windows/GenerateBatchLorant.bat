@@ -48,6 +48,7 @@ echo set JAVA_HOME=%Location% >> Windows\RunnerAll.bat
 echo set PATH=%PATH%;%Location%\bin >> Windows\RunnerAll.bat
 cd testInput
 for %%a in (*) do (
+	echo %%a > %%a.txt
 	(
 		echo echo.
 		echo echo.
@@ -59,8 +60,6 @@ for %%a in (*) do (
 		echo java -cp bin proto.ProtoMain ^< testInput\%%a
 		echo java -cp bin proto.TestOutput ^< %%a.txt
 	) >> ..\Windows\RunnerAll.bat
-	
-	echo %%a > %%a.txt
 )
 cd ..
 echo popd >> Windows\RunnerAll.bat
@@ -72,6 +71,7 @@ echo Created the %~dp0RunnerAll.bat file
 
 cd testInput
 for %%a in (*) do (
+	echo %%a > %%a.txt
 	(
 		echo @echo off
 		echo pushd .
@@ -82,8 +82,6 @@ for %%a in (*) do (
 		echo java -cp bin proto.TestOutput ^< %%a.txt
 		echo popd
 	) > ..\Windows\%%a_Runner.bat
-	
-	echo %%a > %%a.txt
 )
 cd ..
 echo Created the %~dp0^<teszteset neve^>_Runner.bat files

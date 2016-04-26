@@ -57,7 +57,7 @@ for %%a in (*) do (
 		echo echo ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		echo java -cp bin proto.ProtoMain ^< testInput\%%a ^> output\%%a
 		echo java -cp bin proto.ProtoMain ^< testInput\%%a
-		echo %%a ^> tmp
+		echo %%a > %%a.txt
 		echo java -cp bin proto.TestOutput ^< tmp
 	) >> ..\Windows\RunnerAll.bat
 )
@@ -78,8 +78,8 @@ for %%a in (*) do (
 		echo cd ..
 		echo java -cp bin proto.ProtoMain ^< testInput\%%a ^> output\%%a
 		echo java -cp bin proto.ProtoMain ^< testInput\%%a
-		echo %%a ^> tmp
-		echo java -cp bin proto.TestOutput ^< tmp
+		echo %%a > %%a.txt
+		echo java -cp bin proto.TestOutput ^< %%a.txt
 		echo popd
 	) > ..\Windows\%%a_Runner.bat
 )

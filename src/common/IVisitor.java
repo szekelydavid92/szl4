@@ -59,11 +59,21 @@ public interface IVisitor {
 	 */
 	public void visit(ITeleportable teleportable);
 
-
+	/**
+	 * @brief Meg lehet latogatni a lovedeket.
+	 * @return void
+	 */
 	public void visit(IProjectile projectile);
 
-
+	/**
+	 * @brief Meg lehet latogatni a szakadekot.
+	 * @return void
+	 */
 	public void visit(IChasm chasm);
 	
+	/**
+	 * @brief Meg lehet latogatni a replikatort.
+	 * @return void
+	 */
 	public void visit(IReplicator replikator);
 }

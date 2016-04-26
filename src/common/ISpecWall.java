@@ -11,6 +11,10 @@ public interface ISpecWall extends /*ICollisionObserver,*/ IVisitable {
 	 */
 	public void replace(IStargate o);
 	
+	/**
+	 * @brief El lehet kerni a hozza tartozo IWorldObjectet.
+	 * @return IWorldObject
+	 */
 	public IWorldObject getWorldObject();
 	
 	/**

@@ -140,17 +140,23 @@ public interface IWorldObject {
 	 */
 	public IVisitable getVisitable();
 
-	//TODO: kommentelni kén
 	//public void setDirection(Direction direction) ;
-	
-	//TODO: kommentelni kéne
+
+	/**
+	 * @brief .
+	 * @return void
+	 */
 	public void setVisitable(IVisitable visitable);
 
-	//TODO kommentelni kéne
+	/**
+	 * @brief .
+	 * @return void
+	 */
 	public void markRemovable();
 
-
-	public CollisionResponse getCollisionResponse();
-	
-	
+	/**
+	 * @brief .
+	 * @return void
+	 */
+	public CollisionResponse getCollisionResponse();	
 }

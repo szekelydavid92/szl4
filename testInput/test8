@@ -8,6 +8,6 @@ pickUp oneill 1
 run 1
 listPlayers
 pickUp oneill 0 
-run 10
+run 20
 listPlayers
 listBoxes

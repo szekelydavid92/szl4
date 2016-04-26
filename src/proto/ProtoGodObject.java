@@ -45,7 +45,7 @@ import upper_layer.wormhole.WormHole;
  * @brief Ez az osztaly felel a teszteles fobb funkcioiert, 
  * azaz a parancsok hatasara a megfelelo metodusok meghivasaert, feldolgozasaert,
  * a jatekallapot listazasaert. 
- * 
+ * Szandekosan nincs kommentelve, mert a kesz programbol kikerul.
  *
  */
 public class ProtoGodObject {

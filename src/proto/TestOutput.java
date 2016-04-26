@@ -12,11 +12,13 @@ public class TestOutput {
 			if (args.length == 0) {
 				Scanner sc = new Scanner(System.in);
 				System.out.println("Add meg az ellenőrizendő kimeneti teszteset számát: ");
-				String testNumber = sc.nextLine();
+				String testNumber = sc.next();
 				try {
 					int counter = 0;
+					
 					boolean fail = false;
-					BufferedReader expectedReader = new BufferedReader(new FileReader("expectedOutputs/testOut" + testNumber + "_jaffa"));
+					
+					BufferedReader expectedReader = new BufferedReader(new FileReader("expectedOutputs/testOut" + testNumber ));
 					BufferedReader outReader = new BufferedReader(new FileReader("output/testOut" + testNumber));
 					System.out.println(testNumber  + ". teszteset futtatasa:");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

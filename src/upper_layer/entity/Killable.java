@@ -14,7 +14,6 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import proto.Depth;
 
 /**
  * Azon osztolyok orokolnek ebbol az absztrakt osztalybol, akiknek a peldanyainak
@@ -79,17 +78,8 @@ public abstract class Killable extends ColEntity implements IKillable, IVisitor,
 	 * @return void
 	 */
 	@Override
-	public void visit(IScale scale){
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".visit()");
-		Depth.getInstance().enterFunction();
-		
+	public void visit(IScale scale){		
 		scale.push(this.mass);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".visit()");
 	}
 	
 	public void visit(IProjectile projectile) {

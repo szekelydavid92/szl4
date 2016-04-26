@@ -6,7 +6,6 @@ import common.IReplicator;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
-import proto.Depth;
 import upper_layer.reactive.Chasm;
 import upper_layer.wormhole.Projectile;
 

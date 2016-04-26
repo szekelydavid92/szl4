@@ -12,7 +12,6 @@ import common.IVisitor;
 import common.IVisitable;
 import common.IWorldObject;
 import common.IZPM;
-import proto.Depth;
 import upper_layer.ZPMObserver;
 
 import java.io.IOException;
@@ -86,18 +85,9 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @param visitor a visitor, aki meglatogatja ot.
 	 * @return void
 	 */
-	public void accept(IVisitor visitor){
-
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".accept()\n");		
-		Depth.getInstance().enterFunction();
-		
+	public void accept(IVisitor visitor){		
 		visitor.visit((IKillable) this);
 		visitor.visit((ITeleportable) this);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".accept()\n");
 	}
 	
 	/**
@@ -105,37 +95,10 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * 
 	 * @return void
 	 */
-	public void forcedRelease() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".forcedRelelease()\n");		
-		Depth.getInstance().enterFunction();
-		
-		carriedObject = null;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".forcedRelelease()\n");
-		
+	public void forcedRelease() {		
+		carriedObject = null;		
 	}
-	
-	/*
-	 * segedfv, amely egy adott poziciorol eldonti, hogy az az
-	 * adott palyahozhoz ervenyes pozicio lehet-e, vagy sem
-	 * esetleg ha nem, akkor merre log ki
-	 * 
-	 */
-	private boolean validPos(double x, double y){
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".validPos()\n");
-		Depth.getInstance().enterFunction();
-			
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".validPos()\n");
-		return true;
-	}
-	
+		
 	/**
 	 * @brief Ezzel a fuggvennyel lehet a jatekost elteleportalni az (x,y) pozicioba.
 	 * 
@@ -143,27 +106,12 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @param y Az y koordinata.
 	 * @return void
 	 */
-	public void teleport(double x, double y) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".teleport()\n");
-		Depth.getInstance().enterFunction();
-		
-		//if(validPos(x, y)){
+	public void teleport(double x, double y) {		
 		if (blockTeleportTime == 0) {
 			worldObject.setPosX(x);
 			worldObject.setPosY(y);
 			blockTeleportTime = 10;
-		}
-		//} else {	
-		//}
-		
-		//System.out.println(" Teleportalok ide: " + x + "  " + y );
-		//System.out.print(" Új érték" + getWorldObject().getPosX() ";"+ getWorldObject().getPosY());
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".teleport()\n");
-	
+		}	
 	}
 	
 	
@@ -174,16 +122,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void moveUp(boolean up) {
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".moveUp()\n");
-		Depth.getInstance().enterFunction();
-				
+	public void moveUp(boolean up) {				
 		this.up = up;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".moveUp()\n");
 	}
 	
 	
@@ -195,17 +135,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 */
 	@Override
 	public void moveDown(boolean down) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".moveDown()\n");
-		Depth.getInstance().enterFunction();
-		
-		this.down = down;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".moveDown()\n");
-		
+		this.down = down;		
 	}
 	
 	
@@ -216,18 +146,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void moveLeft(boolean left) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".moveLeft()\n");
-		Depth.getInstance().enterFunction();
-		
-		this.left = left;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".moveLeft()\n");
-		
+	public void moveLeft(boolean left) {		
+		this.left = left;		
 	}
 	
 	
@@ -238,18 +158,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void moveRight(boolean right) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".moveRight()\n");
-		Depth.getInstance().enterFunction();
-				
-		this.right = right;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".moveRight()\n");
-		
+	public void moveRight(boolean right) {				
+		this.right = right;		
 	}
 	
 	
@@ -260,17 +170,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void pickUp(boolean pick) {
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".pickUp(" + pick + ")\n");
-		Depth.getInstance().enterFunction();
-		
-		this.pick = pick;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".pickUp()\n");
-		
+	public void pickUp(boolean pick) {		
+		this.pick = pick;		
 	}
 	
 	
@@ -282,19 +183,9 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void lookAt(double x,double y) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".lookAt()\n");
-		Depth.getInstance().enterFunction();
-		
+	public void lookAt(double x,double y) {		
 		this.dirX = x;
-		this.dirY = y;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".lookAt()\n");
-		
+		this.dirY = y;		
 	}
 	
 	
@@ -305,18 +196,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void shootYellow(boolean shootingYellow) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".shootYellow()\n");
-		Depth.getInstance().enterFunction();
-		
-		this.shootingYellow = shootingYellow;
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".shootYellow()\n");
-		
+	public void shootYellow(boolean shootingYellow) {		
+		this.shootingYellow = shootingYellow;		
 	}
 	
 	
@@ -327,18 +208,8 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void shootBlue(boolean shootingBlue) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".shootBlue()\n");
-		Depth.getInstance().enterFunction();
-				
-		this.shootingBlue = shootingBlue;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".shootBlue()\n");
-		
+	public void shootBlue(boolean shootingBlue) {				
+		this.shootingBlue = shootingBlue;		
 	}
 	
 	
@@ -348,23 +219,13 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void kill() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".kill()\n");
-		Depth.getInstance().enterFunction();
-		
+	public void kill() {		
 		if (carriedObject!=null) {
 			carriedObject.release();
 		}
 		
 		carriedObject=null;
-		super.kill();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".kill()\n");
-		
+		super.kill();		
 	}
 	
 	
@@ -414,11 +275,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * 
 	 * @return void
 	 */
-	protected void carryBox() {
-		Depth.getInstance().enterFunction();
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".carryBox()");
-		
+	protected void carryBox() {		
 		if(carriedObject != null) {
 			if(justPicked) {
 				justPicked = false;
@@ -431,10 +288,6 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 				}
 			}
 		}
-
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".carryBox()");
-		Depth.getInstance().returnFromFunction();
 	}
 	
 	
@@ -478,21 +331,12 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void visit(ICarriable carriable) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()\n");
-		Depth.getInstance().enterFunction();
-		
+	public void visit(ICarriable carriable) {		
 		if(pick && (carriedObject == null) ) {
 			carriable.regCarrier(this);
 			carriedObject=carriable;
 			justPicked = true;
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()\n");
 	}
 
 	/**
@@ -502,12 +346,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	@Override
-	public void visit(IZPM zpm) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()\n");
-		Depth.getInstance().enterFunction();
-		
+	public void visit(IZPM zpm) {		
 		if (!zpm.isPicked()) {
 			zpm.pickUp();
 			zpmNumber++;
@@ -515,14 +354,6 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 				zpmObserver.notifyPickUp();
 			}
 		}
-		
-		/*
-		 * ZPM-ek novelese kell ide.
-		 */
-			
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()\n");
 	}
 
 	/**
@@ -531,19 +362,11 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @param obj a world object, akivel utkozott.
 	 */
 	@Override
-	public void notify(IWorldObject obj) {
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".notify()\n");
-		Depth.getInstance().enterFunction();	
-		
+	public void notify(IWorldObject obj) {		
 		IVisitable visitable=obj.getVisitable();
 		if (visitable != null) {
 			visitable.accept(this);
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".notify() \n");
 	}
 	
 	/**

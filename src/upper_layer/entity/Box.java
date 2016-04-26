@@ -12,7 +12,6 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import proto.Depth;
 
 /**
  * @brief Ez a doboz. Az ICarrier interfeszt megvalasito objektum kepes oket mozgatni.
@@ -40,19 +39,9 @@ public class Box extends Killable implements ICarriable {
 	 * @param y A masodik parameter az y koordinata.
 	 * @return void
 	 */
-	public void setPos(double x, double y) {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".setPos()");
-		Depth.getInstance().enterFunction();
-		
+	public void setPos(double x, double y) {		
 		worldObject.setPosX(x);
 		worldObject.setPosY(y);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".setPos()");
-		
 	}	
 	
 	/**
@@ -61,17 +50,8 @@ public class Box extends Killable implements ICarriable {
 	 * @param c ICarrier interfeszt megvalosito objektum.
 	 * @return void
 	 */
-	public void regCarrier(ICarrier c) {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".regCarrier()");
-		Depth.getInstance().enterFunction();
-		
+	public void regCarrier(ICarrier c) {	
 		carrier=c;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".regCarrier()");
 	}
 	
 	
@@ -80,17 +60,8 @@ public class Box extends Killable implements ICarriable {
 	 * 
 	 * @return void
 	 */	
-	public void release() {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".release()");
-		Depth.getInstance().enterFunction();
-		
+	public void release() {		
 		carrier = null;
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".release()");
 	}
 	
 	
@@ -99,12 +70,7 @@ public class Box extends Killable implements ICarriable {
 	 * 
 	 * @return void
 	 */	
-	public void kill() {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".kill()");
-		Depth.getInstance().enterFunction();
-		
+	public void kill() {		
 		if (carrier != null) {
 			carrier.forcedRelease();
 		}
@@ -112,10 +78,6 @@ public class Box extends Killable implements ICarriable {
 		carrier=null;
 		
 		super.kill();
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".kill()");
 		
 	}
 	
@@ -126,19 +88,9 @@ public class Box extends Killable implements ICarriable {
 	 * @param visitor IVisitor interfeszt megvalasito objektum.
 	 * @return void
 	 */
-	public void accept(IVisitor visitor) {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".accept()");
-		Depth.getInstance().enterFunction();
-		
+	public void accept(IVisitor visitor) {	
 		visitor.visit((IKillable)this);
-		visitor.visit((ICarriable)this);
-				
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".accept()");
-		
+		visitor.visit((ICarriable)this);	
 	}
 	
 	/**
@@ -147,21 +99,13 @@ public class Box extends Killable implements ICarriable {
 	 * @param o IWorldObject interfeszt megvalosito objektum.
 	 * @return void
 	 */
-	public void notify(IWorldObject o) {
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".notify()");
-		Depth.getInstance().enterFunction();
-		
+	public void notify(IWorldObject o) {	
 		IVisitable visitable = o.getVisitable();
 		
 		if(visitable != null)
 		{
 			visitable.accept((IVisitor)this);
 		}
-						
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".notify()");
 	}
 	
 	
@@ -170,15 +114,7 @@ public class Box extends Killable implements ICarriable {
 	 * @return void
 	 */
 	public void step() {
-		
-		Depth.getInstance().printTabs();
-		System.out.println(name + ".step()");
-		Depth.getInstance().enterFunction();
-		//Nem fut le mert a Player lepteti
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.println("ret " + name + ".step()");
-		
+		//Nem fut le mert a Player lepteti	
 	}
 	
 	public ICarrier getCarrier() {

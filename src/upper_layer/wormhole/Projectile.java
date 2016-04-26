@@ -20,7 +20,6 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import proto.Depth;
 import proto.ProtoMain;
 import upper_layer.Utility;
 import upper_layer.entity.Replicator;
@@ -62,19 +61,7 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 	}
 	
 	@Override
-	public void visit(ISpecWall wall) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()\n");
-		Depth.getInstance().enterFunction();
-		
-		//Scanner in = ProtoMain.in; //Shortcut
-		//String line = null;
-
-		//Depth.getInstance().printTabs();
-		//System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
-		
-		//line = ProtoMain.in.next();
+	public void visit(ISpecWall wall) {		
 		System.out.println(direction+";"+Utility.getPair(direction));
 		
 		if(active) {
@@ -88,10 +75,6 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 			}
 			active = false;
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()\n");
 	}
 
 	@Override
@@ -153,9 +136,6 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 	
 	@Override
 	public void notify(IWorldObject obj) {
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".notify()\n");
-		Depth.getInstance().enterFunction();
 		
 		IVisitable visitable = obj.getVisitable();
 		if(visitable != null) {
@@ -164,12 +144,7 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 		
 		if(obj.getCollisionResponse() == CollisionResponse.IMMOVABLE) {
 			worldObject.markRemovable();
-		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".notify()\n");
-		
+		}		
 	}
 
 	@Override

@@ -5,7 +5,6 @@ import common.IStargate;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
-import proto.Depth;
 
 /**
  * Ez az, akire portalt lehet loni. Ha egy teleportalhato valakivel utkozik,
@@ -51,50 +50,20 @@ public class SpecWall implements ISpecWall {
 	*/
 	
 	@Override
-	public void accept(IVisitor visitor) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".accept()\n");
-		Depth.getInstance().enterFunction();
-		
-		visitor.visit(this);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".accept()\n");
-		
+	public void accept(IVisitor visitor) {		
+		visitor.visit(this);		
 	}
 	
 	@Override
-	public void replace(IStargate stargate) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".replace()\n");
-		Depth.getInstance().enterFunction();
-		
+	public void replace(IStargate stargate) {		
 		//worldObject.setVisitable(stargate); ///Lehet, hogy erre szükség lesz.
-		worldObject.setCollisionObserver(stargate);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".replace()\n");
-		
+		worldObject.setCollisionObserver(stargate);		
 	}
 	
 	@Override
 	public void restore() {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".restore()\n");
-		Depth.getInstance().enterFunction();
-
 		//worldObject.setVisitable(this); ///Lehet, hogy erre szükség lesz.
-		worldObject.setCollisionObserver(null);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".restore()\n");
-		
+		worldObject.setCollisionObserver(null);		
 	}
 	
 	/*

@@ -13,7 +13,7 @@ public class TestOutput {
 				Scanner sc = new Scanner(System.in);
 				System.out.println("Add meg az ellenőrizendő kimeneti teszteset számát: ");
 
-				String testFile = sc.nextLine();
+				String testFile = sc.next();
 
 				try {
 					int counter = 0;

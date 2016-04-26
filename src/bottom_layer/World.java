@@ -153,14 +153,38 @@ public class World {
 	 *  miatt jottek letre
 	 *  
 	 */
+	/**
+	 * @brief Hozzad egy world objectet a world
+	 * objektumaihoz
+	 * 
+	 * @param obj: a hozzadando world object
+	 *
+	 * @return void
+	 */
 	public void addWorldObject(WorldObject obj) {
 		objects.add(obj);
 	}
 	
+	/**
+	 * @brief Visszaadja a world world object listajabol
+	 * az n. objektumot ha van van ilyen, egyebkent null-t.
+	 * 
+	 * @param n: a visszaadando world object helye a listaban
+	 *
+	 * @return WorldObject: a visszaadott WorldObject
+	 * 
+	 */
 	public WorldObject getWorldObject(int n) {
 		return objects.get(n);
 	}
 	
+	/**
+	 * @brief Visszaadja a World World Object-jeinek teljes listajat.
+	 * 
+	 * @param 
+	 *
+	 * @return List<WorldObject> a world objectek listaja 
+	 */
 	public List<WorldObject> getAllWorldObject() {
 		return objects;
 	}

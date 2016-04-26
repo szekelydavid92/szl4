@@ -66,11 +66,25 @@ public class WorldObject implements IWorldObject {
 	/*
 	 * Itt eltertunk a specifikaciotol, a setWidth es setHeight nem volt benne.
 	 */
-
+	
+	/**
+	 * @brief Beallitja a world object szelesseget.
+	 * 
+	 * @param width: a beallitando szelesseg
+	 *
+	 * @return void
+	 */
 	public void setWidth(double width) {
 		this.width = width;
 	}
 	
+	/**
+	 * @brief Beallitja a world object magassagat.
+	 * 
+	 * @param height: a beallitando magassag
+	 *
+	 * @return void
+	 */
 	public void setHeight(double height) {
 		this.height = height;
 	}
@@ -139,7 +153,15 @@ public class WorldObject implements IWorldObject {
 	 * Itt eltertunk a specifikaciotol, ez a fuggveny nincs benne eredetileg.
 	 */
 	
-	//TODO kommentelni kéne
+	/**
+	 * @brief Elloki a world objectet az utkozes iranyanak megfeleloen,
+	 * azaz megvaloztatja megfeleloen a koordinatait.
+	 * 
+	 * @param other: a masik world object, double dx :visszalokodes x iranyba
+	 * double dy: visszalokodes y iranyba 
+	 * 
+	 * @return void
+	 */
 	public void push(WorldObject other,double dx, double dy) {
 		if(colResp == CollisionResponse.IMMOVABLE) {
 			return;
@@ -275,7 +297,12 @@ public class WorldObject implements IWorldObject {
 		this.observer=observer;
 	}
 	
-	//TODO kommentelni kene
+	/**
+	 * @brief Beallitja a world objectre feliratkozo visitable-t. 
+	 * 
+	 * @param visitable A feliratkozo visitable.
+	 * @return void
+	 */
 	public void setVisitable(IVisitable visitable) {
 		this.visitable=visitable;
 	}
@@ -306,23 +333,48 @@ public class WorldObject implements IWorldObject {
 		return visitable;
 	}
 	
-	//TODO kommentelni kene
+	/**
+	 * @brief Megadja, hogy az adott world object-et el kell-e
+	 * tavolitani a World objektumai kozul.
+	 * 	  
+	 * @param 
+	 * @return boolean
+	 */
 	boolean isRemovable() {
 		return removable;
 	}
 	
-	//@Override
+	/**
+	 * @brief Szol az observerrel, hogy melyik oldalaval
+	 * utkozott.
+	 * 
+	 * @param direction: a beallitando irany 
+	 * @return void
+	 */
 	public void setDirection(Direction direction) {
 		if(this.observer != null) {
 			this.observer.setDirection(direction);
 		}
 	}
 	
+	/**
+	 * @brief Megjeloli removable-kent a world object-et
+	 * 
+	 * @param 
+	 * @return void
+	 */
 	@Override
 	public void markRemovable() {
 		removable = true;
 	}
-
+	
+	/**
+	 * @brief Beallitja , hogy a world object
+	 * hogyan reagal az utkozesekre.
+	 * 
+	 * @param 
+	 * @return void
+	 */
 	@Override
 	public CollisionResponse getCollisionResponse() {
 		return colResp;

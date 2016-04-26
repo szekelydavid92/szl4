@@ -16,7 +16,7 @@ public class TestOutput {
 				try {
 					int counter = 0;
 					boolean fail = false;
-					BufferedReader expectedReader = new BufferedReader(new FileReader("expectedOutputs/testOut" + testNumber));
+					BufferedReader expectedReader = new BufferedReader(new FileReader("expectedOutputs/testOut" + testNumber + "_jaffa"));
 					BufferedReader outReader = new BufferedReader(new FileReader("output/testOut" + testNumber));
 					System.out.println(testNumber  + ". teszteset futtatasa:");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -46,6 +46,8 @@ public class TestOutput {
 					br.readLine();
 				}
 				catch (IOException e) {
+					System.out.println(testNumber);
+					e.printStackTrace();
 					System.out.println("Hibas bemeneti fajl.");
 				}			
 			}

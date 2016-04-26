@@ -475,6 +475,7 @@ class LevelLoader {
 			levelParser.Menu();
 		} catch (FileNotFoundException e) {
 			System.out.print("Error: could not load map");
+			e.printStackTrace();
 			return false;
 		}
 		

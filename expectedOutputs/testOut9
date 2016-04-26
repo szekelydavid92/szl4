@@ -1,0 +1,62 @@
+loadMap
+listWalls
+Pozicio: 40.0 0.0
+Fal szelessege: 20.0, magassaga: 100.0
+Fal tipusa: altalanos
+Falhoz tartozo csillagkapu: nincs
+
+listPlayers
+Jatekos neve/ti­pusa: replikator
+Pozi­cio: 50.0 150.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+randomReplikator off
+setPlayerSpeed replikator 1.0
+
+move replikator true false false false
+run 60
+
+move replikator false true false false
+run 1
+listWalls
+Pozicio: 40.0 0.0
+Fal szelessege: 20.0, magassaga: 100.0
+Fal tipusa: altalanos
+Falhoz tartozo csillagkapu: nincs
+
+listPlayers
+Jatekos neve/ti­pusa: replikator
+Pozi­cio: 50.0 99.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+
+move replikator false false true false
+run 10
+listPlayers
+Jatekos neve/ti­pusa: replikator
+Pozi­cio: 41.0 101.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+
+move replikator false false false true
+run 10
+listPlayers
+Jatekos neve/ti­pusa: replikator
+Pozi­cio: 49.0 101.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem

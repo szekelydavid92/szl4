@@ -1,0 +1,37 @@
+loadMap
+listPlayers
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 50.0 50.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 20.0, Magassaga: 20.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+setProjectileSpeed 10.0
+setCursor oneill 60.0 0.0
+shoot oneill 0 1
+run 1
+listProjectiles
+Lovedek szine: YELLOW
+Pozicio: 50.0  50.0
+Lovedek szelessege: 10.0, 10.0
+
+
+shoot oneill 0 0
+run 1
+listProjectiles
+Lovedek szine: YELLOW
+Pozicio: 51.96116135138184  40.1941932430908
+Lovedek szelessege: 10.0, 10.0
+
+
+run 1
+listProjectiles
+Lovedek szine: YELLOW
+Pozicio: 53.92232270276368  30.388386486181602
+Lovedek szelessege: 10.0, 10.0
+
+
+run 5
+listProjectiles

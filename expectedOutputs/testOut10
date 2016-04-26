@@ -1,0 +1,33 @@
+loadMap
+listPlayers
+Jatekos neve/ti­pusa: replikator
+Pozi­cio: 40.0 40.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+listChasms
+
+Szakadek pozicioja:10.0 40.0
+Szakadek szelessege:20.0, Magassaga: 20.0
+ 
+setPlayerSpeed replikator 20.0
+randomReplikator off
+
+move replikator false false true false
+run 1
+
+move replikator false false false false
+run 2
+listPlayers
+Jatekos neve/ti­pusa: replikator
+Pozi­cio: 20.0 30.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: igen
+
+listChasms

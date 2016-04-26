@@ -1,0 +1,124 @@
+loadMap
+listPlayers
+Jatekos neve/ti­pusa: jaffa
+Pozi­cio: 200.0 30.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 50.0 50.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+listScales
+Pozi­cio: 200.0 10.0
+Merleg szelessege: 10.0, Magassaga: 10.0
+Hozzatartozo ajto pozicioja: 70.0 50.0
+Merleg ajtonyito sulykorlat: 2.0
+Merleg allapota: felengedve
+Merlegen levo aktualis sulyok osszege: 0.0
+
+listDoors
+Pozi­cio: 70.0 50.0
+Ajto szelessege: 10.0, Magassaga: 10.0
+Az ajto allapota: zart
+listBoxes
+Pozi­cio: 200.0 30.0
+Doboz szelessege: 10.0, Magassaga: 10.0
+Cipelo jatekos neve: nincs
+Doboz siulya: 1.0
+Megsemmisult-e: nem
+
+setPlayerSpeed oneill 5.0
+setPlayerSpeed jaffa 5.0
+pickUp
+run 1
+pickUp
+
+move jaffa true false false false
+run 3
+
+move jaffa false false false false
+run 1
+
+move oneill false false false true
+run 8
+
+move oneill false false false false
+run 1
+listPlayers
+Jatekos neve/ti­pusa: jaffa
+Pozi­cio: 200.0 15.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : van
+Halott-e: nem
+
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 90.0 50.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+listScales
+Pozi­cio: 200.0 10.0
+Merleg szelessege: 10.0, Magassaga: 10.0
+Hozzatartozo ajto pozicioja: 70.0 50.0
+Merleg ajtonyito sulykorlat: 2.0
+Merleg allapota: lenyomva
+Merlegen levo aktualis sulyok osszege: 3.0
+
+listDoors
+Pozi­cio: 70.0 50.0
+Ajto szelessege: 10.0, Magassaga: 10.0
+Az ajto allapota: nyitott
+pickUp
+run 1
+pickUp
+
+move jaffa false true false false
+run 4
+
+move oneill false false true false
+run 8
+
+move oneill false false false false
+run 2
+listPlayers
+Jatekos neve/ti­pusa: jaffa
+Pozi­cio: 200.0 80.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 80.0 50.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+listScales
+Pozi­cio: 200.0 10.0
+Merleg szelessege: 10.0, Magassaga: 10.0
+Hozzatartozo ajto pozicioja: 70.0 50.0
+Merleg ajtonyito sulykorlat: 2.0
+Merleg allapota: felengedve
+Merlegen levo aktualis sulyok osszege: 1.0
+
+listDoors
+Pozi­cio: 70.0 50.0
+Ajto szelessege: 10.0, Magassaga: 10.0
+Az ajto allapota: zart

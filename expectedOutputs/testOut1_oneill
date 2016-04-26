@@ -1,0 +1,47 @@
+loadMap
+listPlayers
+Jatekos neve/ti­pusa: jaffa
+Pozi­cio: 80.0 20.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 20.0 20.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+listWalls
+Pozicio: 0.0 0.0
+Fal szelessege: 100.0, magassaga: 10.0
+Fal tipusa: altalanos
+Falhoz tartozo csillagkapu: nincs
+
+setPlayerSpeed oneill 4.0
+
+move oneill true false false false
+run 6
+
+move oneill false false false false
+run 2
+listPlayers
+Jatekos neve/ti­pusa: jaffa
+Pozi­cio: 80.0 20.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 20.0 10.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem

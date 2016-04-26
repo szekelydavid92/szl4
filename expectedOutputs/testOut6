@@ -1,0 +1,45 @@
+loadMap
+listWalls
+listPlayers
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 0.0 0.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+setPlayerSpeed oneill 10.0
+listZPMs
+Pozicio: 0.0 10.0
+Zpm szelessege10.0, Magassaga: 10.0
+ZPM allapota: nincs felveve
+Pozicio: 10.0 10.0
+Zpm szelessege10.0, Magassaga: 10.0
+ZPM allapota: nincs felveve
+
+
+move oneill false true false false
+run 1
+
+move oneill false false false true
+run 1
+listZPMs
+Pozicio: 0.0 10.0
+Zpm szelessege10.0, Magassaga: 10.0
+ZPM allapota: felveve
+Pozicio: 10.0 10.0
+Zpm szelessege10.0, Magassaga: 10.0
+ZPM allapota: felveve
+Pozicio: 50.0 20.0
+Zpm szelessege10.0, Magassaga: 10.0
+ZPM allapota: nincs felveve
+
+listPlayers
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 0.0 10.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 2
+Cipelt doboz van-e : nincs
+Halott-e: nem

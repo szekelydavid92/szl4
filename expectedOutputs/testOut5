@@ -1,0 +1,129 @@
+loadMap
+listPlayers
+Jatekos neve/ti­pusa: jaffa
+Pozi­cio: 0.0 200.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+Jatekos neve/ti­pusa: oneill
+Pozi­cio: 0.0 0.0
+Iranyvektor: 0.0 0.0
+Jatekos szelessege: 10.0, Magassaga: 10.0
+Felvett ZPM-ek szama: 0
+Cipelt doboz van-e : nincs
+Halott-e: nem
+
+listWalls
+Pozicio: 0.0 30.0
+Fal szelessege: 10.0, magassaga: 10.0
+Fal tipusa: specialis
+Falhoz tartozo csillagkapu: nincs
+
+Pozicio: 30.0 0.0
+Fal szelessege: 10.0, magassaga: 10.0
+Fal tipusa: specialis
+Falhoz tartozo csillagkapu: nincs
+
+Pozicio: 0.0 170.0
+Fal szelessege: 10.0, magassaga: 10.0
+Fal tipusa: specialis
+Falhoz tartozo csillagkapu: nincs
+
+Pozicio: 30.0 190.0
+Fal szelessege: 10.0, magassaga: 10.0
+Fal tipusa: specialis
+Falhoz tartozo csillagkapu: nincs
+
+setPlayerSpeed oneill 1.0
+setPlayerSpeed jaffa 1.0
+setProjectileSpeed 1.0
+setCursor oneill 5.0 30.0
+shoot oneill 1 0
+run 1
+shoot oneill 0 0
+run 100
+listStargates
+Portal szine: PIROS (SARGA) 
+WormHole: jaffa Wormhole-ja
+Fal koordinatai: nincs  nincs
+
+Portal szine: ZOLD (KEK) 
+WormHole: jaffa Wormhole-ja
+Fal koordinatai: nincs  nincs
+
+Portal szine: KEK 
+WormHole: oneill Wormhole-ja
+Fal koordinatai: 0.0  30.0
+
+Portal szine: SARGA 
+WormHole: oneill Wormhole-ja
+Fal koordinatai: nincs  nincs
+
+setCursor oneill 30.0 5.0
+shoot oneill 0 1
+run 1
+shoot oneill 0 0
+run 100
+listStargates
+Portal szine: PIROS (SARGA) 
+WormHole: jaffa Wormhole-ja
+Fal koordinatai: nincs  nincs
+
+Portal szine: ZOLD (KEK) 
+WormHole: jaffa Wormhole-ja
+Fal koordinatai: nincs  nincs
+
+Portal szine: KEK 
+WormHole: oneill Wormhole-ja
+Fal koordinatai: 0.0  30.0
+
+Portal szine: SARGA 
+WormHole: oneill Wormhole-ja
+Fal koordinatai: 30.0  0.0
+
+setCursor jaffa 5.0 170.0
+shoot jaffa 1 0
+run 1
+shoot jaffa 0 0
+run 100
+listStargates
+Portal szine: PIROS (SARGA) 
+WormHole: jaffa Wormhole-ja
+Fal koordinatai: nincs  nincs
+
+Portal szine: ZOLD (KEK) 
+WormHole: jaffa Wormhole-ja
+Fal koordinatai: 0.0  170.0
+
+Portal szine: KEK 
+WormHole: oneill Wormhole-ja
+Fal koordinatai: 0.0  30.0
+
+Portal szine: SARGA 
+WormHole: oneill Wormhole-ja
+Fal koordinatai: 30.0  0.0
+
+setCursor jaffa 30.0 195.0
+shoot jaffa 0 1
+run 1
+shoot jaffa 0 0
+run 100
+listStargates
+Portal szine: PIROS (SARGA) 
+WormHole: jaffa Wormhole-ja
+Fal koordinatai: 30.0  190.0
+
+Portal szine: ZOLD (KEK) 
+WormHole: jaffa Wormhole-ja
+Fal koordinatai: 0.0  170.0
+
+Portal szine: KEK 
+WormHole: oneill Wormhole-ja
+Fal koordinatai: 0.0  30.0
+
+Portal szine: SARGA 
+WormHole: oneill Wormhole-ja
+Fal koordinatai: 30.0  0.0

@@ -361,7 +361,7 @@ public class ProtoGodObject {
 			
 			Player player=(Player) b.getCarrier();
 			if (player == null) {
-				System.out.println("Cipelo jatekos neve: ");
+				System.out.println("Cipelo jatekos neve: nincs");
 			}
 			else if (player == players.get("oneill")){
 				System.out.println("Cipelo jatekos neve: Oneill" );
@@ -371,7 +371,7 @@ public class ProtoGodObject {
 			} 
 			
 			System.out.println("Doboz siulya: " + b.getMass());
-			System.out.println("Megsemmisult-e: " + b.isKilled());
+			System.out.println("Megsemmisult-e: " + ((b.isKilled() == true)?"igen":"nem"));
 			System.out.println("");
 		}
 	}
@@ -558,7 +558,7 @@ public class ProtoGodObject {
 				System.out.println("Iranyvektor: " + p.getDirX() + " " + p.getDirY());
 				System.out.println("Jatekos szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
 				System.out.println("Felvett ZPM-ek szama: " + p.getZpmNumber());
-				System.out.println("Cipelt dobozok van-e: "); //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				System.out.println("Cipelt doboz van-e : " + ((p.getBox() == null)?"nincs":"van"));
 				String isDead = "nem";
 				if (p.isKilled()) {
 					isDead = "igen";

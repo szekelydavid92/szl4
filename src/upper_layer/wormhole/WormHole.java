@@ -153,6 +153,7 @@ public class WormHole {
 		Depth.getInstance().enterFunction();
 
 		//System.out.print("SÁRGÁHOZ");
+		
 		teleportable.teleport(yellowX,yellowY);
 				
 		Depth.getInstance().returnFromFunction();

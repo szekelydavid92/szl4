@@ -2,12 +2,13 @@ loadMap testMaps/testMap9-replikator_mozgasa
 listWalls
 listPlayers
 
-setPlayerSpeed replikator 30
+setPlayerSpeed replikator 1
 randomReplikator on
 
-run 1
+run 10
 listPlayers
-run 1
+run 10
 listPlayers
-run 1
-listPlayer
+run 10
+listPlayers
+run 1000

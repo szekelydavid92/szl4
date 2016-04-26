@@ -15,6 +15,6 @@ end
 
 Chasm
 begin
-pos 0 10
+pos 0 20
 dim 10 10
 end

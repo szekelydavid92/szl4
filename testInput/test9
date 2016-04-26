@@ -3,21 +3,20 @@ listWalls
 listPlayers
 
 randomReplikator off
-setPlayerSpeed replikator 30
+setPlayerSpeed replikator 1
 
-move replikator 0 1 0 0 
-run 1
+move replikator 1 0 0 0 
+run 60
 move replikator 0 1 0 0
-run 4
+run 10
 
 listWalls
 listPlayers
 
-move replikator 1 0 0 0
-run 1
-move replikator 1 0 0 0
-run 1
-move replikator 1 0 0 0
-run 1
+move replikator 0 0 1 0
+run 10
+listPlayers
+move replikator 0 0 0 1
+run 10
 
 listPlayers

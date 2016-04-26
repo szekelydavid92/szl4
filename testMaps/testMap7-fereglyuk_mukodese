@@ -15,12 +15,12 @@ end
 
 SpecWall
 begin
-pos 0 20
+pos 0 30
 dim 10 10
 end
 
 SpecWall
 begin
-pos 10 20
+pos 30 0
 dim 10 10
 end

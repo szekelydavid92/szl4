@@ -29,7 +29,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	//public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	//[Helyette: ]
 	public String name = new String("player");
-	
+	private int blockTeleportTime = 0;
 	//////
 	
 	/*
@@ -150,8 +150,11 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		Depth.getInstance().enterFunction();
 		
 		//if(validPos(x, y)){
+		if (blockTeleportTime == 0) {
 			worldObject.setPosX(x);
 			worldObject.setPosY(y);
+			blockTeleportTime = 10;
+		}
 		//} else {	
 		//}
 		
@@ -374,7 +377,9 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		move(); 
 		carryBox(); 
 		shoot(); 
-		
+		if (blockTeleportTime > 0) {
+			blockTeleportTime--;
+		}
 	}
 	
 	
@@ -479,7 +484,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		System.out.print(name + ".visit()\n");
 		Depth.getInstance().enterFunction();
 		
-		if(pick && (carriedObject == null)) {
+		if(pick && (carriedObject == null) ) {
 			carriable.regCarrier(this);
 			carriedObject=carriable;
 			justPicked = true;

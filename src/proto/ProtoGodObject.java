@@ -41,16 +41,38 @@ import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
 
+/**
+ * @brief Ez az osztaly felel a teszteles fobb funkcioiert, 
+ * azaz a parancsok hatasara a megfelelo metodusok meghivasaert, feldolgozasaert,
+ * a jatekallapot listazasaert. 
+ * 
+ *
+ */
 public class ProtoGodObject {
 	private World world;
 	private GameLoop gameLoop;
 	private static ProtoGodObject instance = null;
 	
+	/**
+	 * @brief Statikus belso osztaly, amely a mashogy nem kilistazhato/kiirhato
+	 * visitable objektumok kilistazasert felel
+	 * 
+	 */
 	static class VisitableWriter implements IVisitor {
+		// attributumok
 		public static enum VisitableType { zpm,chasm,projectile,neutral}
 		VisitableType visiting;
 		boolean justVisitedProjectile=false;
 		boolean foundChasm = false;
+		
+		//metodusok
+		/**
+		 * @brief Kiirja a zpm allapotat, a std kimenetre.
+		 * 
+		 * @param zpm: a zpm, amely allapotat kirja
+		 *
+		 * @return void
+		 */
 		public void visit(IZPM zpm) {	
 			IWorldObject zpmWorldObject=((ZPM)zpm).getWorldObject();
 			if (visiting==VisitableType.zpm) {
@@ -60,6 +82,13 @@ public class ProtoGodObject {
 			}
 		}
 		
+		/**
+		 * @brief Kiirja a szakadek allapotat, a std kimenetre.
+		 * 
+		 * @param chasm: a chasm, amely allapotat kirja
+		 *
+		 * @return void
+		 */
 		public void visit(IChasm chasm) {
 			List<IWorldObject> chasms =((Chasm)chasm).getChasms();
 			for ( IWorldObject o : chasms) {
@@ -71,18 +100,22 @@ public class ProtoGodObject {
 			
 		}
 		
+		// nem csinal semmit
 		public void visit(ISpecWall specWall) {
 			
 		}
 		
+		// nem csinal semmit
 		public void visit(ITeleportable teleportable) {
 			
 		}
 		
+		//nem csinal semmit
 		public void visit(IKillable killable) {
 			
 		}
 		
+		// nem csinal semmit
 		public void visit(IScale scale) {
 			
 		}

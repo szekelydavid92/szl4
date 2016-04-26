@@ -16,7 +16,6 @@ import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
 import common.IZPM;
-import proto.Depth;
 import upper_layer.Utility;
 
 
@@ -103,12 +102,7 @@ public class Stargate implements IStargate{
 	
 	@Override
 	public void visit(ITeleportable teleportable) {
-		
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".visit()\n");
-		Depth.getInstance().enterFunction();
-		
-		System.out.println(direction + ";" + this.teleportDirection);
+		//System.out.println(direction + ";" + this.teleportDirection);
 		
 		if(colour == Colour.BLUE) {
 			//if (teleportable.getDirection() == Utility.getPair(this.teleportDirection)) {
@@ -122,20 +116,11 @@ public class Stargate implements IStargate{
 				wormHole.teleportToBlue(teleportable);
 			}
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".visit()\n");
-		
 	}
 
 	
 	@Override
 	public void mask(ISpecWall wall) {
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".mask()\n");
-		Depth.getInstance().enterFunction();
-		
 		//!!!!!!!!!!!!!!!!!!!!!!lorant
 		if(masked != null) {
 			masked.restore();
@@ -144,28 +129,16 @@ public class Stargate implements IStargate{
 		masked = wall;
 		wall.replace(this);
 		//wall.obj.setCollisionObserver(this);
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".mask()\n");
 	}
 
 	
 	@Override
 	public void notify(IWorldObject obj) {
-		Depth.getInstance().printTabs();
-		System.out.print(name + ".notify()\n");
-		Depth.getInstance().enterFunction();
-		
 		IVisitable visitable = obj.getVisitable();
 		
 		if(visitable != null) {
 			visitable.accept(this);
 		}
-		
-		Depth.getInstance().returnFromFunction();
-		Depth.getInstance().printTabs();
-		System.out.print("ret " + name + ".notify()\n");
 	}
 
 	@Override

@@ -20,19 +20,24 @@ public class TestOutput {
 					BufferedReader outReader = new BufferedReader(new FileReader("output/testOut" + testNumber));
 					System.out.println(testNumber  + ". teszteset futtatasa:");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					String expected = null;
-					while( (expected = expectedReader.readLine()) != null) {
-						if (expected.equals(outReader.readLine()))
+					String expected = expectedReader.readLine();
+					String given = outReader.readLine();
+					while(expected != null) {
+						if (expected.equals(given))
 							++counter;
 						else {
 							fail = true;
 							System.out.println(String.valueOf(counter+1) + ". sor: nem egyezik a kimenet az elvart kimenettel!");
+							System.out.println("Vart kimenet:   " + expected);
+							System.out.println("Kapott kimenet: " + given);
 						}
+						expected = expectedReader.readLine();
+						given = outReader.readLine();
 					}
 					if (fail)
-						System.out.println("A teszt eredmenye: nem megfelelo kimenet.");
+						System.out.println("A teszt eredmenye: a kimenet nem egyezik a vart kimenettel.");
 					else if (outReader.readLine() != null)
-						System.out.println("A teszt eredmenye: nem megfelelo kimenet.");
+						System.out.println("A teszt eredmenye: a kimenet nem egyezik a vart kimenettel.");
 					else
 						System.out.println("A teszt eredmenye: megfelelo kimenet.");
 					expectedReader.close();

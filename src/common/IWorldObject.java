@@ -1,6 +1,5 @@
 package common;
 
-import proto.Depth;
 
 /**
  * Ezt az interface-t implementalja minden olyan objektum, akinek van pozicioja,

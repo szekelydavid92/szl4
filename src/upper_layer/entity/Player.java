@@ -24,9 +24,8 @@ import common.Direction;
  */
 public class Player extends Killable implements ITeleportable, ICarrier, IControllable {
 
-	//[BACKUP]
+	
 	//public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
-	//[Helyette: ]
 	public String name = new String("player");
 	private int blockTeleportTime = 0;
 	//////

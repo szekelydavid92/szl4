@@ -57,14 +57,6 @@ public class Projectile implements IProjectile, ICollisionObserver, IVisitable, 
 	@Override
 	public void visit(ISpecWall wall) {
 		
-		//Scanner in = ProtoMain.in; //Shortcut
-		//String line = null;
-
-		//Depth.getInstance().printTabs();
-		//System.out.println("Kerem, adja meg, hogy milyen szinu (sarga vagy kek) portal nyiljon! [s/k]");
-		
-		//line = ProtoMain.in.next();
-		//System.out.println(direction+";"+Utility.getPair(direction));
 		
 		if(active) {
 			if(colour == Colour.YELLOW) {

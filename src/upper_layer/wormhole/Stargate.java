@@ -121,7 +121,7 @@ public class Stargate implements IStargate{
 	
 	@Override
 	public void mask(ISpecWall wall) {
-		//!!!!!!!!!!!!!!!!!!!!!!lorant
+	
 		if(masked != null) {
 			masked.restore();
 		}

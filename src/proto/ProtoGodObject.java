@@ -120,6 +120,7 @@ public class ProtoGodObject {
 			
 		}
 		
+		//nem csinal semmit
 		public void visit(ICarriable carriable) {
 			
 		}

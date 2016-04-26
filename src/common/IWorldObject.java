@@ -142,19 +142,19 @@ public interface IWorldObject {
 	//public void setDirection(Direction direction) ;
 
 	/**
-	 * @brief .
+	 * @brief Beallitja a world object-re feliratkozo visitable-t
 	 * @return void
 	 */
 	public void setVisitable(IVisitable visitable);
 
 	/**
-	 * @brief .
+	 * @brief Remarkable-kent megjeloli removable-kent.
 	 * @return void
 	 */
 	public void markRemovable();
 
 	/**
-	 * @brief .
+	 * @brief Beallitja hogyan reagaljon a world object az utkozesekre.
 	 * @return void
 	 */
 	public CollisionResponse getCollisionResponse();	

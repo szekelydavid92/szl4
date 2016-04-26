@@ -37,6 +37,15 @@ public class WorldObjectFactory implements IWorldObjectFactory {
 		return worldObject;
 	}
 	
+	/**
+	 * @brief Konstruktor, megkapja a world objektumot, 
+	 * aminek majd palyaelemeket hoz letre.
+	 * 
+	 * @param world: a world object, amelynek majd
+	 * palyaelemeket hoz letre.
+	 *
+	 * @return void
+	 */
 	public WorldObjectFactory(World world) {
 		this.world = world;
 	}

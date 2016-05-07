@@ -10,11 +10,11 @@ public interface IDoor {
 	 */
 	public void open();
 	
-	
 	/**
 	 * Ez a fuggveny zarja be az ajtot.
 	 * @return void
 	 */
 	public void close();
 	
+	public boolean isOpen();
 }

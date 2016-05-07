@@ -49,4 +49,9 @@ public class Door extends ColEntity implements IDoor {
 		 * Nem csinál semmit.
 		 */
 	}
+
+	@Override
+	public boolean isOpen() {
+		return isOpen;
+	}
 }

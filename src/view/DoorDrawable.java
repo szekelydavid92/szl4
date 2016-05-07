@@ -14,14 +14,21 @@ public class DoorDrawable extends Drawable{
 
 	DoorDrawable(IWorldObject worldObject, Color c) {
 		super(worldObject, c);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
 	 * Ez a függvény felelős azért, hogy kirajzolja az ajtót a JFrame-re.
 	 */
-	void draw(Graphics graphics){
-		super.draw(graphics);
+	void draw(Graphics graphics){		
+		//ha nyitva a kapu nem rajzolunk
+		if(door.isOpen()){
+			return;
+		}
+		else {
+			//zárt ajtó esetén rajzolunk
+			super.draw(graphics);
+		}
+		
 	}
 
 }

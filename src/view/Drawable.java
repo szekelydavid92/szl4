@@ -21,9 +21,11 @@ public class Drawable {
 	 * @param c
 	 */
 	Drawable(IWorldObject worldObject, Color c){
-		
+		this.worldObject = worldObject;
+		this.color = c;
 	}
 	void draw(Graphics graphics){
-		
+		graphics.setColor(color);
+		graphics.fillRect((int)worldObject.getPosX(),(int)worldObject.getPosY(),(int)worldObject.getWidth(),(int)worldObject.getHeight());
 	}
 }

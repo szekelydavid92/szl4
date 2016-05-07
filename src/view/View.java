@@ -1,5 +1,6 @@
 package view;
 import java.awt.Graphics;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -11,13 +12,17 @@ import common.IView;
  */
 class View extends JFrame implements IView {
 
-	List<Drawable> drawableList;
+	LinkedList<Drawable> drawableList = new LinkedList<Drawable>();
 	
 	/**
 	 * Konstruktor- JFrame ablak megnyitasa, ablak konfiguralasa (meret, pozicio, cimke, stb)
 	 */
 	View(){
-		
+		super("Sivatagi_Lotunderek_presents...");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(640, 480);
+		this.setLocation(50, 50);
+		this.setVisible(true);
 	}
 	
 	/**
@@ -25,7 +30,6 @@ class View extends JFrame implements IView {
 	 */
 	@Override
 	public void render() {
-		// TODO Auto-generated method stub
 		repaint();
 	}
 	
@@ -35,7 +39,9 @@ class View extends JFrame implements IView {
 	@Override
 	public void paint(Graphics g){
 		super.paint(g);
-		// TODO
+		for(int i=0; i<drawableList.size(); i++){
+				drawableList.get(i).draw(g);
+		}
 	}
 	
 	/**
@@ -43,7 +49,7 @@ class View extends JFrame implements IView {
 	 * @param d
 	 */
 	void add(Drawable d){
-		
+		drawableList.add(d);
 	}
 	
 	

@@ -191,4 +191,9 @@ public class Stargate implements IStargate{
 	public void setTeleportDirection(Direction teleportDirection) {
 		this.teleportDirection=teleportDirection;
 	}
+
+	@Override
+	public Direction getTeleportDirection() {
+		return teleportDirection;
+	}
 }

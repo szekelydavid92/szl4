@@ -15,7 +15,6 @@ public class StargateDrawable extends Drawable{
 	
 	StargateDrawable(IWorldObject worldObject, Color c) {
 		super(worldObject, c);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -23,7 +22,8 @@ public class StargateDrawable extends Drawable{
 	 * StargateDrawable-hez készített szekvenciadiagramok vázolják fel.
 	 */
 	void draw(Graphics graphics){
-		
+		IWorldObject w = stargate.getMasked().getWorldObject();
+		this.drawGate(w.getPosX(), w.getPosY(), w.getWidth(), w.getHeight(), stargate.getTeleportDirection(), graphics);
 	}
 	
 	/**

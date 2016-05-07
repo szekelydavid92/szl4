@@ -17,4 +17,6 @@ public interface IStargate extends IVisitor, ICollisionObserver {
 	 * @return ISpecWall
 	 */
 	public ISpecWall getMasked();
+	
+	public Direction getTeleportDirection();
 }

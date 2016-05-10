@@ -36,8 +36,36 @@ public class StargateDrawable extends Drawable{
 	 * @param graphics
 	 */
 	void drawGate(double x,double y,double width,double height,Direction direction,Graphics graphics){
+				
+		int x1 = (int)worldObject.getPosX();
+		int x2 = (int)worldObject.getPosX()+(int)worldObject.getWidth();
+		int y1 = (int)worldObject.getPosY();
+		int y2 = (int)worldObject.getPosY()+(int)worldObject.getHeight();
 		
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect((int)worldObject.getPosX(),(int)worldObject.getPosY(),(int)worldObject.getWidth(),(int)worldObject.getHeight());
+		
+		switch (direction){
+		case UP:
+			graphics.setColor(color);
+			graphics.drawLine(x1, y1, x2, y1);
+			break;
+		case DOWN: 
+			graphics.setColor(color);
+			graphics.drawLine(x1, y2, x2, y2);			
+			break;
+		case RIGHT:
+			graphics.setColor(color);
+			graphics.drawLine(x1, y1, x1, y2);
+			break;
+		case LEFT: 
+			graphics.setColor(color);
+			graphics.drawLine(x2, y1, x2, y2);
+			break;
+		default:
+			System.out.println("Nincs megadva irány a StarGate-re!");
+			break;
+		}
 	}
-	
-	
+
 }

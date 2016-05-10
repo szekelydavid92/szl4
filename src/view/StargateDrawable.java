@@ -42,8 +42,10 @@ public class StargateDrawable extends Drawable{
 		int y1 = (int)worldObject.getPosY();
 		int y2 = (int)worldObject.getPosY()+(int)worldObject.getHeight();
 		
+		/*
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect((int)worldObject.getPosX(),(int)worldObject.getPosY(),(int)worldObject.getWidth(),(int)worldObject.getHeight());
+		*/
 		
 		switch (direction){
 		case UP:

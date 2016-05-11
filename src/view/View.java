@@ -40,7 +40,7 @@ class View extends JFrame implements IView {
 	public void paint(Graphics g){
 		super.paint(g);
 		for(int i=0; i<drawableList.size(); i++){
-			if(drawableList.get(i).drawableType.equals("StarGateDrawable")){
+			/*if(drawableList.get(i).drawableType.equals("StarGateDrawable")){
 				StargateDrawable tp = (StargateDrawable)(drawableList.get(i));
 				tp.draw(g);
 			}
@@ -48,9 +48,10 @@ class View extends JFrame implements IView {
 				DoorDrawable tp = (DoorDrawable)drawableList.get(i);
 				tp.draw(g);
 			}
-			else {
+			else */
+			//{
 				drawableList.get(i).draw(g);
-			}
+			//}
 		}
 	}
 	

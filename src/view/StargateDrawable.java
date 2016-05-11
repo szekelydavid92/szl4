@@ -13,8 +13,9 @@ public class StargateDrawable extends Drawable{
 
 	protected IStargate stargate;
 	
-	StargateDrawable(IWorldObject worldObject, Color c) {
+	StargateDrawable(IWorldObject worldObject, IStargate stargate, Color c) {
 		super(worldObject, c);
+		this.stargate = stargate;
 		this.drawableType = "StarGateDrawable";
 	}
 	
@@ -23,7 +24,13 @@ public class StargateDrawable extends Drawable{
 	 * StargateDrawable-hez készített szekvenciadiagramok vázolják fel.
 	 */
 	void draw(Graphics graphics){
-		this.drawGate(this.worldObject.getPosX(), this.worldObject.getPosY(), this.worldObject.getWidth(), this.worldObject.getHeight(), stargate.getTeleportDirection(), graphics);
+		this.drawGate(
+				this.worldObject.getPosX(),
+				this.worldObject.getPosY(),
+				this.worldObject.getWidth(),
+				this.worldObject.getHeight(),
+				stargate.getTeleportDirection(),
+				graphics);
 	}
 	
 	/**
@@ -58,11 +65,11 @@ public class StargateDrawable extends Drawable{
 			break;
 		case RIGHT:
 			graphics.setColor(color);
-			graphics.drawLine(x1, y1, x1, y2);
+			graphics.drawLine(x2, y1, x2, y2);
 			break;
 		case LEFT: 
 			graphics.setColor(color);
-			graphics.drawLine(x2, y1, x2, y2);
+			graphics.drawLine(x1, y1, x1, y2);
 			break;
 		default:
 			System.out.println("Nincs megadva irány a StarGate-re!");

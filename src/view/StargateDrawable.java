@@ -1,7 +1,10 @@
 package view;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import common.Direction;
 import common.IStargate;
 import common.IWorldObject;
@@ -16,7 +19,6 @@ public class StargateDrawable extends Drawable{
 	StargateDrawable(IWorldObject worldObject, IStargate stargate, Color c) {
 		super(worldObject, c);
 		this.stargate = stargate;
-		this.drawableType = "StarGateDrawable";
 	}
 	
 	/**
@@ -48,28 +50,29 @@ public class StargateDrawable extends Drawable{
 		int x2 = (int)worldObject.getPosX()+(int)worldObject.getWidth();
 		int y1 = (int)worldObject.getPosY();
 		int y2 = (int)worldObject.getPosY()+(int)worldObject.getHeight();
+				
+		int LineWidth = 10;
+        int lineWidthHalf = LineWidth/2;
 		
-		/*
-		graphics.setColor(Color.BLACK);
-		graphics.fillRect((int)worldObject.getPosX(),(int)worldObject.getPosY(),(int)worldObject.getWidth(),(int)worldObject.getHeight());
-		*/
+		Graphics2D g2 = (Graphics2D) graphics;
+        g2.setStroke(new BasicStroke(LineWidth));
 		
 		switch (direction){
 		case UP:
-			graphics.setColor(color);
-			graphics.drawLine(x1, y1, x2, y1);
+			g2.setColor(color);
+			g2.drawLine(x1+lineWidthHalf, y1+lineWidthHalf, x2-lineWidthHalf, y1+lineWidthHalf);
 			break;
 		case DOWN: 
-			graphics.setColor(color);
-			graphics.drawLine(x1, y2, x2, y2);			
+			g2.setColor(color);
+			g2.drawLine(x1+lineWidthHalf, y2-lineWidthHalf, x2-lineWidthHalf, y2-lineWidthHalf);			
 			break;
 		case RIGHT:
-			graphics.setColor(color);
-			graphics.drawLine(x2, y1, x2, y2);
+			g2.setColor(color);
+			g2.drawLine(x2-lineWidthHalf, y1+lineWidthHalf, x2-lineWidthHalf, y2-lineWidthHalf);
 			break;
 		case LEFT: 
-			graphics.setColor(color);
-			graphics.drawLine(x1, y1, x1, y2);
+			g2.setColor(color);
+			g2.drawLine(x1+lineWidthHalf, y1+lineWidthHalf, x1+lineWidthHalf, y2-lineWidthHalf);
 			break;
 		default:
 			System.out.println("Nincs megadva irány a StarGate-re!");

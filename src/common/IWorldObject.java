@@ -43,7 +43,7 @@ public interface IWorldObject {
 	 * @return void
 	 */
 	public void displace(double dx, double dy);
-	
+		
 	
 	/**
 	 * @brief A vilagbeli objektum X tengely menti poziciojat adja vissza eredmenyul.
@@ -157,5 +157,6 @@ public interface IWorldObject {
 	 * @brief Beallitja hogyan reagaljon a world object az utkozesekre.
 	 * @return void
 	 */
-	public CollisionResponse getCollisionResponse();	
+	public CollisionResponse getCollisionResponse();
+	
 }

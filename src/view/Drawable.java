@@ -14,7 +14,6 @@ public class Drawable {
 
 	protected IWorldObject worldObject;
 	protected Color color;
-	public String drawableType;
 	
 	/**
 	 * kirajzolás a JFrame-re
@@ -24,7 +23,6 @@ public class Drawable {
 	Drawable(IWorldObject worldObject, Color c){
 		this.worldObject = worldObject;
 		this.color = c;
-		this.drawableType = "Drawable";
 	}
 	void draw(Graphics graphics){
 		graphics.setColor(color);

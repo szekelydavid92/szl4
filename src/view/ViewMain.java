@@ -8,6 +8,7 @@ import bottom_layer.WorldObjectFactory;
 import common.Direction;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
+import upper_layer.entity.Door;
 import upper_layer.entity.Player;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
@@ -33,13 +34,13 @@ public class ViewMain {
 		
 		//2 specwall létrehozása
 		puszcsy = wof.createObject(40, 40);
-		puszcsy.setPosX(170);
-		puszcsy.setPosY(50);
+		puszcsy.setPosX(40);
+		puszcsy.setPosY(170);
 		SpecWall swall1 = new SpecWall(puszcsy);
 		
 		puszcsy = wof.createObject(40, 40);
 		puszcsy.setPosX(40);
-		puszcsy.setPosY(200);
+		puszcsy.setPosY(40);
 		SpecWall swall2 = new SpecWall(puszcsy);
 		
 		Drawable spec1Dra = new Drawable(swall1.getWorldObject(), Color.DARK_GRAY);
@@ -54,11 +55,21 @@ public class ViewMain {
 		StargateDrawable ydrStar = new StargateDrawable(swall2.getWorldObject(), wh.yellowGate, Color.YELLOW);
 		
 		
+		//Ajtó megjelenítése
+		puszcsy = wof.createObject(40, 40);
+		puszcsy.setPosX(80);
+		puszcsy.setPosY(100);
+		Door d = new Door(puszcsy);
+		d.open();
+		DoorDrawable drd = new DoorDrawable(puszcsy, Color.RED);
+		drd.door = d;
+		
 		//kirajzoláshoz
 		v.add(spec1Dra);
 		v.add(spec2Dra);
 		v.add(bdrStar);
 		v.add(ydrStar);
+		v.add(drd);
 		
 		v.render();
 		

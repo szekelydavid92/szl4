@@ -10,11 +10,10 @@ import common.IWorldObject;
  */
 public class DoorDrawable extends Drawable{
 	
-	protected IDoor door;
+	public IDoor door;
 
 	DoorDrawable(IWorldObject worldObject, Color c) {
 		super(worldObject, c);
-		this.drawableType = "DoorDrawable";
 	}
 	
 	/**
@@ -23,7 +22,7 @@ public class DoorDrawable extends Drawable{
 	void draw(Graphics graphics){		
 		//ha nyitva a kapu nem rajzolunk
 		if(door.isOpen()){
-			return;
+			
 		}
 		else {
 			//zárt ajtó esetén rajzolunk

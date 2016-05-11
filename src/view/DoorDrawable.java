@@ -14,6 +14,7 @@ public class DoorDrawable extends Drawable{
 
 	DoorDrawable(IWorldObject worldObject, Color c) {
 		super(worldObject, c);
+		this.drawableType = "DoorDrawable";
 	}
 	
 	/**

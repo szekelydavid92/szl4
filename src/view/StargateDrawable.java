@@ -15,6 +15,7 @@ public class StargateDrawable extends Drawable{
 	
 	StargateDrawable(IWorldObject worldObject, Color c) {
 		super(worldObject, c);
+		this.drawableType = "StarGateDrawable";
 	}
 	
 	/**
@@ -22,8 +23,7 @@ public class StargateDrawable extends Drawable{
 	 * StargateDrawable-hez készített szekvenciadiagramok vázolják fel.
 	 */
 	void draw(Graphics graphics){
-		IWorldObject w = stargate.getMasked().getWorldObject();
-		this.drawGate(w.getPosX(), w.getPosY(), w.getWidth(), w.getHeight(), stargate.getTeleportDirection(), graphics);
+		this.drawGate(this.worldObject.getPosX(), this.worldObject.getPosY(), this.worldObject.getWidth(), this.worldObject.getHeight(), stargate.getTeleportDirection(), graphics);
 	}
 	
 	/**

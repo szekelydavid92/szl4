@@ -25,12 +25,14 @@ public class GameLoop {
 	 * erdekeben publikusak.
 	 * 
 	 */
+	boolean running;
 	private World world = new World();
 	private List<IEntity> Entities = new LinkedList<IEntity>();
 	
 	public GameLoop(World world) {
 		this.world = world;
 	}
+	
 	
 	/**
 	 * @brief Ezzel a fuggvennyel lehet lekerdezni a vilaghoz tartozo World
@@ -59,15 +61,20 @@ public class GameLoop {
 	 */
 	public void run() {
 		
-		world.checkCollision();
-		world.step();
+		running = true;
 		
-		//TODO Ezt a printet ki kell gyalulni!
-		//System.out.println("Entity lepteto ciklus belepes");
-		for(IEntity e : Entities)
-		{
-			e.step();
+		while(running){
+			world.checkCollision();
+			world.step();
+			
+			for(IEntity e : Entities)
+			{
+				e.step();
+			}
 		}
-		
+				
+	}
+	void stop(){
+		running = false;
 	}
 }

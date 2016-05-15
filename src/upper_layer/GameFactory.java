@@ -5,6 +5,7 @@ import java.util.TreeMap;
 
 import bottom_layer.*;
 import common.CollisionResponse;
+import common.IDrawableFactory;
 import common.IProjectileFactory;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
@@ -12,6 +13,7 @@ import proto.ProtoGodObject;
 import upper_layer.wormhole.ProjectileFactory;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.WormHole;
+import view.DrawableFactory;
 import upper_layer.entity.*;
 import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
@@ -28,6 +30,8 @@ public class GameFactory {
 	//Itt elterunk a specifikaciotol, de ez kell ide.
 	private GameLoop gameLoop;
 	
+	private IDrawableFactory drawableFactory;
+	
 	/*
 	 * Itt is, es ez nem biztos, hogy a legszebb megoldas
 	 */
@@ -38,9 +42,10 @@ public class GameFactory {
 	 * Metodusok
 	 */
 	
-	public GameFactory(GameLoop gameLoop) {
+	public GameFactory(GameLoop gameLoop, IDrawableFactory drawableFactory) {
 		setGameLoop(gameLoop);
 		zpmObserver = new ZPMObserver(this);
+		this.drawableFactory = drawableFactory;
 	}
 	
 	/*

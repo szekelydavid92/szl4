@@ -10,7 +10,7 @@ import upper_layer.GameFactory;
 /**
  * @brief Ez az osztaly felelos a palya betolteseert.
  */
-class LevelLoader {
+public class LevelLoader {
 	
 	/**
 	 * @brief Ez az osztaly felelos a parameterkent kapott Scannerbol a palya elemeinek
@@ -482,7 +482,7 @@ class LevelLoader {
 		return true;
 	}
 	
-	LevelLoader() {
+	public LevelLoader() {
 			
 	}
 	

@@ -12,8 +12,9 @@ public class DoorDrawable extends Drawable{
 	
 	public IDoor door;
 
-	DoorDrawable(IWorldObject worldObject, Color c) {
+	DoorDrawable(IWorldObject worldObject,IDoor d, Color c) {
 		super(worldObject, c);
+		this.door = d;
 	}
 	
 	/**

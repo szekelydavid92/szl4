@@ -1,8 +1,11 @@
 package view;
 
+import java.awt.Color;
+
 import common.IDoor;
 import common.IDrawableFactory;
 import common.IStargate;
+import common.IView;
 import common.IWorldObject;
 
 /**
@@ -11,23 +14,29 @@ import common.IWorldObject;
 public class DrawableFactory implements IDrawableFactory{
 	
 	protected View view;
-
-	@Override
-	public void createDoorDrawable(IDoor door, DrawableColor color) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void createObjectDrawable(IWorldObject worldObject, DrawableColor color) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void createStargateDrawable(IStargate stargate, DrawableColor color) {
-		// TODO Auto-generated method stub
-		
-	}
 	
+	DrawableFactory(View v){
+		view = v;
+	}
+
+	@Override
+	public void createObjectDrawable(IWorldObject worldObject, Color color) {
+		Drawable d = new Drawable(worldObject, color);
+		
+		view.add(d);
+	}
+
+	@Override
+	public void createStargateDrawable(IStargate stargate, Color color) {
+		StargateDrawable sd = new StargateDrawable(stargate.getMasked().getWorldObject(), stargate, color);
+		
+		view.add(sd);
+	}
+
+	@Override
+	public void createDoorDrawable(IWorldObject worldObject, IDoor door, Color color) {
+		DoorDrawable dd = new DoorDrawable(worldObject, door, color);
+		
+		view.add(dd);
+	}
 }

@@ -3,26 +3,48 @@ package view;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import bottom_layer.GameLoop;
 import bottom_layer.World;
 import bottom_layer.WorldObjectFactory;
 import common.Direction;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
+import proto.LevelLoader;
+import upper_layer.GameFactory;
 import upper_layer.entity.Door;
 import upper_layer.entity.Player;
+import upper_layer.reactive.Chasm;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
 
 public class ViewMain {
-
+	
+	private static View view;
+	private static DrawableFactory drawableFactory;
+	private static GameLoop gameLoop;
+	private static GameFactory gameFactory;
+	
+	private static boolean loadMap(String map)
+	{	
+		LevelLoader levelLoader = new LevelLoader();
+		levelLoader.load(map, gameFactory);
+		return true;
+	}
 	public static void main(String[] args) {
-
-		View v = new View();
 		
-		World world = new World();
-		IWorldObjectFactory wof = world.getWorldObjectFactory();
+		view = new View();
+		drawableFactory = new DrawableFactory(view);
+		gameLoop = new GameLoop(new World());
+		gameFactory = new GameFactory(gameLoop, drawableFactory);
 		
+		loadMap("Maps/Map_1");
+		
+		gameLoop.run();
+		
+		
+		//IWorldObjectFactory wof =IWorldObjectFactor
+		/*
 		//Oneill megjelemítése
 		IWorldObject puszcsy = wof.createObject(40, 40);
 		puszcsy.setPosY(50);
@@ -61,8 +83,7 @@ public class ViewMain {
 		puszcsy.setPosY(100);
 		Door d = new Door(puszcsy);
 		d.open();
-		DoorDrawable drd = new DoorDrawable(puszcsy, Color.RED);
-		drd.door = d;
+		DoorDrawable drd = new DoorDrawable(puszcsy,d, Color.RED);
 		
 		//kirajzoláshoz
 		v.add(spec1Dra);
@@ -72,7 +93,7 @@ public class ViewMain {
 		v.add(drd);
 		
 		v.render();
-		
+		*/
 	}
 
 }

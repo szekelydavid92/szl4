@@ -1,0 +1,201 @@
+Player
+begin 
+type oneill
+pos 20 10
+dim 10 10
+mass 1
+end
+
+Player
+begin 
+type replikator
+pos 24 10
+dim 10 10
+mass 1
+end
+
+Player
+begin 
+type jaffa
+pos 10 10
+dim 10 10
+mass 1
+end
+
+Box
+begin
+pos 80 60
+dim 10 10
+mass 1
+end
+
+Door
+begin
+id 1 
+pos 90 20
+dim 10 10
+end
+
+Scale
+begin 
+id 1
+pos 40 20
+mass 1
+dim 10 10
+end 
+
+ZPM
+begin
+pos 40 40
+dim 10 10
+end
+
+ZPM
+begin
+pos 100 50
+dim 10 10
+end
+
+ZPM
+begin
+pos 160 10
+dim 10 10
+end
+
+ZPM_RandPos
+begin
+pos 180 10
+dim 10 10
+end
+
+ZPM_RandPos
+begin
+pos 180 20
+dim 10 10
+end
+
+ZPM_RandPos
+begin
+pos 190 30
+dim 10 10
+end
+
+ZPM_RandPos
+begin
+pos 180 40
+dim 10 10
+end
+
+Wall
+begin
+pos 0 0
+dim 250 10
+end
+
+Wall
+begin
+pos 0 10
+dim 10 80
+end
+
+Wall
+begin
+pos 10 80
+dim 240 10
+end
+
+Wall
+begin
+pos 250 10
+dim 10 70
+end
+
+Wall
+begin
+pos 30 10
+dim 10 30
+end
+
+SpecWall
+begin
+pos 30 40
+dim 10 10
+end
+
+Wall
+begin
+pos 30 50
+dim 10 20
+end
+
+Wall
+begin
+pos 90 10
+dim 10 10
+end
+
+Wall
+begin
+pos 90 30
+dim 10 40
+end
+
+SpecWall
+begin
+pos 90 70
+dim 10 10
+end
+
+Wall
+begin
+pos 100 40
+dim 50 10
+end
+
+Wall
+begin
+pos 170 10
+dim 10 10
+end
+
+SpecWall
+begin
+pos 170 20
+dim 10 10
+end
+
+Wall
+begin
+pos 170 30
+dim 10 20
+end
+
+Chasm
+begin
+pos 40 50
+dim 30 30
+end
+
+Chasm
+begin
+pos 100 10
+dim 30 60
+end
+
+Chasm
+begin
+pos 150 40
+dim 10 40
+end
+
+Chasm
+begin
+pos 200 10
+dim 10 70
+end
+
+Chasm
+begin
+pos 220 10
+dim 10 70
+end

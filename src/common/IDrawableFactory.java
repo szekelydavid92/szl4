@@ -1,6 +1,6 @@
 package common;
 
-import java.awt.Color;
+
 
 import view.DrawableColor;
 
@@ -14,17 +14,17 @@ public interface IDrawableFactory {
 	 * @param door
 	 * @param color
 	 */
-	void createDoorDrawable(IWorldObject worldObject,IDoor door,Color color);
+	void createDoorDrawable(IWorldObject worldObject,IDoor door,DrawableColor color);
 	/**
 	 * Létrehoz egy grafikus primitívet az adott pozícióval, szélességgel és magassággal.
 	 * @param worldObject
 	 * @param color
 	 */
-	void createObjectDrawable(IWorldObject worldObject,Color color);
+	void createObjectDrawable(IWorldObject worldObject,DrawableColor color);
 	/**
 	 * Létrehoz egy grafikus primitívet a csillagkapunak az adott pozícióval, szélességgel, magassággal és színnel.
 	 * @param stargate
 	 * @param color
 	 */
-	void createStargateDrawable(IStargate stargate,Color color);
+	void createStargateDrawable(IStargate stargate,DrawableColor color);
 }

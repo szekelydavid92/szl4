@@ -35,7 +35,7 @@ public class ViewMain {
 		
 		view = new View();
 		drawableFactory = new DrawableFactory(view);
-		gameLoop = new GameLoop(new World());
+		gameLoop = new GameLoop(new World(), view);
 		gameFactory = new GameFactory(gameLoop, drawableFactory);
 		
 		loadMap("Maps/Map_1");

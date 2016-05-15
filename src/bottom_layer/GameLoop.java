@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import common.IEntity;
+import common.IView;
 
 /* 
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -25,12 +26,19 @@ public class GameLoop {
 	 * erdekeben publikusak.
 	 * 
 	 */
+	
+	IView view;
 	boolean running;
 	private World world = new World();
 	private List<IEntity> Entities = new LinkedList<IEntity>();
 	
 	public GameLoop(World world) {
 		this.world = world;
+	}
+	
+	public GameLoop(World world, IView v) {
+		this.world = world;
+		this.view = v;
 	}
 	
 	
@@ -71,6 +79,9 @@ public class GameLoop {
 			{
 				e.step();
 			}
+			
+			view.render();
+			
 		}
 				
 	}

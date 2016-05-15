@@ -20,22 +20,22 @@ public class DrawableFactory implements IDrawableFactory{
 	}
 
 	@Override
-	public void createObjectDrawable(IWorldObject worldObject, Color color) {
-		Drawable d = new Drawable(worldObject, color);
+	public void createObjectDrawable(IWorldObject worldObject, DrawableColor color) {
+		Drawable d = new Drawable(worldObject, new Color(color.r, color.g, color.b));
 		
 		view.add(d);
 	}
 
 	@Override
-	public void createStargateDrawable(IStargate stargate, Color color) {
-		StargateDrawable sd = new StargateDrawable(stargate.getMasked().getWorldObject(), stargate, color);
+	public void createStargateDrawable(IStargate stargate, DrawableColor color) {
+		StargateDrawable sd = new StargateDrawable(stargate.getMasked().getWorldObject(), stargate, new Color(color.r, color.g, color.b));
 		
 		view.add(sd);
 	}
 
 	@Override
-	public void createDoorDrawable(IWorldObject worldObject, IDoor door, Color color) {
-		DoorDrawable dd = new DoorDrawable(worldObject, door, color);
+	public void createDoorDrawable(IWorldObject worldObject, IDoor door, DrawableColor color) {
+		DoorDrawable dd = new DoorDrawable(worldObject, door, new Color(color.r, color.g, color.b));
 		
 		view.add(dd);
 	}

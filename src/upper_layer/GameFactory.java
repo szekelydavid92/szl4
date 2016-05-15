@@ -18,6 +18,20 @@ import upper_layer.entity.*;
 import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
 import upper_layer.reactive.ZPM;
+import view.*;
+
+/*
+ * TODO
+ * 
+ * ##
+ * controller - 
+ * INPUT: 1 listener + 2 IControllable
+ * View-re be kell regisztrálni
+ * (key+mouse eventlistener)
+ * controllerWhiteBoard 
+ * [TOPI (?)]
+ */
+
 
 public class GameFactory {
 	
@@ -79,7 +93,8 @@ public class GameFactory {
 		/*
 		 * Mivel ez a resz kikerul a vegso programbol, ezert itt nyugodtan castolhatunk.
 		 */
-		ProtoGodObject.getInstance().walls.add((WorldObject)wallObject);
+		//ProtoGodObject.getInstance().walls.add((WorldObject)wallObject);
+		drawableFactory.createObjectDrawable(wallObject, new DrawableColor(0, 0, 0));
 	}
 	
 	/**
@@ -103,7 +118,9 @@ public class GameFactory {
 		/*
 		 * Ez a resz kikerul a vegso programbol.
 		 */
-		ProtoGodObject.getInstance().specWalls.add(specWall);
+		//ProtoGodObject.getInstance().specWalls.add(specWall);
+		drawableFactory.createObjectDrawable(wallObject, new DrawableColor(128, 128, 128));
+		//TODO
 	}
 	
 	/**
@@ -128,7 +145,7 @@ public class GameFactory {
 		 * Playert peldanyositunk, ha nem, akkor replikatort.
 		 */
 		if (name.equals("oneill") || name.equals("jaffa")) {
-			if(ProtoGodObject.getInstance().players.get(name) == null) {
+			//if(ProtoGodObject.getInstance().players.get(name) == null) {
 				/*
 				 * Minden uj jatekosnak letrehozunk egy uj WormHole-t.
 				 */
@@ -149,7 +166,7 @@ public class GameFactory {
 				 */
 				gameLoop.addEntity(player);
 				
-				if(name.equals("oneill")) {
+				if(name.equals("oneill")) { //marad [még]
 					/*
 					 * A modositas csak az ezredes altal felszedett 2 ZPM utan
 					 * keri az uj ZPM lepakolasat.
@@ -159,23 +176,27 @@ public class GameFactory {
 					/*
 					 * Ez a resz kikerul a vegso programbol.
 					 */
-					ProtoGodObject.getInstance().oneillController.setPlayer(player);
+					//ProtoGodObject.getInstance().oneillController.setPlayer(player);
+					drawableFactory.createObjectDrawable(playerObject, new DrawableColor(255, 20, 147));
 				}
-				if(name.equals("jaffa")) {
+				if(name.equals("jaffa")) { //controllers marad [még]
 					/*
 					 * Ez a resz kikerul a vegso programbol.
 					 */
-					ProtoGodObject.getInstance().jaffaController.setPlayer(player);
+					//ProtoGodObject.getInstance().jaffaController.setPlayer(player);
+					drawableFactory.createObjectDrawable(playerObject, new DrawableColor(255, 168, 255));
 				}
 				
 				/*
 				 * Ez a resz kikerul a vegso programbol.
 				 */
-				ProtoGodObject.getInstance().wormholes.put(name,wormHole);
-				ProtoGodObject.getInstance().players.put(name,player);
-			}
+				//ProtoGodObject.getInstance().wormholes.put(name,wormHole); //TODO
+				//ProtoGodObject.getInstance().players.put(name,player);
+				
+			//}
+				//drawableFactory.createObjectDrawable(playerObject, new DrawableColor(255, 0, 0));
 		}
-		else if (name.equals("replikator")) {
+		else /*if (name.equals("replikator"))*/ {
 			/*
 			 * Letrehozzuk az uj replikatort.
 			 */
@@ -201,9 +222,13 @@ public class GameFactory {
 			/*
 			 * Ez a resz kikerul a vegso programbol.
 			 */
+			/*
 			ProtoGodObject.getInstance().replicator=replikator;
 			ProtoGodObject.getInstance().replicatorController=replicatorController;
 			ProtoGodObject.getInstance().players.put(name,replikator);
+			*/
+			
+			drawableFactory.createObjectDrawable(playerObject, new DrawableColor(255, 0, 0));
 		}
 	}
 	
@@ -225,6 +250,7 @@ public class GameFactory {
 		chasmObject.setVisitable(Chasm.getInstance());
 		chasmObject.setCollisionObserver(Chasm.getInstance());
 		Chasm.getInstance().getChasms().add(chasmObject);
+		drawableFactory.createObjectDrawable(chasmObject, new DrawableColor(100, 50, 0));
 	}
 	
 	/**
@@ -250,7 +276,8 @@ public class GameFactory {
 		/*
 		 * Ez a resz kikerul a vegso programbol.
 		 */
-		ProtoGodObject.getInstance().boxes.add(box);
+		//ProtoGodObject.getInstance().boxes.add(box);
+		drawableFactory.createObjectDrawable(boxObj, new DrawableColor(255, 128, 0));
 	}
 
 
@@ -286,7 +313,8 @@ public class GameFactory {
 		/*
 		 * Ez a resz kikerul a vegso programbol.
 		 */
-		ProtoGodObject.getInstance().scales.add(scale);
+		//ProtoGodObject.getInstance().scales.add(scale);
+		drawableFactory.createObjectDrawable(scaleObject, new DrawableColor(0, 255, 255));
 	}
 
 	/**
@@ -319,7 +347,8 @@ public class GameFactory {
 		/*
 		 * Ez a resz kikerul a vegso programbol.
 		 */
-		ProtoGodObject.getInstance().doors.add(door);
+		//ProtoGodObject.getInstance().doors.add(door);
+		drawableFactory.createDoorDrawable(doorObject, door, new DrawableColor(0, 255, 255));
 	}
 	
 	/**
@@ -338,7 +367,9 @@ public class GameFactory {
 		zpmObj.setPosY(y);
 		zpmObj.setCollisionResponse(CollisionResponse.PASS);
 		
-		ZPM zpm = new ZPM(zpmObj);
+		//ZPM zpm = new ZPM(zpmObj);
+		drawableFactory.createObjectDrawable(zpmObj, new DrawableColor(0, 100, 0));
+		
 	}
 	
 	/*

@@ -149,7 +149,7 @@ end
 Wall
 begin
 pos 300 120
-dim 150 30
+dim 120 30
 end
 
 Wall
@@ -179,12 +179,12 @@ end
 Chasm
 begin
 pos 300 30
-dim 180 90
+dim 150 90
 end
 
 Chasm
 begin
-pos 450 120
+pos 420 120
 dim 30 120
 end
 

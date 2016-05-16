@@ -5,6 +5,7 @@ import java.util.TreeMap;
 
 import bottom_layer.*;
 import common.CollisionResponse;
+import common.IController;
 import common.IDrawableFactory;
 import common.IProjectileFactory;
 import common.IWorldObject;
@@ -46,6 +47,7 @@ public class GameFactory {
 	private GameLoop gameLoop;
 	
 	private IDrawableFactory drawableFactory;
+	private IController controller;
 	
 	/*
 	 * Itt is, es ez nem biztos, hogy a legszebb megoldas
@@ -57,10 +59,11 @@ public class GameFactory {
 	 * Metodusok
 	 */
 	
-	public GameFactory(GameLoop gameLoop, IDrawableFactory drawableFactory) {
+	public GameFactory(GameLoop gameLoop, IDrawableFactory drawableFactory,IController controller) {
 		setGameLoop(gameLoop);
 		zpmObserver = new ZPMObserver(this);
 		this.drawableFactory = drawableFactory;
+		this.controller = controller;
 	}
 	
 	/*
@@ -179,6 +182,7 @@ public class GameFactory {
 					 */
 					//ProtoGodObject.getInstance().oneillController.setPlayer(player);
 					drawableFactory.createObjectDrawable(playerObject, new DrawableColor(255, 20, 147));
+					controller.setOneill(player);
 				}
 				if(name.equals("jaffa")) { //controllers marad [még]
 					/*
@@ -186,6 +190,7 @@ public class GameFactory {
 					 */
 					//ProtoGodObject.getInstance().jaffaController.setPlayer(player);
 					drawableFactory.createObjectDrawable(playerObject, new DrawableColor(255, 168, 255));
+					controller.setJaffa(player);
 				}
 				
 				/*

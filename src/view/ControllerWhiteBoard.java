@@ -7,16 +7,19 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
  
 import common.IControllable;
+import common.IController;
 
-public class ControllerWhiteBoard implements KeyListener, MouseListener {
+public class ControllerWhiteBoard implements IController, KeyListener, MouseListener {
 	IControllable oneill; //fel, le jobb, bal , forog(egérmozg), lő(katt, jobbklikk) 
 	IControllable jaffa;  //WASD, lő(Q, E) forog(1, 2)
 	
 
+	@Override
 	public void setOneill(IControllable contr){
 		this.oneill = contr;
 	}
-	
+
+	@Override
 	public void setJaffa(IControllable contr){
 		this.jaffa = contr;
 	}

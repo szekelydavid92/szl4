@@ -11,7 +11,7 @@ import common.IWorldObject;
 public class Door extends ColEntity implements IDoor {
 	
 	private boolean isOpen = false;
-	public boolean isOpenToPrint = false; // csak kiirashoz 
+	public boolean wasOpen = false; // csak kiirashoz 
 	
 	public String name; //O kell az objektum nevenek a kiprintelesehez!
 	
@@ -32,7 +32,7 @@ public class Door extends ColEntity implements IDoor {
 	
 	@Override
 	public void step() {	
-		this.isOpenToPrint=this.isOpen;
+		this.wasOpen=this.isOpen;
 		if (isOpen ==true) {
 			worldObject.setCollisionResponse(CollisionResponse.PASS);
 		}
@@ -52,6 +52,6 @@ public class Door extends ColEntity implements IDoor {
 
 	@Override
 	public boolean isOpen() {
-		return isOpen;
+		return wasOpen;
 	}
 }

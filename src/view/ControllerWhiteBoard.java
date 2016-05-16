@@ -94,7 +94,7 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 			oneill.moveLeft(true);
 		}
 		
-		if(e.getKeyCode() == KeyEvent.VK_P){
+		if(e.getKeyCode() == KeyEvent.VK_ENTER){
 			oneill.pickUp(true);
 		}
 		
@@ -160,7 +160,7 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 			oneill.moveLeft(false);
 		}
 		
-		if(e.getKeyCode() == KeyEvent.VK_P){
+		if(e.getKeyCode() == KeyEvent.VK_ENTER){
 			oneill.pickUp(false);
 		}
 		

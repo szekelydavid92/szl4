@@ -25,7 +25,7 @@ end
 Box
 begin
 pos 240 180
-dim 30 30
+dim 20 20
 mass 1
 end
 

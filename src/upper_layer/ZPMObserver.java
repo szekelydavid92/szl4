@@ -25,7 +25,7 @@ public class ZPMObserver {
 	 */
 	private int numNotify = 0;
 	private boolean fired = false;
-	private boolean randomize = false;
+	private boolean randomize = true;
 	private List<ZPMRandPos> randPos = new LinkedList<ZPMRandPos>();
 	
 	GameFactory gameFactory;

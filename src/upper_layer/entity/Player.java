@@ -28,6 +28,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	//public String name = "player"; //O kell az objektum nevenek a kiprintelesehez!
 	public String name = new String("player");
 	private int blockTeleportTime = 0;
+	private int blockPickUpTime = 0;
 	//////
 	
 	/*
@@ -57,7 +58,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * Itt eltertunk a specifikációtól.
 	 */
 	
-	boolean justPicked = false;
+	//boolean justPicked = false;
 	
 	/*
 	 * Metodusok
@@ -245,6 +246,10 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 			if (blockTeleportTime > 0) {
 				blockTeleportTime--;
 			}
+			
+			if(blockPickUpTime > 0) {
+				blockPickUpTime--;
+			}
 		}
 	}
 	
@@ -282,16 +287,17 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 */
 	protected void carryBox() {		
 		if(carriedObject != null) {
-			if(justPicked) {
-				justPicked = false;
-			} else {
-				if(pick) {
+			//if(blockPickUpTime > 0) {
+			//	justPicked = false;
+			//} else {
+				if(pick && (blockPickUpTime == 0)) {
 					carriedObject.release();
 					carriedObject = null;
+					blockPickUpTime = 10;
 				} else {
 					carriedObject.setPos(worldObject.getPosX(),worldObject.getPosY());
 				}
-			}
+			//}
 		}
 	}
 	
@@ -356,10 +362,11 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 */
 	@Override
 	public void visit(ICarriable carriable) {		
-		if(pick && (carriedObject == null) ) {
+		if(pick && (carriedObject == null) && (blockPickUpTime == 0)) {
 			carriable.regCarrier(this);
 			carriedObject=carriable;
-			justPicked = true;
+			//justPicked = true;
+			blockPickUpTime = 10;
 		}
 	}
 

@@ -595,7 +595,7 @@ public class ProtoGodObject {
 			IWorldObject o = d.getWorldObject();
 			System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
 			System.out.println("Ajto szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
-			if (!(d.isOpenToPrint)) {
+			if (!(d.wasOpen)) {
 				System.out.println("Az ajto allapota: zart");
 			}
 			else {

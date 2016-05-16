@@ -49,7 +49,7 @@ class View extends JFrame implements IView {
 		
 		this.add(canvas);
 		canvas.setBackground(new Color(255,255,255));
-		canvas.setPreferredSize(new Dimension(640, 480));
+		canvas.setPreferredSize(new Dimension(750, 270));
 		
 		this.pack();
 		this.setVisible(true);

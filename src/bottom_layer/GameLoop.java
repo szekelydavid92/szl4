@@ -71,17 +71,41 @@ public class GameLoop {
 		
 		running = true;
 		
+		/*
+		 * Itt adjuk meg, hogy max mennyi FPS-sel fusson a program.
+		 */
+		int FPS = 30;
 		while(running){
+			/*
+			 * Frame limitálás, mert enélkül túl gyors lenne a program.
+			 */
+			long beginTime = System.currentTimeMillis();
+			
 			world.checkCollision();
 			world.step();
 			
-			for(IEntity e : Entities)
-			{
+			for(IEntity e : Entities) {
 				e.step();
 			}
 			
+			/*
+			 * Szólunk az ablaknak, hogy újra kéne rajzolni a világot.
+			 */
 			view.render();
-			
+
+			/*
+			 * Frame limitálás, mert enélkül túl gyors lenne a program.
+			 */
+			long endTime = System.currentTimeMillis();
+			long timeElapsed = endTime-beginTime;
+			if(timeElapsed < 1000/FPS) {
+				try {
+					Thread.sleep(1000/FPS - timeElapsed);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					//e.printStackTrace();
+				}
+			}
 		}
 				
 	}

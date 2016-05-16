@@ -340,7 +340,8 @@ public class WorldObject implements IWorldObject {
 	 * @param 
 	 * @return boolean
 	 */
-	boolean isRemovable() {
+	@Override
+	public boolean isRemovable() {
 		return removable;
 	}
 	

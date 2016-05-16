@@ -44,7 +44,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	double dirY = 0.0;  					//a kilövendő lövedék irányának Y komponense
 	boolean shootingYellow = false; 			//ha a játékos sárga lövedéket lő, false egyébként.
 	boolean shootingBlue = false;  			//ha a játékos kék lövedéket lő, false egyébként.
-	private double displacement = 1.0;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
+	private double displacement = 5.0;  	//megadja, hogy egy lépéssel a játékos mekkora távolságot tesz meg.
 	public IProjectileFactory projFactory;
 	private Direction direction;
 	ZPMObserver zpmObserver = null;
@@ -109,7 +109,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		if (blockTeleportTime == 0) {
 			worldObject.setPosX(x);
 			worldObject.setPosY(y);
-			blockTeleportTime = 10;
+			blockTeleportTime = 20;
 		}	
 	}
 	

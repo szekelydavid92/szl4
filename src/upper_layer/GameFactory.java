@@ -153,12 +153,12 @@ public class GameFactory {
 				/*
 				 * Minden uj jatekosnak letrehozunk egy uj WormHole-t.
 				 */
-				WormHole wormHole = new WormHole();
+				//WormHole wormHole = new WormHole(); //Tobbe mar nem.
 				
 				/*
 				 * Minden uj wormholenak letrehozunk egy uj ProjectileFactoryt.
 				 */
-				IProjectileFactory projFactory = new ProjectileFactory(worldObjectFactory,wormHole);
+				IProjectileFactory projFactory = new ProjectileFactory(worldObjectFactory,drawableFactory/*wormHole*/);
 				
 				/*
 				 * A jatekost tarsitjuk a neki megfelelo ProjectileFactoryvel.
@@ -253,6 +253,7 @@ public class GameFactory {
 		chasmObject.setPosX(x);
 		chasmObject.setPosY(y);
 		
+		chasmObject.setCollisionResponse(CollisionResponse.PASS);
 		chasmObject.setVisitable(Chasm.getInstance());
 		chasmObject.setCollisionObserver(Chasm.getInstance());
 		Chasm.getInstance().getChasms().add(chasmObject);

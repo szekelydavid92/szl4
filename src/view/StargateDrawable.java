@@ -26,6 +26,17 @@ public class StargateDrawable extends Drawable{
 	 * StargateDrawable-hez készített szekvenciadiagramok vázolják fel.
 	 */
 	void draw(Graphics graphics){
+		/*
+		 * Itt eltértünk a specifikációtól, csak akkor rajzoljuk ki, ha
+		 * ki van lőve.
+		 */
+		if(stargate.getMasked() == null) {
+			return;
+		}
+		else {
+			worldObject = stargate.getMasked().getWorldObject();
+		}
+		
 		this.drawGate(
 				this.worldObject.getPosX(),
 				this.worldObject.getPosY(),
@@ -45,7 +56,7 @@ public class StargateDrawable extends Drawable{
 	 * @param graphics
 	 */
 	void drawGate(double x,double y,double width,double height,Direction direction,Graphics graphics){
-				
+			
 		int x1 = (int)worldObject.getPosX();
 		int x2 = (int)worldObject.getPosX()+(int)worldObject.getWidth();
 		int y1 = (int)worldObject.getPosY();

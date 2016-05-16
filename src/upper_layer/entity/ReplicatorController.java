@@ -7,7 +7,7 @@ import common.IEntity;
 
 public class ReplicatorController implements IEntity {
 	private int direction;
-	private boolean active;
+	private boolean active = true;
 	private IControllable replicator;
 	
 	public ReplicatorController(Replicator r) {

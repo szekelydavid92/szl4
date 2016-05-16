@@ -2,6 +2,7 @@ package view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,11 +39,19 @@ class View extends JFrame implements IView {
 	//LinkedList<Drawable> drawableList = new LinkedList<Drawable>();
 	Canvas canvas = new Canvas();
 	
+	/*
+	 * Itt eltérünk a specifikációtól, és jó randa dolog ez.
+	 */
+	ControllerWhiteBoard controller;
+	
 	/**
 	 * Konstruktor- JFrame ablak megnyitasa, ablak konfiguralasa (meret, pozicio, cimke, stb)
 	 */
-	View(){
+	View(ControllerWhiteBoard controller){
 		super("Sivatagi_Lotunderek_presents...");
+		
+		this.controller = controller;
+		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//this.setSize(640, 480);
 		this.setLocation(50, 50);
@@ -60,6 +69,17 @@ class View extends JFrame implements IView {
 	 */
 	@Override
 	public void render() {
+		/*
+		 * Na, amit MOST csinálok, az RANDA!!!
+		 */
+		Point mousePos = canvas.getMousePosition();
+		if(mousePos != null) {
+			controller.setMousePos(mousePos.getX(),mousePos.getY());
+		}
+		
+		/*
+		 * Itt jön a függvény tényleges funkcionalitása.
+		 */
 		repaint();
 	}
 	

@@ -33,9 +33,9 @@ public class ViewMain {
 		return true;
 	}
 	public static void main(String[] args) {
-		
-		view = new View();
+
 		controller = new ControllerWhiteBoard();
+		view = new View(controller);
 		
 		view.addMouseListener(controller);
 		view.addKeyListener(controller);

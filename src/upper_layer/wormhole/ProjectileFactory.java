@@ -2,9 +2,11 @@ package upper_layer.wormhole;
 
 import common.CollisionResponse;
 import common.Colour;
+import common.IDrawableFactory;
 import common.IProjectileFactory;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
+import view.DrawableColor;
 
 /**
  * Megvalositja az IProjectileFactory Interface-t.
@@ -17,6 +19,7 @@ public class ProjectileFactory implements IProjectileFactory {
 	 * Attributumok
 	 */
 	private IWorldObjectFactory worldObjectFactory;
+	private IDrawableFactory drawableFactory;
 	private WormHole wormHole;
 	
 	private static final double PROJECTILE_SIZE = 10.0;
@@ -30,14 +33,23 @@ public class ProjectileFactory implements IProjectileFactory {
 	 * @brief Konstruktor
 	 * 
 	 */
-	public ProjectileFactory(IWorldObjectFactory worldObjectFactory,WormHole wormHole)
+	public ProjectileFactory(IWorldObjectFactory worldObjectFactory,IDrawableFactory drawableFactory)
 	{
 		this.worldObjectFactory = worldObjectFactory;
-		this.wormHole = wormHole;
+		this.drawableFactory = drawableFactory;
+		//this.wormHole = wormHole;
 	}
 	
 	@Override
 	public void createProjectile(Colour colour, double posX, double posY, double dirX, double dirY) {
+		
+		if(wormHole == null)
+		{
+			wormHole = new WormHole();
+			
+			drawableFactory.createStargateDrawable(wormHole.blueGate, new DrawableColor(0,0,255));
+			drawableFactory.createStargateDrawable(wormHole.yellowGate, new DrawableColor(255,255,0));
+		}
 		
 		IWorldObject worldObject = worldObjectFactory.createObject(PROJECTILE_SIZE, PROJECTILE_SIZE);
 		
@@ -64,6 +76,13 @@ public class ProjectileFactory implements IProjectileFactory {
 		Projectile projectile = new Projectile(worldObject,colour,wormHole);
 		worldObject.setCollisionObserver(projectile);
 		worldObject.setVisitable(projectile);
+		
+		if(colour == Colour.YELLOW) {
+			drawableFactory.createObjectDrawable(worldObject, new DrawableColor(255,255,0));
+		}
+		else {
+			drawableFactory.createObjectDrawable(worldObject, new DrawableColor(0,0,255));
+		}
 	}
 	
 }

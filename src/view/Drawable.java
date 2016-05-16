@@ -25,7 +25,11 @@ public class Drawable {
 		this.color = c;
 	}
 	void draw(Graphics graphics){
-		graphics.setColor(color);
-		graphics.fillRect((int)worldObject.getPosX(),(int)worldObject.getPosY(),(int)worldObject.getWidth(),(int)worldObject.getHeight());
+		
+		if(!worldObject.isRemovable())
+		{
+			graphics.setColor(color);
+			graphics.fillRect((int)worldObject.getPosX(),(int)worldObject.getPosY(),(int)worldObject.getWidth(),(int)worldObject.getHeight());
+		}
 	}
 }

@@ -13,6 +13,9 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 	IControllable oneill; //fel, le jobb, bal , forog(egérmozg), lő(katt, jobbklikk) 
 	IControllable jaffa;  //WASD, lő(Q, E) forog(1, 2)
 	
+	void setMousePos(double x,double y) {
+		oneill.lookAt(x, y);
+	}
 
 	@Override
 	public void setOneill(IControllable contr){
@@ -36,10 +39,9 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 		if(e.getButton() ==MouseEvent.BUTTON1){
 			oneill.shootBlue(true);
 		}
-		if(e.getButton() ==MouseEvent.BUTTON2){
+		if(e.getButton() ==MouseEvent.BUTTON3){
 			oneill.shootYellow(true);
 		}
-		
 	}
 
 	@Override
@@ -48,7 +50,7 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 		if(e.getButton() ==MouseEvent.BUTTON1){
 			oneill.shootBlue(false);
 		}
-		if(e.getButton() ==MouseEvent.BUTTON2){
+		if(e.getButton() ==MouseEvent.BUTTON3){
 			oneill.shootYellow(false);
 		}
 	}

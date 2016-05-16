@@ -28,7 +28,7 @@ public class DrawableFactory implements IDrawableFactory{
 
 	@Override
 	public void createStargateDrawable(IStargate stargate, DrawableColor color) {
-		StargateDrawable sd = new StargateDrawable(stargate.getMasked().getWorldObject(), stargate, new Color(color.r, color.g, color.b));
+		StargateDrawable sd = new StargateDrawable(null, stargate, new Color(color.r, color.g, color.b));
 		
 		view.add(sd);
 	}

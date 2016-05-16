@@ -159,4 +159,14 @@ public interface IWorldObject {
 	 */
 	public CollisionResponse getCollisionResponse();
 	
+
+	
+	/**
+	 * @brief Megadja, hogy az adott world object-et el kell-e
+	 * tavolitani a World objektumai kozul.
+	 * 	  
+	 * @param 
+	 * @return boolean
+	 */
+	boolean isRemovable();
 }

@@ -117,6 +117,10 @@ public class WormHole {
 	public void teleportToYellow(ITeleportable teleportable) {
 		//System.out.print("SARGAHOZ");
 		
+		if(yellowGate.getMasked() == null) {
+			return;
+		}
+		
 		teleportable.teleport(yellowX,yellowY);
 	}
 	
@@ -129,6 +133,11 @@ public class WormHole {
 	 */
 	public void teleportToBlue(ITeleportable teleportable) {
 		//System.out.print("KEKHEZ");
+
+		if(blueGate.getMasked() == null) {
+			return;
+		}
+		
 		teleportable.teleport(blueX,blueY);
 	}
 }

@@ -120,10 +120,12 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 		
 		if(e.getKeyCode() == KeyEvent.VK_1){
 			//TODO
+			jaffa.rotateLeft();
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_2){
 			//TODO
+			jaffa.rotateRight();
 		}
 			
 		

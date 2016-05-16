@@ -614,7 +614,7 @@ public class ProtoGodObject {
 				System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
 				System.out.println("Iranyvektor: " + p.getDirX() + " " + p.getDirY());
 				System.out.println("Jatekos szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
-				System.out.println("Felvett ZPM-ek szama: " + p.getZpmNumber());
+				System.out.println("Felvett ZPM-ek szama: " + p.getNumZPM());
 				System.out.println("Cipelt doboz van-e : " + ((p.getBox() == null)?"nincs":"van"));
 				String isDead = "nem";
 				if (p.isKilled()) {
@@ -633,7 +633,7 @@ public class ProtoGodObject {
 			System.out.println("Pozi­cio: " + o.getPosX() + " " + o.getPosY());
 			System.out.println("Iranyvektor: " + p.getDirX() + " " + p.getDirY());
 			System.out.println("Jatekos szelessege: " + o.getWidth() + ", Magassaga: " + o.getHeight());
-			System.out.println("Felvett ZPM-ek szama: " + p.getZpmNumber());
+			System.out.println("Felvett ZPM-ek szama: " + p.getNumZPM());
 			
 			String isThereBox;
 			if (p.getBox() == null) {

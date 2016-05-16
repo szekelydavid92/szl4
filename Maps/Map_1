@@ -9,7 +9,7 @@ end
 Player
 begin 
 type replikator
-pos 150 30
+pos 60 70
 dim 30 30
 mass 1
 end

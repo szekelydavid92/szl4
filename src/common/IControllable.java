@@ -90,4 +90,9 @@ public interface IControllable {
 	 */
 	public void shootBlue(boolean shootingBlue);
 	
+	public void rotateLeft();
+	public void rotateRight();
+	
+	public int getNumZPM();
+	
 }

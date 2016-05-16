@@ -49,7 +49,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	private Direction direction;
 	ZPMObserver zpmObserver = null;
 	
-	private static final double rotationalAngle = 0.0174532925;
+	private static final double rotationalAngle = 0.0174532925 * 10.0;
 	//eltértünk a spceifikációtól, ne használjatok egeret és billentyűzetet egyszerre
 	private double angle = 0;
 	
@@ -78,7 +78,7 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		return dirY;
 	}
 	
-	public int getZpmNumber() {
+	public int getNumZPM() {
 		return zpmNumber;
 	}
 	
@@ -238,11 +238,13 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	 * @return void
 	 */
 	public void step() {
-		move(); 
-		carryBox(); 
-		shoot(); 
-		if (blockTeleportTime > 0) {
-			blockTeleportTime--;
+		if(this.isAlive) {
+			move(); 
+			carryBox(); 
+			shoot(); 
+			if (blockTeleportTime > 0) {
+				blockTeleportTime--;
+			}
 		}
 	}
 	
@@ -313,20 +315,22 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 		}
 	}
 	
-	public void rotateLeft(){
+	@Override
+	public void rotateLeft() {
 		
 		this.angle -= this.rotationalAngle;
 		
-		this.dirX = Math.cos(this.angle);
-		this.dirY = Math.sin(this.angle);
+		this.dirX = this.getWorldObject().getPosX() + 10*Math.cos(this.angle);
+		this.dirY = this.getWorldObject().getPosY() + 10*Math.sin(this.angle);
 	}
-	
-	public void rotateRight(){
+
+	@Override
+	public void rotateRight() {
 		
 		this.angle += this.rotationalAngle;
 		
-		this.dirX = Math.cos(this.angle);
-		this.dirY = Math.sin(this.angle);
+		this.dirX = this.getWorldObject().getPosX() + 10*Math.cos(this.angle);
+		this.dirY = this.getWorldObject().getPosY() + 10*Math.sin(this.angle);
 	}
 	
 	

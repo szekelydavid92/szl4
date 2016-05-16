@@ -6,6 +6,7 @@ import common.IReplicator;
 import common.IVisitable;
 import common.IVisitor;
 import common.IWorldObject;
+import common.IZPM;
 import upper_layer.reactive.Chasm;
 import upper_layer.wormhole.Projectile;
 
@@ -45,6 +46,13 @@ public class Replicator extends Player implements IReplicator {
 	@Override
 	public void visit(IChasm chasm) {
 		collidedWithChasm = true;
+	}
+	
+	@Override
+	public void visit(IZPM zpm) {
+		/*
+		 * Üres
+		 */
 	}
 
 	/**

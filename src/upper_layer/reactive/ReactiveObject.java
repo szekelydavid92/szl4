@@ -11,7 +11,7 @@ public abstract class ReactiveObject {
 	/*
 	 * Attributumok
 	 */
-	private IWorldObject worldObject;
+	protected IWorldObject worldObject;
 	
 	/*
 	 * Metodusok

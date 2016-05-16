@@ -14,7 +14,6 @@ import proto.ProtoGodObject;
 import upper_layer.wormhole.ProjectileFactory;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.WormHole;
-import view.DrawableFactory;
 import upper_layer.entity.*;
 import upper_layer.reactive.Chasm;
 import upper_layer.reactive.Scale;
@@ -154,11 +153,20 @@ public class GameFactory {
 				 * Minden uj jatekosnak letrehozunk egy uj WormHole-t.
 				 */
 				//WormHole wormHole = new WormHole(); //Tobbe mar nem.
+			
+				DrawableColor blueColor = new DrawableColor(0,0,255);
+				DrawableColor yellowColor = new DrawableColor(255,255,0);
 				
+				if(name.equals("jaffa")) {
+					blueColor.r = 255;
+					blueColor.b = 0;
+					
+					yellowColor.r = 0;
+				}
 				/*
 				 * Minden uj wormholenak letrehozunk egy uj ProjectileFactoryt.
 				 */
-				IProjectileFactory projFactory = new ProjectileFactory(worldObjectFactory,drawableFactory/*wormHole*/);
+				IProjectileFactory projFactory = new ProjectileFactory(worldObjectFactory,drawableFactory,blueColor,yellowColor/*wormHole*/);
 				
 				/*
 				 * A jatekost tarsitjuk a neki megfelelo ProjectileFactoryvel.
@@ -374,7 +382,7 @@ public class GameFactory {
 		zpmObj.setPosY(y);
 		zpmObj.setCollisionResponse(CollisionResponse.PASS);
 		
-		//ZPM zpm = new ZPM(zpmObj);
+		ZPM zpm = new ZPM(zpmObj);
 		drawableFactory.createObjectDrawable(zpmObj, new DrawableColor(0, 100, 0));
 		
 	}

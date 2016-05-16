@@ -25,6 +25,9 @@ public class ProjectileFactory implements IProjectileFactory {
 	private static final double PROJECTILE_SIZE = 10.0;
 	public static double PROJECTILE_SPEED = 10.0;
 	
+	private DrawableColor blueColor;
+	private DrawableColor yellowColor;
+	
 	/*
 	 * Metodusok
 	 */
@@ -33,10 +36,13 @@ public class ProjectileFactory implements IProjectileFactory {
 	 * @brief Konstruktor
 	 * 
 	 */
-	public ProjectileFactory(IWorldObjectFactory worldObjectFactory,IDrawableFactory drawableFactory)
+	public ProjectileFactory(IWorldObjectFactory worldObjectFactory,IDrawableFactory drawableFactory,DrawableColor blueColor,DrawableColor yellowColor)
 	{
 		this.worldObjectFactory = worldObjectFactory;
 		this.drawableFactory = drawableFactory;
+		
+		this.blueColor = blueColor;
+		this.yellowColor = yellowColor;
 		//this.wormHole = wormHole;
 	}
 	
@@ -47,8 +53,8 @@ public class ProjectileFactory implements IProjectileFactory {
 		{
 			wormHole = new WormHole();
 			
-			drawableFactory.createStargateDrawable(wormHole.blueGate, new DrawableColor(0,0,255));
-			drawableFactory.createStargateDrawable(wormHole.yellowGate, new DrawableColor(255,255,0));
+			drawableFactory.createStargateDrawable(wormHole.yellowGate, yellowColor);
+			drawableFactory.createStargateDrawable(wormHole.blueGate, blueColor);
 		}
 		
 		IWorldObject worldObject = worldObjectFactory.createObject(PROJECTILE_SIZE, PROJECTILE_SIZE);
@@ -78,10 +84,10 @@ public class ProjectileFactory implements IProjectileFactory {
 		worldObject.setVisitable(projectile);
 		
 		if(colour == Colour.YELLOW) {
-			drawableFactory.createObjectDrawable(worldObject, new DrawableColor(255,255,0));
+			drawableFactory.createObjectDrawable(worldObject, yellowColor);
 		}
 		else {
-			drawableFactory.createObjectDrawable(worldObject, new DrawableColor(0,0,255));
+			drawableFactory.createObjectDrawable(worldObject, blueColor);
 		}
 	}
 	

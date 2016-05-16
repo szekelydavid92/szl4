@@ -55,8 +55,9 @@ public class ZPM extends ReactiveObject implements IZPM/*, ICollisionObserver*/ 
 	 * @return void
 	 */
 	@Override
-	public void pickUp() {		
-		picked = true;		
+	public void pickUp() {
+		worldObject.markRemovable();	
+		picked = true;
 	}
 
 	/*

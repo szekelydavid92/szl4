@@ -179,7 +179,7 @@ end
 Chasm
 begin
 pos 100 10
-dim 30 60
+dim 30 30
 end
 
 Chasm

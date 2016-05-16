@@ -211,6 +211,8 @@ public class GameFactory {
 				//drawableFactory.createObjectDrawable(playerObject, new DrawableColor(255, 0, 0));
 		}
 		else /*if (name.equals("replikator"))*/ {
+			playerObject.setCollisionResponse(CollisionResponse.REPLICATOR);
+			
 			/*
 			 * Letrehozzuk az uj replikatort.
 			 */

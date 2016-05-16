@@ -6,5 +6,6 @@ package common;
 public enum CollisionResponse {
 	MOVABLE,
 	IMMOVABLE,
-	PASS
+	PASS,
+	REPLICATOR
 }

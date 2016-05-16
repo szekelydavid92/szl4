@@ -29,7 +29,7 @@ public class WorldObject implements IWorldObject {
 	double displacementY;
 	double width;
 	double height;
-	CollisionResponse colResp;
+	CollisionResponse colResp = CollisionResponse.MOVABLE;
 	
 	/* Ez az objektum felelos azert, hogy
 	 * a felso retegbeli reprezentacio
@@ -166,7 +166,16 @@ public class WorldObject implements IWorldObject {
 		if(colResp == CollisionResponse.IMMOVABLE) {
 			return;
 		}
-		else if(other.colResp == CollisionResponse.PASS || colResp == CollisionResponse.PASS) {
+		
+		if(other.colResp == CollisionResponse.PASS || colResp == CollisionResponse.PASS) {
+			return;
+		}
+		
+		if(colResp == CollisionResponse.REPLICATOR && other.colResp == CollisionResponse.MOVABLE) {
+			return;
+		}
+		
+		if(other.colResp == CollisionResponse.REPLICATOR && colResp == CollisionResponse.MOVABLE) {
 			return;
 		}
 		

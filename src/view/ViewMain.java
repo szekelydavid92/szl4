@@ -38,6 +38,10 @@ public class ViewMain {
 		gameLoop = new GameLoop(new World(), view);
 		gameFactory = new GameFactory(gameLoop, drawableFactory);
 		
+		ControllerWhiteBoard controller = new ControllerWhiteBoard();
+		/*controller.setJaffa();
+		controller.setOneill(contr);*/
+		
 		loadMap("Maps/Map_1");
 		
 		gameLoop.run();

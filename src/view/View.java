@@ -33,7 +33,16 @@ class View extends JFrame implements IView {
 			for(int i=0; i<drawableList.size(); i++){
 				drawableList.get(i).draw(g);
 			}
+			g.setColor(Color.WHITE);
+			if(controller.oneill == null || controller.jaffa ==null){
+				
+			}
+			else{
+				g.drawString("O'neill ZPM's:"+controller.oneill.getNumZPM()+" Jaffa ZPM's:"+controller.jaffa.getNumZPM(), 30, 260);
+			}
+			
 		}
+
 	}
 
 	//LinkedList<Drawable> drawableList = new LinkedList<Drawable>();

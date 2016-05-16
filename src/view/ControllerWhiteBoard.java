@@ -94,6 +94,10 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 			oneill.moveLeft(true);
 		}
 		
+		if(e.getKeyCode() == KeyEvent.VK_P){
+			oneill.pickUp(true);
+		}
+		
 		if(e.getKeyCode() == KeyEvent.VK_W){
 			jaffa.moveUp(true);
 		}
@@ -116,6 +120,10 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 		
 		if(e.getKeyCode() == KeyEvent.VK_E){
 			jaffa.shootYellow(true);
+		}
+		
+		if(e.getKeyCode() == KeyEvent.VK_R){
+			jaffa.pickUp(true);
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_1){
@@ -152,6 +160,10 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 			oneill.moveLeft(false);
 		}
 		
+		if(e.getKeyCode() == KeyEvent.VK_P){
+			oneill.pickUp(false);
+		}
+		
 		if(e.getKeyCode() == KeyEvent.VK_W){
 			jaffa.moveUp(false);
 		}
@@ -174,6 +186,10 @@ public class ControllerWhiteBoard implements IController, KeyListener, MouseList
 		
 		if(e.getKeyCode() == KeyEvent.VK_E){
 			jaffa.shootYellow(false);
+		}
+		
+		if(e.getKeyCode() == KeyEvent.VK_R){
+			jaffa.pickUp(false);
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_1){

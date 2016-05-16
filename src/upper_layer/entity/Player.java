@@ -49,6 +49,10 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 	private Direction direction;
 	ZPMObserver zpmObserver = null;
 	
+	private static final double rotationalAngle = 0.0174532925;
+	//eltértünk a spceifikációtól, ne használjatok egeret és billentyűzetet egyszerre
+	private double angle = 0;
+	
 	/*
 	 * Itt eltertunk a specifikációtól.
 	 */
@@ -308,6 +312,23 @@ public class Player extends Killable implements ITeleportable, ICarrier, IContro
 			}
 		}
 	}
+	
+	public void rotateLeft(){
+		
+		this.angle -= this.rotationalAngle;
+		
+		this.dirX = Math.cos(this.angle);
+		this.dirY = Math.sin(this.angle);
+	}
+	
+	public void rotateRight(){
+		
+		this.angle += this.rotationalAngle;
+		
+		this.dirX = Math.cos(this.angle);
+		this.dirY = Math.sin(this.angle);
+	}
+	
 	
 	@Override
 	public void setDirection(Direction dir) {

@@ -29,7 +29,8 @@ import view.*;
  * View-re be kell regisztrálni
  * (key+mouse eventlistener)
  * controllerWhiteBoard 
- * [TOPI (?)]
+ * [TOPI (?)]f
+ * 
  */
 
 

@@ -21,6 +21,7 @@ import upper_layer.wormhole.WormHole;
 public class ViewMain {
 	
 	private static View view;
+	private static ControllerWhiteBoard controller;
 	private static DrawableFactory drawableFactory;
 	private static GameLoop gameLoop;
 	private static GameFactory gameFactory;
@@ -34,11 +35,15 @@ public class ViewMain {
 	public static void main(String[] args) {
 		
 		view = new View();
+		controller = new ControllerWhiteBoard();
+		
+		view.addMouseListener(controller);
+		view.addKeyListener(controller);
+		
 		drawableFactory = new DrawableFactory(view);
 		gameLoop = new GameLoop(new World(), view);
-		gameFactory = new GameFactory(gameLoop, drawableFactory);
+		gameFactory = new GameFactory(gameLoop, drawableFactory, controller);
 		
-		ControllerWhiteBoard controller = new ControllerWhiteBoard();
 		/*controller.setJaffa();
 		controller.setOneill(contr);*/
 		

@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
+ 
 import common.IControllable;
 
 public class ControllerWhiteBoard implements KeyListener, MouseListener {

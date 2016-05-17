@@ -20,20 +20,6 @@ import upper_layer.reactive.Scale;
 import upper_layer.reactive.ZPM;
 import view.*;
 
-/*
- * TODO
- * 
- * ##
- * controller - 
- * INPUT: 1 listener + 2 IControllable
- * View-re be kell regisztrálni
- * (key+mouse eventlistener)
- * controllerWhiteBoard 
- * [TOPI (?)]f
- * 
- */
-
-
 public class GameFactory {
 	
 	/*

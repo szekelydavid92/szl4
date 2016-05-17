@@ -9,7 +9,7 @@ end
 Player
 begin 
 type replikator
-pos 60 70
+pos 60 100
 dim 30 30
 mass 1
 end
@@ -40,7 +40,7 @@ Scale
 begin 
 id 1
 pos 120 60
-mass 1
+mass 1.75
 dim 30 30
 end 
 
@@ -125,7 +125,7 @@ end
 Wall
 begin
 pos 90 150
-dim 30 60
+dim 30 30
 end
 
 Wall

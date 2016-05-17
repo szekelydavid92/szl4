@@ -18,6 +18,9 @@ import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.Stargate;
 import upper_layer.wormhole.WormHole;
 
+/**
+ * @brief a játék mmain classa
+ */
 public class ViewMain {
 	
 	private static View view;
@@ -26,12 +29,18 @@ public class ViewMain {
 	private static GameLoop gameLoop;
 	private static GameFactory gameFactory;
 	
+	/**
+	 * @brief Ez a függvény felelős azért, hogy betöltse a pályát.
+	 * 
+	 * @param map a pálya elérési útvonala.
+	 */
 	private static boolean loadMap(String map)
 	{	
 		LevelLoader levelLoader = new LevelLoader();
 		levelLoader.load(map, gameFactory);
 		return true;
 	}
+	
 	public static void main(String[] args) {
 
 		controller = new ControllerWhiteBoard();

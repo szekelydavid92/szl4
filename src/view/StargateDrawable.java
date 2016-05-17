@@ -22,8 +22,10 @@ public class StargateDrawable extends Drawable{
 	}
 	
 	/**
-	 * Elkéri a releváns infókat, majd lehívja a drawGate-et. A releváns infók elkérését a 
+	 * @brief Elkéri a releváns infókat, majd lehívja a drawGate-et. A releváns infók elkérését a 
 	 * StargateDrawable-hez készített szekvenciadiagramok vázolják fel.
+	 * 
+	 * @param graphics a java által nyújtott rajzoló objektum
 	 */
 	void draw(Graphics graphics){
 		/*

@@ -54,7 +54,10 @@ class View extends JFrame implements IView {
 	ControllerWhiteBoard controller;
 	
 	/**
-	 * Konstruktor- JFrame ablak megnyitasa, ablak konfiguralasa (meret, pozicio, cimke, stb)
+	 * @brief Konstruktor- JFrame ablak megnyitasa, ablak konfiguralasa (meret, pozicio, cimke, stb)
+	 * 
+	 * @param controller a view-be beregisztrált KeyListener és MouseListener
+	 * 
 	 */
 	View(ControllerWhiteBoard controller){
 		super("Sivatagi_Lotunderek_presents...");
@@ -74,7 +77,7 @@ class View extends JFrame implements IView {
 	}
 	
 	/**
-	 * Ez a fuggveny csomagolja a repaint() metodust
+	 * @brief Ez a fuggveny csomagolja a repaint() metodust
 	 */
 	@Override
 	public void render() {
@@ -92,7 +95,7 @@ class View extends JFrame implements IView {
 		repaint();
 	}
 	
-	/**
+	/* *
 	 * JFrame-re kirajzolas (repaint() hivasra ) 
 	 */
 	/*@Override

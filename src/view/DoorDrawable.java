@@ -18,7 +18,9 @@ public class DoorDrawable extends Drawable{
 	}
 	
 	/**
-	 * Ez a függvény felelős azért, hogy kirajzolja az ajtót a JFrame-re.
+	 * @brief Ez a függvény felelős azért, hogy kirajzolja az ajtót a JFrame-re.
+	 * 
+	 * @param graphics a java által nyújtott rajzoló objektum
 	 */
 	void draw(Graphics graphics){		
 		//ha nyitva a kapu nem rajzolunk

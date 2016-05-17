@@ -24,6 +24,12 @@ public class Drawable {
 		this.worldObject = worldObject;
 		this.color = c;
 	}
+	
+	/**
+	 * @brief Ez a függvény felelős a rajzolásért. Elkéri a releváns infókat, majd rajzol.
+	 * 
+	 * @param graphics a java által nyújtott rajzoló objektum
+	 */
 	void draw(Graphics graphics){
 		
 		if(!worldObject.isRemovable())

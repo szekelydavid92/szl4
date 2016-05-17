@@ -1,5 +1,8 @@
 package view;
 
+/**
+ * @brief Egy rgb hármast megvalósító class 
+ */
 public class DrawableColor {
 	public int r;
 	public int g;

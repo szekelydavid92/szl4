@@ -145,7 +145,10 @@ public class Stargate implements IStargate{
 		}
 		
 		masked = wall;
-		wall.replace(this);
+		
+		if(wall != null) {
+			wall.replace(this);
+		}
 		//wall.obj.setCollisionObserver(this);
 	}
 

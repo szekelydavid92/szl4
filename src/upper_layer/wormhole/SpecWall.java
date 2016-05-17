@@ -18,6 +18,7 @@ public class SpecWall implements ISpecWall {
 	 * Attributumok
 	 */
 	private IWorldObject worldObject;
+	private IStargate stargate = null;
 	
 	/*
 	 * Metodusok
@@ -56,6 +57,10 @@ public class SpecWall implements ISpecWall {
 	
 	@Override
 	public void replace(IStargate stargate) {
+		if(this.stargate != null && this.stargate != stargate) {
+			this.stargate.mask(null);
+		}
+		this.stargate = stargate;
 		//worldObject.setVisitable(stargate); ///Lehet, hogy erre szükség lesz.
 		worldObject.setCollisionObserver(stargate);
 	}
@@ -63,6 +68,7 @@ public class SpecWall implements ISpecWall {
 	@Override
 	public void restore() {
 		//worldObject.setVisitable(this); ///Lehet, hogy erre szükség lesz.
+		stargate = null;
 		worldObject.setCollisionObserver(null);
 	}
 	

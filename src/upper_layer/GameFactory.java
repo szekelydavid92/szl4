@@ -10,7 +10,6 @@ import common.IDrawableFactory;
 import common.IProjectileFactory;
 import common.IWorldObject;
 import common.IWorldObjectFactory;
-import proto.ProtoGodObject;
 import upper_layer.wormhole.ProjectileFactory;
 import upper_layer.wormhole.SpecWall;
 import upper_layer.wormhole.WormHole;

@@ -3,7 +3,7 @@ begin
 type oneill
 pos 60 30
 dim 30 30
-mass 1
+mass 2
 end
 
 Player
@@ -19,14 +19,14 @@ begin
 type jaffa
 pos 30 30
 dim 30 30
-mass 1
+mass 2
 end
 
 Box
 begin
 pos 240 180
 dim 20 20
-mass 1
+mass 2
 end
 
 Door
@@ -40,7 +40,7 @@ Scale
 begin 
 id 1
 pos 120 60
-mass 1.75
+mass 3
 dim 30 30
 end 
 
